@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="640">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>银行流水</title>
+    <link rel="stylesheet" href="css/zhengxin.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src="js/rem.js"></script>
+    <!--<script src="js/zepto.js"></script>-->
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/loadding.css" rel="stylesheet" type="text/css">
+    <link href="css/tooltip.css" rel="stylesheet" type="text/css">
+    <style>
+        .footer-box{
+            background-color: #f24946;
+            color: #333;
+            border: none;
+        }
+    </style>
+</head>
+<body style="background: white">
+<div class="container">
+    <div class="header">
+        <div class="header-box">请打印对应的文件报告, 并拍照上传, 最多5张图片</div>
+    </div>
+    <div class="content">
+        <!--<div class="content-boxLeft" id="preview" style="display: none">-->
+        <!--<img border=0 src='' class="cname-1" id="cname-1">-->
+        <!--</div>-->
+        <div class="content-box-right" index="1" isnot="0" style="overflow: hidden;">
+            <img border=0 src='' class="cname-1" id="cname-1" style="display: none;">
+            <input type="file" class="picfile-1" capture="camera" accept="image/*" id="uploadphoto1" name="uploadfile" value="请点击上传图片" style="opacity: 0;height: 0;width: 0;position: absolute;"/>
+
+            <div style="height: 100%;width: 100%;position: absolute;top: 0;left: 0;" onclick="uploadphotoJudgeZX(1)">
+
+            </div>
+
+            <div class="content-boxRight-area backImg-1">
+                <p><img src="images_old/liftLimit/cross.png" alt="error"></p>
+
+                <p>点击添加图片</p>
+            </div>
+            <input type="hidden" class="filname-1" value="">
+
+            <div class="delete-picture-box delete-1" onclick="deletePicture(this)">
+                <i></i>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="footer">
+        <input type="hidden" class="filname4" value=""/>
+
+        <div class="footer-box" onclick="subUpload(5)">
+            提交
+        </div>
+    </div>
+</div>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script src="js/swiper.min.js " type="text/javascript "></script>
+<script type="text/javascript" src="js/jquery.base64.js"></script>
+<script src="js/piclib/uploadimage.js"></script>
+<script type="text/javascript" src="yanval/js/uploadPicture/mobileBUGFix.mini.js"></script>
+<script type="text/javascript" src="yanval/js/exif.js"></script>
+<script src="js/choumei.min.js " type="text/javascript "></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/bankCamera.js"></script>
+<script type="text/javascript" src="js/piclib/uploadimage.js"></script>
+<script type="text/javascript " src="js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/wxsdk.js"></script>
+</body>
+<script>
+	$(function(){
+		loadWXJson();
+	});
+	function uploadphotoJudgeZX(num){ // 判断图片上传方式
+		if(isWeiXin()){
+			chooseImageInWX(num);
+		}else{
+			$("#uploadphoto" + num).click();
+		}
+	}
+</script>
+</html>

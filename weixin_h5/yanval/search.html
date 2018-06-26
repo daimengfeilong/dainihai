@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui" />
+
+		<title></title>
+	</head>
+
+	<body>
+		<div>图片URL:
+			<textarea id="picurl" cols="30" rows="5">http://tktest.oss-cn-hangzhou.aliyuncs.com/file_7af20c18-a7c6-11e5-b786-00163e006562.png</textarea>
+			<br/> 发送请求总条数：
+			<input type="text" value="10" id="sumcount" />(仅限数字)
+			<br/>
+			<input type="button" value="确定" onclick="BtnClick()" />
+		</div>
+		<p>结果:</p>
+		<div id="result" style="width: 100%;"></div>
+	</body>
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.json-2.4.min.js"></script>
+    <script type="text/javascript" src="../js/config.js"></script>
+	<script type="text/javascript" src="../js/tkPublic.js"></script>
+	<script>
+		var success = 0;
+		var shibai = 0;
+
+		function GetRandomNum(Min, Max) {
+			var Range = Max - Min;
+			var Rand = Math.random();
+			return (Min + Math.round(Rand * Range));
+		}
+
+		function BtnClick() {
+			$("#result").html("正在加载中。。。。。");
+			var facecomment = {};
+			for (var i = 0; i < parseInt($("#sumcount").val()); i++) {
+				facecomment.uid = GetRandomNum(1, 10000);
+				facecomment.url = $("#picurl").val();
+				Query_JK(facecomment); 
+			}
+		}
+
+		function Query_JK(facecomment) {
+			var timeout = setTimeout(function() {
+				LoadingOver();
+				top_meassage("请求超时，请稍后再试");
+				show_topmessage();
+			}, 30000);
+			$.post(urlFaceLink + "/face_recognition_query", $.toJSON(facecomment), function(dataresult) { 
+				if (timeout) {
+					clearTimeout(timeout);
+					timeout = null;
+				}
+				switch (dataresult.code) {
+					case 0: //OK 
+						success++;
+						break;
+					default:
+						shibai++;
+						break;
+				}
+				$("#result").html("成功总数：" + success + "，失败总数：" + shibai);
+			});
+		}
+	</script>
+
+</html>

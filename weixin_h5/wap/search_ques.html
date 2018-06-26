@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>帮助中心</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        body {
+            font-size: 0.3rem;
+            background-color: #f1f1f1;
+        }
+
+        .cnt_nav {
+            width: 100%;
+            height: 64px;
+            text-align: center;
+            line-height: 84px;
+            border-bottom: 1px solid #dde2ef;
+            font-size: 18px;
+            color: #000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            background-color: #fff;
+        }
+
+        .cnt_nav div {
+            height: 100%;
+            line-height: 84px;
+        }
+
+        .cnt_nav .cnt_nav_return {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0 0.2rem 0 0.3rem;
+            text-align: right;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .cnt_nav .cnt_nav_return img {
+            width: 9px;
+        }
+
+        .cnt_nav .cnt_nav_lineKefu {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding-right: 0.3rem;
+            text-align: left;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .cnt_nav .cnt_nav_lineKefu img {
+            width: 24px;
+        }
+
+        .search_header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1rem;
+            padding: 0.2rem;
+            background-color: #f1f1f1;
+            display: flex;
+            font-size: 0.25rem;
+            border-bottom: 1px solid #dde2ef;
+        }
+
+        .search_header img[name=search] {
+            width: 0.29rem;
+            position: absolute;
+            top: 0.15rem;
+            left: 0.18rem;
+        }
+
+        .search_header img[name=clear] {
+            width: 0.33rem;
+            position: absolute;
+            top: 0.11rem;
+            right: 0.18rem;
+        }
+
+        .search_header_input {
+            flex: 1;
+            position: relative;
+            height: 100%;
+        }
+
+        .search_header_input input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0.08rem;
+            /*line-height: 0.25rem;*/
+            padding-left: 0.65rem;
+            color: #000;
+            font-size: 0.25rem;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .search_header_cancel {
+            width: 0.8rem;
+            text-align: center;
+            line-height: 0.6rem;
+            color: #ff3a2e;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .search_result {
+            margin-top: 1rem;
+        }
+
+        .search_result ul {
+            display: none;
+        }
+
+        .search_result li {
+            padding: 0.24rem 0.3rem 0.24rem 0.55rem;
+            border-bottom: 1px solid #dde2ef;
+            font-size: 0.28rem;
+            color: #7d7d7d;
+            background-color: #fff;
+        }
+
+        .search_result li img {
+            width: 0.18rem;
+            vertical-align: middle;
+            float: right;
+            margin-top: 0.05rem;
+        }
+
+        .search_result li span {
+            vertical-align: middle;
+            display: inline-block;
+            width: 95%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .search_result li i {
+            font-style: normal;
+            color: #ff3a2e;
+        }
+
+        .search_result_null {
+            text-align: center;
+            margin-top: 2.5rem;
+            color: #7d7d7d;
+        }
+    </style>
+
+</head>
+<body>
+<!--<nav class="cnt_nav">-->
+<!--<div class="cnt_nav_return">-->
+<!--<img src="images/left.png" alt="">-->
+<!--</div>-->
+<!--<span>帮助中心</span>-->
+<!--<div class="cnt_nav_lineKefu">-->
+<!--<img src="images/line_kefu.png" alt="">-->
+<!--</div>-->
+<!--</nav>-->
+<header class="search_header">
+    <div class="search_header_input">
+        <img src="images/search.png" name="search" alt="">
+        <input type="text" placeholder="请输入关键字">
+        <img src="images/clear.png" name="clear" alt="">
+    </div>
+    <div class="search_header_cancel">
+        <span>取消</span>
+    </div>
+</header>
+<section class="search_result">
+    <ul>
+        <!--<li>-->
+        <!--<span>若借款人提前还款，出借人的利息会不会受若借款人提前还款，若借款人提前还款，若借款人提前还款</span>-->
+        <!--<img src="images/right.png" alt="">-->
+        <!--</li>-->
+    </ul>
+    <div class="search_result_null">
+        <!--<p>未搜索到相关问题<br>请换个关键词，试一试</p>-->
+        <p>请输入您要搜索的关键词</p>
+    </div>
+</section>
+
+
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function () {
+        var source = GetUrlParameter("source");
+        if (source == "android") {
+            javaCode.call("showBtn");   // 调用安卓本地方法
+        } else if (source == "iOS") {
+            window.webkit.messageHandlers.showBtn.postMessage("");   // 调用iOS本地方法
+        }
+        searchData();
+        $(".cnt_nav_return, .search_header_cancel").click(function () {
+            history.go(-1);
+        });
+//        $(".cnt_nav_lineKefu").click(function () {
+//            if (source == "android") {
+//
+//            } else if (source == "iOS") {
+//                window.webkit.messageHandlers.onlineService.postMessage("");   // 调用iOS本地方法
+//            }
+//        });
+        $(".search_header_input img[name=clear]").click(function () {
+            $(".search_header_input input").val('');
+            searchData();
+        });
+        $(".search_header_input input").bind("input propertychange", function () {
+            searchData();
+        });
+        $(".search_result ul").on("click", "li:not(.firstLi)", function () {
+            var number = $(this).attr("number");
+            window.location.href = "answer_list.html?number=" + number + "&source=" + source;
+        });
+
+    });
+    function searchData() {
+        var keyWords = $(".search_header_input input").val();
+        if (keyWords != "") {
+            ajaxFn('data/quesData.json', null, sucFn, null, 'get');
+        } else {
+            $(".search_result ul").hide();
+            $(".search_result_null").show();
+            $(".search_result_null p").html("请输入您要搜索的关键词");
+        }
+    }
+    function sucFn(data) {
+        var keyWords = $(".search_header_input input").val(),
+                result = data.data,
+                resultLength = result.length,
+                resultHtml = "";
+        for (var i = 0; i < resultLength; i++) {
+            var list = result[i].list, listLength = list.length;
+            if (listLength > 0) {
+                for (var j = 0; j < listLength; j++) {
+                    if (list[j].question.indexOf(keyWords) > -1) {
+                        var question = list[j].question.replace(new RegExp(keyWords, "g"), "<i>" + keyWords + "</i>");
+                        resultHtml += '<li number="' + list[j].id + '"> ' +
+                                '<span>' + question + '</span> ' +
+                                '<img src="images/right.png" alt=""> ' +
+                                '</li>';
+                        $(".search_result_null").hide();
+                        $(".search_result ul").show();
+                    } else {
+                        $(".search_result_null p").html("未搜索到相关问题<br>请换个关键词，试一试");
+                    }
+                }
+            }
+
+        }
+        $(".search_result ul").html('<li class="firstLi">相关问题</li>' + resultHtml);
+    }
+
+</script>
+</body>
+</html>

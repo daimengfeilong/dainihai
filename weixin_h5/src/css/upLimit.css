@@ -1,0 +1,85 @@
+*,div,p,ul,li,span{
+    margin: 0;
+    padding: 0;
+}
+
+
+.container{
+    width: 7.5rem;
+    height: 12.06rem;
+    /*outline: 0.01rem solid green;*/
+    background: rgb(239,239,244);
+}
+
+.header,.content,.footer{
+    width: 7.5rem;
+    height: 1.5rem;
+    outline: 0.01rem solid rgb(200,199,204);
+    float: left;
+    margin-top: 0.34rem;
+    background: white;
+}
+
+.header-box,.content-box,.footer-box{
+    width: 6.55rem;
+    height: 0.76rem;
+    /*outline: 0.01rem solid pink;*/
+    margin-left: 0.52rem;
+    margin-top: 0.39rem;
+}
+
+.dianshangLogo,.zhengxinLogo,.liushuiLogo{
+    width: 0.76rem;
+    height: 0.76rem;
+    /*outline: 0.01rem  solid crimson ;*/
+    float: left;
+}
+
+.dianshangLogo>img,.zhengxinLogo>img,.liushuiLogo>img{
+    width: 0.76rem;
+    height: 0.76rem;
+   float: left;
+}
+
+.dianshangNoSubmit,.zhengxinNoSubmit,.liushuiNoSubmit{
+    width: 4rem;
+    height: 0.76rem;
+    /*outline: 0.01rem solid purple;*/
+    float: left;
+    margin-left: 0.33rem;
+    font-family: microsoft yahei;
+}
+
+.dianshangNoSubmit-top,.zhengxinNoSubmit-top,.liushuiNoSubmit-top{
+    width: 4rem;
+    height: 0.37rem;
+    /*outline: 0.01rem solid gainsboro;*/
+    font-size: 0.35rem;
+    line-height: 0.4rem;
+}
+
+
+.dianshangNoSubmit-bottom,.zhengxinNoSubmit-bottom,.liushuiNoSubmit-bottom{
+    width: 4rem;
+    height: 0.31rem;
+    /*outline: 0.01rem solid cyan;*/
+    margin-top: 0.08rem;
+    font-size: 0.3rem;
+    line-height: 0.33rem;
+    color:rgb(170,170,170)
+}
+
+.dianshangRightArrow,.zhengxinRightArrow,.liushuiRightArrow{
+    width: 0.18rem;
+    height: 0.25rem;
+    /*outline: 0.01rem solid blue;*/
+    float: right;
+    margin-top: 0.28rem;
+}
+
+.dianshangRightArrow>img,.zhengxinRightArrow>img,.liushuiRightArrow>img{
+    width: 0.18rem;
+    height: 0.25rem;
+    float: right;
+}
+

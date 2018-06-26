@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>协议列表</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="../css/home.css" rel="stylesheet" type="text/css">
+    <link href="../css/nav.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<nav class="nav-top">
+    <h1 class="title">
+        <a class="back " onclick="window.history.back()">&lt;</a>
+        常见问题
+    </h1>
+</nav>
+<div class="nav-clear"></div>
+
+<div class="main_page_content">
+    <section class="mt-1 mt-mt">
+        <div class="ps-lt ">
+            <div class="lt-dsb ">
+
+                <a href="register_pro.html">
+                    <p>注册服务协议</p>
+                    <i class="arr-right "></i></a>
+            </div>
+            <div class="lt-dsb ">
+
+                <a href="../talk/fuyou_agreement.html">
+
+                    <p>用户服务协议</p>
+                    <i class="arr-right "></i></a>
+            </div>
+            <div class="lt-dsb ">
+
+                <a href="entrustment.html">
+                    <p>投保须知</p>
+                    <i class="arr-right "></i></a>
+            </div>
+            <div class="lt-dsb ">
+
+                <a href="confirmation.html">
+                    <p>保险条款（A款）</p>
+                    <i class="arr-right "></i></a>
+            </div>
+
+            <div class="lt-dsb ">
+
+                <a href="how.html">
+                    <p>如何还款</p>
+                    <i class="arr-right "></i></a>
+            </div>
+            <div class="lt-dsb ">
+
+
+                <a href="borrowing.html">
+
+                    <p>借款服务费</p>
+                    <i class="arr-right "></i></a>
+            </div>
+            <div class="lt-dsb ">
+
+                <a href="late_fee.html">
+
+                    <p>逾期费用</p>
+                    <i class="arr-right "></i></a>
+            </div>
+            <div class="lt-dsb ">
+
+                <a href="account.html">
+
+                    <p>账户与用户</p>
+                    <i class="arr-right "></i></a>
+            </div>
+            <div class="lt-dsb br_bottom">
+
+                <a href="invitation.html">
+
+                    <p>邀请码和积分</p>
+                    <i class="arr-right "></i></a>
+            </div>
+            <div class="lt-dsb br_bottom">
+
+                <a href="sign.html">
+
+                    <p>签到</p>
+                    <i class="arr-right "></i></a>
+            </div>
+        </div>
+    </section>
+</div>
+<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="../js/History.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/tkPublic.js"></script>
+<script type="text/javascript " src="../js/pub.js "></script>
+<script>
+    $(document).ready(function () {
+//        loadLogin_second();
+        LoadingOver();
+    })
+</script>
+</body>
+</html>

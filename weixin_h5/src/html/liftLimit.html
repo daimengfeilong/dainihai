@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="750" xmlns:wb="http://open.weibo.com/wb">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="telephone=no" name="format-detection" />
+		<title>提升额度</title>
+		<link rel="stylesheet" href="css/upLimit.css">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link href="css/home.css" rel="stylesheet" type="text/css">
+		<link href="css/loadding.css" rel="stylesheet" type="text/css">
+		<link href="css/tooltip.css" rel="stylesheet" type="text/css">
+	    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3528751628" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				recalc();if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<script src="js/rem.js"></script>
+		<script src="js/zepto.js"></script>
+
+	</head>
+
+	<body>
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<div class="container main_page_content">
+			<!--<section class="header" onclick="javascript:window.location.href='liftLimit_choiceAccount.html'">-->
+			<!--<section class="header">-->
+				<!--<div class="header-box">-->
+					<!--<div class="dianshangLogo"><img src="images_old/liftLimit/dianshang.png" alt="error" id="jingdong"></div>-->
+					<!--<div class="dianshangNoSubmit">-->
+						<!--<p class="dianshangNoSubmit-top">绑定电商账户</p>-->
+						<!--<p class="dianshangNoSubmit-bottom bank-title">未提交</p>-->
+					<!--</div>-->
+					<!--<div class="dianshangRightArrow"><img src="images_old/liftLimit/jiantou.png" alt="error"/></div>-->
+				<!--</div>-->
+			<!--</section>-->
+			<!--<section class="content" onclick="javascript:window.location.href='liftLimit_BankZX.html'">-->
+				<section class="content">
+				<div class="content-box">
+					<div class="zhengxinLogo"><img src="images_old/liftLimit/zhengxin.png" alt="error" id="zhengxin"></div>
+					<div class="zhengxinNoSubmit">
+						<p class="zhengxinNoSubmit-top">央行征信报告</p>
+						<!--<p class="zhengxinNoSubmit-bottom bank-title bank-committed">未提交</p>-->
+						<p class="zhengxinNoSubmit-bottom bank-title">未提交</p>
+					</div>
+					<div class="zhengxinRightArrow"><img src="images_old/liftLimit/jiantou.png" alt="error"/></div>
+				</div>
+			</section>
+			<!--<section class="footer" onclick="javascript:window.location.href='liftLimit_BankLS.html'">-->
+				<section class="footer">
+				<div class="footer-box">
+					<div class="liushuiLogo"><img src="images_old/liftLimit/liushui.png" alt="error" id="liushui"></div>
+					<div class="liushuiNoSubmit">
+						<p class="liushuiNoSubmit-top">近3个月银行流水</p>
+						<p class="liushuiNoSubmit-bottom bank-title">未提交</p>
+					</div>
+					<div class="liushuiRightArrow"><img src="images_old/liftLimit/jiantou.png" alt="error"/></div>
+				</div>
+			</section>
+
+
+
+
+			<!--<div class=" clear mt_hegiht"></div>-->
+			<!--<section class="mt-1 pos">-->
+				<!--<div class="ba-lt">-->
+					<!--<div class="bank-logo"><img src="images/icon_quota_sina.png"></div>-->
+					<!--<div class="bank-nei">-->
+						<!--<div class="bank-name">-->
+							<!--<p>新浪网绑定</p>-->
+						<!--</div>-->
+						<!--<p class="bank-title"></p>-->
+						<!--<i class="bank-right"></i>-->
+					<!--</div>-->
+					<!--<div style="clear:both;"></div>-->
+				<!--</div>-->
+			<!--</section>-->
+			<!--<section class="mt-1 pos mt_hegiht">-->
+				<!--<div class="ba-lt">-->
+					<!--<div class="bank-logo"><img src="images/icon_quota_ec.png">-->
+						<!--&lt;!&ndash;无法绑定状态的图片在原有的图片后面加“_unable”&ndash;&gt;-->
+					<!--</div>-->
+					<!--<div class="bank-nei">-->
+						<!--<div class="bank-name">-->
+							<!--<p>绑定电商账户</p>-->
+						<!--</div>-->
+						<!--<p class="bank-title"></p>-->
+						<!--<i class="bank-right"></i>-->
+					<!--</div>-->
+					<!--<div style="clear:both;"></div>-->
+				<!--</div>-->
+			<!--</section>-->
+
+			<!--<section class="mt-1 pos mt_hegiht">-->
+				<!--<div class="ba-lt">-->
+					<!--<div class="bank-logo"><img src="images/icon_quota_ls.png"></div>-->
+					<!--<div class="bank-nei">-->
+						<!--<div class="bank-name">-->
+							<!--<p>近3个月银行流水</p>-->
+						<!--</div>-->
+						<!--<p class="bank-title"></p>-->
+						<!--<i class="bank-right"></i>-->
+					<!--</div>-->
+					<!--<div style="clear:both;"></div>-->
+				<!--</div>-->
+			<!--</section>-->
+
+			<!--<section class="mt-1 pos mt_hegiht">-->
+				<!--<div class="ba-lt ">-->
+					<!--<div class="bank-logo"><img src="images/icon_quota_zx.png"></div>-->
+					<!--<div class="bank-nei">-->
+						<!--<div class="bank-name">-->
+							<!--<p>银行征信报告</p>-->
+						<!--</div>-->
+						<!--<p class="bank-title"></p>-->
+						<!--<i class="bank-right"></i>-->
+					<!--</div>-->
+					<!--<div style="clear:both;"></div>-->
+				<!--</div>-->
+			<!--</section>-->
+		</div>
+	</body>
+	<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+	<script type="text/javascript " src="js/turnjson.js"></script>
+	<script type="text/javascript " src="js/History.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/tkPublic.js"></script>
+	<script type="text/javascript " src="js/pub.js "></script>
+	<script type="text/javascript " src="js/liftlimit.js"></script>
+	<!--<script src="js/wxsdk.js"></script>-->
+	<script>
+		$(document).ready(function() {
+			loadLogin_second();
+			webo_token();
+			get_all_status(back,null,null);
+			LoadingOver();
+		});
+
+        function back(){
+            IsAubitLiftLimit();
+        }
+	</script>
+
+</html>

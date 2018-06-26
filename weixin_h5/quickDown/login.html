@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>登录</title>
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				recalc();if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link rel="stylesheet" href="../css/base.css" />
+		<link rel="stylesheet" href="../css/loadding.css" class="cp-pen-styles" />
+		<link rel="stylesheet" href="../css/tooltip.css" />
+	</head>
+
+	<body>
+		<div class="clear" style="height: 0.9rem;"></div>
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<div class="main_page_content" id="maincontentfrist">
+			<section class="lg_login">
+				<div class="lg_login_img"></div>
+				<ul class="lg_login_dl">
+					<li class="br_top">
+						<u>手机号</u>
+						<input type="tel" maxlength="11" placeholder="请输入您的手机号码" id="txt_phoneno" value="" onblur="changephone()" />
+					</li>
+					<li class="br_top br_bottom">
+						<u>密&nbsp;&nbsp; 码</u>
+
+						<input type="password" placeholder="请输入您的密码" id="txt_phonepwd" maxlength="20" onblur="changepwd()" />
+
+						<i class="mm_eye_unable" onclick="change_eye(this,'txt_phonepwd')"></i></li>
+				</ul>
+				<div class="lg_login_footer_btn">
+					<div class="write_submit_checked" id="btn_loginfrom">确认登录</div>
+					<div class="lg_login_label">
+						<label class="lg_login_right">还没有账号？<a href="register.html">马上注册</a></label>
+					</div>
+				</div>
+			</section>
+		</div>
+ 
+		<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+        <script type="text/javascript" src="../js/config.js"></script>
+		<script type="text/javascript" src="../js/tkPublic.js"></script>
+		<script type="text/javascript" src="../js/pub.js"></script>
+		<script type="text/javascript" src="../js/turnjson.js"></script>
+		<script type="text/javascript" src="js/baseinfo.js"></script>
+		<script>
+			$("#btn_loginfrom").click(function() {
+				loginclick();
+			});
+		</script>
+	</body>
+
+</html>

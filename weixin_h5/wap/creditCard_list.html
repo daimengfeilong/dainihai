@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>支持的信用卡</title>
+    <style>
+    	.card-list-warp{
+    		margin-bottom: 50px;
+    	}
+    </style>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div class="dnh-rule-top" style="height: auto;width: 100%;position: absolute;top: -0.4rem;left: 0;">
+    <img src="../wap/images/top_backimg.png" style="width: 100%;">
+</div>
+<div class="card-list-warp">
+    <div class="tmp">
+        <div class="card-list-left">
+            <img src="../images/credit_cards/1.png">
+        </div>
+        <div class="card-list-right">
+            <img src="../images/credit_cards/2.png">
+        </div>
+    </div>
+</div>
+</body>
+<script>
+	$(function(){
+		for(var i = 3; i < 25; i += 2){
+			var $tmp = $(".tmp").eq(0).clone(true);
+			$tmp.find("img").eq(0).attr('src', "../images/credit_cards/" + i + ".png")
+			.end().eq(1).attr('src', "../images/credit_cards/" + (i + 1) + ".png");
+			$(".card-list-warp").append($tmp);
+		}
+	})
+</script>
+</html>

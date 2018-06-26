@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>问题详情</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        body {
+            font-size: 0.3rem;
+            color: #000;
+            background-color: #f1f1f1;
+        }
+
+        .cnt_nav {
+            width: 100%;
+            height: 64px;
+            text-align: center;
+            line-height: 84px;
+            border-bottom: 1px solid #dde2ef;
+            font-size: 18px;
+            color: #000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            background-color: #fff;
+        }
+
+        .cnt_nav div {
+            height: 100%;
+            line-height: 84px;
+        }
+
+        .cnt_nav .cnt_nav_return {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 0 0.2rem 0 0.3rem;
+            text-align: right;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .cnt_nav .cnt_nav_return img {
+            width: 9px;
+        }
+
+        section {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .answer_list {
+
+        }
+
+        .answer_list_tit {
+            padding: 0 0.25rem;
+            background-color: #fff;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .answer_list_tit p {
+            padding: 0.25rem 0.24rem;
+            border-bottom: 1px solid #dde2ef;
+        }
+
+        .answer_list_tit img {
+            width: 0.34rem;
+            float: right;
+            margin-top: 0.15rem;
+            transition: all 0.3s linear;
+            /* Firefox 4 */
+            -moz-transition: all 0.3s linear;
+            /* Safari and Chrome */
+            -webkit-transition: all 0.3s linear;
+            /* Opera */
+            -o-transition: all 0.3s linear;
+        }
+
+        .up {
+            transform: rotate(180deg);
+            -ms-transform: rotate(180deg); /* IE 9 */
+            -moz-transform: rotate(180deg); /* Firefox */
+            -webkit-transform: rotate(180deg); /* Safari 和 Chrome */
+            -o-transform: rotate(180deg); /* Opera */
+        }
+
+        .answer_list_cnt {
+            display: none;
+            padding: 0.35rem 0.25rem;
+            overflow: hidden;
+        }
+
+        .answer_list_cnt img {
+            width: 0.39rem;
+        }
+
+        .answer_list_cnt div {
+            float: left;
+            width: 12%;
+            text-align: center;
+        }
+
+        .answer_list_cnt p {
+            float: left;
+            width: 88%;
+        }
+
+        .answer_list_null {
+            padding-top: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<!--<nav class="cnt_nav">-->
+    <!--<div class="cnt_nav_return">-->
+        <!--<img src="images/left.png" alt="">-->
+    <!--</div>-->
+    <!--<span>问题详情</span>-->
+<!--</nav>-->
+<section class="answer_section">
+    <!--<div>-->
+    <!--<div class="answer_list">-->
+    <!--<div class="answer_list_tit">-->
+    <!--<p>-->
+    <!--<span>什么是信用卡借款？</span>-->
+    <!--<img src="images/down.png" alt="">-->
+    <!--</p>-->
+    <!--</div>-->
+    <!--<div class="answer_list_cnt">-->
+    <!--<div>-->
+    <!--<img src="images/da.png" alt="">-->
+    <!--</div>-->
+    <!--<p>-->
+    <!--1.信用卡借款只需要授权您的任意一张信用卡，通过3分钟倒计时审核即可获得额度。<br>-->
+    <!--2.借款期限为6、12、18、24、36个月。借款合同月利率低至0.54%。借款额度在1000-10万之间。<br>-->
+    <!--3.申请条件为：<br>-->
+    <!--(1) 年龄18-55(含)周岁<br>-->
+    <!--(2) 有本人名下信用卡<br>-->
+    <!--(3) 本人实名制手机号<br>-->
+    <!--(4) 有芝麻信用分<br>-->
+    <!--(5) 信用记录良好-->
+    <!--</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+</section>
+
+
+<script src="../js/tkPublic.js"></script>
+<script>
+    var number = GetUrlParameter("number");
+    var source = GetUrlParameter("source");
+    $(function () {
+        if (source == "android") {
+            javaCode.call("hideBtn");   // 调用安卓本地方法
+        } else if (source == "iOS") {
+            window.webkit.messageHandlers.hideBtn.postMessage("");   // 调用iOS本地方法
+        }
+        ajaxFn('data/quesData.json', null, sucFn, null, 'get');
+
+        $(".answer_section").on("click", ".answer_list_tit", function () {
+            $(this).parents('.answer_list').find(".answer_list_cnt").slideToggle(300);
+            $(this).find('img').toggleClass('up');
+        });
+        $(".cnt_nav_return").click(function () {
+            history.go(-1);
+        });
+    });
+    function sucFn(data) {
+        var result = data.data,
+                resultLength = result.length,
+                listHtml = "";
+        for (var i = 0; i < resultLength; i++) {
+            var list = result[i].list, listLength = list.length;
+            if (result[i].id == number) {
+                listHtml += '<div class="answer_modules" number="' + result[i].id + '"> ';
+                if (listLength > 0) {
+                    for (var j = 0; j < listLength; j++) {
+                        listHtml += '<div class="answer_list" number="' + list[j].id + '"> ' +
+                                '<div class="answer_list_tit"> ' +
+                                '<p> ' +
+                                '<span>' + list[j].question + '</span> ' +
+                                '<img src="images/down.png" alt=""> ' +
+                                '</p> ' +
+                                '</div> ' +
+                                '<div class="answer_list_cnt"> ' +
+                                '<div> ' +
+                                '<img src="images/da.png" alt=""> ' +
+                                '</div> ' +
+                                '<p>' + list[j].answer + '</p> ' +
+                                '</div> ' +
+                                '</div>';
+                    }
+                } else {
+                    listHtml = '<p class="answer_list_null">暂无该项相关问题！</p>';
+                }
+                listHtml += '</div>';
+                if (source == "android") {
+                    javaCode.call("getTitle", result[i].question);   // 调用安卓本地方法
+                } else if (source == "iOS") {
+                    window.webkit.messageHandlers.getTitle.postMessage(result[i].question);   // 调用iOS本地方法
+                } else {
+                    $("title").html(result[i].question);
+                }
+
+                break;
+            }
+            else {
+                var parentNumber = number.substring(0,4);
+                if (result[i].id == parentNumber) {
+                    if (source == "android") {
+                        javaCode.call("getTitle", result[i].question);   // 调用安卓本地方法
+                    } else if (source == "iOS") {
+                        window.webkit.messageHandlers.getTitle.postMessage(result[i].question);   // 调用iOS本地方法
+                    } else {
+                        $("title").html(result[i].question);
+                    }
+                }
+                for (var j = 0; j < listLength; j++) {
+                    if (list[j].id == number) {
+                        listHtml += '<div class="answer_modules" number="' + result[i].id + '"> ' +
+                                '<div class="answer_list" number="' + list[j].id + '"> ' +
+                                '<div class="answer_list_tit"> ' +
+                                '<p> ' +
+                                '<span>' + list[j].question + '</span> ' +
+                                '<img src="images/down.png" alt=""> ' +
+                                '</p> ' +
+                                '</div> ' +
+                                '<div class="answer_list_cnt"> ' +
+                                '<div> ' +
+                                '<img src="images/da.png" alt=""> ' +
+                                '</div> ' +
+                                '<p>' + list[j].answer + '</p> ' +
+                                '</div> ' +
+                                '</div> ' +
+                                '</div>';
+                    }
+                }
+            }
+
+        }
+        $(".answer_section").html(listHtml);
+    }
+</script>
+</body>
+</html>

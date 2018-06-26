@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui" />
+		<title>IOS测试</title>
+	</head>
+	<body>
+		<input type="button" value="分享" onclick="winurl()" style="width: 50%; height: 50px;font-size:26px;"/>
+		<p>
+		<input type="button" value="积分" onclick="winurlt()"  style="width: 50%; height: 50px;font-size:26px;"/></p>
+	</body>
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js" ></script>
+	<script>
+		function winurl()
+		{
+			window.location.href="js://share$"+escape("标题")+"$"+escape("描述")+"$http://www.baidu.com";
+		}
+		function winurlt()
+		{
+			window.location.href="js://addScore$125";
+		}
+	</script>
+</html>

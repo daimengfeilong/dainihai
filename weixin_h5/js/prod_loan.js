@@ -1,0 +1,1 @@
+function ReturnPage(i,t){$("."+i).hide(),$("."+t).show()}$(document).ready(function(){$(".prodd_skuli_right_ul").find("li").bind(touchstart,function(){$(".prodd_skuli_right_ul").find("li").removeClass("active"),$(this).addClass("active");var i=$(this).attr("alt");$(".fapiao_div").hide(),$(".fapiao_div"+i).show()})});

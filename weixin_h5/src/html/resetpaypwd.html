@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="telephone=no" name="format-detection" />
+		<title>重置支付密码</title>
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				recalc();if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link href="css/home.css" rel="stylesheet" type="text/css">
+		<link href="css/loadding.css" rel="stylesheet" type="text/css">
+		<link href="css/write_from.css" rel="stylesheet" type="text/css">
+		<link href="css/tooltip.css" rel="stylesheet" type="text/css">
+	</head>
+	<style>
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			background-color: #FFFFFF;
+			font-size: 0.3rem;
+		}
+		.hide_mian_page .by-ul-box i{
+			height: 28px;
+		}
+		.word_info_txt{
+			font-size: 0.25rem;
+		}
+		.validate{
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 5;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(51,51,51,0.5);
+			display: none;
+		}
+		.validate-cnt{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 80%;
+			margin-left: -40%;
+			margin-top: -2.54rem;
+			padding: 0 0.5rem;
+			/*background-color: white;*/
+			border-radius: 0.3rem;
+			background: url("./images/guangdiantong/alert-bg.png") repeat center;
+			background-size: 100% 100%;
+			text-align: center;
+		}
+		.validate-cnt h5{
+			padding: 0.35rem 0 0.3rem 0;
+			font-size: 0.36rem;
+			color: #333;
+			font-weight: normal;
+		}
+		.validate-input{
+
+		}
+		.validate-input p{
+			padding: 0.35rem 0 0.2rem 0;
+			font-size: 0.29rem;
+			color: #333;
+		}
+		.validate-input input{
+			border: 1px solid #c6c6c6;
+			border-radius: 0.5rem;
+			font-size: 0.3rem;
+			width: 100%;
+			height: 0.72rem;
+			padding-left: 1.5rem;
+		}
+		.validate-input img{
+			width: 1.75rem;
+			height: 0.5rem;
+			border: 1px solid #eee;
+			margin-right: 0.5rem;
+		}
+		.changeCode{
+			font-size: 0.3rem;
+			color: #ff943a;
+			text-decoration: underline;
+		}
+		.validate-btn{
+			width: 100%;
+			margin: 0.22rem 0;
+		}
+		.validate-btn div{
+			display: inline-block;
+			width: 2.08rem;
+			height: 0.74rem;
+			text-align: center;
+			line-height: 0.74rem;
+			border-radius: 0.37rem;
+			font-size: 0.36rem;
+		}
+		.validate-btn-cancel{
+			border: 1px solid #e5e5e5;
+			background-color: #e5e5e5;
+			color: #333;
+			margin-right: 0.6rem;
+		}
+		.validate-btn-sure{
+			border: 1px solid #ffd946;
+			background-color: #ffd946;
+			color: #333;
+		}
+	</style>
+	<body>
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<div class="clear"></div>
+		<div class="main_page_content">
+			<div class="" id="divcontfrist">
+				<!--<div class="top_message_txt">为了您的账号安全，需要先校验银行卡和身份信息后，才能重复支付密码。</div>-->
+				<div class="banklist hide_mian_div" style="display: block!important;">
+					<div class="word_info_txt">请输入您绑定的储蓄卡号</div>
+					<ul class="write_from_txt">
+						<li class="lt_bottom_br">
+							<label for="txt_tel" style="margin-top:0rem">银行卡号</label>
+							<input type="tel" id="txt_bankno" value="" placeholder="请输入您绑定的储蓄卡号" maxlength="19" onblur="rptchangebankno()" />
+						</li>
+					</ul>
+				</div>
+				<div class="word_info_txt">请如实填写姓名和身份证号码</div>
+				<ul class="write_from_txt">
+					<li>
+						<label for="txt_tel" style="margin-top:0rem">姓&nbsp;&nbsp;&nbsp;名</label>
+						<input type="text" id="txt_uname" value="" placeholder="请输入本人姓名" onblur="rpychangename()" />
+					</li>
+					<li class="lt_bottom_br">
+						<label for="txt_tel">身份证</label>
+						<input type="text" id="txt_cardcode" maxlength="18" value="" placeholder="请输入本人身份证" onblur="rpychangecard()" />
+					</li>
+				</ul>
+				
+				<!--
+				<div class="word_info_txt">请输入提交的联系人信息(任意一个)</div>
+				<ul class="write_from_txt">
+					<li>
+						<label for="txt_tel" style="margin-top:0rem">姓&nbsp;&nbsp;&nbsp;名</label>
+						<input type="text" id="txt_lxuname" value="" placeholder="请输入联系人姓名" onblur="rpychangelxrname()" />
+					</li>
+					<li class="lt_bottom_br">
+						<label for="txt_tel">电&nbsp;&nbsp;&nbsp;话</label>
+						<input type="tel" id="txt_lxtel" value="" maxlength="11" placeholder="请输入联系人的手机号码" onblur="rpychangemoblie()" />
+					</li>
+				</ul>
+				-->
+				
+				<div class="write_from_detail">
+					<div class="write_submit_checked" id="agree_submit" onclick="yzbaseinfo()">下一步</div>
+				</div>
+			</div>
+			<div class="hide_mian_page" id="divcontsencod">
+                <div class="by-title-box">本次操作需要短信确认，验证码已发送至注册的手机，请按提示操作。</div>
+                <ul class="write_from_txt by-ul-box">
+                    <li class="lt_bottom_br">
+                        <input type="tel" id="txt_vcode" value="" placeholder="请输入短信验证码" /><i class="hq_vcode by-yzm" id="hq_vcode">获取验证码</i>
+                    </li>
+                </ul>
+                <div class="write_from_detail">
+                    <div class="write_submit_checked" id="agree_submit" onclick="yzmpaypwd()">下一步</div>
+                </div>
+			</div>
+			<div class="hide_mian_page" id="divcontthree">
+				<div class="main_page_content main_content_paypwd">
+					<div class="titlent">请设置支付密码(6位数字)</div>
+					<div class="importpaypwd">
+						<ul id="btnpayul">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<input type="hidden" value="" id="txt_paypwd" maxlength="6" />
+						<input type="hidden" value="" id="o_paypwd" maxlength="6" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<input value="" type="hidden" id="txt_phoneno" />
+
+		<!--图形验证开始-->
+		<div class="validate">
+			<div class="validate-cnt">
+				<h5>请输入图片验证码</h5>
+				<div class="validate-input">
+					<div>
+						<input type="text" name="input-validate" placeholder="请输入验证码">
+					</div>
+					<p>输入下图中的字符,不区分大小写</p>
+					<div>
+						<img src="" alt="暂无图片" style="vertical-align: middle">
+						<span style="vertical-align: middle;" class="changeCode">看不清,换一张</span>
+					</div>
+				</div>
+				<div class="validate-btn">
+					<div class="validate-btn-cancel"><span>取消</span></div>
+					<div class="validate-btn-sure"><span>确定</span></div>
+				</div>
+			</div>
+		</div>
+		<!--图形验证结束-->
+
+
+		<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+		<script type="text/javascript " src="js/History.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/tkPublic.js"></script>
+		<script type="text/javascript" src="js/pub.js"></script>
+		<script type="text/javascript" src="js/turnjson.js"></script>
+		<script type="text/javascript" src="js/keyboard.js"></script>
+		<script>
+			$(document).ready(function() {
+				vtype = 6;
+				$("#txt_phoneno").val(localStorage.string_phone_number);
+				loadLogin_second();
+				IsBankNo();
+                $("#__w_l_h_v_c_z_e_r_o_divid").remove();
+				$("#btnpayul").on("click", function() {
+					var input2 = document.getElementById('txt_paypwd');
+					KeyBoard(input2);
+				});
+				LoadingOver();
+
+				$("#hq_vcode").click(function () {
+					shareCode(4);
+				});
+				$(".validate-btn-sure").click(function () {
+					inputImgCode(4);
+				});
+				$(".validate-btn-cancel").click(function () {
+					$(".validate").fadeOut();
+				});
+				$('.changeCode').click(function () {
+					$(".validate input").val('');
+					$(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+				});
+			});
+
+			//验证图形码
+			function inputImgCode (type) {
+				var inputVal = $('.validate-input input').val();
+				$.ajax({
+					url: urlLink + '/web/validation/verifyCode',
+					type: 'post',
+					data: {
+						iCode: inputVal
+					},
+					xhrFields:{
+						withCredentials:true
+					},
+					success: function (data){
+						console.log(data);
+						if (data.code == 0) {
+							setTimeout(function () {
+								$(".validate").fadeOut();
+							}, 1000);
+//							var sourceType = GetUrlParameter("type");
+							var phone = $("#txt_phoneno").val();
+							getVerifyCod(phone, type, inputVal);
+						} else {
+							$(".validate input").val('');
+							$(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+							ShowMsg('验证码输入错误');
+						}
+					},
+					err: function (err) {
+						console.log(err);
+					}
+				})
+			}
+			//<!--分享页面发送验证码S-->
+			function shareCode(type) {
+				var phone = $("#txt_phoneno").val();
+				if (phone == "" || phone == null || phone == "undefined") {
+					ShowMsg("请输入您的手机号码");
+					return false;
+				} else if (!regPhone.exec(phone)) {
+					ShowMsg("请输入正确的手机号码");
+					return false;
+				} else {
+					$.ajax({
+						url: urlLink + '/web/validation/need_code',
+						type: 'get',
+						xhrFields:{
+							withCredentials:true
+						},
+						success: function (data) {
+							console.log(data);
+							if (data.code == 0) {
+								$(".validate").fadeIn();
+								$(".validate input").val('');
+								$(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+							} else {
+//                        var sourceType = GetUrlParameter("type");
+								getVerifyCod(phone, type, '');
+							}
+						},
+						err: function (err) {
+							console.log('请求失败')
+						}
+					});
+				}
+			}
+			function getVerifyCod(phone, type, codeVal) {
+//        clearTimeout(clearShareSetTime);
+				Loading();
+				$.ajaxSetup({
+					xhrFields:{
+						withCredentials:true
+					}
+				});
+				$.post(urlLink + "/web/validation/send_msg", {
+					phone_number: phone,
+					msg_type: type,
+					type: 'html5',
+					iCode: codeVal
+				}, function (result) {
+					var datat = $.toJSON(result);
+					var obj = jQuery.parseJSON(datat);
+					switch (obj.code) {
+						case 0: //OK
+							ShowMsg("验证码发送成功，请注意查看手机！");
+							time('hq_vcode');
+							break;
+						case -10001:
+							ShowMsg("手机号已注册，请直接登录");
+							break;
+						default:
+							ShowMsg(obj.msg);
+							break;
+					}
+					LoadingOver();
+				})
+			}
+
+			function rptchangebankno() {
+				var bankno = $("#txt_bankno").val();
+				if (bankno == "" || bankno == null || bankno == "undefined") {
+					ShowMsg("请输入您绑定的储蓄卡号！");
+					return false;
+				}
+			}
+
+			function rpychangename() {
+				var uname = $("#txt_uname").val();
+				if (uname == "" || uname == null || uname == "undefined") {
+					ShowMsg("请输入本人姓名！");
+					return false;
+				}
+			}
+
+			function rpychangecard() {
+				var ucardcode = $("#txt_cardcode").val();
+				if (ucardcode == "" || ucardcode == null || ucardcode == "undefined") {
+					ShowMsg("请输入本人身份证号码！");
+					return false;
+				} else {
+					var correct = validateIdCard(ucardcode);
+					if (correct == 1) {
+						ShowMsg("请输入正确的身份证号码！");
+						return false;
+					}
+				}
+			}
+
+//			function rpychangelxrname() {
+//				var lxuname = $("#txt_lxuname").val();
+//				if (lxuname == "" || lxuname == null || lxuname == "undefined") {
+//					ShowMsg("请输入联系人姓名！");
+//					return false;
+//				}
+//			}
+//
+//			function rpychangemoblie() {
+//				var lxtel = $("#txt_lxtel").val();
+//				if (lxtel == "" || lxtel == null || lxtel == "undefined") {
+//					ShowMsg("请输入联系人手机号码！");
+//					return false;
+//				} else if (!regPhone.exec(lxtel)) {
+//					ShowMsg("请输入正确的手机号码！");
+//					return false;
+//				}
+//			}
+		</script>
+	</body>
+
+</html>

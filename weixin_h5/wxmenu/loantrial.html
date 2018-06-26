@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="telephone=no" name="format-detection" />
+		<title>费率试算</title>
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				recalc();if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link href="../css/home.css" rel="stylesheet" type="text/css">
+		<link href="../css/loadding.css" rel="stylesheet" type="text/css">
+		<link href="../css/tooltip.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.min.css"> 
+	</head>
+
+	<body>
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<div class="lt-by-top ">
+			<div class="lt-pic ">
+				<div class="lt-trial ">
+					<ul>
+						<li>
+							<p>每月应还：</p>
+							<em id="monthamount">¥0</em>
+						</li>
+						<li>
+							<p>应还总额：</p>
+							<em id="allamount">¥0</em>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<section class="lt-money">
+			<div class="lt-bar-money">
+				<a class="big-left" onclick="btnCVal('slider-0','-')"></a>
+				<p class="le-bar">
+					¥<span id="slider-0">5000</span>
+				</p>
+				<a class="big-right" onclick="btnCVal('slider-0','+')"></a>
+				<div style="clear:both;"></div>
+			</div>
+		</section>
+
+		<section class="lt-slider" id="div-slider">
+			<p class="lt-slider-min ">¥1000</p>
+			<div class="lt-scrollbar">
+				<input type="range" id="slider-1" name="slider-1" value="5000" min="1000" max="10000" data-highlight="true" data-mini="true">
+			</div>
+			<p class="lt-slider-min ">¥10000</p>
+			<div style="clear:both; "></div>
+		</section>
+
+		<section class="lt-plan ">
+			<div class="lt-bar-plan ">
+				<a class="" id="btnleftloan"></a>
+				<ul class="lt_bar_panul">
+
+				</ul>
+				<a class="big-right" id="btnrightloan"></a>
+				<div style="clear:both; ">
+					<input type="hidden" value="0" id="selectlaonq" />
+				</div>
+			</div>
+		</section>
+
+		<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+        <script type="text/javascript" src="../js/config.js"></script>
+		<script type="text/javascript " src="../js/tkPublic.js"></script>
+		<script type="text/javascript " src="../js/pub.js"></script>
+		<script src="../js/jquery.mobile-1.4.5.min.js"></script>
+		<script>
+			$("#div-slider").change(function() {
+				var slider_value = $("#slider-1").val();
+				$("#slider-0").html(slider_value);
+				$("#hid_value").val(slider_value);
+				loadcaculate();
+			});
+			$(document).ready(function() {
+				gain_strategy();
+				setTimeout(function() {
+					var $selval = $('#selectlaonq');
+					$selval.val("0");
+					var $obj = $(".lt_bar_panul").find("li");
+					var len = $obj.length;
+					var i = 0;
+					$("#btnleftloan").on("click", function() {
+						i--;
+						if (i == 0) {
+							$("#btnrightloan").addClass("big-right");
+							$(this).removeClass("big-left");
+						} else {
+							$(this).addClass("big-left");
+							$("#btnrightloan").addClass("big-right");
+							$selval.val(i);
+						}
+						$obj.stop(true, true).hide().eq(i).fadeIn(600);
+						var strspt = $obj.eq(i).find("p").attr("alt").split('_');
+						/*分几期_间隔_费率_利息_类型*/
+						caculate(strspt[0], strspt[1], strspt[2], strspt[3], strspt[4]);
+						return false;
+					});
+					$("#btnrightloan").on("click", function() {
+						i++;
+						if ((i + 1) == len) {
+							$("#btnleftloan").addClass("big-left");
+							$(this).removeClass("big-right");
+						} else {
+							$("#btnleftloan").addClass("big-left");
+							$(this).addClass("big-right");
+							$selval.val(i);
+						}
+						$obj.stop(true, true).hide().eq(i).fadeIn(600);
+						var strspt = $obj.eq(i).find("p").attr("alt").split('_');
+						/*分几期_间隔_费率_利息_类型*/
+						caculate(strspt[0], strspt[1], strspt[2], strspt[3], strspt[4]);
+						return false;
+					});
+					loadcaculate();
+				}, 1000);
+			});
+
+			function btnCVal(sid, type) {
+				var amount = parseInt($("#" + sid).html());
+				if (type == "+") {
+					if (amount >= 10000) {
+						$("#" + sid).html("10000");
+					} else {
+						$("#" + sid).html(parseInt(amount) + 1000);
+					}
+				} else {
+					if (amount <= 1000) {
+						$("#" + sid).html("1000");
+					} else {
+						$("#" + sid).html(parseInt(amount) - 1000);
+					}
+				}
+				var lenv = parseInt($("#" + sid).html());
+				$(".ui-slider-handle").attr("aria-valuenow", lenv);
+				$(".ui-slider-handle").attr("aria-valuetext", lenv);
+				$(".ui-slider-handle").attr("title", lenv);
+				var len = (lenv == 1000 ? 0 : lenv) * (1 / 100);
+				$(".ui-slider-handle").css("left", len + "%");
+				$(".ui-slider-bg").css("width", len + "%");
+				loadcaculate();
+			}
+
+			function loadcaculate() {
+				var $obj = $(".lt_bar_panul").find("li");
+				var len = $obj.length;
+				for (var k = 0; k < len; k++) {
+					if ($obj.eq(k).css("display") != "none") {
+						var strspt = $obj.eq(k).find("p").attr("alt").split('_');
+						/*分几期_间隔_费率_利息_类型*/
+						caculate(strspt[0], strspt[1], strspt[2], strspt[3], strspt[4]);
+					}
+				}
+			}
+
+			function caculate(m, jg, fl, f, type) {
+				var repayAmount = 0;
+				var monthAmount = 0;
+				var count = m * jg;
+				var loanAmount = parseFloat($("#slider-0").html()) * 100;
+				var aditinal = loanAmount == 0 ? 0 : (200 * m);
+				if (type == 0) { /*day*/
+					var rate = parseFloat((fl + f) * count) / 10000 + 1;
+					repayAmount = parseFloat((parseFloat(loanAmount) * rate) + aditinal) / 100;
+				} else { /*month*/
+					var p = parseFloat(loanAmount);
+					var n = parseFloat(count);
+					var feil = parseFloat(fl) / 10000;
+					var lx = parseFloat(f) / 10000;
+					var tmp = Math.pow(1 + feil, n);
+					var pay_f = Math.round(p * lx);
+					var A = Math.round(p * (feil * tmp) / (tmp - 1) * n);
+					var F = parseFloat(pay_f) * n;
+					console.log(parseFloat(A + F + aditinal));
+					repayAmount = parseFloat(A + F + aditinal) / 100;
+				}
+				monthAmount = parseFloat(repayAmount / m);
+				$("#monthamount").html(monthAmount.toFixed(2));
+				$("#allamount").html(repayAmount.toFixed(2));
+				LoadingOver();
+			}
+
+			function gain_strategy() {
+				Loading();
+				var timeout = setTimeout(function() {
+					LoadingOver();
+					top_meassage("请求超时，请稍后再试");
+					show_topmessage();
+				}, 30000);
+				_xmlHttpRequest = createXmlHttpRequest();
+				if (_xmlHttpRequest != null) {
+					var _url = urlLink + "/web/bank_card/strategy_list_withoutlogin";
+					var _method = "GET";
+					_xmlHttpRequest.open(_method, _url, true);
+					_xmlHttpRequest.withCredentials = true;
+					//_xmlHttpRequest.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					_xmlHttpRequest.onreadystatechange = function() {
+						if (_xmlHttpRequest.readyState == 4) {
+							if (_xmlHttpRequest.status == 200) {
+								if (timeout) {
+									clearTimeout(timeout);
+									timeout = null;
+								}
+								severResponse = _xmlHttpRequest.responseText;
+								var _datajson = JSON.parse(severResponse);
+								switch (_datajson.code) {
+									case 0: //OK   
+										var strhtml = "";
+										$.each(_datajson.data, function(i, item) {
+											if (i == 0) {
+												strhtml += "<li>";
+											} else {
+												strhtml += "<li style=\"display: none;\">";
+											}
+											/*分几期_间隔_费率_利息_类型*/
+											strhtml += "<p class=\"le-bar\" alt=\"" + item.int32_installment_count + "_" + item.int32_installment_days + "_" + item.int32_interest + "_" + item.int32_factorage + "_" + item.int32_type + "\">" + item.name + "</p>";
+											strhtml += "</li>";
+										});
+										$(".lt_bar_panul").html(strhtml);
+										break; 
+									default:
+										//top_meassage(_datajson.msg);
+										//show_topmessage();
+										break;
+								}
+								LoadingOver();
+							}
+						}
+					}
+					_xmlHttpRequest.send(null);
+				}
+			}
+		</script> 
+	</body>
+
+</html>

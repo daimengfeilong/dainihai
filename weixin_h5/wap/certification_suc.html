@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>认证成功</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        .suc_cnt{
+            width: 100%;
+            margin-top: 40%;
+        }
+        .suc_cnt div{
+            width: 2rem;
+            height: auto;
+            margin: 0 auto;
+        }
+        .suc_cnt div img{
+            width: 100%;
+            height: 100%;
+        }
+        .suc_cnt p{
+            text-align: center;
+            font-size: 0.34rem;
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<section class="suc_cnt">
+    <div>
+        <img src="../images/to_examine-pass.png" alt="">
+    </div>
+    <p>开户成功</p>
+</section>
+</body>
+</html>

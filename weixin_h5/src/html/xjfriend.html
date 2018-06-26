@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>贷你嗨</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css"/>
+</head>
+
+<body style="background-color: #FFFFFF;">
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="main_page_content">
+    <div class="head">
+        <img src="images/top_pic.png"/>
+    </div>
+    <div class="clear"></div>
+    <section class="xjf_section">
+        <div class="xjf_div_bg">一、是什么</div>
+        <div class="xjf_div">
+            <ul class="xjf_div_ul">
+                <li>1、新用户注册后即可获得专属邀请码。(该邀请码可同时分享给多位小伙伴)</li>
+                <li>2、被邀请人完善资料成功使用额度后，您作为邀请人可获得现金奖励。</li>
+            </ul>
+        </div>
+    </section>
+    <div class="clear"></div>
+    <section class="xjf_section">
+        <div class="xjf_div_bg">二、怎么玩</div>
+        <div class="xjf_div">
+            <ul class="xjf_div_ul">
+                <li>当受邀人在贷你嗨成功使用额度后，邀请人获得10元现金，第二位使用额度后邀请人获得20元现金，以此类推，但从第六位小伙伴起，邀请人单次只获得50元现金，当前累计奖励金额无上限限制。</li>
+            </ul>
+        </div>
+    </section>
+    <div class="clear"></div>
+    <section class="xjf_section">
+        <div class="xjf_div_bg">三、怎么拿</div>
+        <div class="xjf_div">
+            <ul class="xjf_div_ul">
+                <li>1、关注贷你嗨微信公众账号。</li>
+                <li>2、点击下方[我要申请]按钮，并提交申请。</li>
+                <li>3、每周三当日17:00前提交申请，每周四统一发放现金奖励。(本活动最终解释权归深圳市博雅成信金融服务有限公司所有)</li>
+            </ul>
+        </div>
+    </section>
+    <div class="clear"></div>
+    <section class="write_from_detail">
+        <a href="xjfriend_sq.html">
+            <div class="btn_overall">我要申请</div>
+        </a>
+    </section>
+</div>
+<!--提示框开始-->
+<!--<div class="tooltip_main_center hide_mian_div" id="filesubmit">-->
+    <!--<div class="tooltip_main_node">-->
+        <!--<div class="tooltip_main_n_top">-->
+            <!--<div class="tooltip_main_nt_cn">-->
+                <!--<div class="top_title_sigle" id="top_title_sigle"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="tooltip_main_n_bottom">-->
+            <!--<a onclick="ResterLogin()">-->
+                <!--<div>重新登录</div>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--提示框结束-->
+</body>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/xjfriend.js"></script>
+<script>
+    $(document).ready(function () {
+        var uin = GetUrlParameter("uin");
+        var session = GetUrlParameter("session");
+        var phone = GetUrlParameter("phone");
+        if (session != "" && session != null && session != 'undefined') {
+            localStorage.khdsession = session;
+            loadLogin_friend(phone, session, uin);
+        } else {
+            loadLogin_three();
+        }
+        LoadingOver();
+    });
+</script>
+
+</html>

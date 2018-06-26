@@ -1,0 +1,133 @@
+body{
+    background-color: #f6f7fc;
+}
+.bgWhite{
+    background-color: #fff;
+}
+.detail-header{
+    padding: 0.54rem 0.3rem 0.5rem 0.3rem;
+    width: 100%;
+    margin-bottom: 0.2rem;
+}
+.detail-header section{
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+}
+.detail-header-logo{
+    width: 1.56rem;
+    height: 1.56rem;
+    margin-right: 0.25rem;
+}
+.detail-header-logo img{
+    width: 100%;
+    height: 100%;
+}
+.detail-header-text{
+    flex: 1;
+}
+.detail-header-name{
+    font-size: 0.36rem;
+    border-bottom: 1px solid #dbdbdb;
+    margin-bottom: 0.18rem;
+}
+.detail-header-text-list{
+    display: flex;
+}
+.detail-header-text-list div{
+    flex: 1;
+    text-align: center;
+    font-size: 0.26rem;
+}
+.detail-header-text-list div:first-child{
+    text-align: left;
+}
+.detail-header-text-list div p:last-child{
+    font-size: 0.24rem;
+    color: #ff943a;
+    margin-top: 0.05rem;
+}
+.detail-header-text-list hr{
+    width: 1px;
+    height: 0.55rem;
+    background-color: #dbdbdb;
+    border: none;
+    margin-top: 0.14rem;
+}
+.detail-advantage{
+    width: 100%;
+    padding: 0 0.3rem;
+    margin-bottom: 0.2rem;
+}
+.detail-advantage section{
+    width: 100%;
+}
+.detail-advantage-tit{
+    font-size: 0.3rem;
+    padding: 0.3rem 0 0.18rem 0;
+    border-bottom: 1px solid #dbdbdb;
+}
+.detail-advantage-tit span{
+    vertical-align: middle;
+}
+.detail-advantage-tit span:first-child{
+    display: inline-block;
+    width: 0.06rem;
+    height: 0.4rem;
+    background-color: #ffd946;
+    margin-right: 0.14rem;
+}
+.detail-advantage-text{
+    padding: 0.3rem 0;
+    font-size: 0.26rem;
+    color: #646464;
+}
+.flow-img{
+    width: 100%;
+}
+.detail-term{
+    /*display: flex;*/
+}
+.detail-term p{
+    /*width: 0.75rem;*/
+    /*margin-right: 0.1rem;*/
+}
+.detail-term ul{
+    /*flex: 1;*/
+}
+.detail-footer{
+    position: fixed;
+    bottom: 0.2rem;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+    padding: 0 0.3rem;
+}
+.detail-footer div{
+    width: 100%;
+    height: 0.9rem;
+    text-align: center;
+    line-height: 0.9rem;
+    background-color: #ffd946;
+    font-size: 0.36rem;
+    color: #000;
+}
+.detail-footer div a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #000;
+}
+
+.partner-name-label{
+    font-size: 0.24rem;
+    color: #d7c476;
+}
+.partner-name-label span{
+    display: inline-block;
+    padding: 0 0.12rem;
+    border: 1px solid #d7c476;
+    border-radius: 0.04rem;
+    margin-right: 0.07rem;
+    margin-bottom: 0.1rem;
+}

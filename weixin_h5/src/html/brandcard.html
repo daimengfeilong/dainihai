@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>我的银行卡</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/mover.css" rel="stylesheet" type="text/css">
+    <link href="css/loadding.css" rel="stylesheet" type="text/css">
+    <link href="css/tooltip.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/new.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+    <style type="text/css">
+    	.card_tips{
+    		width: 100%;
+    		padding-top: 0.5rem;
+    		font-size: 0.3rem;
+    	}
+    	
+    	.card_tips p{
+    		width: 100%;
+    		text-align: center;
+    		padding-top: 0.3rem;
+    	}
+    	
+    	.card_tips p:nth-of-type(1){
+    		color: #FF5252;
+    	}
+    	
+    	.card_tips p:nth-of-type(2){
+    		color: #78797b;
+    		font-size: 0.28rem
+    	}
+    	
+    	.card_tips p:nth-of-type(3){
+    		color: #0198ef;
+    	}
+    	
+    	.card_tips p:nth-of-type(4){
+    		color: #0198ef;
+    	}
+    </style>
+</head>
+
+<body>
+
+<nav class="nav-top">
+    <h1 class="title">
+        <a class="back " onclick="window.history.back()">&lt;</a>
+        我的银行卡
+    </h1>
+</nav>
+
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="main_page_content" id="fristpage" style="display: none;">
+    <div class="nav-clear"></div>
+    <div class="main_banklist"></div>
+	<div class="card_tips">
+		<p>目前我们仅支持绑定一张借还银行卡</p>
+		<p>如您需要更改，请联系电话客服修改</p>
+		<p>时间： 9:00 - 18:00</p>
+		<p>电话： 400-034-5666</p>
+	</div>   
+
+    <!--<section class="write_from_detail" id="add-bank-card">-->
+        <!--<button class="btn_overall" onclick="btnaddbenkpay()">+ 添加银行卡</button>-->
+    <!--</section>-->
+</div>
+
+<div class="hide_mian_page" id="sencodpage" style="display: none;">
+    <div class="pig-pic-box">
+        <p class="pic-back-box">
+            <img src="images/pig_bank_card.png">
+        </p>
+
+        <p class="pic-text">您还没有认证银行卡</a></p>
+
+        <p class="pic-text-2">认证银行卡后才能使用额度哦~</a></p>
+        <p class="btn-bd"><a href="javascript:" onclick="btnaddbenkpay()">认证银行卡</a></p>
+    </div>
+
+</div>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/banklist.js"></script>
+<!--<script type="text/javascript" src="js/mover.js"></script>-->
+<script>
+    $(document).ready(function () {
+        loadLogin_three();
+        /*get_all_status();*/
+        get_bankcard_list();
+        LoadingOver();
+    })
+</script>
+</body>
+
+</html>

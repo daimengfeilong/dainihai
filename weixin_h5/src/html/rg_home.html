@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>贷你嗨</title>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://static.fraudmetrix.cn/fm.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+        var tokenId = "boya" + "-" + new Date().getTime() + "-" + Math.random().toString(16).substr(2);
+        if (link == 'https://lhwap.dt1.9fwealth.com') {
+            (function() {
+                _fmOpt = {
+                    partner: 'boya',
+                    appName: 'boya_web',
+                    token: tokenId,
+                    fpHost: 'https://fptest.fraudmetrix.cn',
+                    staticHost: 'statictest.fraudmetrix.cn',
+                    tcpHost: 'fpflashtest.fraudmetrix.cn',
+                    wsHost: 'fptest.fraudmetrix.cn:9090'
+                };
+                var cimg = new Image(1,1);
+                cimg.onload = function() {
+                    _fmOpt.imgLoaded = true;
+                };
+                cimg.src = "https://fptest.fraudmetrix.cn/fp/clear.png?partnerCode=boya&appName=boya_web&tokenId=" + _fmOpt.token;
+                var fm = document.createElement('script'); fm.type = 'text/javascript'; fm.async = true;
+                fm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'statictest.fraudmetrix.cn/fm.js?ver=0.1&t=' + (new Date().getTime()/3600000).toFixed(0);
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fm, s);
+            })();
+        } else {
+            (function() {
+                _fmOpt = {
+                    partner: 'boya',
+                    appName: 'boya_web',
+                    token: tokenId,
+                    fpHost: 'https://fp.fraudmetrix.cn',
+                    staticHost: 'static.fraudmetrix.cn',
+                    tcpHost: 'fpflash.fraudmetrix.cn',
+                    wsHost: 'fp.fraudmetrix.cn:9090'
+                };
+                var cimg = new Image(1,1);
+                cimg.onload = function() {
+                    _fmOpt.imgLoaded = true;
+                };
+                cimg.src = "https://fp.fraudmetrix.cn/fp/clear.png?partnerCode=boya&appName=boya_web&tokenId=" + _fmOpt.token;
+                var fm = document.createElement('script'); fm.type = 'text/javascript'; fm.async = true;
+                fm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'static.fraudmetrix.cn/fm.js?ver=0.1&t=' + (new Date().getTime()/3600000).toFixed(0);
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fm, s);
+            })();
+        }
+
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/home_lunbo.css"/>
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css"/>
+    <link rel="stylesheet" href="css/new.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+    <style>
+        #cnzz_stat_icon_1260729371 {
+            display: none;
+        }
+        .home-nav-1 dd{
+            width: 0.6rem!important;
+        }
+        .home-l-c i{
+            top: 0.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="nav-top">
+    <h1 class="title">
+        <a class="back hidden" onclick="window.history.back()">&lt;</a>
+        贷你嗨
+    </h1>
+</nav>
+<div class="nav-clear"></div>
+
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="clear"></div>
+<div class="main_page_content" style="background-color: #f7f8fc;">
+    <section class="mt-1 hide_mian_page">
+        <div class="ps-lt">
+            <div class="lt-dsb">
+                <i class="idt"></i>
+
+                <p>尊敬的用户：您好，非常抱歉，由于网络系…</p>
+                <i class="arr-right"></i>
+            </div>
+        </div>
+    </section>
+    <div class="head">
+        <div id="banner_box" class="banner_box " style="visibility: visible;overflow: hidden;">
+            <ul id="imglist"
+                style="list-style: none; width: 100%; transition: 500ms; transform: translate3d(0px, 0px, 0px);">
+
+            </ul>
+            <ol id="imgli" class="imgli">
+
+            </ol>
+        </div>
+    </div>
+
+    <div class="home-bottom-b">
+        <div class="home-loan-box">
+            <div class="home-loan-cont" id="loan-cont">
+                <!--<div class="home-l-c-wrap">-->
+                <!--<div class="home-l-c " onclick="judgeProduct(1)">-->
+                <!--<span class="dnh-hot">HOT</span>-->
+                <!--<i class="cont-p-1" style="background-image: url('images/icon_xinyonka.png')"></i>-->
+
+                <!--<p class="l-c-t">信用卡极速贷<span class="l-c-t-h">(1000-50000元)</span></p>-->
+
+                <!--<p class="l-c-c">有信用卡借款通道，分期还款</p>-->
+                <!--<a href="javascript:" class="jt-z"></a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="home-l-c-wrap">-->
+                <!--<div class="home-l-c" onclick="judgeProduct(2)">-->
+                <!--<i class="cont-p-1" style="background-image: url('images/icon_fenqi.png')"></i>-->
+
+                <!--<p class="l-c-t">小额贷<span class="l-c-t-h">(1000-5000元)</span></p>-->
+
+                <!--<p class="l-c-c">无信用卡借款通道，分期还款</p>-->
+                <!--<a href="javascript:" class="jt-z"></a>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="home-nav-box">
+        <div class="home-nav-1 clearFix">
+            <dl onclick="loanSchedule(3)" class="nav-1-left">
+                <dd>
+                    <img src="images/loan_1.png">
+                </dd>
+                <dt>额度使用</dt>
+            </dl>
+            <!--<dl onclick="winopenurl('loanplan.html')" class="nav-1-right">-->
+            <dl onclick="loanSchedule(4)" class="nav-1-right">
+                <dd>
+                    <img src="images/loan_schedule.png">
+                </dd>
+                <dt>申请进度</dt>
+            </dl>
+        </div>
+    </div>
+    <!--<div class="home-sign-box">-->
+    <!--<dl id="sign-r" class="sign-r sign-c">-->
+    <!--<dd>-->
+    <!--<img src="images/sign_logo.png">-->
+    <!--</dd>-->
+    <!--<dt>-->
+    <!--点击签到-->
+    <!--</dt>-->
+    <!--</dl>-->
+    <!--&lt;!&ndash;<dl id="sign-f" class="sign-f" style="display: none">&ndash;&gt;-->
+    <!--&lt;!&ndash;<dd>&ndash;&gt;-->
+    <!--&lt;!&ndash;<img src="images/sign_finish.png">&ndash;&gt;-->
+    <!--&lt;!&ndash;</dd>&ndash;&gt;-->
+    <!--&lt;!&ndash;<dt>&ndash;&gt;-->
+    <!--&lt;!&ndash;已签到&ndash;&gt;-->
+    <!--&lt;!&ndash;</dt>&ndash;&gt;-->
+    <!--&lt;!&ndash;</dl>&ndash;&gt;-->
+    <!--</div>-->
+</div>
+<footer>
+    <div class="mune">
+        <a href="javascript:">
+            <dl class="home-2 active">
+                <dt></dt>
+                <dd>首页</dd>
+            </dl>
+        </a>
+        <!--<a href="#">-->
+        <!--<i></i><img src="images/icon_home_press.png">-->
+        <!--首页-->
+        <!--</a>-->
+    </div>
+    <div class="mune">
+        <a href="myIndex.html?index=2">
+            <dl class="my-1">
+                <dt></dt>
+                <dd>我的</dd>
+            </dl>
+            <!--<i></i><img src="images/icon_my.png">-->
+        </a>
+    </div>
+    <div class="mune">
+        <a href="better.html?index=3">
+            <dl class="better-1">
+                <dt></dt>
+                <dd>更多</dd>
+            </dl>
+            <!--<i class="arr_hongdian hide_mian_div" id="msg_hongdian"></i>-->
+            <!--<img src="images/icon_more.png">-->
+        </a>
+    </div>
+</footer>
+
+<!--资料已拒绝开始-->
+<div class="tooltip_main_center hide_mian_div" id="filereject">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/filereject.png">
+            </div>
+            <p class="cont-p1">资料已拒绝</p>
+
+            <p class="cont-p2">如有疑问，请联系客服</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filereject');" class="cancel-l">我知道了</a>
+                </li>
+                <li>
+                    <a href="tel://400-034-5666" class="btn-r">拨打客服</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--资料已拒绝结束-->
+
+<!--资料已拒绝冷却中开始-->
+<div class="tooltip_main_center hide_mian_div" id="filereject_lqz">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/filereject.png">
+            </div>
+            <p class="cont-p1">资料被拒绝</p>
+
+            <p class="cont-p2">系统给出的综合信用评分不足</p>
+
+            <!--<p class="cont-p3 remive_day">距离再次申请还有<span>0</span>天</p>-->
+            <p class="cont-p2">点击按钮优选<span class="moreLoan">【更多领钱通道】</span>服务</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <!--<a href="javascript:divhide('filereject_lqz')" class="btn-k">我知道了</a>-->
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filereject_lqz');" class="cancel-l">我知道了</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="toMoreLoan()" class="btn-r">更多领钱通道</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--资料已拒绝冷却中结束-->
+
+<!--资料已拒绝冷却结束开始-->
+<div class="tooltip_main_center hide_mian_div" id="filereject_lqjs">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/filereject.png">
+            </div>
+            <p class="cont-p1">资料被拒绝</p>
+
+            <p class="cont-p2">系统给出的综合信用评分不足</p>
+
+            <p class="cont-p2">您已可以重新提交资料</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filereject_lqjs');" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="btnrealviery()" class="btn-r">提交资料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--资料已拒绝冷却结束结束-->
+
+<!---资料被打回开始-->
+<div class="tooltip_main_center hide_mian_div" id="fileback">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/fileaubit.png">
+            </div>
+            <p class="cont-p1">资料被打回</p>
+
+            <p class="cont-p2">填写真实资料才能获得额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('fileback');" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="winopen_checkstatus(102)" class="btn-r">修改资料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---资料被打回结束-->
+<!---资料审核中开始-->
+<div class="tooltip_main_center hide_mian_div" id="fileaubit">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/time_pic.png">
+            </div>
+            <p class="cont-p1">资料审核中</p>
+
+            <p class="cont-p2">审核通过后才能使用额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <a href="javascript:divhide('fileaubit')" class="btn-k">我知道了</a>
+        </div>
+    </div>
+</div>
+<!---资料审核中结束-->
+
+<!---请先完善资料开始-->
+<div class="tooltip_main_center hide_mian_div" id="filenew">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/filenew.png">
+            </div>
+            <p class="cont-p1">请先完善资料</p>
+
+            <p class="cont-p2">完善资料后才能使用额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filenew');" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="btnrealviery()" class="btn-r">填写资料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---请先完善资料结束-->
+
+<!---选择产品提示-->
+<div class="tooltip_main_center hide_mian_div" id="chooseProduct">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/zm_rz.png">
+            </div>
+            <p class="cont-p1">请先选择借款产品</p>
+
+            <p class="cont-p2">选择完借款产品后才能提现哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('chooseProduct');" class="btn-r">知道了</a>
+                </li>
+                <!--<li>
+                    <a href="javascript:" onclick="btnrealviery()" class="btn-r">填写资料</a>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!--邀请码开始-->
+<div class="tooltip_main_center hide_mian_div" id="tipsinvite">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/tips_invite.png">
+            </div>
+            <p class="cont-p1">大人，邀请码已到手</p>
+
+            <p class="cont-p2">分享是美德更是奖励</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('tipsinvite')" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="inviteCode.html" class="btn-r">马上查看</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--邀请码结束-->
+<!--分享是美德开始-->
+<div class="tooltip_main_center hide_mian_div" id="myshare">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/tips_share.png">
+            </div>
+            <p class="cont-p1">分享升额度</p>
+
+            <p class="cont-p2">小伙伴使用后获得额度</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('myshare')" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="inviteCode.html" class="btn-r">我要分享</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--分享是美德结束-->
+
+<!---您有未完成的贷款开始-->
+<div class="tooltip_main_center hide_mian_div" id="udoneloan">
+
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/udoneloan.png">
+            </div>
+            <p class="cont-p1">您有未完成的分期</p>
+
+            <p class="cont-p2">分期完成后才能再次提现</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('udoneloan')" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="winopenurl('loanplan.html')" class="btn-r">查看进度</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---您有未完成的贷款结束-->
+
+<!---您还没有绑定银行卡开始-->
+<div class="tooltip_main_center hide_mian_div" id="nobankcard">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/card_small.png">
+            </div>
+            <p class="cont-p1">您还没有绑定银行卡</p>
+
+            <p class="cont-p2">绑定银行卡后才能提现哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('nobankcard')" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="btnaddbenkpay()" class="btn-r">绑定银行卡</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---您还没有绑定银行卡结束-->
+<!--new year red-->
+<div class="ny_reddiv hide_mian_div" id="ny_reddiv"></div>
+<!--金币雨-->
+<div id="moneyhl" class="hide_mian_div"></div>
+<!--红包封面-->
+<div id="red_close" class="moneyred_close">
+    <div onclick="BtnKqRed(this)"><img src="images/pic_hongbao_close.png"/></div>
+</div>
+<!---红包开启-->
+<div class="red_opend_kq hide_mian_page" id="red_open">
+    <div class="red_open">
+        <div class="red_open_divfrist" id="dfristhb">
+            <div class="red_open_close" onclick="Div_Hide_Three('ny_reddiv','red_open','moneyhl','newyear_hongbao')">
+                <img src="images/btn_pop_close.png"/></div>
+            <div class="red_open_bg">
+                <img src="images/pic_coin_b01.png" class="red_open_bg_wen" id="bh_wenhao"/>
+
+                <div class="red_open_tooptip" id="dfristhtooptip">
+                    <p>分享到朋友圈</p>
+
+                    <p>即可看到红包金额</p>
+                </div>
+            </div>
+            <div class="red_open_share" onclick="divshow('mcover_hb')"></div>
+        </div>
+    </div>
+</div>
+<div id="mcover_hb" style="display: none;" onclick="divhide('mcover_hb')">
+    <img src="images/share.png">
+</div>
+<!---红包分享成功-->
+<div class="red_opend_kq hide_mian_page" id="red_shareh">
+    <div class="red_open">
+        <div class="red_open_divfrist" id="dsencodkhb">
+            <div class="red_open_close" onclick="Div_Hide_Three('ny_reddiv','red_shareh','moneyhl','newyear_hongbao')">
+                <img src="images/btn_pop_close.png"/></div>
+            <div class="red_open_bg">
+                <img src="images/pic_coin_b02.png" class="red_open_bg_wen" id="fx_duigou"/>
+
+                <div class="red_open_tooptip" id="dsencodtooptip">
+                    <p>恭喜你</p>
+
+                    <p>获得<span id="newyredval">300元</span>现金红包</p>
+                </div>
+            </div>
+            <div class="red_open_lq" onclick="AddJRedSCore()"></div>
+        </div>
+    </div>
+</div>
+<!---新年红包提示开始-->
+<div class="tooltip_main_center hide_mian_div" id="newyearreds">
+    <div class="tooltip_main_node">
+        <div class="tooltip_main_n_top">
+            <div class="tooltip_main_nt_cn">
+                <div class="img_top"><img src="images/tips_hongbao_icon.png"/></div>
+                <div class="top_title">恭喜你</div>
+                <div class="top_center">“获得新年额度红包”</div>
+            </div>
+        </div>
+        <div class="tooltip_main_ntwo_bottom">
+            <a onclick="btnSHRed()">
+                <div>稍后再说</div>
+            </a>
+            <a onclick="BtnLqRed()">
+                <div>打开红包</div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="newyear_hongbao hide_mian_div" id="newyear_hongbao"
+     onclick="divshow('newyearreds'),divhide('newyear_hongbao')"></div>
+<!--提示框开始-->
+<div class="tooltip_main_center hide_mian_div" id="subtooptip">
+    <div class="tooltip_main_node">
+        <div class="tooltip_main_n_top">
+            <div class="tooltip_main_nt_cn">
+                <div class="top_title_sigle" id="top_title_sigle">您已成功领取300元现金红包!</div>
+            </div>
+        </div>
+        <div class="tooltip_main_n_bottom">
+            <a onclick="javascript:window.location.reload();">
+                <div>确定</div>
+            </a>
+        </div>
+    </div>
+</div>
+<!--提示框结束-->
+<!--<input type="button" value="吊吊吊" style="width: 100px;height: 50px;background-color: red;" onclick="aaa()">-->
+
+
+<!--友盟注册访问量统计-->
+<script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260729375'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260729375%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1260729371'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260729371%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+</body>
+
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/toast.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/home_lunbo.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript " src="js/toast.js"></script>
+<script type="text/javascript" src="js/NewYearRed.js"></script>
+<script type="text/javascript " src="js/jweixin-1.0.0.js"></script>
+<script type="text/javascript " src="js/wxsdk.js"></script>
+<!--<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=0X3DmGCxEiCvhUo3aR8MUP696Yk6XtNZ"></script>-->
+<script type="text/javascript">
+    var myDate = new Date();
+    var myYear = myDate.getFullYear();
+    var myMonth = myDate.getMonth() + 1;
+    var myDay = myDate.getDate();
+    var nowDate = myYear +"年"+ myMonth +"月"+ myDay +"日";
+    $(function () {
+        var isred = GetUrlParameter("isred");
+        Loading();
+        loadLogin_three();
+        get_all_status(boxCallBack, null, null);
+        getProduct();
+        setTimeout(AddJMarkSCore, 200);
+        setTimeout(get_new_message, 800);
+        setTimeout(loadWXJson, 1);
+        setTimeout(function () {
+            if (parseInt(isred) > 0 && localStorage.int32_tag == 0) {
+                localStorage.isNewYearRed = isred;
+                BtnShareRed();
+            }
+        }, 1500);
+        divhide('loadd_pageinfog');
+        LoadingOver();
+
+//        if (localStorage.sign_remind_status == 1 && nowDate !== localStorage.sign_remind_date) {
+//            isSign();
+//        }
+        $(document).on("click", ".sign-c", function () {
+            window.location.href = "sign.html";
+//            Loading();
+//            getLocationWX(getLocationCB);
+        });
+
+        $.ajax({
+            url: urlLink + '/web/user_profile/tongdun_callback',
+            type: 'post',
+            data: {
+                token_id: tokenId
+            },
+            xhrFields: {
+                withCredentials:true
+            },
+            success: function (data) {
+                console.log(data);
+            },
+            err: function (err) {
+                console.log(err);
+            }
+        });
+
+        console.log(btnstatusvalue(localStorage.int64_status, 12));
+    });
+    <!--检查是否签到-->
+    //    function isSign() {
+    //        var url = urlLink + "/web/user_profile/checkin";
+    //        var send = "type=" + 1;
+    //        xmlHttpRequest(send, url, isSignCallBack, "POST");
+    //    }
+    <!--查看是否已签到回调-->
+    //    function isSignCallBack(_datajson) {
+    ////        console.log(_datajson);
+    //        <!--1 代表可以签到 ;-->
+    //        switch (_datajson.code) {
+    //            case 0:
+    //                LoadingOver();
+    //                if (_datajson.data.int32_state == 1) {
+    //                    ShowMsg("您今日还未签到哦！");
+    //                    localStorage.sign_remind_date = nowDate;
+    //                }
+    //                break;
+    //            case -10004:
+    //            case -10003:
+    //                LoadingOver();
+    //                session_expired(_datajson.msg);
+    //                break;
+    //            case -10002:
+    //                logout();
+    //                break;
+    //            default:
+    //                LoadingOver();
+    //                top_meassage(_datajson.msg);
+    //                show_topmessage();
+    //                break;
+    //        }
+    //
+    //    }
+
+    function boxCallBack() {
+        bombBox(localStorage.shar_staus, localStorage.invite_code_status, localStorage.int64_uin, localStorage.int32_apply_status);
+        GetBannerList();
+    }
+</script>
+</html>

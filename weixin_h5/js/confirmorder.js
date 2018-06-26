@@ -1,0 +1,1 @@
+function Div_Qh(h,i){$("."+h).show(),$("."+i).hide()}

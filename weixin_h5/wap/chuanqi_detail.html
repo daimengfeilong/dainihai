@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>传奇世界</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="css/partner.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+<header class="detail-header bgWhite">
+    <section>
+        <div class="detail-header-logo">
+            <img src="images/chuanqi.png" alt="">
+        </div>
+        <div class="detail-header-text">
+            <p class="detail-header-name">传奇世界</p>
+            <p class="partner-name-label">
+                <span>传奇</span>
+                <span>沙城</span>
+                <span>ARPG游戏</span>
+                <span>经典</span>
+            </p>
+        </div>
+    </section>
+</header>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>产品简介</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>《传奇世界之仗剑天涯H5》是由盛大唯一正版授权，蝴蝶互动倾力打造并发行的首款大型动作类ARPG游戏。经典传奇世界设定，原汁原味复刻
+                传奇世界核心玩法，红名杀敌、夺宝PK、元婴淬炼、红名 爆装，劲爽PK，特色BOSS关卡，跨服行会争霸，在这里，玩家将再次开启经典传奇
+                之旅，重温兄弟情谊、怀旧激情年代、成就传奇人生。</p>
+        </div>
+    </section>
+</section>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>产品优势</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>传奇类经典之作</p>
+        </div>
+    </section>
+</section>
+<div style="width: 100%;height: 1.2rem;"></div>
+<footer class="detail-footer">
+    <div>
+        <a href="javascript:void(0);" class="apply-btn">极速申请</a>
+    </div>
+</footer>
+
+
+<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function () {
+        var a = location.href;
+        var b = a.split("/");
+        var c = b.slice(b.length-1, b.length).toString(String).split(".");
+        var page_id = c.slice(0, 1)[0];
+        console.log(page_id);
+        // 发送页面访问次数
+        var uin = GetUrlParameter("uin");
+        var session = GetUrlParameter("session");
+        var source = GetUrlParameter("source", 'html5');
+        console.log(uin +','+ session +','+ source);
+        var paramData = {
+            page_id: page_id,
+            platform: source,
+            tk_uin: uin,
+            tk_session: session
+        };
+
+        // 跳转至第三方借款平台
+        $(".apply-btn").click(function () {
+            var toLoanUrl = "http://joyh5.com/jssdk/index/?channelId=301044&gameKey=16c6451132274f96a969b14f70e6a22d";
+            ajaxFn(urlLink + "/web/user_profile/unique_visitor", paramData, sucFn, null, "post");
+            if (source == "android") {
+                javaCode.call("skip_url", toLoanUrl);   // 调用安卓本地方法
+            } else if (source == "iOS") {
+                toLoanUrl = "http://ckme.me/rMW1md";
+                WebViewJavascriptBridge.jumpWeb(toLoanUrl);   // 调用iOS本地方法
+            } else {
+                window.location.href = toLoanUrl;    // H5跳转
+            }
+        });
+
+    });
+    function sucFn(data) {
+        console.log(data);
+    }
+</script>
+</body>
+</html>

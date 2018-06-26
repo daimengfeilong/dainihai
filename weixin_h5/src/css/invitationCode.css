@@ -1,0 +1,347 @@
+*, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, input, textarea, p, blockquote, th, td, span, img {
+    padding: 0;
+    margin: 0;
+}
+
+a:link, a:hover, a:active, a:visited {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.share-wrap {
+    width: 100%;
+    height: 100%;
+    font-size: 0.3rem;
+    color: #112542;
+}
+
+.share-back-img {
+    width: 100%;
+    height: 100%;
+    background: url("../images_old/invitationCode/share_img.png") no-repeat;
+    background-size: 100%;
+    position: relative;
+}
+
+.cont-wrap-box {
+    position: absolute;
+    left: 0;
+    top: 47%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.share-text-box {
+    width: 100%;
+    float: left;
+}
+
+.weui-cell {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0.15rem 0 0.15rem 0.15rem;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    border: 1px dashed #112542;
+    margin: 3% auto 0;
+}
+
+.weui-cell__bd {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.weui-label {
+    display: block;
+    width: 1.5rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.weui-input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    -webkit-appearance: none;
+    background-color: transparent;
+    font-size: inherit;
+    color: inherit;
+    height: 0.5rem;
+    line-height: 0.5rem;
+}
+
+.weui-cell_vcode {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0 !important;
+}
+
+.weui-cells_form .weui-cell__ft {
+    font-size: 0;
+}
+
+.weui-cell__ft {
+    text-align: right;
+    color: #999999;
+    background-color: #ffe600;
+}
+
+button.weui-vcode-btn {
+    background-color: transparent;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    outline: 0;
+}
+
+.weui-vcode-btn {
+    display: inline-block;
+    height: 0.8rem;
+    /*margin-left: 5px;*/
+    /*padding: 0 0.6em 0 0.7em;*/
+    width: 1.5rem;
+    border-left: none;
+    line-height: 0.8rem;
+    vertical-align: middle;
+    font-size: 0.3rem;
+    color: #112542;
+    list-style-type: none;
+}
+
+.share-pwd {
+    word-spacing: 8px;
+    letter-spacing: 16px;
+}
+
+.share-safe-box {
+    margin: 3% auto 0;
+    /*font-size: 0.3rem;*/
+    color: #ffffff;
+}
+
+.share-safe-box p {
+    padding: 0 15px;
+}
+
+.share-safe-box .login-href {
+    color: #ffe600;
+}
+
+.download-now {
+    margin: 3% auto 0;
+}
+
+.download-now-btn {
+    width: 100%;
+    height: 1rem;
+    text-align: center;
+    line-height: 1rem;
+    background: url("../images_old/invitationCode/download_back.png") repeat center;
+    background-size: 100% 100%;
+    font-size: 0.4rem;
+}
+
+.w {
+    width: 85%;
+    /*margin: 0.1rem auto 0;*/
+}
+
+.share-agree-box {
+    margin: 2% auto 0;
+}
+
+.share-agree-text {
+    padding: 0 0.1rem;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.share-bd {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.agree-agreement {
+    color: #ffffff;
+    text-align: center;
+}
+
+.agree-agreement .dnh-agreement {
+    color: #ffe600;
+}
+
+.checkboxFive {
+    width: 0.3rem;
+    /*margin: 20px 100px;*/
+    /*position: relative;*/
+    margin-right: 0.1rem;
+}
+
+.checkboxFive input {
+    display: none;
+}
+
+.checkboxFive label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    width: 0.3rem;
+    height: 0.3rem;
+    top: 0.05rem;
+    left: 0.15rem;
+    background: #fff;
+    border: 1px solid #112542;
+    border-radius: 100%;
+}
+
+.checkboxFive label:after {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 0.15rem;
+    height: 0.08rem;
+    background: transparent;
+    top: 0.08rem;
+    left: 0.07rem;
+    border: 0.04rem solid #000000;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.checkboxFive input[type=checkbox]:checked + label:after {
+    opacity: 1;
+}
+
+.checkboxFive input[type=checkbox]:checked + label {
+    background-color: #ffffff;
+}
+
+.download-box {
+    width: 100%;
+    height: auto;
+    float: left;
+    display: none;
+}
+
+.download-box .weui-cell {
+    margin: 6% auto 0;
+}
+
+.dnh-bottom-prompt {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    opacity: 0;
+}
+
+.prompt-cont-box{
+    width: 70%;
+    margin: 0 auto;
+    line-height: 0.4rem;
+    background-color: rgba(101,101,101,0.8);
+    text-align: center;
+    font-size: 0.3rem;
+    color: #ffffff;
+    box-sizing: border-box;
+    padding:0.2rem 0.1rem;
+    border-radius: 5rem;
+    word-break:break-all;
+    word-wrap:break-word;
+}
+
+.sidle-box{
+    transform:translate(0,0);
+    -webkit-transform:translate(0,0);
+    transition: transform .3s, -webkit-transform .3s;
+}
+
+/*.container {*/
+/*width: 7.5rem;*/
+/*height: 100%;*/
+/*outline: 0.01rem solid orange;*/
+/*}*/
+
+/*.header {*/
+/*float: left;*/
+/*width: 7.5rem;*/
+/*height: 11.08rem;*/
+/*background: url("../images_old/invitationCode/background2.png") no-repeat;*/
+/*background-size: 7.5rem 11.08rem;*/
+/*background-size: 100%;*/
+/*position: relative;*/
+/*outline: 0.01rem solid blue;*/
+/*}*/
+
+/*.share-bc-img {*/
+/*width: 100%;*/
+/*}*/
+
+/*.header-invitationCodeBox {*/
+/*Letter-spacing: 4px;*/
+/*width: 5.37rem;*/
+/*height: 1.4rem;*/
+/*margin:20% auto 0;*/
+/*margin-top: 1.37rem;*/
+/*font-size: 0.7rem;*/
+/*font-weight: 800;*/
+/*font-family: "微软雅黑",Arial;*/
+/*line-height: 1.22rem;*/
+/*color: rgb(247, 99, 3);*/
+/*text-align: center;*/
+/*outline: 0.01rem solid orange;*/
+/*}*/
+
+/*.footer {*/
+/*float: left;*/
+/*width: 7.5rem;*/
+/*height: 0.99rem;*/
+/*outline: 0.01rem solid green;*/
+/*}*/
+
+/*.footer > img {*/
+/*width: 7.5rem;*/
+/*height: 0.99rem;*/
+/*display: inline-block;*/
+/*padding: 0;*/
+/*float: left;*/
+/*}*/
+
+/*.erweima {*/
+/*width: 1.39rem;*/
+/*height: 1.39rem;*/
+/*outline: 0.01rem solid green;*/
+/*position: absolute;*/
+/*bottom: 1.27rem;*/
+/*left: 0.61rem;*/
+/*}*/
+
+/*.erweima > img {*/
+/*width: 1.39rem;*/
+/*height: 1.39rem;*/
+/*}*/
+
+
+
+

@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <title>信用卡分期</title>
+    <link rel="stylesheet" href="../credit_card/css/common.css"/>
+    <link rel="stylesheet" href="../credit_card/css/rules.css"/>
+    <link rel="stylesheet" href="../css/tooltip.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        .protocol{
+            /*text-align: center;*/
+        }
+        .protocol img{
+            width: 0.36rem;
+            height: 0.36rem;
+        }
+        .protocol span, .protocol img{
+            vertical-align: middle;
+        }
+        .protocol a{
+            color: #ff943a;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="../images/credit_rules.png"/>
+</header>
+<!--此页面是给IOS和ANDROID用的-->
+<section class="tab1 shadowBox">
+    <div class="wrap">
+        <ul>
+            <li>
+                <dl>
+                    <dt>申请金额</dt>
+                    <dd>1000 - 50000元</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>申请期限</dt>
+                    <dd>12 - 18个月</dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="last">
+                    <dt>还款方式</dt>
+                    <dd>等额本息，分期还款</dd>
+                </dl>
+            </li>
+            <!--<li>-->
+                <!--<dl class="last">-->
+                    <!--<dt>放款方式</dt>-->
+                    <!--<dd>放款至储蓄卡</dd>-->
+                <!--</dl>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<dl class="last">-->
+                    <!--<dt>月利率</dt>-->
+                    <!--<dd>0.64%-0.81%</dd>-->
+                <!--</dl>-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <!--<table>-->
+        <!--<tr>-->
+            <!--<td>期数</td>-->
+            <!--<td>月利率</td>-->
+            <!--<td>月服务费率</td>-->
+            <!--<td>月账户管理费率</td>-->
+            <!--&lt;!&ndash;<td>总月息</td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>3</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>1.67%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>1.20%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.37%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.30%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>6</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>1.67%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>1.00%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.45%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.55%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--<tr>-->
+            <!--<td>12</td>-->
+            <!--<td>0.64%</td>-->
+            <!--<td>1.12%</td>-->
+            <!--<td>1.24%</td>-->
+            <!--&lt;!&ndash;<td>3.00%</td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>18</td>-->
+            <!--<td>0.81%</td>-->
+            <!--<td>1.06%</td>-->
+            <!--<td>1.12%</td>-->
+            <!--&lt;!&ndash;<td>2.99%</td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--&lt;!&ndash;<td>24</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>0.85%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>0.98%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>1.16%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>2.06%</td>&ndash;&gt;-->
+        <!--</tr>-->
+    <!--</table>-->
+</section>
+
+<section class="tab2 shadowBox" style="margin-bottom: 0.2rem;">
+    <div class="li">
+        <h3>综合月费率</h3>
+        <p>≤ 3%</p>
+        <p>由利息、咨询服务费、信息服务费、账户费等组成。</p>
+    </div>
+
+    <div class="li">
+        <h3>逾期费用</h3>
+
+        <p>若逾期30天内，每日逾期滞纳金按剩余未还总额*0.25%收取，若逾期超过30天（包含第30天），每日逾期滞纳金按剩余未还款总额*0.5%收取，另支付10元/笔违约金。</p>
+    </div>
+
+    <div class="li">
+        <h3>总还款额</h3>
+
+        <p>总还款额=本金+利息+综合服务费+逾期费用（若有逾期）</p>
+    </div>
+    <!--<div class="li">-->
+        <!--<p class="protocol">-->
+            <!--<img src="../images/user_detail/icon_xuanze_press.png" alt="">&nbsp;-->
+            <!--<span style="font-weight: bold;">保险</span>-->
+            <!--<span style="color: #999;font-size: 0.22rem;">（该产品由您自愿购买）</span>-->
+        <!--</p>-->
+    <!--</div>-->
+</section>
+
+<section class="tab2 shadowBox">
+    <p style="padding: 0.2rem 0.3rem;color: #999;font-size: 0.22rem;">您申请的是消费分期，申请成功以后可获得消费额度。</p>
+</section>
+</body>
+
+</html>

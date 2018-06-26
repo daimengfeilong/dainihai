@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" data-use-rem="750">
+
+<head>
+	<!--所有的meta引用的文件-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="telephone=no" name="format-detection" />
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<script src="js/zepto.js"></script>
+	<!--<script src="js/rem.js"></script>-->
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />-->
+	<!--<meta name="apple-mobile-web-app-capable" content="yes">-->
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+	<!--<meta content="telephone=no" name="format-detection" />-->
+	<title>我的邀请码</title>
+
+	
+	<script type="text/javascript">
+	(function(doc, win) {
+	var docEl = doc.documentElement,
+	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	recalc = function() {
+	var clientWidth = docEl.clientWidth;
+	if (!clientWidth) return;
+	docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+	};
+	recalc();if (!doc.addEventListener) return;
+	win.addEventListener(resizeEvt, recalc, false);
+	doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	</script>
+
+
+
+	<!--link引用的css文件-->
+	<link href="css/home.css" rel="stylesheet" type="text/css">
+	<link href="css/loadding.css" rel="stylesheet" type="text/css">
+	<link href="css/tooltip.css" rel="stylesheet" type="text/css">
+	<link href="css/new.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/nav.css" />	
+	<link rel="stylesheet" href="css/myInvite.css">
+	<style>
+		body{background-color: #feeb9e}
+	</style>
+	
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+<!--所有的script引用的文件-->
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script>
+$(document).ready(function() {
+loadLogin_three();
+$(".mymarketscore").html(localStorage.int32_market_score);
+$(".invitecodetxt").html(localStorage.string_invite_code);
+loadWXJson();
+LoadingOver();
+});
+</script>
+<script type="text/javascript " src="js/jweixin-1.0.0.js"></script>
+<script type="text/javascript " src="js/wxsdk.js"></script>
+<div class="container">
+
+	<section class="blackBoard">
+		<div class="clickSend-bendArrow">
+			<div class="clickSend">
+				<p>请点击右上角将它发送给</p>
+				<p>指定朋友或分享到朋友圈</p>
+			</div>
+			<div class="bendArrow">
+				<img src="images_old/points/bendArrow.png" alt="error">
+			</div>
+		</div>
+	</section>
+
+	<section class="myCode">
+		<div class="header">
+			邀请码：<span id="code">AE34R</span>
+		</div>
+		<div class="content">
+			<div class="qrCode">
+				<span></span>
+				<img id="qrCode" src="" alt="" />
+				<span></span>
+				<div class="qrLoading">二维码生成中...</div>
+			</div>
+			<p>邀好友扫二维码进入贷你嗨</p>
+		</div>
+	</section>
+	
+	<section class="share">
+		<p>立即分享</p>
+		<div class="shareBtns">
+			<img src="images/inviteFriends/icon_weixin.png" />
+			<img src="images/inviteFriends/icon_qq.png" />
+			<img src="images/inviteFriends/icon_pengyouquan.png" />
+			<img src="images/inviteFriends/icon_kongjian.png" />
+		</div>
+	</section>
+</div>
+<!--<script src="js/points.js"></script>-->
+</body>
+<script>
+	$(function(){		
+		$(".shareBtns").on("tap", function(){
+			$(".blackBoard").show();
+		});
+		$(".blackBoard").on("tap", function(){
+			$(".blackBoard").hide();
+		});
+		
+		loadLogin_second();
+		// 邀请码
+		var _code = localStorage.string_invite_code;
+		$("#code").text(_code);
+		
+		var QRCodeUrl = urlLink + "/web/wechat/getqrcode",
+			send = "?type=wap_wechat&vcode=" + _code;
+		$("#qrCode").attr("src", (QRCodeUrl + send));		
+	});	
+</script>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" data-use-rem="750">
+
+<head>
+	<!--所有的meta引用的文件-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" href="css/normalize.css">
+	<script src="js/zepto.js"></script>
+	<!--<script src="js/rem.js"></script>-->
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />-->
+	<!--<meta name="apple-mobile-web-app-capable" content="yes">-->
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+	<!--<meta content="telephone=no" name="format-detection" />-->
+	<title>邀请好友</title>
+
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	(function(doc, win) {
+	var docEl = doc.documentElement,
+	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	recalc = function() {
+	var clientWidth = docEl.clientWidth;
+	if (!clientWidth) return;
+	docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+	};
+	recalc();if (!doc.addEventListener) return;
+	win.addEventListener(resizeEvt, recalc, false);
+	doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	</script>
+
+
+
+	<!--link引用的css文件-->
+	<!--<link href="css/home.css" rel="stylesheet" type="text/css">-->
+	<link href="css/loadding.css" rel="stylesheet" type="text/css">
+	<link href="css/tooltip.css" rel="stylesheet" type="text/css">
+	<!--<link href="css/new.css" rel="stylesheet" type="text/css">-->
+	<!--<link rel="stylesheet" href="css/nav.css" />-->
+	<link rel="stylesheet" href="css/inviteFriends.css">
+</head>
+
+<body>
+	
+	<!--背景-->
+	<section class="bgStyle">
+		<a href="wap/reward_rule.html">查看奖励规则>></a>
+	</section>
+	
+	<!--我的奖励-->
+	<section class="myReward">
+		<div class="title">
+			<span class="headerLine"></span>
+			<h3>我的奖励(元)</h3>
+			<span class="headerLine"></span>
+		</div>
+		<div class="content">
+			<div><span id="myReward">0</span></div>
+			<p>每周三17:00前提交申请，每周四统一发放现金奖励。</p>
+			<a href="xjfriend_sq.html">奖励使用额度</a>
+		</div>
+	</section>
+	
+	<!--我的邀请-->
+	<section class="myInvite">
+		<div class="title">
+			<span class="headerLine"></span>
+			<div>
+				<h3>我的邀请</h3>
+				<p><a href="myInvite.html?type=2">点击可查看邀请明细</a></p>
+			</div>
+			<span class="headerLine"></span>
+		</div>
+		<div class="myInviteTotal">
+			<a href="myInvite.html?type=1"><dl>
+				<dt><img src="images/inviteFriends/icon_zhuche.png"/></dt>
+				<dd><span><a href="myInvite.html?type=1" id="registeredNum">0</a></span></dd>
+			</dl></a>
+			<a href="myInvite.html?type=2"><dl>
+				<dt><img src="images/inviteFriends/icon_tixian.png"/></dt>
+				<dd><span><a href="myInvite.html?type=2" id="cashingNum">0</a></span></dd>
+			</dl></a>
+		</div>
+		<!--立即邀请-->
+		<section class="toInvite">
+			<a href="inviteCode.html">立即邀请</a>
+		</section>
+	</section>
+	
+
+	
+	
+
+<!--所有的script引用的文件-->
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<!--<script type="text/javascript" src="js/inviteFriends.js"></script>-->
+</body>
+<script>
+$(function(){
+	loadLogin_second();
+
+	// 奖励邀请数
+	var rewardRecordNumUrl = urlLink + "/web/user_profile/reward_record_num";
+	xmlHttpRequest(null, rewardRecordNumUrl, getRewardRecordNum, "get");
+	function getRewardRecordNum(data){
+		LoadingOver();
+		var _data = data.data,
+			invitationsNum = _data.int32_invitations_num,
+			applyNum = _data.int32_apply_num,
+			amount = _data.int32_amount;
+		$("#registeredNum").text(invitationsNum);
+		$("#cashingNum").text(applyNum);
+		$("#myReward").text(amount);
+	}	
+	
+});
+	
+</script>
+</html>

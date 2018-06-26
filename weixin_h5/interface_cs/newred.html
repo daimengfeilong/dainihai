@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui" />
+		<title>新年红包效果</title>
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				recalc();if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link rel="stylesheet" href="../css/home.css" />
+	</head>
+
+	<body>
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<div class="clear"></div>
+		<div class="main_page_content">
+			<section class="mt-1 hide_mian_page">
+				<div class="ps-lt">
+					<div class="lt-dsb">
+						<i class="idt"></i>
+						<p>尊敬的用户：您好，非常抱歉，由于网络系…</p>
+						<i class="arr-right"></i>
+					</div>
+				</div>
+			</section>
+			<div class="head">
+				<div id="banner_box" class="box_swipe hide_mian_div" style="visibility: visible;">
+				</div>
+			</div>
+			<!--服务贷old-->
+			<section class="nav">
+				<ul>
+					<li>
+						<a onclick="winopenurl('loantrial.html')">
+							<img src="images/calculator.png">
+							<p>费率试算</p>
+						</a>
+						<a onclick="winopenurl('loanplan.html')">
+							<img src="images/process.png">
+							<p>分期进度</p>
+						</a>
+					</li>
+					<div style="clear:both;"></div>
+				</ul>
+			</section>
+
+			<section class="mt-2">
+				<button class="s-btn" onclick="btnloanclick()">
+					<p class="i-btn">我要分期</p>
+				</button>
+			</section>
+		</div>
+		<!--new year red-->
+		<div class="ny_reddiv" id="ny_reddiv"></div>
+		<!--金币雨-->
+		<div id="moneyhl"></div>
+		<!--红包封面-->
+		<div id="red_close" class="moneyred_close">
+			<div onclick="BtnKqRed(this)"><img src="../images/pic_hongbao_close.png" /></div>
+		</div>
+		<!---红包开启-->
+		<div class="red_opend_kq hide_mian_page" id="red_open">
+			<div class="red_open">
+				<div class="red_open_divfrist" id="dfristhb">
+					<div class="red_open_close" onclick="Div_Hide_TWO('ny_reddiv','red_open')"><img src="../images/btn_pop_close.png" /></div>
+					<div class="red_open_bg">
+						<img src="../images/pic_coin_b01.png" class="red_open_bg_wen" id="bh_wenhao" />
+						<div class="red_open_tooptip" id="dfristhtooptip">
+							<p>分享到朋友圈</p>
+							<p>即可看到红包金额</p>
+						</div>
+					</div>
+					<div class="red_open_share" onclick="BtnShareRed()"></div>
+				</div>
+			</div>
+		</div>
+		<!---红包分享成功-->
+		<div class="red_opend_kq hide_mian_page" id="red_shareh">
+			<div class="red_open">
+				<div class="red_open_divfrist"  id="dsencodkhb">
+					<div class="red_open_close" onclick="Div_Hide_TWO('ny_reddiv','red_shareh')"><img src="../images/btn_pop_close.png" /></div>
+					<div class="red_open_bg">
+						<img src="../images/pic_coin_b02.png" class="red_open_bg_wen" id="fx_duigou"/>
+						<div class="red_open_tooptip" id="dsencodtooptip">
+							<p>恭喜你</p>
+							<p>获得<span>300元</span>现金红包</p>
+						</div>
+					</div>
+					<div class="red_open_lq"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/config.js"></script>
+	<script type="text/javascript" src="../js/tkPublic.js"></script>
+	<script type="text/javascript" src="../js/pub.js"></script>
+	<script type="text/javascript" src="../js/NewYearRed.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			RED_Frist();
+		})
+	</script>
+
+</html>

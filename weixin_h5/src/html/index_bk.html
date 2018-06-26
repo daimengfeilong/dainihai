@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>贷你嗨</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/loadding.css" rel="stylesheet" type="text/css">
+    <link href="css/tooltip.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            color: #000;
+            /*line-height: normal;*/
+        }
+
+        .index_bg {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: url("images/login_bg.png") no-repeat center;
+            background-size: 100% 100%;
+            padding: 0 0.3rem;
+        }
+
+        .index_surplus {
+            width: 100%;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.3rem;
+        }
+
+        .index_surplus p:last-child {
+            font-size: 1rem;
+        }
+
+        .index_msg {
+            display: flex;
+            width: 100%;
+            margin-top: 0.6rem;
+        }
+
+        .index_msg div {
+            flex: 1;
+            text-align: center;
+            font-size: 0.25rem;
+        }
+
+        .index_msg div p:first-child {
+            font-size: 0.35rem;
+        }
+
+        .repayment_list {
+            width: 100%;
+            margin-top: 0.6rem;
+            padding: 0.45rem 0.28rem;
+            background-color: #fff;
+            border-radius: 0.08rem;
+        }
+
+        .repayment_list_tit {
+            width: 100%;
+            display: flex;
+            font-size: 0.25rem;
+            color: #7d7d7d;
+            padding-bottom: 0.28rem;
+            border-bottom: 1px solid #dfe4f0;
+        }
+
+        .repayment_list_tit span {
+            flex: 1;
+            text-align: center;
+        }
+
+        .repayment_list_tit .repayment_list_tit_periods {
+            display: inline-block;
+            width: 12% !important;
+            text-align: center;
+        }
+
+        .repayment_list_cnt {
+            width: 100%;
+            max-height: 4rem;
+            overflow-y: scroll;
+        }
+
+        .repayment_list_cnt li {
+            width: 100%;
+            font-size: 0.25rem;
+            display: flex;
+            padding: 0.28rem 0;
+            border-bottom: 1px solid #dfe4f0;
+        }
+
+        .repayment_list_cnt li:last-child {
+            border-bottom: none;
+        }
+
+        .repayment_list_cnt li label {
+            display: inline-block;
+            width: 12%;
+            text-align: center;
+        }
+
+        .repayment_list_cnt li span {
+            flex: 1;
+            text-align: center;
+        }
+
+        .repayment_list_btn {
+            width: 100%;
+            height: 0.86rem;
+            text-align: center;
+            line-height: 0.86rem;
+            background-color: #ffd946;
+            font-size: 0.35rem;
+            margin-top: 0.3rem;
+        }
+
+        .sign_out {
+            margin-top: 0.2rem;
+            text-align: center;
+            color: #666;
+        }
+
+        .sign_out span {
+            text-decoration: underline;
+        }
+
+        .repayment_module {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: none;
+        }
+
+        .repayment_module_cnt {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 76%;
+            margin-top: -2.95rem;
+            margin-left: -38%;
+            background-color: #fff;
+            padding: 0 0.28rem;
+            font-size: 0.25rem;
+            border-radius: 0.08rem;
+        }
+
+        .repayment_tit {
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .repayment_price {
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .repayment_vcode {
+            width: 100%;
+            margin-top: 0.3rem;
+        }
+
+        .repayment_vcode input, .repayment_vcode span {
+            height: 0.6rem;
+            line-height: 0.6rem;
+        }
+
+        .repayment_vcode input {
+            width: 62%;
+            border: none;
+            border-bottom: 1px solid #dfe4f0;
+            flex: 1;
+            margin-right: 3%;
+        }
+
+        .repayment_vcode span {
+            display: inline-block;
+            width: 35%;
+            text-align: center;
+            font-size: 0.26rem;
+            color: #ffd946;
+            border: 1px solid #ffd946;
+            border-radius: 0.06rem;
+            vertical-align: middle;
+        }
+
+        .repayment_vcode_btn {
+            display: flex;
+            margin-top: 0.5rem;
+        }
+
+        .repayment_vcode_btn span {
+            flex: 1;
+            height: 0.6rem;
+            text-align: center;
+            line-height: 0.65rem;
+            background-color: #ffd946;
+            font-size: 0.28rem;
+        }
+
+        .repayment_vcode_btn span:first-child {
+            margin-right: 0.22rem;
+            background-color: #d2d2d2;
+            color: #fff;
+        }
+
+        .repayment_vcode_point {
+            margin-top: 0.3rem;
+            color: #bfbfbf;
+            padding-bottom: 0.35rem;
+        }
+
+        .sucImg, .btnImg, .failImg {
+            text-align: center;
+        }
+
+        .sucImg, .failImg {
+            margin-top: 0.35rem;
+        }
+
+        .btnImg {
+            margin-top: 0.45rem;
+            padding-bottom: 0.6rem;
+        }
+
+        .sucImg img {
+            width: 3.25rem;
+        }
+
+        .failImg img {
+            width: 1.9rem;
+        }
+
+        .btnImg img {
+            width: 3.96rem;
+        }
+
+        .repayment_status {
+            font-size: 0.34rem;
+            text-align: center;
+            margin-top: 0.4rem;
+        }
+        .result_suc, .result_fail{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<section class="index_bg">
+    <div class="index_surplus">
+        <p>本期应还</p>
+        <p class="surplusMoney">0</p>
+    </div>
+    <div class="index_msg">
+        <div>
+            <p class="totalMoney">0</p>
+            <p>现金分期额度</p>
+        </div>
+        <div>
+            <p class="settleDate">2001-01-01</p>
+            <p>下期还款日</p>
+        </div>
+    </div>
+    <div class="repayment_list">
+        <div class="repayment_list_tit">
+            <label class="repayment_list_tit_periods">期数</label>
+            <span>还款金额</span>
+            <span>还款日期</span>
+            <span>还款状态</span>
+        </div>
+        <ul class="repayment_list_cnt">
+            <!--<li>-->
+            <!--<label>1</label>-->
+            <!--<span>290.01</span>-->
+            <!--<span>2018-04-10</span>-->
+            <!--<span>逾期</span>-->
+            <!--</li>-->
+        </ul>
+        <div class="repayment_list_btn">
+            <span>立即还款</span>
+        </div>
+        <div class="sign_out">
+            <span>退出登录</span>
+        </div>
+    </div>
+</section>
+<!--没有数据显示-->
+<div class="mar_topjl_div maincontentsecond" style="display: none;">
+
+    <div class="pig-pic-box">
+        <p class="pic-back-box">
+            <img src="images/pig_paper.png">
+        </p>
+        <p class="pic-text">你还没有分期记录哦~</p>
+    </div>
+</div>
+
+<!--还款弹窗-->
+<div class="repayment_module">
+    <div class="repayment_module_cnt">
+        <div class="send_content">
+            <p class="repayment_tit">合计应还金额</p>
+            <p class="repayment_price">￥0</p>
+            <div class="repayment_vcode">
+                <input type="tel" class="vcode_input" placeholder="短信验证码"><span class="send_code"
+                                                                                id="send_code">发送验证码</span>
+            </div>
+            <div class="repayment_vcode_btn">
+                <span class="cancel_repayment">取消</span>
+                <span class="sure_repayment">确定</span>
+            </div>
+            <p class="repayment_vcode_point">验证码将会发送到<span></span></p>
+        </div>
+        <div class="result_suc">
+            <div class="sucImg">
+                <img src="images/repayment_suc.png" alt="">
+            </div>
+            <p class="repayment_status">还款成功</p>
+            <div class="btnImg">
+                <img src="images/i_know.png" alt="">
+            </div>
+        </div>
+        <div class="result_fail">
+            <div class="failImg">
+                <img src="images/repayment_fail.png" alt="">
+            </div>
+            <p class="repayment_status">还款失败</p>
+            <div class="btnImg">
+                <img src="images/i_know.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dialog-confirm hide_mian_div" id="signOutAccount">
+    <div class="mask-box"></div>
+
+    <div class="make-back">
+        <div class="make-back-color">
+            <p class="make-title">提示</p>
+            <p class="make-cont" style="padding-left: 0.55rem;">您确定要退出吗</p>
+            <ul class="make-btn-box clearFix">
+                <li>
+                    <a href="javascript:divhide('signOutAccount')" class="make-btn-left">取消</a>
+                </li>
+                <li>
+                    <a class="make-btn-right" style="background-color: #ffd946;" onclick="logout()">确定</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/keyboard.js"></script>
+<script type="text/javascript" src="js/Skeyboard.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/loanplan.js"></script>
+<script>
+    $(document).ready(function () {
+        loadLogin_three();
+        Loading();
+
+        if (localStorage.ordernumber == '' || localStorage.ordernumber == null || localStorage.ordernumber == 'undefined') {
+            check_order();
+        } else {
+            ajaxFn(urlLink + "/web/user/baofoo_query_bind", {query_mode: 0}, isBindIndex, null, "post");  //查询是否绑卡
+            getLoanPlan(localStorage.ordernumber);
+        }
+
+        $(".repayment_list_btn").click(function () {
+            sendSmsCode();
+        });
+        $(".cancel_repayment").click(function () {
+            $(".repayment_module").fadeOut();
+            $(".vcode_input").val("");
+        });
+        $(".btnImg img").click(function () {
+            $(".repayment_module").fadeOut();
+            location.reload()
+        });
+        $(".send_code").click(function () {
+            sendSmsCode();
+        });
+        $(".sure_repayment").click(function () {
+            var vcode = $(".vcode_input").val();
+            if (vcode == "") {
+                ShowMsg("请输入短信验证码");
+            } else {
+                Loading();
+                $(".vcode_input").val("");
+                ajaxFn(urlLink + "/web/user/baofoo_confirm_pay", {verify_code: vcode}, getRepaymentResult, null, "post");
+            }
+        });
+        $(".sign_out").click(function () {
+           $("#signOutAccount").fadeIn();
+        });
+    });
+    function isBindIndex(data) {
+        switch (data.code) {
+            case 0:
+                if (data.data.int32_bind_status == 0) {
+                    ShowMsg("您还未绑定银行卡，即将前往绑卡");
+                    setTimeout(function () {
+                        window.location.href = "bindBankCard.html";
+                    }, 3000);
+                } else {
+                    ajaxFn(urlLink + "/web/user/baofoo_pay_loan_amount", null, getRepaymentAmountFn, null, "post");   //获取还款额度
+                }
+                break;
+            default:
+                ShowMsg(data.msg);
+                break;
+        }
+    }
+    function check_order() {
+        Loading();
+        ajaxFn(urlLink + "/web/loan/check_order", null, getOrderNoFn, null, "get");
+    }
+    function getOrderNoFn(data) {
+        switch (data.code) {
+            case 0: //OK
+                if (data.data.string_order_number != '' && data.data.string_order_number != null && data.data.string_order_number != 'undefined') {
+                    //有记录
+                    localStorage.ordernumber = data.data.string_order_number;
+                    localStorage.contracturl = data.data.string_contract_url.replace(/[ ]/g, "").replace(/\ +/g, "").replace(/[\r\n]/g, "");
+                    ajaxFn(urlLink + "/web/user/baofoo_query_bind", {query_mode: 0}, isBindIndex, null, "post");  //查询是否绑卡
+                    getLoanPlan(localStorage.ordernumber);
+                } else {
+                    LoadingOver();
+                    $(".maincontentsecond").show();
+                }
+                break;
+            case -10004:
+                break;
+            case -10003:
+                session_expired(data.msg);
+                break;
+            case 404:
+                break;
+            case -10002:
+                logout();
+                break;
+            case -10006:
+                logout();
+                break;
+            default:
+                top_meassage(data.msg);
+                show_topmessage();
+                break;
+        }
+    }
+    function getLoanPlan(orderno) {
+        if (orderno != '' && orderno != null && orderno != 'undefined') {
+            Loading();
+            var param = {
+                string_order_number: orderno
+            };
+            ajaxFn(urlLink + "/web/loan/get_order_details", param, getSucFn, null, "post");
+        }
+    }
+    function getSucFn(data) {
+        switch (data.code) {
+            case 0:
+                localStorage.contracturl = data.data.string_contract_url.replace(/[ ]/g, "").replace(/\ +/g, "").replace(/[\r\n]/g, "");
+                var repayamount = parseFloat(data.data.int32_apply_amount) / 100;
+                var repaymentList = data.data.struct_apply_history, repaymentListLength = repaymentList.length;
+                $(".totalMoney").html("￥" + repayamount.toFixed(2));
+                $(".settleDate").html(data.data.string_next_repay_time);
+                if (repaymentListLength > 0) {
+                    var listHtml = "";
+                    for (var i = 0; i < repaymentListLength; i++) {
+                        listHtml += '<li> ' +
+                                '<label>' + repaymentList[i].string_desc + '</label> ' +
+                                '<span>' + parseFloat(repaymentList[i].int32_repay_amount / 100).toFixed(2) + '</span> ' +
+                                '<span>' + repaymentList[i].string_repay_time + '</span> ';
+                        if (repaymentList[i].int32_status == 2) {
+                            listHtml += "<span style='color: #ea3232;' >" + returnLoanStatus(repaymentList[i].int32_status) + "</span>";
+                            //还款中
+                        } else if (repaymentList[i].int32_status == 1) {
+                            listHtml += "<span style='color: #6fbb2b;' >" + returnLoanStatus(repaymentList[i].int32_status) + "</span>";
+                        } else {
+                            listHtml += "<span style='color: #989898;' >" + returnLoanStatus(repaymentList[i].int32_status) + "</span>";
+                        }
+                        listHtml += '</li>';
+                    }
+                }
+                $(".repayment_list_cnt").html(listHtml);
+                break;
+            case -10004:
+                break;
+            case -10003:
+                session_expired(data.msg);
+                break;
+            case 404:
+                break;
+            case -10002:
+                logout();
+                break;
+            case -10006:
+                break;
+            default:
+                top_meassage(data.msg);
+                show_topmessage();
+                break;
+        }
+        LoadingOver();
+    }
+    function getRepaymentAmountFn(data) {
+        switch (data.code) {
+            case 0:
+                var repayment_price = "￥" + parseFloat(data.data.int32_pay_loan_amount / 100).toFixed(2);
+                var phoneNum = data.data.string_phone_no.substr(0, 3) + "****" + data.data.string_phone_no.substr(7);
+                $(".repayment_vcode_point span").html(phoneNum);
+                $(".surplusMoney").html(repayment_price);
+                $(".repayment_price").html(repayment_price);
+                $(".result_suc, .result_fail").hide();
+                $(".send_content").show();
+                break;
+            default:
+                ShowMsg(data.msg);
+                break;
+        }
+        LoadingOver();
+    }
+    function sendSmsCode() {
+        Loading();
+        ajaxFn(urlLink + "/web/user/baofoo_ready_pay", null, getSmsFn, null, "post");
+    }
+    function getSmsFn(data) {
+        LoadingOver();
+        switch (data.code) {
+            case 0:
+                if (data.data.int32_success == 1) {
+                    ShowMsg("发送成功，请注意查收");
+                    time("send_code", "repay");
+                    $(".repayment_module").fadeIn();
+                } else {
+                    ShowMsg(data.data.string_biz_resp_msg);
+                }
+                break;
+            default:
+                ShowMsg(data.msg);
+                break;
+        }
+    }
+    function getRepaymentResult(data) {
+        LoadingOver();
+        switch (data.code) {
+            case 0:
+                if (data.data.int32_success == 1) {
+                    $(".send_content, .result_fail").hide();
+                    $(".result_suc .repayment_status").text(data.data.string_biz_resp_msg);
+                    $(".result_suc").show();
+                } else if (data.data.int32_success == 0) {
+                    $(".send_content, .result_suc").hide();
+                    $(".result_fail .repayment_status").text(data.data.string_biz_resp_msg);
+                    $(".result_fail").show();
+                } else {
+                    ShowMsg(data.data.string_biz_resp_msg);
+                }
+                break;
+            default:
+                ShowMsg(data.msg);
+                break;
+        }
+    }
+</script>
+</body>
+</html>

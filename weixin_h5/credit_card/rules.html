@@ -1,0 +1,394 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <title>信用卡分期</title>
+    <link rel="stylesheet" href="./css/common.css"/>
+    <link rel="stylesheet" href="./css/rules.css"/>
+    <!--<link rel="stylesheet" href="../css/home.css">-->
+    <link rel="stylesheet" href="../css/loadding.css">
+    <link rel="stylesheet" href="../css/tooltip.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="../js/zepto.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        .protocol{
+            /*text-align: center;*/
+        }
+        .protocol img{
+            width: 0.36rem;
+            height: 0.36rem;
+        }
+        .protocol span, .protocol img{
+            vertical-align: middle;
+        }
+        .protocol a{
+            color: #ff943a;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <img src="../images/credit_rules.png"/>
+</header>
+
+<section class="tab1 shadowBox">
+    <div class="wrap">
+        <ul>
+            <li>
+                <dl>
+                    <dt>申请金额</dt>
+                    <dd>1000 - 50000元</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>申请期限</dt>
+                    <dd>12 - 18个月</dd>
+                </dl>
+            </li>
+            <li>
+                <dl class="last">
+                    <dt>还款方式</dt>
+                    <dd>等额本息，分期还款</dd>
+                </dl>
+            </li>
+            <!--<li>-->
+                <!--<dl class="last">-->
+                    <!--<dt>放款方式</dt>-->
+                    <!--<dd>放款至储蓄卡</dd>-->
+                <!--</dl>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<dl class="last">-->
+                    <!--<dt>月利率</dt>-->
+                    <!--<dd>0.64%-0.81%</dd>-->
+                <!--</dl>-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <!--<table>-->
+        <!--<tr>-->
+            <!--<td>期数</td>-->
+            <!--<td>月利率</td>-->
+            <!--<td>月服务费率</td>-->
+            <!--<td>月账户管理费率</td>-->
+            <!--&lt;!&ndash;<td>总月息</td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>3</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>1.67%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>1.20%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.37%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.30%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>6</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>1.67%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>1.00%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.45%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.55%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--<tr>-->
+            <!--<td>12</td>-->
+            <!--<td>0.64%</td>-->
+            <!--<td>1.12%</td>-->
+            <!--<td>1.24%</td>-->
+            <!--&lt;!&ndash;<td>3.00%</td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+            <!--<td>18</td>-->
+            <!--<td>0.81%</td>-->
+            <!--<td>1.06%</td>-->
+            <!--<td>1.12%</td>-->
+            <!--&lt;!&ndash;<td>2.99%</td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--&lt;!&ndash;<td>24</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.85%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>0.98%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>1.16%</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>2.06%</td>&ndash;&gt;-->
+        <!--</tr>-->
+    <!--</table>-->
+</section>
+
+<section class="tab2 shadowBox" style="margin-bottom: 0.2rem;">
+    <div class="li">
+        <h3>综合月费率</h3>
+        <p>≤ 3%</p>
+        <p>由利息、咨询服务费、信息服务费、账户费等组成。</p>
+    </div>
+
+    <div class="li">
+        <h3>逾期费用</h3>
+
+        <p>若逾期30天内，每日逾期滞纳金按剩余未还总额*0.25%收取，若逾期超过30天（包含第30天），每日逾期滞纳金按剩余未还款总额*0.5%收取，另支付10元/笔违约金。</p>
+    </div>
+
+    <div class="li">
+        <h3>总还款额</h3>
+
+        <p>总还款额=本金+利息+综合服务费+逾期费用（若有逾期）</p>
+    </div>
+    <!--<div class="li">-->
+        <!--<p class="protocol">-->
+            <!--<img src="../images/user_detail/icon_xuanze_press.png" alt="">&nbsp;-->
+            <!--<span style="font-weight: bold;">保险</span>-->
+            <!--<span style="color: #999;font-size: 0.22rem;">（该产品由您自愿购买）</span>-->
+        <!--</p>-->
+    <!--</div>-->
+</section>
+
+<section class="tab2 shadowBox">
+    <p style="padding: 0.2rem 0.3rem;color: #999;font-size: 0.22rem;">您申请的是消费分期，申请成功以后可获得消费额度。</p>
+</section>
+
+<footer>
+    <a href="javascript:" onclick="creditB(1)">我要申请</a>
+</footer>
+<!--资料已拒绝开始-->
+<div class="tooltip_main_center hide_mian_div" id="filereject">
+    <div class="tooltip-box">
+        <img src="../images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="../images/filereject.png">
+            </div>
+            <p class="cont-p1">资料已拒绝</p>
+
+            <p class="cont-p2">如有疑问，请联系客服</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filereject');" class="cancel-l">我知道了</a>
+                </li>
+                <li>
+                    <a href="tel://400-034-5666" class="btn-r">拨打客服</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--资料已拒绝结束-->
+
+<!--资料已拒绝冷却中开始-->
+<div class="tooltip_main_center hide_mian_div" id="filereject_lqz">
+    <div class="tooltip-box">
+        <img src="../images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="../images/filereject.png">
+            </div>
+            <p class="cont-p1">资料被拒绝</p>
+
+            <p class="cont-p2">系统给出的综合信用评分不足</p>
+
+            <!--<p class="cont-p3 remive_day">距离再次申请还有<span>0</span>天</p>-->
+            <p class="cont-p2">点击按钮优选<span class="moreLoan">【更多领钱通道】</span>服务</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <!--<a href="javascript:divhide('filereject_lqz')" class="btn-k">我知道了</a>-->
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filereject_lqz');" class="cancel-l">我知道了</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="toMoreLoan('../wap/partner_list.html')" class="btn-r">更多领钱通道</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--资料已拒绝冷却中结束-->
+
+<!---资料审核中开始-->
+<div class="tooltip_main_center hide_mian_div" id="fileaubit">
+    <div class="tooltip-box">
+        <img src="../images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="../images/time_pic.png">
+            </div>
+            <p class="cont-p1">资料审核中</p>
+
+            <p class="cont-p2">审核通过后才能使用额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <a href="javascript:divhide('fileaubit')" class="btn-k">我知道了</a>
+        </div>
+    </div>
+</div>
+<!---资料审核中结束-->
+
+
+<!---您有未完成的贷款开始-->
+<div class="tooltip_main_center hide_mian_div" id="udoneloan">
+
+    <div class="tooltip-box">
+        <img src="../images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="../images/udoneloan.png">
+            </div>
+            <p class="cont-p1">您有未完成的分期</p>
+
+            <p class="cont-p2">分期完成后才能再次使用额度</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('udoneloan')" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="winopenurl('../loanplan.html')" class="btn-r">查看进度</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---您有未完成的贷款结束-->
+<!---请先完善资料开始-->
+<div class="tooltip_main_center hide_mian_div" id="filenew">
+    <div class="tooltip-box">
+        <img src="../images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="../images/filenew.png">
+            </div>
+            <p class="cont-p1">请先完善资料</p>
+
+            <p class="cont-p2">完善资料后才能使用额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filenew');" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="btnrealviery()" class="btn-r">填写资料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---请先完善资料结束-->
+<!--资料已拒绝冷却结束开始-->
+<div class="tooltip_main_center hide_mian_div" id="filereject_lqjs">
+    <div class="tooltip-box">
+        <img src="../images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="../images/fileaubit.png">
+            </div>
+            <p class="cont-p1">资料被打回</p>
+
+            <p class="cont-p2">填写真实资料才能获得额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('fileback');" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="winopen_checkstatus(102)" class="btn-r">修改资料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--资料已拒绝冷却结束结束-->
+<!---资料被打回开始-->
+<div class="tooltip_main_center hide_mian_div" id="fileback">
+    <div class="tooltip-box">
+        <img src="../images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="../images/fileaubit.png">
+            </div>
+            <p class="cont-p1">资料被打回</p>
+
+            <p class="cont-p2">填写真实资料才能获得额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('fileback');" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="winopen_checkstatus(102)" class="btn-r">修改资料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---资料被打回结束-->
+</body>
+<script src="../js/config.js"></script>
+<script src="../js/pub.js"></script>
+<script src="../js/tkPublic.js"></script>
+<script src="../js/turnjson.js"></script>
+<script type="text/javascript">
+
+    function btnrealviery() {
+//  get_all_status(null, null, null);
+        if (localStorage.int64_real_id_verify_status != null) {
+//        History.pushState(null, null, "myIndex.html");
+            switch (localStorage.int64_real_id_verify_status) {
+                case "0":
+                    window.location.href = "../autonym.html?source=1";
+                    break;
+                case "1":
+                    if (localStorage.int32_stu_worker == 1) {
+                        window.location.href = "../learntruet.html";
+                    } else {
+                        window.location.href = "../credit_learntruet_ds.html?source=1";
+                    }
+                    break;
+                default:
+                    if (btnstatusvalue(localStorage.int64_status, 12) == 1 && btnstatusvalue(localStorage.int64_status, 9) == 1) {
+                        window.location.href = "../check_status.html?" + getRandom(188);
+                    } else {
+                        window.location.href = "../credit_learntruet_ds.html?source=1";
+                    }
+                    break;
+            }
+        }
+    }
+
+    function getRandom(n) {
+        return Math.floor(Math.random() * n + 1)
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>修改支付密码</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        font-size: 0.3rem;
+    }
+    .write_submit_checked{
+        background-color: #f24946;
+        color: #333;
+        border: none;
+    }
+    .lg_login_dl li u{
+        width: 1.35rem;
+    }
+    .mm_eye_unable, .mm_eye_checked{
+        height: 0.95rem;
+    }
+    .pwdNorm{
+        font-size: 0.28rem;
+        color: #999;
+        padding-left: 0.3rem;
+        margin-top: 0.15rem;
+    }
+</style>
+<body style="background-color: #FFFFFF;">
+<div style="background-color: #f0f0f0; height: 0.25rem;"></div>
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<section class="lg_reigster">
+    <ul class="lg_login_dl">
+        <li class="br_top br_bottom">
+            <u>原&nbsp;密&nbsp;码</u>
+            <input type="password" placeholder="请输入原密码" id="txt_oldpwd" maxlength="20" />
+            <!--<i class="mm_eye_unable" onclick="change_eye(this,'txt_oldpwd')"></i>-->
+        </li>
+        <li class="br_bottom">
+            <u>新&nbsp;密&nbsp;码</u>
+            <input type="password" placeholder="请输入新密码" id="txt_newpwd" maxlength="20" />
+            <!--<i class="mm_eye_unable" onclick="change_eye(this,'txt_newpwd')"></i>-->
+        </li>
+        <li class="br_bottom">
+            <u>新&nbsp;密&nbsp;码</u>
+            <input type="password" placeholder="请再次输入新密码" id="txt_confirmpwd" maxlength="20" />
+            <!--<i class="mm_eye_unable" onclick="change_eye(this,'txt_confirmpwd')"></i>-->
+        </li>
+    </ul>
+    <p class="pwdNorm">支付密码只能由6位数字组成</p>
+    <div class="lg_login_footer_btn">
+        <div class="write_submit_checked" id="btn_loginfrom">确认修改</div>
+
+    </div>
+</section>
+
+
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/baseinfo.js"></script>
+<script>
+// 验证密码
+function validatePwd() {
+    var oldPwd = $("#txt_oldpwd").val(),newPwd = $("#txt_newpwd").val(),confirmPwd = $("#txt_confirmpwd").val();
+    var re = /^[0-9]*[1-9][0-9]*$/;
+    if (oldPwd == "" || newPwd == "" || confirmPwd == "") {
+        ShowMsg("请输入您的密码");
+        return false;
+    } else if (!re.test(newPwd)) {
+        ShowMsg("支付密码只能由6位数字组成");
+        return false;
+    } else if (newPwd.length != 6) {
+        ShowMsg("支付密码只能由6位数字组成");
+        return false;
+    } else if (oldPwd == newPwd) {
+        ShowMsg("新密码不能和原密码相同");
+        return false;
+    } else if (newPwd != confirmPwd) {
+        ShowMsg("两次新密码输入不一致");
+        return false;
+    } else {
+        revisePwd(oldPwd, newPwd);
+        return false;
+    }
+}
+// 确认修改
+function revisePwd (oldpwd, newpwd) {
+    Loading();
+    var timeout = setTimeout(function () {
+        LoadingOver();
+        top_meassage("请求超时，请稍后再试");
+        show_topmessage();
+    }, 30000);
+    function successFn (data) {
+        if (timeout) {
+            clearTimeout(timeout);
+            timeout = null;
+        }
+        switch (data.code) {
+            case 0: //OK
+                ShowMsg("修改成功");
+                setTimeout(function () {
+                    window.location.href = 'better.html';
+                }, 2000);
+                break;
+            case -1:
+                ShowMsg(data.msg);
+                break;
+            case -10004:
+            case -10003:
+                session_expired(data.msg);
+                break;
+            case 404:
+            case -10002:
+                logout();
+                break;
+            default:
+                top_meassage(data.msg);
+                show_topmessage();
+                break;
+        }
+        LoadingOver();
+    }
+    var paramData = {
+        old_pwd: oldpwd,
+        new_pwd: newpwd
+    };
+    ajaxFn(urlLink + '/web/payment/change_password', paramData, successFn, null, 'post');
+}
+$(function () {
+    // 点击确认修改
+    $("#btn_loginfrom").click(function () {
+        validatePwd();
+    });
+});
+
+</script>
+</body>
+
+</html>

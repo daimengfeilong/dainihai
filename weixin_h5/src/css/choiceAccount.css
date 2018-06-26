@@ -1,0 +1,162 @@
+*,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td,span,img
+{
+    padding:0;
+    margin:0;
+}
+
+a:link,a:hover,a:active,a:visited {
+    text-decoration: none;
+    color:black;
+}
+
+input{
+    border:none;
+    outline:none;
+}
+
+
+
+.container{
+    width: 6.4rem;
+    height: 10.08rem;
+    /*outline: 0.01rem solid green;*/
+    font-family: microsoft yahei;
+}
+
+.header{
+    width: 6.4rem;
+    height: 1.69rem;
+    /*outline: 0.01rem solid rgb(207,211,215);*/
+    float: left;
+}
+
+.header-box{
+    width: 5.8rem;
+    height: 1.03rem;
+    /*outline: 0.01rem solid pink;*/
+    float: left;
+    margin-left: 0.30rem;
+    margin-top: 0.17rem;
+    line-height: 0.001rem;
+}
+
+.header-box>img{
+    width:5.8rem;
+    height:1.03rem;
+}
+
+.content{
+    width: 6.4rem;
+    height: 0.83rem;
+    /*outline: 0.01rem solid orange;*/
+    float: left;
+}
+
+.content-box{
+    width: 5.8rem;
+    height: 0.39rem;
+    /*outline: 0.01rem solid orange;*/
+    float: left;
+    margin-left: 0.37rem;
+    margin-top: 0.22rem;
+    font-size: 0.32rem;
+    line-height: 0.1rem;
+}
+
+.content-box>img{
+    width: 0.47rem;
+    height: 0.39rem;
+    margin-right: 0.28rem;
+}
+
+#littleBox{
+    width: 0.27rem;
+    height: 0.27rem;
+    margin-left: 2.65rem;
+}
+
+input{
+    background: red;
+}
+
+.content-box>img,.content-box>span,#littleBox{
+    vertical-align: middle;
+}
+
+
+
+
+
+/*.content-topBox{*/
+    /*width: 6.4rem;*/
+    /*height: 0.86rem;*/
+    /*!*outline: 0.01rem solid cyan;*!*/
+    /*float: left;*/
+/*}*/
+
+/*span{*/
+    /*font-size: 0.31rem;*/
+    /*margin-left: 0.31rem;*/
+    /*display: inline-block;*/
+    /*float: left;*/
+    /*margin-top: 0.2rem;*/
+/*}*/
+
+/*input{*/
+    /*width: 3.32rem;*/
+    /*height: 0.7rem;*/
+    /*font-size: 0.31rem;*/
+    /*text-indent: 0.32rem;*/
+    /*display: inline-block;*/
+    /*float: left;*/
+/*}*/
+
+/*.content-topBox>img{*/
+    /*width: 0.46rem;*/
+    /*height: 0.36rem;*/
+    /*float: left;*/
+    /*margin-left: 0.5rem;*/
+    /*display: inline-block;*/
+    /*margin-top: 0.23rem;*/
+/*}*/
+
+/*.content-bottomBox{*/
+    /*width: 6.4rem;*/
+    /*height: 0.86rem;*/
+    /*outline: 0.01rem solid rgb(207,211,215);*/
+    /*float: left;*/
+/*}*/
+
+/*.content-bottomBox>img{*/
+    /*width: 0.35rem;*/
+    /*height: 0.3rem;*/
+    /*float: left;*/
+    /*margin-left: 0.5rem;*/
+    /*display: inline-block;*/
+    /*margin-top: 0.28rem;*/
+/*}*/
+
+.footer{
+    width: 6.4rem;
+    height: 1.33rem;
+    /*outline: 0.01rem solid orange;*/
+    border-top:0.01rem solid  rgb(207,211,215);
+    float: left;
+}
+
+.footer-box{
+    width: 5.42rem;
+    height: 0.82rem;
+    border: 0.01rem solid rgb(73,127,235);
+    float: left;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.31rem;
+    text-align: center;
+    line-height: 0.8rem;
+    color:rgb(73,127,235);
+    border-radius: 0.5rem;
+}
+
+

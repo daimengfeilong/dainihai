@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="640">
+<head>
+    <meta charset="UTF-8">
+    <title>选择电商账户</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="css/choiceAccount.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/write_from.css"/>
+    <script src="js/rem.js"></script>
+    <script src="js/zepto.js"></script>
+    <script src="js/pub.js"></script>
+    <script type="text/javascript">
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function() {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+        <div class="container">
+            <div class="header">
+                <div class="header-box">
+                    <img src="images_old/choiceAccount/choice2.png" alt="error">
+                </div>
+            </div>
+            <div class="content">
+                    <div class="content-box">
+                        <img src="images_old/choiceAccount/jingdong.png" alt="error">
+                        <span>绑定京东账户</span>
+                        <i style="float: right;margin-top: -0.06rem" class="gou_checked" onclick="change_radio_status(this,'btn_loginfrom','tiaotiao()')"></i>
+                    </div>
+            </div>
+            <div class="footer">
+                <div onclick="tiaotiao()"class="write_submit_checked" id="btn_loginfrom" style="width: 5.42rem;height: 0.82rem;margin: auto;margin-top: 0.3rem;line-height: 0.8rem;font-size: 0.3rem">
+                    下一步
+                </div>
+            </div>
+        </div>
+        <!--onclick="javascript:window.location.href='liftLimit_Bind.html'-->
+        <sccript>
+
+        </sccript>
+</body>
+</html>

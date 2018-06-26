@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui"/>
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>奖励规则</title>
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="dnh-wrap">
+    <div class="dnh-rule-top">
+        <img src="images/top_backimg.png">
+    </div>
+    <div class="integral-wrap">
+        <div class="get-integral-w">
+            <div class="in-w">
+                <div class="r-top">
+                    <div class="r-text">
+                        <span>邀请人奖励</span>
+                    </div>
+                    <p class="r-border">
+
+
+                    </p>
+                </div>
+                <div class="r-cont">
+                    <p>
+                        <i class="first"></i>
+                        第1位好友使用额度
+                        <span class="r-right">
+                            +10元现金
+                        </span>
+                    </p>
+
+                    <p>
+                        <i class="second"></i>
+                        第2位好友使用额度
+                          <span class="r-right">
++20元现金
+                        </span>
+                    </p>
+
+                    <p>
+                        <i class="third"></i>
+                        第3位好友使用额度
+                          <span class="r-right">
++30元现金
+                        </span>
+                    </p>
+
+                    <p>
+                        第4位好友使用额度
+                          <span class="r-right">
++40元现金
+                        </span>
+                    </p>
+
+                    <p>
+                        第5位好友使用额度
+                          <span class="r-right">
++50元现金
+                        </span>
+                    </p>
+
+                    <p>
+                        第5+n位好友使用额度
+                          <span class="r-right">
++50元现金
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="get-integral-w w-2">
+            <div class="in-w">
+                <div class="r-top">
+                    <div class="r-text">
+                        <span>被邀请人奖励</span>
+
+
+                    </div>
+                    <p class="r-border">
+
+                    </p>
+                </div>
+                <div class="r-cont-2">
+                    <p class="p-1">
+                        <span>+100</span>
+                        积分
+                    </p>
+                    <p>
+                        通过邀请码注册成功
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="telephone=no" name="format-detection" />
+		<title>账户激活</title>
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				recalc();if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles" />
+		<link rel="stylesheet" href="css/tooltip.css" />
+		<link rel="stylesheet" href="css/nav.css" />
+	</head>
+
+	<body style="background-color: #FFFFFF;">
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<section class="lg_reigster">
+			<ul class="lg_login_dl">
+				<li class="br_top">
+					<u>手机号</u>
+					<label id="lbl_phoneno" style="font-size: 0.32rem; margin-left: 0.35rem;"></label><i class="hq_vcode" id="hq_vcode">获取验证码</i>
+					<input id="txt_phoneno" value="" type="hidden" />
+				</li>
+				<li class="br_top">
+					<u>验证码</u>
+					<input type="tel" placeholder="请输入短信中的验证码" id="txt_vcode" onblur="changevcode()" />
+				</li>
+				<li class="br_top br_bottom">
+					<u>密&nbsp;&nbsp; 码</u>
+					<input type="password" placeholder="6-20个字母或数字组成" id="txt_phonepwd" maxlength="20" onblur="changepwd()" />
+					<i class="mm_eye_unable" onclick="change_eye(this,'txt_phonepwd')"></i></li>
+
+			</ul>
+			<ul class="lg_login_dl">
+				<li class="br_top" style="border-bottom:1px solid #EBEBEB;">
+					<u>邀请码</u>
+					<input type="tel" placeholder="请输入邀请码(选填)" id="txt_invcode" />
+				</li>
+			</ul>
+			<div class="lg_login_footer_btn">
+				<button class="write_submit_checked" id="btn_loginfrom">确认激活</button>
+			</div>
+		</section>
+
+		<!--账户已激活开始-->
+		<div class="tooltip_main_center hide_mian_div" id="accountactivate">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/account_active.png" /></div>
+						<div class="top_title">账户已激活</div>
+						<div class="top_center">“赶快去申请使用额度吧”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="home.html">
+						<div>我知道了</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!--账户已激活结束-->
+ 
+		<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+		<script type="text/javascript " src="js/History.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/tkPublic.js"></script>
+		<script type="text/javascript" src="js/pub.js"></script>
+		<script type="text/javascript" src="js/turnjson.js"></script>
+		<script>
+			$(document).ready(function() {
+				loadLogin_second();
+				$("#lbl_phoneno").html(localStorage.username);
+				$("#txt_phoneno").html(localStorage.username);
+				LoadingOver();
+			});
+			$("#hq_vcode").click(function() {
+				btnvcode(5);
+			});
+			$("#btn_loginfrom").click(function() {
+				activateclick();
+			});
+		</script>
+	</body>
+
+</html>

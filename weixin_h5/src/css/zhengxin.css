@@ -1,0 +1,159 @@
+*, div, p, ul, li, span {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 6.4rem;
+    height: 10.08rem;
+    /*outline: 0.01rem solid green;*/
+    float: left;
+    font-family: microsoft yahei;
+}
+
+.header {
+    width: 6.4rem;
+    height: auto;
+    /*outline: 0.01rem solid rgb(200,199,204);*/
+    float: left;
+}
+
+.content {
+    width: 6.4rem;
+    height: 8.06rem;
+    /*outline: 0.01rem solid rgb(200,199,204);*/
+    float: left;
+    background: rgb(240, 244, 247);
+}
+
+.footer {
+    width: 6.4rem;
+    height: 1.4rem;
+    /*outline: 0.01rem solid rgb(200,199,204);*/
+    float: left;
+
+}
+
+.header-box {
+    width: 6rem;
+    height: auto;
+    /*outline: 0.01rem solid pink;*/
+    margin-left: 0.1rem;
+    margin-top: 0.23rem;
+    margin-bottom: 0.23rem;
+    font-size: 0.27rem;
+    line-height: 0.35rem;
+    color: rgb(155, 155, 155);
+}
+
+.content-boxLeft {
+    width: 3.02rem;
+    height: 2.16rem;
+    outline: 0.01rem solid rgb(207, 211, 215);
+    margin-left: 0.105rem;
+    margin-top: 0.1rem;
+    background: white;
+    float: left;
+
+}
+
+.content-boxLeft > img {
+    width: 80%;
+    height: 80%;
+    margin-left: 10%;
+    margin-top: 6%;
+}
+
+.content-box-right {
+    width: 3.02rem;
+    height: 2.16rem;
+    outline: 0.01rem solid rgb(207, 211, 215);
+    margin-left: 0.15rem;
+    margin-top: 0.1rem;
+    background: white;
+    float: left;
+    position: relative;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.delete-picture-box {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 0.9rem solid #ffffff;
+    border-left: 0.9rem solid transparent;
+    z-index: 3;
+    display: none;
+}
+
+.delete-picture-box i {
+    display: block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    right: 0.1rem;
+    bottom: -0.8rem;
+    background: url("../images/icon_shanchu.png") no-repeat;
+    background-size: 100%;
+}
+
+.content-box-right img {
+    width: 100%;
+    height: 100%;
+}
+
+.content-boxRight-area {
+    width: 1.54rem;
+    height: 1.3rem;
+    /*outline: 0.01rem solid purple;*/
+    margin: auto;
+    margin-top: 0.42rem;
+    overflow: hidden;
+}
+
+.content-boxRight-area > p:first-of-type > img {
+    width: 0.9rem;
+    height: 0.9rem;
+    float: left;
+    margin-left: 0.32rem;
+    margin-bottom: 0.09rem;
+}
+
+.content-boxRight-area > p:last-of-type {
+    font-size: 0.255rem;
+    float: left;
+    color: rgb(171, 171, 171);
+}
+
+.footer-box {
+    width: 5.42rem;
+    height: 0.7rem;
+    border: 1px solid rgb(73, 127, 235);
+    margin: auto;
+    margin-top: 0.3rem;
+    border-radius: 0.5rem;
+    color: rgb(73, 127, 235);
+    font-size: 0.3rem;
+    text-align: center;
+    line-height: 0.7rem;
+
+}
+
+#appendImage {
+    width: 3.02rem;
+    height: 2.16rem;
+    outline: 0.01rem solid orange;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+

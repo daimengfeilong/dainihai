@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>分期意愿</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/write_from.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/new.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+    <link rel="stylesheet" href="credit_card/css/common.css"/>
+    <style>
+        .vip_desire, .policyHolder_desire{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="main_page_content">
+    <!--<div class="head_progress">-->
+    <!--<img src="images/progress1.png"/>-->
+    <!--</div>-->
+    <div class="float-wrap-box creditCard_desire">
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">您想借多少</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input class="weui_input" id="txt_loan" type="tel" placeholder=""
+                       onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+                       oninput="if (value.length > 8)value =value.slice(0, 8)"
+                       onpaste="return false">
+            </div>
+        </div>
+
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">你想借多久</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <select class="weui_input" id="drop_laonqx">
+                    <option value="-1">请选择</option>
+                </select>
+            </div>
+            <i class="arrow">
+                <img src="images/arrow_new.png">
+            </i>
+        </div>
+    </div>
+    <div class="float-wrap-box vip_desire">
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">您想借多少</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <select class="weui_input" id="sel_limit_vip">
+                    <option value="2000">2000</option>
+                </select>
+            </div>
+            <i class="arrow">
+                <img src="images/arrow_new.png">
+            </i>
+        </div>
+
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">你想借多久</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <select class="weui_input" id="sel_period_vip">
+                    <option value="-1">请选择</option>
+                </select>
+            </div>
+            <i class="arrow">
+                <img src="images/arrow_new.png">
+            </i>
+        </div>
+    </div>
+    <div class="float-wrap-box policyHolder_desire">
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">您想借多少</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <select class="weui_input" id="sel_limit_policyHolder">
+                    <option value="2000">2000</option>
+                </select>
+            </div>
+            <i class="arrow">
+                <img src="images/arrow_new.png">
+            </i>
+        </div>
+
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">你想借多久</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <select class="weui_input" id="sel_period_policyHolder">
+                    <option value="-1">请选择</option>
+                </select>
+            </div>
+            <i class="arrow">
+                <img src="images/arrow_new.png">
+            </i>
+        </div>
+    </div>
+    <div class="prompt-wrap">
+        <p>
+            <!--您目前最高可借<span class="nowLimit">1万</span>，-->
+            返回首页选择信用卡分期，最高可借5万!
+        </p>
+    </div>
+    <div class="write_from_content_frist">
+        <div class="write_from_detail">
+            <div class="write_submit_checked" id="agree_submit">立即提交</div>
+        </div>
+        <div class="clear" style="height: 0.2rem;;"></div>
+    </div>
+</div>
+
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/autonym.js"></script>
+<script type="text/javascript" src="js/baseinfo.js"></script>
+<script type="text/javascript" src="js/city_linkage.js"></script>
+<script type="text/javascript" src="js/rapiddeposit.js"></script>
+<script type="text/javascript">
+    var int64_status = localStorage.int64_status;
+    var userBusinessType = localStorage.userBusinessType;
+    var creditOK = btnstatusvalue(int64_status, 12);
+    $(function () { 	
+        //1信用卡用户，2短期用户，3现金用户，4投保人专享分期，5VIP尊享分期
+//        localStorage.userBusinessType = 1;
+        var $texLoan = $("#txt_loan");
+
+        if (userBusinessType == 1) {
+            $(".prompt-wrap").hide();
+            $texLoan.attr('placeholder', '请输入1000--50000的分期额度');
+        } else if (userBusinessType == 5) {
+            $(".vip_desire").show();
+            $(".creditCard_desire, .policyHolder_desire").hide();
+        } else {
+            $(".policyHolder_desire").show();
+            $(".creditCard_desire, .vip_desire").hide();
+        }
+                
+        $(document).on('click', '#agree_submit', function () {
+        	isMountRight()
+        })
+    });
+    
+    // 获取策略列表回调 
+    function gainstrategyCB(){
+    	// 借款决策自动填写上次用户的期数
+		$("#drop_laonqx").val(localStorage.int32_strategy_id);
+//		if(!(localStorage.int32_apply_status == 0)){
+//			$("#drop_laonqx").attr("disabled", "disabled")
+//		}
+    }
+
+    function submit(lm, laonqsid) {
+        var url = urlLink + '/web/precashstrategy/submit';
+//        var data = {
+//            "cash": lm,
+//            "strategy_id": laonqsid
+//        };
+//        ajaxFn(url, data, success, null, "POST");
+        var send = 'cash=' + lm + '&strategy_id=' + laonqsid;
+        Loading();
+        xmlHttpRequest(send, url, success, 'POST');
+    }
+    function success(_data) {
+        switch (_data.code) {
+            case 0:
+                window.location.href = 'check_status.html';
+                break;
+            case -10003:
+                session_expired(_data.msg);
+                break;
+            case -10002:
+                window.location.href = "login.html";
+                break;
+            default :
+                top_meassage(_data.msg);
+                show_topmessage();
+                break;
+        }
+        LoadingOver();
+    }
+		
+	//	判断输入金额是否合法
+    function isMountRight() {
+        var lm, loanqsid;
+        if (userBusinessType == 1) {
+            lm = $("#txt_loan").val();
+            loanqsid = $("#drop_laonqx").val();
+
+            if(!/\d+/.test(lm)){
+                top_meassage("请输入正确的分期额度");
+                return
+            }
+
+            if (int64_status == 0 || int64_status == null || int64_status == "undefined" || int64_status == "") {
+                if (userBusinessType == 1) {
+                    if (lm < 1000) {
+                        top_meassage("请输入正确的分期额度(1000-50000)");
+                    } else if (lm > 50000) {
+                        top_meassage("请输入正确的分期额度(1000-50000)");
+                    } else {
+                        $("#topmeassage").hide();
+                        submit(lm, loanqsid);
+                    }
+                }
+            } else {
+                if (creditOK == 1) {
+                    if (lm < 1000) {
+                        top_meassage("请输入正确的分期额度(1000-50000)");
+                    } else if (lm > 50000) {
+                        top_meassage("请输入正确的分期额度(1000-50000)");
+                    } else {
+                        $("#topmeassage").hide();
+                        submit(lm, loanqsid);
+                    }
+                }
+            }
+        } else if (userBusinessType == 5) {
+            lm = $("#sel_limit_vip").val();
+            loanqsid = $("#sel_period_vip").val();
+            submit(lm, loanqsid);
+        } else {
+            lm = $("#sel_limit_policyHolder").val();
+            loanqsid = $("#sel_period_policyHolder").val();
+            submit(lm, loanqsid);
+        }
+
+    }
+        
+</script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <link href="https://api.51datakey.com/libs/ionicons/ionicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link id="icoImg" rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="mx-import">
+        <!--react dom here-->
+    </div>
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-92420338-1', 'auto');
+        ga('send', 'pageview');
+        function trackJavaScriptError(e) {
+            ga('send', 'event', {
+                'eventCategory': 'JavaScript Error',
+                'eventAction': e.message,
+                'eventLabel': JSON.stringify({
+                    v: 20170222,
+                    ua: navigator.userAgent,
+                    url: location.href,
+                    filename: e.filename,
+                    e: e
+                })
+            });
+        }
+        window.addEventListener('error', trackJavaScriptError, false);
+    </script>
+    <!--//www.google-analytics.com/analytics.js-->
+    <script async src='scripts/analytics.js'></script>
+    <script src="scripts/gw.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,795 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>现金分期</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/loadding.css" rel="stylesheet" type="text/css">
+    <link href="css/tooltip.css" rel="stylesheet" type="text/css">
+    <link href="css/new.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="credit_card/css/common.css"/>
+    <link rel="stylesheet" href="credit_card/css/rules.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <style>
+        body{
+            font-size: 0.26rem;
+        }
+    	.main_page_content{
+    		background: url("./wap/images/cash.png") no-repeat;
+    		background-size: 7.5rem;
+    	}
+        .tab1{
+            margin-top: 3.7rem;
+            padding-bottom: 0.4rem;
+        }
+        .main_page_content{
+            height: auto;
+        }
+        .protocol{
+            /*text-align: center;*/
+        }
+        .protocol img{
+            width: 0.36rem;
+            height: 0.36rem;
+        }
+        .protocol span, .protocol img{
+            vertical-align: middle;
+        }
+        .protocol a{
+            color: #ff943a;
+        }
+        table{
+            height: auto;
+        }
+        table td{
+            padding: 0.5rem 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--7.27修改S-->
+
+<div class="main_page_content" style="padding-bottom: 0.7rem;">
+    <section class="tab1 shadowBox">
+        <div class="wrap">
+            <ul>
+                <li>
+                    <dl>
+                        <dt>申请金额</dt>
+                        <dd>1000 - 10000元</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>申请期限</dt>
+                        <dd>12个月</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="last">
+                        <dt>还款方式</dt>
+                        <dd>等额本息，分期还款</dd>
+                    </dl>
+                </li>
+                <!--<li>-->
+                    <!--<dl class="last">-->
+                        <!--<dt>放款方式</dt>-->
+                        <!--<dd>放款至储蓄卡</dd>-->
+                    <!--</dl>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<dl class="last">-->
+                        <!--<dt>月利率</dt>-->
+                        <!--<dd>0.64%</dd>-->
+                    <!--</dl>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <!--<table>-->
+            <!--<tr>-->
+                <!--<td>期数</td>-->
+                <!--<td>月利率</td>-->
+                <!--<td>月服务费率</td>-->
+                <!--<td>月账户管理费率</td>-->
+                <!--&lt;!&ndash;<td>总月息</td>&ndash;&gt;-->
+            <!--</tr>-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>3</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>1.67%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>1.20%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>0.37%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>0.30%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>6</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>1.67%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>1.00%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>0.45%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td>0.55%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--<tr>-->
+                <!--<td>12</td>-->
+                <!--<td>0.64%</td>-->
+                <!--<td>1.12%</td>-->
+                <!--<td>1.24%</td>-->
+                <!--&lt;!&ndash;<td>3.00%</td>&ndash;&gt;-->
+            <!--</tr>-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>18</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>0.81%</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>1.06%</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>1.12%</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<td>2.99%</td>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+            <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>24</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>0.85%</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>0.98%</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>1.16%</td>&ndash;&gt;-->
+                <!--&lt;!&ndash;<td>2.06%</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+        <!--</table>-->
+    </section>
+
+    <section class="tab2 shadowBox" style="margin-bottom: 0.2rem;">
+        <div class="li">
+            <h3>综合月费率</h3>
+            <p>≤ 3%</p>
+            <p>由利息、咨询服务费、信息服务费、账户费等组成。</p>
+        </div>
+
+        <div class="li">
+            <h3>逾期费用</h3>
+
+            <p>若逾期30天内，每日逾期滞纳金按剩余未还总额*0.25%收取，若逾期超过30天（包含第30天），每日逾期滞纳金按剩余未还款总额*0.5%收取，另支付10元/笔违约金。</p>
+        </div>
+
+        <div class="li">
+            <h3>总还款额</h3>
+
+            <p>总还款额=本金+利息+综合服务费+逾期费用（若有逾期）</p>
+        </div>
+        <div class="li">
+            <p class="protocol">
+                <img src="images/user_detail/icon_xuanze_press.png" alt="">&nbsp;
+                <span style="font-weight: bold;">保险</span>
+                <span style="color: #999;font-size: 0.22rem;">（该产品由您自愿购买）</span>
+            </p>
+        </div>
+    </section>
+
+    <section class="tab2 shadowBox">
+        <p style="padding: 0.2rem 0.3rem;color: #999;font-size: 0.22rem;">您申请的是消费分期，申请成功以后可获得消费额度。</p>
+    </section>
+	
+    <div class="btn-all-box">
+        <a href="javascript:" onclick="creditB(3)">我要申请</a>
+    </div>
+</div>
+
+
+
+<!--资料已拒绝开始-->
+<div class="tooltip_main_center hide_mian_div" id="filereject">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/filereject.png">
+            </div>
+            <p class="cont-p1">资料已拒绝</p>
+
+            <p class="cont-p2">如有疑问，请联系客服</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filereject');" class="cancel-l">我知道了</a>
+                </li>
+                <li>
+                    <a href="tel://400-034-5666" class="btn-r">拨打客服</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--资料已拒绝结束-->
+
+<!--资料已拒绝冷却中开始-->
+<div class="tooltip_main_center hide_mian_div" id="filereject_lqz">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/filereject.png">
+            </div>
+            <p class="cont-p1">资料被拒绝</p>
+
+            <p class="cont-p2">系统给出的综合信用评分不足</p>
+
+            <!--<p class="cont-p3 remive_day">距离再次申请还有<span>0</span>天</p>-->
+            <p class="cont-p2">点击按钮优选<span class="moreLoan">【更多领钱通道】</span>服务</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <!--<a href="javascript:divhide('filereject_lqz')" class="btn-k">我知道了</a>-->
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filereject_lqz');" class="cancel-l">我知道了</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="toMoreLoan()" class="btn-r">更多领钱通道</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--资料已拒绝冷却中结束-->
+
+<!---资料审核中开始-->
+<div class="tooltip_main_center hide_mian_div" id="fileaubit">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/time_pic.png">
+            </div>
+            <p class="cont-p1">资料审核中</p>
+
+            <p class="cont-p2">审核通过后才能使用额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <a href="javascript:divhide('fileaubit')" class="btn-k">我知道了</a>
+        </div>
+    </div>
+</div>
+<!---资料审核中结束-->
+
+
+<!---您有未完成的贷款开始-->
+<div class="tooltip_main_center hide_mian_div" id="udoneloan">
+
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/udoneloan.png">
+            </div>
+            <p class="cont-p1">您有未完成的分期</p>
+
+            <p class="cont-p2">分期完成后才能再次使用额度</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('udoneloan')" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="winopenurl('loanplan.html')" class="btn-r">查看进度</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---您有未完成的贷款结束-->
+<!---请先完善资料开始-->
+<div class="tooltip_main_center hide_mian_div" id="filenew">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/filenew.png">
+            </div>
+            <p class="cont-p1">请先完善资料</p>
+
+            <p class="cont-p2">完善资料后才能使用额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filenew');" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="btnrealviery()" class="btn-r">填写资料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---请先完善资料结束-->
+<!--资料已拒绝冷却结束开始-->
+<div class="tooltip_main_center hide_mian_div" id="filereject_lqjs">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/fileaubit.png">
+            </div>
+            <p class="cont-p1">资料被打回</p>
+
+            <p class="cont-p2">填写真实资料才能获得额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('filereject_lqjs');" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="winopen_checkstatus(102)" class="btn-r">修改资料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--资料已拒绝冷却结束结束-->
+<!---资料被打回开始-->
+<div class="tooltip_main_center hide_mian_div" id="fileback">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/fileaubit.png">
+            </div>
+            <p class="cont-p1">资料被打回</p>
+
+            <p class="cont-p2">填写真实资料才能获得额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('fileback');" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="winopen_checkstatus(102)" class="btn-r">修改资料</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---资料被打回结束-->
+<!---您还没有绑定银行卡开始-->
+<div class="tooltip_main_center hide_mian_div" id="nobankcard">
+    <div class="tooltip-box">
+        <img src="images/tooltip_node_h.png">
+
+        <div class="tooltip-cont-box">
+            <div class="cont-img-box">
+                <img src="images/card_small.png">
+            </div>
+            <p class="cont-p1">您还没有绑定银行卡</p>
+
+            <p class="cont-p2">绑定银行卡后才能使用额度哦</p>
+        </div>
+        <div class="tooltip-bottom-box">
+            <ul>
+                <li>
+                    <a href="javascript:divhide('nobankcard')" class="cancel-l">稍后再说</a>
+                </li>
+                <li>
+                    <a href="javascript:" onclick="btnaddbenkpay()" class="btn-r">绑定银行卡</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---您还没有绑定银行卡结束-->
+
+<script type="text/javascript" src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript" src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js "></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/turnjson.js?v=0.1"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="js/actionSheet.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+<script>
+$(function () {
+    FastClick.attach(document.body);
+    $.ajax({
+        url: urlLink + '/web/fieldconfigurationget/get',
+        type: 'get',
+        data: {
+            int32_type: '1'
+        },
+        xhrFields:{
+            withCredentials:true
+        },
+        success: function (data) {
+            console.log(data);
+            if (data.code == 0) {
+                $("#slider-0,#slider-1").attr('value',data.data.int32_default);
+                btnCVal('slider-0', null);
+            }
+        },
+        err: function () {
+            console.log('请求失败');
+        }
+    })
+});
+
+// iframe自动设置宽高
+function reinitIframe(){
+	var iframe = document.getElementById("iframepage");  
+	try{  
+	    var bHeight = iframe.contentWindow.document.body.scrollHeight;  
+	    var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;  
+	    var height = Math.max(bHeight, dHeight);
+	    console.log(bHeight, dHeight)
+	    iframe.height = height; 
+	    $(".iframe_cover").css("height", height)
+	}catch (ex){}  
+}  
+
+function thisCallB(html) {
+    cancel();
+    $(".lt_bar_panul").find("li").remove();
+    $(".lt_bar_panul").append(html);
+    loadcaculate();
+}
+
+//月份的按钮
+function monthBtn(sign) {
+    var ulpH = $(".lt_bar_panul p").outerHeight();
+    if (sign == "-") {
+        monthScroll("+", "lt_bar_panul", ulpH, "left");
+    } else if (sign == "+") {
+        monthScroll("-", "lt_bar_panul", ulpH, "right");
+    }
+}
+
+
+//等于3的时候，左边的箭头就消失了
+//等于36的时候，右边的箭头就消失了
+function monthScroll(sig, object, H, direction) {
+    var $u = $("." + object);
+    var $firstLi = $u.find("li:first");
+    var liLastHtml = $u.find("li:last");
+    var sliderVal = $("#slider-0").val();
+
+    if (1000 <= parseInt(sliderVal)) {
+        if (parseInt(sliderVal) <= 10000) {
+            if (direction == "left") {
+                $u.prepend(liLastHtml);
+                $u.animate({
+                    marginTop: sig + H + "px"
+                }, 100, function () {
+                    $u.css({marginTop: 0});
+                    var $p = $u.find("li:first").find("p");
+                    if (parseInt(sliderVal) >= 1000 && parseInt(sliderVal) <= 10000) {
+                        new_select($p);
+                    }
+
+                    if ($p.attr("alt").split("_")[0] == 3) {
+                        $("#big-x-left").hide();
+                    } else {
+                        $("#big-x-left").show();
+                        $("#big-x-right").show();
+                    }
+                });
+            } else if (direction == "right") {
+                $u.animate({
+                    marginTop: sig + H + "px"
+                }, 100, function () {
+                    $firstLi.appendTo($u);
+                    $u.css({marginTop: 0});
+                    var $p = $u.find("li:first").find("p");
+                    if (parseInt(sliderVal) >= 1000 && parseInt(sliderVal) <= 10000) {
+                        new_select($p);
+                    }
+                    if ($p.attr("alt").split("_")[0] == 36) {
+                        $("#big-x-right").hide();
+                    } else {
+                        $("#big-x-left").show();
+                        $("#big-x-right").show();
+                    }
+                });
+            }
+        }
+    }
+}
+
+function new_select(object) {
+//样式改了, 所以逻辑也修改
+    if (object != null) {
+        var $this = object;
+        var strspt = $this.attr("alt").split("_");
+        /*分几期_间隔_费率_利息_类型*/
+        caculate(strspt[0], strspt[1], strspt[2], strspt[3], strspt[4]);
+        $(".loantrial-stratge-type").text($this.text());
+        return false;
+    }
+}
+
+
+//    function new_select() {
+////样式改了, 所以逻辑也修改
+//        $(".lt_bar_panul p").click(function () {
+//            var $this = $(this);
+//            var strspt = $this.attr("alt").split("_");
+//            /*分几期_间隔_费率_利息_类型*/
+//            caculate(strspt[0], strspt[1], strspt[2], strspt[3], strspt[4]);
+//            $(".loantrial-stratge-type").text($this.text());
+//            return false;
+//        })
+//    }
+
+
+//如果滑动条的的值大于等于10000的时候，贷款金额右边的箭头消失，否则显示
+//如果滑动条的值小于等于1000的时候，贷款金额的左边的箭头消失，否则显示
+$("#div-slider").change(function () {
+    var slider_value = $("#slider-1").val();
+    if (slider_value >= 10000) {
+        $("#text-p-1").find("a").removeClass("active");
+        $("#money-right").addClass("active");
+    } else if (slider_value <= 1000) {
+        $("#text-p-1").find("a").removeClass("active");
+        $("#money-left").addClass("active");
+    } else {
+        $("#text-p-1").find("a").removeClass("active");
+    }
+    $("#slider-0").val(slider_value);
+    $("#hid_value").val(slider_value);
+    loadcaculate();
+});
+
+
+//当期数等于6的时候，贷款策略左边箭头消失。其他情况左边箭头显示
+//当期数等于24的时候，贷款策略右边的箭头消失。其他情况右边箭头显示
+$(document).ready(function () {
+    loadLogin_second();
+    gain_strategy();
+//    setTimeout(function () {
+//        var $p = $(".lt_bar_panul").find("li:first").find("p");
+//        if ($p.attr("alt").split("_")[0] == 3) {
+//            $("#big-x-left").hide();
+//        } else if ($p.attr("alt").split("_")[0] == 36) {
+//            $("#big-x-right").hide();
+//        } else {
+//            $("#big-x-left").show();
+//            $("#big-x-right").show();
+//        }
+//        new_select($p);
+////            new_select();
+////            $(".lt_bar_panul p:first").trigger("click");
+//        /*
+//         var $selval = $('#selectlaonq');
+//         $selval.val("0");
+//         var $obj = $(".lt_bar_panul").find("li");
+//         var len = $obj.length;
+//         var i = 0;
+//         $("#btnleftloan").on("click", function() {
+//         i--;
+//         if (i == 0) {
+//         $("#btnrightloan").addClass("big-right");
+//         $(this).removeClass("big-left");
+//         } else {
+//         $(this).addClass("big-left");
+//         $("#btnrightloan").addClass("big-right");
+//         $selval.val(i);
+//         }
+//         $obj.stop(true, true).hide().eq(i).fadeIn(600);
+//         var strspt = $obj.eq(i).find("p").attr("alt").split('_');
+//         //分几期_间隔_费率_利息_类型
+//         caculate(strspt[0], strspt[1], strspt[2], strspt[3], strspt[4]);
+//         return false;
+//         });
+//         $("#btnrightloan").on("click", function() {
+//         i++;
+//         if ((i + 1) == len) {
+//         $("#btnleftloan").addClass("big-left");
+//         $(this).removeClass("big-right");
+//         } else {
+//         $("#btnleftloan").addClass("big-left");
+//         $(this).addClass("big-right");
+//         $selval.val(i);
+//         }
+//         $obj.stop(true, true).hide().eq(i).fadeIn(600);
+//         var strspt = $obj.eq(i).find("p").attr("alt").split('_');
+//         //分几期_间隔_费率_利息_类型
+//         caculate(strspt[0], strspt[1], strspt[2], strspt[3], strspt[4]);
+//         return false;
+//         });
+//         loadcaculate();
+//         */
+//    }, 1000);
+    loadLoanMoney();
+
+    $(document).on("click", "#lt_bar_panul", function () {
+        show();
+    })
+
+});
+
+//当点击贷款左箭头的时候加100
+//当点击贷款右箭头的时候减100
+function btnCVal(sid, type) {
+    var amount = parseInt($("#" + sid).val());
+    if (amount < 1000 || amount == '' || amount == 'undefined' || amount == null) {
+        $("#slider-0").val('1000');
+        amount = 1000;
+    } else if (amount > 10000) {
+        $("#slider-0").val('10000');
+        amount = 10000;
+    }
+    if (type == "+") {
+        var maxM = parseInt(amount) + 100
+        if (maxM >= 10000) {
+            $("#" + sid).val("10000");
+            $("#text-p-1").find("a").removeClass("active");
+            $("#money-right").addClass("active");
+        } else {
+            $("#" + sid).val(parseInt(amount) + 100);
+            $("#text-p-1").find("a").removeClass("active");
+        }
+    } else if (type == "-") {
+        var minM = parseInt(amount) - 100;
+        if (minM <= 1000) {
+            $("#" + sid).val("1000");
+            $("#text-p-1").find("a").removeClass("active");
+            $("#money-left").addClass("active");
+        } else {
+            $("#" + sid).val(parseInt(amount) - 100);
+            $("#text-p-1").find("a").removeClass("active");
+        }
+    }
+
+//    滑动块块的样式，当点击的时候，就会改变样式
+//    滑动条的css的长度就百分比
+    var lenv = parseInt($("#" + sid).val());
+    $(".ui-slider-handle").attr("aria-valuenow", lenv);
+    $(".ui-slider-handle").attr("aria-valuetext", lenv);
+    $(".ui-slider-handle").attr("title", lenv);
+    var len = (lenv == 1000 ? 0 : lenv) * (1 / 100);
+    $(".ui-slider-handle").css("left", len + "%");
+    $(".ui-slider-bg").css("width", len + "%");
+    loadcaculate();
+    hide_topmessage();
+}
+
+
+//贷款的期数的改变的代码，用find去发现第几个儿子就显示第几个儿子
+function loadcaculate() {
+    var $obj = $(".lt_bar_panul").find("li:first");
+    var len = $obj.length;
+    for (var k = 0; k < len; k++) {
+        if ($obj.eq(k).css("display") != "none") {
+            var strspt = $obj.eq(k).find("p").attr("alt").split('_');
+            /*分几期_间隔_费率_利息_类型*/
+            caculate(strspt[0], strspt[1], strspt[2], strspt[3], strspt[4]);
+        }
+    }
+}
+
+//借款金额改变
+function numberChange(obj) {
+    var thisVal = $(obj).val();
+    if (obj.value.length > 5) {
+        obj.value = obj.value.slice(0, 5)
+    }
+
+    if (thisVal == "undefined" || thisVal == '' || thisVal == null) {
+        top_meassage("请输入金额");
+        show_topmessage();
+    } else if (parseInt(thisVal) < 1000) {
+        $("#text-p-1").find("a").removeClass("active");
+        $("#money-left").addClass("active");
+        top_meassage("请输入正确的试算金额（1000-10000）");
+        show_topmessage();
+    } else if (parseInt(thisVal) > 10000) {
+        $("#text-p-1").find("a").removeClass("active");
+        $("#money-right").addClass("active");
+        top_meassage("请输入正确的试算金额（1000-10000）");
+        show_topmessage();
+    } else {
+
+        if (parseInt(thisVal) == 1000) {
+            $("#text-p-1").find("a").removeClass("active");
+            $("#money-left").addClass("active");
+        } else if (parseInt(thisVal) == 10000) {
+            $("#text-p-1").find("a").removeClass("active");
+            $("#money-right").addClass("active");
+        } else if (1000 < parseInt(thisVal) < 10000) {
+            $("#text-p-1").find("a").removeClass("active");
+        }
+
+        var lenv = parseInt(thisVal);
+        $(".ui-slider-handle").attr("aria-valuenow", lenv);
+        $(".ui-slider-handle").attr("aria-valuetext", lenv);
+        $(".ui-slider-handle").attr("title", lenv);
+        var len = (lenv == 1000 ? 0 : lenv) * (1 / 100);
+        $(".ui-slider-handle").css("left", len + "%");
+        $(".ui-slider-bg").css("width", len + "%");
+
+        loadcaculate();
+        hide_topmessage();
+    }
+}
+
+//贷款金额乘以利率，就可以得到利息，加上本金除以期数，就每期应该还的数值
+/*分几期_间隔_费率_利息_类型*/
+function caculate(m, jg, fl, f, type) {
+    var repayAmount = 0;
+    var monthAmount = 0;
+    var count = m * jg;
+    var loanAmount = parseFloat($("#slider-0").val()) * 100;
+    var aditinal = loanAmount == 0 ? 0 : (200 * m);
+    if (type == 0) { /*day*/
+        var rate = parseFloat((fl + f) * count) / 10000 + 1;
+        repayAmount = parseFloat((parseFloat(loanAmount) * rate) + aditinal) / 100;
+    } else { /*month*/
+        var p = parseFloat(loanAmount);
+        var n = parseFloat(count);
+        var feil = parseFloat(fl) / 10000;
+        var lx = parseFloat(f) / 10000;
+        var tmp = Math.pow(1 + feil, n);
+        var pay_f = Math.round(p * lx);
+        var A = Math.round(p * (feil * tmp) / (tmp - 1) * n);
+        var F = parseFloat(pay_f) * n;
+        repayAmount = parseFloat(A + F + aditinal) / 100;
+    }
+    monthAmount = parseFloat(repayAmount / m);
+    //每月应还 mothAmout 取整
+    monthAmount = Math.ceil(monthAmount);
+
+    //每月应还 * 期数
+    repayAmount = monthAmount * m;
+
+    $("#monthamount").html(monthAmount);
+    $("#allamount").html(repayAmount);
+    LoadingOver();
+}
+
+//滑动就等于 滑动的值变成了百分比，乘以本金得到利息
+function loadLoanMoney() {
+    var lenv = localStorage.loantailmoney;
+    if (lenv != "" && lenv != null && lenv != "undefined") {
+        $("#slider-0").val(lenv);
+        $("#hid_value").val(lenv);
+        $(".ui-slider-handle").attr("aria-valuenow", lenv);
+        $(".ui-slider-handle").attr("aria-valuetext", lenv);
+        $(".ui-slider-handle").attr("title", lenv);
+        var len = (lenv == 1000 ? 0 : lenv) * (1 / 100);
+        $(".ui-slider-handle").css("left", len + "%");
+        $(".ui-slider-bg").css("width", len + "%");
+    }
+}
+</script>
+</body>
+
+</html>

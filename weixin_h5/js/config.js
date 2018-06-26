@@ -1,0 +1,1 @@
+var host=window.location.host,protocol=location.protocol,link=protocol+"//"+host;"http:"==protocol&&(link="https://lhwap.dt1.9fwealth.com"),console.log(link);var imgLink=link,urlLink=link,wxurllink=link,PordLink=link,urlPicLink=link,urlFaceLink="http://facecount.bycx.com:8890";

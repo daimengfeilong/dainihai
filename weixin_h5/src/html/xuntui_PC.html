@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>迅推</title>
+    <link rel="shortcut icon" href="images/dainihai.ico"/>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <!--[if lte IE 9]>
+    <script type="text/javascript" src="js/html5.js"></script>
+    <script type="text/javascript" src="js/PIE_IE678.js"></script>
+    <![endif]-->
+
+    <style>
+        .bgImage{
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            background: url("./images/xuntui/xuntui_bg.png") repeat center;
+            background-size: 100% 100%;
+        }
+        .registerForm{
+            position: absolute;
+            left: 59%;
+            top: 41%;
+            margin-top: -183px;
+            width: 365px;
+            height: 395px;
+            background: url("./images/xuntui/xuntui_bg2.png") repeat center;
+            background-size: 100% 100%;
+        }
+        .registerForm form{
+            margin-top: 80px;
+            width: inherit;
+            text-align: center;
+            /*margin: 80px auto 0 auto;*/
+            padding: 0 36px 0 27px;
+        }
+        .registerForm form div{
+            width: 100%;
+            /*margin-bottom: 18px;*/
+        }
+        .registerForm form input{
+            width: 100%;
+            height: 46px;
+            border: 1px solid #182983;
+            font-size: 20px;
+            padding-left: 8px;
+            *padding-left: 0;
+            line-height: 46px;
+        }
+        .registerForm form .vCode input{
+            width: 205px!important;
+            /*margin-right: 13px;*/
+        }
+        .vCode{
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 18px;
+            text-align: left!important;
+        }
+        .vCode label{
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 5;
+            display: inline-block;
+            width: 82px;
+            height: 46px;
+            border: 1px solid #182983;
+            background-color: #ffea59;
+            font-size: 18px;
+            color: #1a1a1a;
+            text-align: center;
+            line-height: 45px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .register-btn span{
+            display: inline-block;
+            width: 100%;
+            height: 48px;
+            border: 1px solid #182983;
+            background-color: #ffea59;
+            border-radius: 24px;
+            font-size: 22px;
+            color: #182983;
+            line-height: 46px;
+            cursor: pointer;
+        }
+        .register-hint{
+            font-size: 18px;
+            color: #182983;
+            margin-top: 12px;
+        }
+        .registerSuc{
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .registerSuc-bg{
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            filter: Alpha(opacity=70);
+            background-color: rgba(0,0,0,0.7);
+        }
+        .registerSuc-img{
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 6;
+            width: 100%;
+            height: 100%;
+        }
+        .registerSuc-img img{
+            width: 100%;
+            height: 100%;
+        }
+        .validate{
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(51,51,51,0.5);
+            display: none;
+        }
+        .validate-cnt{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 450px;
+            *width: 350px;
+            height: 320px;
+            margin-left: -225px;
+            margin-top: -160px;
+            padding: 0 50px;
+            /*background-color: white;*/
+            border-radius: 30px;
+            background: url("./images/guangdiantong/alert-bg.png") repeat center;
+            background-size: 100% 100%;
+            text-align: center;
+        }
+        .validate-cnt h5{
+            padding: 20px 0;
+            font-size: 20px;
+            color: #333;
+            font-weight: normal;
+        }
+        .validate-input{
+
+        }
+        .validate-input p{
+            padding: 20px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .validate-input input{
+            border: 1px solid #c6c6c6;
+            border-radius: 50px;
+            font-size: 16px;
+            width: 100%;
+            height: 45px;
+            padding-left: 125px;
+            *padding-left: 0;
+            line-height: 45px;
+        }
+        .validate-input img{
+            width: 175px;
+            height: 50px;
+            line-height: 44px;
+            border: 1px solid #eee;
+            margin-right: 50px;
+        }
+        .changeCode{
+            font-size: 16px;
+            color: #0198ef;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .validate-btn{
+            width: 100%;
+            margin: 22px 0;
+            overflow: hidden;
+        }
+        .validate-btn div{
+            display: inline-block;
+            width: 140px;
+            height: 40px;
+            text-align: center;
+            line-height: 39px;
+            border-radius: 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .validate-btn-cancel{
+            float: left;
+            border: 1px solid #ccecff;
+            background-color: #e1f4ff;
+            color: #0198ef;
+            /*margin-right: 60px;*/
+        }
+        .validate-btn-sure{
+            float: right;
+            border: 1px solid #0188d6;
+            background-color: #0198ef;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="bgImage">
+    <div class="registerForm">
+        <form action="#">
+            <div style="margin-bottom: 18px">
+                <input type="tel" id="register-phone" placeholder="手机号">
+            </div>
+            <div class="vCode">
+                <input type="tel" id="vfcode-text" placeholder="验证码"><label id="vfction-code" class="vfction-code">验证码</label>
+            </div>
+            <div style="margin-bottom: 28px">
+                <input type="password" id="register-pwd" placeholder="密码">
+            </div>
+            <div class="register-btn">
+                <span onclick="registerBtn()">立即注册</span>
+            </div>
+            <div class="register-hint">
+                <span>* 无法注册？请切换其他浏览器打开</span>
+            </div>
+        </form>
+    </div>
+</div>
+<!--弹出注册成功-->
+<div class="registerSuc">
+    <div class="registerSuc-bg"></div>
+    <div class="registerSuc-img">
+        <img src="./images/xuntui/success.png" alt="">
+    </div>
+</div>
+<!--弹出图形验证-->
+<div class="validate">
+    <div class="validate-cnt">
+        <h5>请输入图片验证码</h5>
+        <div class="validate-input">
+            <div>
+                <input type="text" name="input-validate" placeholder="请输入验证码">
+            </div>
+            <p>输入下图中的字符,不区分大小写</p>
+            <div>
+                <img src="" alt="暂无图片" style="vertical-align: middle">
+                <span style="vertical-align: middle;" class="changeCode">看不清,换一张</span>
+            </div>
+        </div>
+        <div class="validate-btn">
+            <div class="validate-btn-cancel"><span>取消</span></div>
+            <div class="validate-btn-sure"><span>确定</span></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript">
+    // 让IE7支持placeholder
+    var JPlaceHolder = {
+        //检测
+        _check : function(){
+            return 'placeholder' in document.createElement('input');
+        },
+        //初始化
+        init : function(){
+            if(!this._check()){
+                this.fix();
+            }
+        },
+        //修复
+        fix : function(){
+            jQuery(':input[placeholder]').each(function(index, element) {
+                var self = $(this), txt = self.attr('placeholder');
+                self.wrap($('<div></div>').css({position:'relative', zoom:'1', border:'none', background:'none', padding:'none', margin:'none'}));
+                var pos = self.position(), h = self.outerHeight(true), paddingleft = self.css('padding-left');
+                var holder = $('<span></span>').text(txt).css({position:'absolute', left:pos.left + 8, top:pos.top, height:h, lineHeight:h + 'px', paddingLeft:paddingleft, color:'#666',fontSize: '20px'}).appendTo(self.parent());
+                self.focusin(function(e) {
+                    holder.hide();
+                }).focusout(function(e) {
+                    if(!self.val()){
+                        holder.show();
+                    }
+                });
+                holder.click(function(e) {
+                    holder.hide();
+                    self.focus();
+                });
+            });
+        }
+    };
+
+    var clicked = false;  // 是否获取了验证码
+    $(function () {
+        JPlaceHolder.init();
+        // 获取验证码
+        $("#vfction-code").click(function () {
+            shareCode(1);
+        });
+        // 验证码框获取焦点时
+        $("#vfcode-text").click(function () {
+            if (!clicked) {
+                $(this).blur();
+                alert('请先获取验证码');
+                return false;
+            }
+        });
+        // 重新获取验证码
+        $(".vCode").on('click', '.weui-vcode-btn.vfction-code', function () {
+            shareCode(1);
+        });
+        $(".validate-btn-sure").click(function () {
+            inputImgCode(1);
+        });
+        $(".validate-btn-cancel").click(function () {
+            $(".validate").fadeOut();
+        });
+        $('.changeCode').click(function () {
+            $(".validate input").val('');
+            $(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+        })
+    });
+
+    //验证图形码
+    function inputImgCode (type) {
+        var inputVal = $('.validate-input input').val();
+        $.ajax({
+            url: urlLink + '/web/validation/verifyCode',
+            type: 'post',
+            data: {
+                iCode: inputVal
+            },
+            xhrFields:{
+                withCredentials:true
+            },
+            success: function (data){
+                console.log(data);
+                if (data.code == 0) {
+                    setTimeout(function () {
+                        $(".validate").fadeOut();
+                    }, 1000);
+                    var sourceType = GetUrlParameter("type");
+                    var phone = $("#register-phone").val();
+                    getVerifyCod(phone, type, sourceType, inputVal);
+                } else {
+                    $(".validate input").val('');
+                    $(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+                    alert('验证码输入错误');
+                }
+            },
+            err: function (err) {
+                console.log(err);
+            }
+        })
+    }
+    //<!--分享页面发送验证码S-->
+    function shareCode(type) {
+        var phone = $("#register-phone").val();
+        if (phone == "" || phone == null || phone == "undefined") {
+            alert("请输入您的手机号码");
+            return false;
+        } else if (!regPhone.exec(phone)) {
+            alert("请输入正确的手机号码");
+            return false;
+        } else {
+            $.ajax({
+                url: urlLink + '/web/validation/need_code',
+                type: 'get',
+                xhrFields:{
+                    withCredentials:true
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data.code == 0) {
+                        $(".validate").fadeIn();
+                        $(".validate input").val('');
+                        $(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+                    } else {
+                        var sourceType = GetUrlParameter("type");
+                        getVerifyCod(phone, type, sourceType, '');
+                    }
+                },
+                err: function (err) {
+                    console.log('请求失败')
+                }
+            });
+        }
+    }
+
+    function getVerifyCod(phone, type, sourceType, codeVal) {
+        $.ajaxSetup({
+            xhrFields:{
+                withCredentials:true
+            }
+        });
+        $.post(urlLink + "/web/validation/send_msg", {
+            phone_number: phone,
+            msg_type: type,
+            type: sourceType,
+            iCode: codeVal
+        }, function (result) {
+            var datat = $.toJSON(result);
+            var obj = jQuery.parseJSON(datat);
+            switch (obj.code) {
+                case 0: //OK
+                    alert("验证码发送成功，请注意查看手机！");
+                    shareTime('vfction-code');
+                    clicked = true;
+                    break;
+                case -10001:
+                    alert("手机号已注册，请直接登录");
+                    break;
+                default:
+                    alert(obj.msg);
+                    break;
+            }
+        });
+
+    }
+    //<!--分享页面发送验证码E-->
+    //<!--点击第一个立即下载S-->
+    function registerBtn() {
+        var phone = $("#register-phone").val();
+        var verifyCode = $("#vfcode-text").val();
+        var pwd = $("#register-pwd").val();
+//        var checked = $("#checkboxOneInput").is(':checked');
+//  <!--渠道来源-->
+        var type = GetUrlParameter("type");
+        var vcode = GetUrlParameter("vcode");
+        if (phone == null || phone == '' || phone == 'undefined') {
+            alert("请输入您的手机号码！");
+        } else if (!regPhone.exec(phone)) {
+            alert("请输入正确的手机号码！");
+        } else if (verifyCode == "" || verifyCode == null || verifyCode == "undefined") {
+            alert("请输入短信中的验证码！");
+        } else if (pwd == "" || pwd == null || pwd == "undefined") {
+            alert("请输入您的密码！");
+        } else if (!regPwd.exec(pwd)) {
+            alert("密码由6-20个字母或数字组成！");
+        } else if (pwd.length < 6 || pwd.length > 20) {
+            alert("密码由6-20个字母或数字组成！");
+        } else {
+            if (type != 'undefined' && type != '' && type != null) {
+                register(phone, pwd, verifyCode, vcode, type);
+            } else {
+                register(phone, pwd, verifyCode, vcode, "wap_wechat|wechat|yqm");
+            }
+        }
+    }
+    function register(phone, pwd, verifyCode, invcode, typename) {
+        Loading();
+        var _url = urlLink + "/web/user/register_withchannel";
+        var type = "POST";
+        var send = "username=" + phone + "&password=" + pwd + "&verify_code=" + verifyCode + "&invite_code=" + invcode + "&channel=" + typename;
+        xmlHttpRequest(send, _url, registerCallBakck, type);
+    }
+    function registerCallBakck(_datajson) {
+        switch (_datajson.code) {
+            case 0:
+                localStorage.isexitstno = 1;
+//                window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.loanhigh.cash";
+//                $(".registerForm form")[0].reset();
+                $(".registerSuc").fadeIn();
+                break;
+            case -10004:
+            case -10003:
+            case 404:
+            case -10002:
+                alert(_datajson.msg);
+                break;
+            default:
+                alert(_datajson.msg);
+                break;
+        }
+    }
+
+    //    验证倒计时
+    var shareWait = 45;
+    function shareTime(o) {
+        if (shareWait == 0) {
+            $("#" + o).html("重新发送");
+            $("#" + o).attr("class", "weui-vcode-btn vfction-code");
+            $(".weui-cell__ft").css("background-color", "#0198ef")
+            shareWait = 45;
+        } else {
+            $("#" + o).unbind();
+            $("#" + o).attr("class", "weui-vcode-btn hq_vfction-code");
+            $("#vfction-code").html(shareWait + "s");
+            $(".weui-cell__ft").css("background-color", "#e6e6e6");
+            shareWait--;
+            clearShareSetTime = setTimeout(function () {
+                shareTime(o);
+            }, 1000);
+        }
+    }
+</script>
+</body>
+</html>

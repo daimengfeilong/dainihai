@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui" />
+		<title>您的颜，值多少？</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="../css/loadding.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<div class="index_bg wrapper">
+			<div class="upload_area top_dist center">
+				<input type="file" accept="image/*" capture="camera" class="input_upload" onchange="selectFileImage(this);" />
+			</div>
+			<div class="upload_btn center">
+				<input type="file" accept="image/*" capture="camera" class="input_upload" onchange="selectFileImage(this);" />
+
+				<div class="clear"></div>
+				<div class="upload_txt_left">
+					温馨提示：
+					<br/> 请使用清晰的正面照片
+					<br/> 为了能更好的识别照片，请勿佩戴眼镜哦！
+					<br/>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="copyright">© 2015 bycx.com, all rights reserved.</div>
+		</div>
+		<div class="div_piclist" style="display: none;"><img src="img/img_0243.jpg" id="pic" />
+			<img alt="preview" src="" id="myImage" />
+		</div>
+	</body>
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="../js/config.js"></script>
+	<script type="text/javascript" src="../js/tkPublic.js"></script>
+	<script type="text/javascript" src="js/rote.js"></script>
+	<script type="text/javascript" src="js/yanvalue.js"></script>
+	<script>
+		function Left() {
+			$("#pic").rotateLeft();
+		}
+
+		function Right() {
+			$("#pic").rotateRight();
+		}
+
+		function Rotate() {
+			$("#pic").rotate(90);
+		}
+	</script>
+	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="js/uploadPicture/mobileBUGFix.mini.js"></script>
+	<script type="text/javascript" src="js/uploadPicture/uploadImage.js"></script>
+	<script type="text/javascript" src="js/exif.js"></script>
+	<script type="text/javascript" src="../js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript" src="../js/jquery.json-2.4.min.js"></script>
+	<script src="js/yzwxsdk.js"></script>
+	<div style="display: none;">
+	<script src="http://s11.cnzz.com/z_stat.php?id=1255223081&web_id=1255223081" language="JavaScript"></script>
+</div>
+</html>

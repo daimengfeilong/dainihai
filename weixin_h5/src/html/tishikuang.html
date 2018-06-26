@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>提示框效果</title>
+		<link rel="stylesheet" href="css/tooltip.css" />
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				recalc();if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<script language="JavaScript" src="js/pub.js" type="text/javascript"></script>
+		<script>
+			function divshow(sid) {
+				$("#" + sid).show();
+			}
+
+			function divhide(sid) {
+				$("#" + sid).hide();
+			}
+
+			function divshow(sid, tid) {
+				$("#" + sid).show();
+				$("#" + tid).show();
+			}
+
+			function divhide(sid, tid) {
+				$("#" + sid).hide();
+				$("#" + tid).hide();
+			}
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="账户已激活" onclick="divshow('accountactivate')" />
+
+		<!--账户已激活开始-->
+		<div class="tooltip_main_center hide_mian_div" id="accountactivate">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/account_active.png" /></div>
+						<div class="top_title">账户已激活</div>
+						<div class="top_center">“赶快去申请使用额度吧”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="javascript:divhide('accountactivate')">
+						<div>我知道了</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!--账户已激活结束-->
+		<input type="button" value="资料已拒绝" onclick="divshow('filereject')" />
+
+		<!--资料已拒绝开始-->
+		<div class="tooltip_main_center hide_mian_div" id="filereject">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/filereject.png" /></div>
+						<div class="top_title">资料已拒绝</div>
+						<div class="top_center">“如有疑问，请联系客服”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('filereject')">
+						<div>我知道了</div>
+					</a>
+					<a href="tel://400-034-5666">
+						<div>拨打客服</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--资料已拒绝结束-->
+
+		<input type="button" value="资料被打回" onclick="divshow('fileback')" />
+
+		<!---资料被打回开始-->
+		<div class="tooltip_main_center hide_mian_div" id="fileback">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/fileback.png" /></div>
+						<div class="top_title">资料被打回</div>
+						<div class="top_center">“资料存在问题，请重新填写”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('fileback')">
+						<div>我知道了</div>
+					</a>
+					<a href="javascript:divhide('fileback')">
+						<div>修改资料</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---资料被打回结束-->
+
+		<input type="button" value="资料审核中" onclick="divshow('fileaubit')" />
+
+		<!---资料审核中开始-->
+		<div class="tooltip_main_center hide_mian_div" id="fileaubit">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/fileaubit.png" /></div>
+						<div class="top_title">资料审核中</div>
+						<div class="top_center">“审核通过后就能看到额度了”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="javascript:divhide('fileaubit')">
+						<div>查看进度</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---资料审核中结束-->
+
+		<input type="button" value="请先完善资料" onclick="divshow('filenew')" />
+
+		<!---请先完善资料开始-->
+		<div class="tooltip_main_center hide_mian_div" id="filenew">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/filenew.png" /></div>
+						<div class="top_title">完善or提交</div>
+						<div class="top_center">“大人,您尚未完善/提交资料”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('filenew');">
+						<div>稍后再说</div>
+					</a>
+					<a href="javascript:divhide('filenew')">
+						<div>填写资料</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---请先完善资料结束-->
+
+		<input type="button" value="更新强推" onclick="divshow('versionbios')" />
+
+		<!---更新强推开始-->
+		<div class="tooltip_main_center hide_mian_div" id="versionbios">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/versionbios.png" /></div>
+						<div class="top_title">发现新版本</div>
+						<div class="top_center">“应用更新后才能继续申请分期哦”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="javascript:divhide('versionbios')">
+						<div>立即更新</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---更新强推结束-->
+		<input type="button" value="更新提示" onclick="divshow('versionhint')" />
+
+		<!---更新提示开始-->
+		<div class="tooltip_main_center hide_mian_div" id="versionhint">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/versionbios.png" /></div>
+						<div class="top_title">发现新版本</div>
+						<div class="top_center">“为您提供更好的分期体验”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('versionhint')">
+						<div>稍后再说</div>
+					</a>
+					<a href="javascript:divhide('versionhint')">
+						<div>立即更新</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---更新提示结束-->
+
+		<input type="button" value="您还没有绑定银行卡" onclick="divshow('nobankcard')" />
+
+		<!---您还没有绑定银行卡开始-->
+		<div class="tooltip_main_center hide_mian_div" id="nobankcard">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/card_small.png" /></div>
+						<div class="top_title">您还没有绑定银行卡</div>
+						<div class="top_center">“绑定银行卡后才能使用额度哦”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('nobankcard')">
+						<div>取消</div>
+					</a>
+					<a href="javascript:divhide('nobankcard')">
+						<div>绑定</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---您还没有绑定银行卡结束-->
+
+		<input type="button" value="您有未完成的分期" onclick="divshow('udoneloan')" />
+
+		<!---您有未完成的贷款开始-->
+		<div class="tooltip_main_center hide_mian_div" id="udoneloan">
+            <div class="tooltip-box">
+                <img src="images/tooltip_node_h.png">
+
+                <div class="tooltip-cont-box">
+                    <div class="cont-img-box">
+                        <img src="images/udoneloan.png">
+                    </div>
+                    <p class="cont-p1">您有未完成的分期</p>
+                    <p class="cont-p2">分期完成后才能再次使用额度</p>
+                </div>
+                <div class="tooltip-bottom-box">
+                    <ul>
+                        <li>
+                            <a href="javascript:divhide('udoneloan')" class="cancel-l">稍后再说</a>
+                        </li>
+                        <li>
+                            <a href="javascript:" onclick="winopenurl('loanplan.html')" class="btn-r">查看进度</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+		</div>
+		<!---您有未完成的贷款结束-->
+
+		<input type="button" value="分期试算" onclick="divshow('loantrial')" />
+
+		<!---贷款试算开始-->
+		<div class="tooltip_main_center hide_mian_div" id="loantrial">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_ntwo_top">
+
+					分期144646元，分12期还清
+				</div>
+				<div class="tooltip_main_middle ">
+					<div class="tooltip_main_middle_frist">
+						<fieldset>
+							<legend>分期多少，到账多少</legend>
+						</fieldset>
+						<fieldset>
+							<legend>每月应还</legend>
+							<div>￥1622.64</div>
+						</fieldset>
+						<fieldset>
+							<legend>应还总额</legend>
+							<div>￥19471.60</div>
+						</fieldset>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="javascript:divhide('loantrial')">
+						<div>我知道了</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---贷款试算结束-->
+
+		<input type="button" value="该项资料已经提交，无法修改" onclick="divshow('filesubmit')" />
+
+		<!--资料已经提交开始-->
+		<div class="tooltip_main_center hide_mian_div" id="filesubmit">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="top_title_sigle">该项资料已经提交，无法修改</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="javascript:divhide('filesubmit')">
+						<div>知道了</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!--资料已经提交结束-->
+
+		<input type="button" value="客服热线" onclick="divshow('hotservice')" />
+
+		<!---客服热线开始-->
+		<div class="tooltip_main_center hide_mian_div" id="hotservice">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="top_title_sigle">贷你嗨客户电话：400-034-5666，注意在时间段9：00-18：00才能拨打哦</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('hotservice')">
+						<div>取消</div>
+					</a>
+					<a href="tel://400-034-5666">
+						<div>直接拨打</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--客服热线结束-->
+
+		<input type="button" value="告诉朋友" onclick="divshow('sharefriend','sharefriend_two')" />
+
+		<!---告诉朋友开始-->
+		<div class="tooltip_main_center hide_mian_div" id="sharefriend" onclick="divhide('sharefriend','sharefriend_two')">
+
+		</div>
+		<div class="sf_main_content hide_mian_div" id="sharefriend_two">
+			<ul class="sf_con_ul">
+				<li><img src="images/share_QQ.png">
+					<div>QQ</div>
+				</li>
+				<li><img src="images/share_QQ_Kj.png">
+					<div>QQ空间</div>
+				</li>
+				<li><img src="images/share_wx_friend.png">
+					<div>微信好友</div>
+				</li>
+				<li><img src="images/share_wx_pyq.png">
+					<div>朋友圈</div>
+				</li>
+			</ul>
+		</div>
+		<!--告诉朋友结束-->
+
+		<input type="button" value="顶部提示" onclick="divshow('topmeassage')" />
+
+		<!--顶部提示开始-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+			<div class="plaint_img_first"><img src="images/plaint.png" /></div>
+			<div class="plaint_txt_first">验证超时，请查看设备系统时间是否正确。验证超时，请查看设备系统时间是否正确。 </div>
+			<div class="plaint_img_two" onclick="divhide('topmeassage')"><img src="images/close.png" /></div>
+		</div>
+		<!--顶部提示结束-->
+
+		<input type="button" value="如何获取学籍在线验证码" onclick="divshow('explainguide')" />
+
+		<!--如何获取学籍在线验证码开始-->
+		<div class="tooltip_main_center hide_mian_div" id="explainguide">
+			<div class="tooltip_main_node">
+
+				<div class="tooltip_main_n_top_guide">
+					<article class="exguid_top">
+						<section>如何获取学籍在线验证码</section>
+						<section>第一步：</section>
+						<aside>访问“学信档案”（my.chsi.com.cn），然后通过用户名和密码登录。如还未注册，请注册帐号。</aside>
+						<section>第二步：</section>
+						<aside>登录后，点击左侧菜单中的“在线验证报告 高等学籍”进入学籍在线验证。</aside>
+						<section>第三步：</section>
+						<aside>点击“申请学籍在线验证报告 中文版”申请。</aside>
+						<section>第四步：</section>
+						<aside>选择在线验证报告有效期、支付方式等，支付完毕后，申请完成。</aside>
+						<aside class="as_greey">*注意：此处需填写学籍在线验证码，而不是学历在线验 证码。
+						</aside>
+					</article>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="javascript:divhide('explainguide')">
+						<div>知道了</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--如何获取学籍在线验证码结束-->
+
+		<input type="button" value="分享升额度" onclick="divshow('tipsshare')" />
+
+		<!--分享升额度开始-->
+		<div class="tooltip_main_center hide_mian_div" id="tipsshare">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/tips_share.png" /></div>
+						<div class="top_title">分享升额度</div>
+						<div class="top_center">“小伙伴使用后获额度”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('tipsshare')">
+						<div>稍后再说</div>
+					</a>
+					<a href="#">
+						<div>我要分享</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--分享升额度结束-->
+		<input type="button" value="贷你嗨1000元额度送上" onclick="divshow('tipsaddedu')" />
+
+		<div class="tooltip_main_center hide_mian_div" id="tipsaddedu">
+            <div class="tooltip-box">
+                <img src="images/tooltip_node_h.png">
+
+                <div class="tooltip-cont-box">
+                    <div class="cont-img-box">
+                        <img src="images/tips_addedu.png">
+                    </div>
+                    <p class="cont-p1">贷你嗨<span class="liamount">2500</span>元额度送上</p>
+                    <p class="cont-p2">完善资料后光速使用额度</p>
+                </div>
+                <div class="tooltip-bottom-box">
+                    <a href="javascript:divhide('tipsaddedu')" class="btn-k">完善资料</a>
+                </div>
+            </div>
+		</div>
+
+
+		<input type="button" value="分享是美德" onclick="divshow('tipsinvite')" />
+
+		<!--分享是美德开始-->
+		<div class="tooltip_main_center hide_mian_div" id="tipsinvite">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/tips_invite.png" /></div>
+						<div class="top_title">大人，邀请码已到手</div>
+						<div class="top_center">“分享是美德”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('tipsinvite')">
+						<div>稍后再说</div>
+					</a>
+					<a href="#">
+						<div>马上查看</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--分享是美德结束-->
+
+		<input type="button" value="请输入支付密码" onclick="divshow('payzfpwd')" />
+		<!--支付密码开始-->
+		<div class="tooltip_main_center hide_mian_div" id="payzfpwd">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="importpaypwd">
+						<div>
+							请输入支付密码
+						</div>
+						<ul id="btnpayul">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<input type="hidden" value="" id="txt_paypwd" maxlength="6" />
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a>
+						<div>取消</div>
+					</a>
+					<a onclick="surepaypwd()">
+						<div>确认</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--支付密码结束-->
+		<input type="button" value="密码错误" onclick="divshow('errorpwd')" />
+
+		<!--密码错误开始-->
+        <div class="dialog-confirm hide_mian_div" id="errorpwd">
+            <div class="mask-box"></div>
+
+            <div class="make-back">
+                <div class="make-back-color">
+                    <p class="make-title">提示</p>
+                    <p class="make-cont">密码错误</p>
+                    <ul class="make-btn-box clearFix">
+                        <li>
+                            <a class="make-btn-left" onclick="btnwinopenurl()">忘记密码</a>
+                        </li>
+                        <li>
+                            <a class="make-btn-right" onclick="RetryPwd()">重试</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		<!--<div class="tooltip_main_center hide_mian_div" id="errorpwd">-->
+			<!--<div class="tooltip_main_node">-->
+				<!--<div class="tooltip_main_n_top">-->
+					<!--<div class="tooltip_main_nt_cn">-->
+
+						<!--<div class="pwderrors">密码错误</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<div class="tooltip_main_ntwo_bottom">-->
+					<!--<a>-->
+						<!--<div>忘记密码</div>-->
+					<!--</a>-->
+					<!--<a href="javascript:divhide('errorpwd')">-->
+						<!--<div>重试</div>-->
+					<!--</a>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--密码错误结束-->
+
+		<input type="button" value="积分换额度" onclick="divshow('integrallimit')" />
+
+		<!--积分换额度开始-->
+		<div class="tooltip_main_center hide_mian_div" id="integrallimit">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="integraltxtmain">
+							<div>积分换额度</div>
+							<div>“分期额度”=“可用额度”
+								<br/>+“积分可兑换额度”
+								<br/>大人，积分兑换额度目前最高不超过1000元额度。1积分=1元额度</div>
+						</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="javascript:divhide('integrallimit')">
+						<div>知道了</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!--积分换额度结束-->
+
+		<input type="button" value="分期成功" onclick="divshow('loansuccess')" />
+
+		<!--借款成功开始-->
+		<div class="tooltip_main_center hide_mian_div" id="loansuccess">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="integraltxtmain">
+							<div>恭喜您，分期申请成功</div>
+						</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="javascript:divhide('loansuccess')">
+						<div>查看我的账户</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!--借款成功结束-->
+
+		<input type="button" value="注销用户" onclick="divshow('nullifyusers')" />
+
+		<!--注销用户开始-->
+		<div class="tooltip_main_center hide_mian_div" id="nullifyusers">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="divcancelmsginfo">您有<span class="liscore">0</span>额度未使用！注销账户信息后您的资料将被删除</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('nullifyusers')">
+						<div>取消</div>
+					</a>
+					<a>
+						<div>确定</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--注销用户结束-->
+	</body>
+	<script type="text/javascript" src="js/keyboard.js"></script>
+	<script>
+		$(document).ready(function() {
+			vtype = 0;
+			$("#btnpayul").on("click", function() {
+				var input2 = document.getElementById('txt_paypwd');
+				KeyBoard(input2);
+			});
+		})
+
+		function surepaypwd() {
+			var zi = $("#txt_paypwd").val();
+//			alert(zi);
+		}
+	</script>
+
+</html>

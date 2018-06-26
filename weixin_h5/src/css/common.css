@@ -1,0 +1,17 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, input, textarea, p, blockquote, th, td, span, img {
+    padding: 0;
+    margin: 0;
+}
+
+ul, dl, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>安全中心</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/loadding.css" rel="stylesheet" type="text/css">
+    <link href="css/tooltip.css" rel="stylesheet" type="text/css">
+    <link href="css/nav.css" rel="stylesheet" type="text/css">
+</head>
+
+<body style="background-color: #FFFFFF;">
+<nav class="nav-top">
+    <h1 class="title">
+        <a class="back " onclick="window.history.back()">&lt;</a>
+        安全中心
+    </h1>
+</nav>
+<div class="nav-clear"></div>
+
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="main_page_content ">
+    <section class="mt-1 mt-mt">
+        <div class="ps-lt ">
+            <div class="lt-dsb cl-bb ">
+                <a href="revisepwd.html">
+                    <p>修改登录密码</p>
+                    <i class="arr-right "></i>
+                </a>
+            </div>
+            <div class="lt-dsb cl-bb ">
+                <a href="revisepaypwd.html">
+                    <p>修改支付密码</p>
+                    <i class="arr-right "></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script type="text/javascript " src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript " src="js/pub.js "></script>
+<script type="text/javascript " src="js/keyboard.js"></script>
+<script type="text/javascript " src="js/turnjson.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        loadLogin_second();
+        $(".liamount").html(localStorage.int32_limit_amount);
+        $("#btnpayul").on("click", function () {
+            $("#txt_paypwd").val(null);
+            vtype = 9;
+            var input2 = document.getElementById('txt_paypwd');
+            KeyBoard(input2);
+        });
+        LoadingOver();
+
+    });
+
+
+</script>
+</body>
+
+</html>

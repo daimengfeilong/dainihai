@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>京东认证</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="../css/home.css" rel="stylesheet" type="text/css">
+    <link href="../css/write_from.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="../css/tooltip.css"/>
+    <link rel="stylesheet" href="../css/base.css"/>
+    <link rel="stylesheet" href="../css/new.css"/>
+    <link rel="stylesheet" href="../css/nav.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+</head>
+<body>
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="main_page_content ">
+    <div class="head_progress">
+        <img src="../images/progress2.png"/>
+    </div>
+
+    <div class="float-wrap-box">
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">账号</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input class="weui_input" id="txt_jduname" type="text" placeholder="请输入您的京东账号">
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">密码</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input class="weui_input" id="txt_jdpwd" type="password" placeholder="请输入您的京东密码">
+            </div>
+        </div>
+        <div class="weui_cell weui_vcode txt_jsyzm"  style="display: none;">
+            <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input class="weui_input" id="txt_jsyzm" type="text" placeholder="请输入京东验证码">
+            </div>
+            <div class="weui_cell_ft">
+                <a href="javascript:" id="jd-yzcode-repeat" class="weui-vcode-btn">重新发送</a>
+            </div>
+        </div>
+    </div>
+    <div class="jd-agreement">
+        <p>
+            <label class="lg_login_left" style="margin-left:0.65rem;">
+                <i class="gou_checked" onclick="change_radio_status(this,'next-button','btnjdinfo()')"></i>
+                <a href="../talk/agt_jd.html">我已经阅读并同意《京东授权协议》</a></label>
+        </p>
+    </div>
+    <div class="next-button-box">
+        <!--next-button button-pass-->
+        <!--<div class="write_submit_checked" id="btn_jdfrom" onclick="btnjdinfo()">立即提交</div>-->
+        <button class="next-button_checked" id="next-button" onclick="btnjdinfo()">立即提交</button>
+    </div>
+</div>
+<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="../js/History.js"></script>
+<script type="text/javascript" src="../js/jquery.base64.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/tkPublic.js"></script>
+<script type="text/javascript" src="../js/pub.js"></script>
+<script type="text/javascript" src="../js/turnjson.js"></script>
+<script type="text/javascript" src="../js/learn.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        localStorage.bycxtooptip = 0;
+        var source = GetUrlParameter("source");
+        $("#jd-yzcode-repeat").click(function () {
+            var jdNmae = $("#txt_jduname").val();
+            var jdPwd = $("#txt_jdpwd").val();
+            if (jdNmae == '' || jdNmae == null || jdNmae == 'undefined') {
+                ShowMsg('请输入京东账号');
+                return false;
+            } else if (jdPwd == '' || jdPwd == null || jdPwd == 'undefined') {
+                ShowMsg('请输入京东密码');
+                return false;
+            } else {
+                btnjdinfo(source);
+            }
+        });
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

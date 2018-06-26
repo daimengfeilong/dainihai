@@ -1,0 +1,207 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, input, textarea, p, blockquote, th, td, span, img {
+    padding: 0;
+    margin: 0;
+}
+
+a{
+	text-decoration: none;
+}
+
+body{
+	font-size: 0.28rem;
+	overflow-x: hidden;
+	overflow-y: auto;
+	height: 14rem;
+	margin-top: -1.25rem;
+	background-color: #feeb9e;
+}
+
+.bgStyle{
+	width: 100%;
+	height: 6.9rem;
+	background: url(../images/inviteFriends/inviteFriends_s.png) no-repeat left 1.3rem;
+	background-size: 100%;
+}
+
+.bgStyle a{
+	position: absolute;
+	top: 4.6rem;
+	left: 2.71rem;
+	color: #333;
+	text-decoration: underline;
+}
+
+.myReward{
+	width: 6.4rem;
+	height: 4.60rem;
+	position: absolute;
+	top: 5.3rem;
+	left: 0.28rem;
+	border-radius: 0.05rem;
+	background-color: #fff;
+	padding: 0 0.28rem;
+	box-shadow: 0 0.03rem 0.1rem rgba(208, 231, 248, 0.9);
+}
+
+.myReward .title,.myInvite .title{
+	width: 100%;
+	height: 0.88rem;
+	line-height: 0.88rem;
+	color: #33404b;
+}
+
+.headerLine{
+	display: block;
+	width: 2.22rem;
+	height: 0.43rem;
+	border-bottom: 1px solid #f4f4f5;
+	float: left;
+}
+
+.myReward .title h3,.myInvite .title h3{
+	/*padding: 0 0.38rem;*/
+	width: 1.96rem;
+	text-align: center;
+	font-size: 0.3rem;
+	color: #333;
+	font-weight: 400;
+	float: left;
+	overflow: hidden;
+}
+
+.myReward .content{
+	width: 100%;
+	padding-top: 0.3rem;
+	/*text-align: center;*/
+}
+
+.myReward .content div{
+	text-align: center;
+	font-size: 0.41rem;
+	color: #ff8f3a;
+	padding-bottom: 0.4rem;
+}
+
+.myReward .content p{
+	color: #a2acb4;
+	font-size: 0.24rem;
+	text-align: center;
+}
+
+.myReward .content a{
+	padding: 0.32rem 1.53rem;
+	background-color: #e6665d;
+	border: 1px #333 solid;
+	border-radius: 0.54rem;
+	position: absolute;
+	bottom: 0.5rem;
+	left: 1.3rem;
+	color: #fff;
+	/*box-shadow: 0px 0.2rem 0.14rem -0.14rem rgba(177, 212, 245, 0.9);*/
+	font-size: 0.3rem;
+}
+
+.myInvite{
+	width: 6.4rem;
+	height: 4.5rem;
+	position: absolute;
+	top: 10.2rem;
+	left: 0.28rem;
+	border-radius: 0.05rem;
+	background-color: #fff;
+	padding: 0 0.28rem;
+	box-shadow: 0 0.03rem 0.1rem rgba(208, 231, 248, 0.9);
+	margin-bottom: 0.25rem;
+}
+
+.myInvite .title div{
+	height: 1.2rem;
+	float: left;
+}
+
+.myInvite .title p{
+	position: absolute;
+	top: 0.71rem;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 0.15rem;
+	/*color: #a2acb4;*/
+	line-height: 0.3rem;
+}
+
+.myInvite .title a{
+	color: #b6bbbf;
+}
+
+.myInviteTotal img{
+	width: 1.18rem;
+	height: 0.37rem;
+}
+
+.myInviteTotal a{
+	color: #0198ef;
+	display: block;
+}
+
+.myInviteTotal{
+	width: 100%;
+	
+}
+
+.myInviteTotal dl{
+	width: 3.2rem;
+	height: 100%;
+	/*padding: 0 0.76rem;*/
+	float: left;
+	box-sizing: border-box;
+}
+
+.myInviteTotal dl:nth-of-type(1){
+	border-right: 1px #eee solid;
+}
+
+.myInviteTotal dt{
+	width: 100%;
+	height: 0.5rem;
+	padding: 0.29rem 0;
+}
+
+.myInviteTotal img{
+	/*padding-left: 0.51rem;*/
+}
+
+.myInviteTotal a{
+	font-size: 0.35rem;
+	color: #ff8f3a;
+	text-align: center;
+}
+
+.toInvite{
+	/*width: 100%;*/
+	height: 1.24rem;
+	line-height: 1.24rem;
+	text-align: center;
+	/*border-top: 1px #ebebeb solid;*/
+	/*padding: 0.14rem 0.62rem;*/
+	position: absolute;
+	bottom: 0.15rem;
+	left: 1.3rem;
+	/*background-color: #feeb9e;*/
+}
+
+.toInvite a{
+	padding: 0.32rem 1.53rem;
+	color: #fff;
+	background-color: #e6665d;
+	border: 1px solid #333;
+	border-radius: 0.53rem;
+	font-size: 0.3rem;
+}
+
+
+
+
+
+

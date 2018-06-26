@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>合作平台</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="../css/loadding.css"/>
+    <link rel="stylesheet" href="../css/tooltip.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        body{
+            background-color: #f6f7fc;
+        }
+        .partner-list{
+            width: 100%;
+            padding: 0.2rem 0.2rem 0 0.2rem;
+        }
+        .partner-list-cnt{
+            width: 100%;
+            padding: 0 0.3rem;
+            background-color: #fff;
+            margin-bottom: 0.2rem;
+        }
+        .partner-name{
+            display: flex;
+            padding: 0.5rem 0 0.38rem 0;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        .partner-name div{
+            /*display: inline-block;*/
+            vertical-align: top;
+        }
+        .partner-name-logo{
+            width: 0.92rem;
+            height: 0.92rem;
+            margin-right: 0.22rem;
+        }
+        .partner-name-logo img{
+            width: 100%;
+            height: 100%;
+        }
+        .partner-name-text{
+            flex: 1;
+        }
+        .partner-name-text p:first-child{
+            font-size: 0.3rem;
+        }
+        .partner-name-label{
+            font-size: 0.24rem;
+            color: #d7c476;
+        }
+        .partner-name-label span{
+            display: inline-block;
+            padding: 0 0.12rem;
+            border: 1px solid #d7c476;
+            border-radius: 0.04rem;
+            margin-right: 0.07rem;
+            margin-bottom: 0.1rem;
+        }
+        .partner-present{
+            font-size: 0.28rem;
+            color: #646464;
+            padding: 0.28rem 0 0.4rem 0;
+        }
+        .fangjinsuo{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<section class="partner-list">
+    <!--<section class="partner-list-cnt xinlang">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/xinlang.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>新浪有还</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>信用卡</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>开户当天即可放款，提款随贷随放</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <section class="partner-list-cnt jiyu">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/jiyu.png" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>机遇钱包</p>
+                <p class="partner-name-label">
+                    <span>实名手机</span>
+                    <span>芝麻信用</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>随时随地轻松借，小额下款好又快！</span>
+        </div>
+    </section>
+    <section class="partner-list-cnt zhongjin">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/zhongjin.png" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>众金管家</p>
+                <p class="partner-name-label">
+                    <span>实名手机</span>
+                    <span>芝麻信用</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>小额现金短期借贷，在线极速审批!成功借款100%!7天、14天 0担保0抵押!</span>
+        </div>
+    </section>
+    <section class="partner-list-cnt hualebei">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/hualebei.png" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>花了呗</p>
+                <p class="partner-name-label">
+                    <span>实名手机</span>
+                    <span>芝麻信用</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>芝麻分600起花呗500起，即可领取3000现金</span>
+        </div>
+    </section>
+
+    <!--<section class="partner-list-cnt zhonghongdai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/zhonghongdai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>中鸿贷</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>凭身份证快速贷2万，随借随还</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <section class="partner-list-cnt gougoudai">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/gougoudai.png" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>狗狗贷</p>
+                <p class="partner-name-label">
+                    <span>实名手机</span>
+                    <span>芝麻信用</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>超低门槛，极速下款</span>
+        </div>
+    </section>
+
+
+    <!--<section class="partner-list-cnt yangcong">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/yangcong.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>洋葱信用</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>身份认证</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>无抵押，高通过</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt defubao">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/defubao.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>得富宝</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>身份认证</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>门槛低，易申请，下款快</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt qiwenbaika">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/qiwen.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>气温白卡</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>芝麻分</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>超低门槛，极速审核</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <section class="partner-list-cnt taoqianbao">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/taoqian.png" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>淘钱宝</p>
+                <p class="partner-name-label">
+                    <span>身份证</span>
+                    <span>芝麻分</span>
+                    <span>手机号</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>无视黑白，不上征信</span>
+        </div>
+    </section>
+    <!--<section class="partner-list-cnt huoguang">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/huoguang.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>火光黑卡</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>超低门槛，极速审核，极速放款</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <section class="partner-list-cnt duoduobaika">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/duoduo.png" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>多多白卡</p>
+                <p class="partner-name-label">
+                    <span>实名手机</span>
+                    <span>身份证明</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>撸款新模式，7天免息，有苹果手机5000元随便花</span>
+        </div>
+    </section>
+    <section class="partner-list-cnt xiaozhubaika">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/xiaozhu.png" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>小猪白卡</p>
+                <p class="partner-name-label">
+                    <span>实名手机</span>
+                    <span>身份证明</span>
+                    <span>无视征信</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>你有苹果我有小猪  你要现金小猪给你</span>
+        </div>
+    </section>
+    <!--<section class="partner-list-cnt renrendai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/renrendai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>人人贷借款</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>身份认证</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>最高10万元现金，最快2小时放款。</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt diaosidai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/diaosidai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>屌丝贷</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>不看征信，有身份证就能借，最高5000元</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt shandai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/shandai2.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>闪贷</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>身份证明</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>急用钱，来闪贷</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <section class="partner-list-cnt chuanqi">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/chuanqi.png" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>传奇世界</p>
+                <p class="partner-name-label">
+                    <span>传奇</span>
+                    <span>沙城</span>
+                    <span>ARPG游戏</span>
+                    <span>经典</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>1、重温兄弟情谊、怀旧激情年代、成就传奇人生。<br>
+                2、真兄弟同甘苦，经典传奇之旅再次开启！
+            </span>
+        </div>
+    </section>
+    <section class="partner-list-cnt yaoguaibao">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/yaoguaibao.png" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>妖怪宝可萌</p>
+                <p class="partner-name-label">
+                    <span>口袋妖怪</span>
+                    <span>神奇宝贝</span>
+                    <span>童年回忆</span>
+                    <span>经典</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>1、抓宠挂机回合制，上线就送VIP！<br>2、一款充满回忆并高度还原的，集宠物养成、策略于一体的回合制游戏</span>
+        </div>
+    </section>
+    <section class="partner-list-cnt jiuzhou">
+        <div class="partner-name">
+            <div class="partner-name-logo">
+                <img src="images/jiuzhou.jpg" alt="">
+            </div>
+            <div class="partner-name-text">
+                <p>九州OL-行侠仗义</p>
+                <p class="partner-name-label">
+                    <span>九州海上牧云记</span>
+                    <span>玄幻</span>
+                    <span>RPG</span>
+                    <span>PK</span>
+                </p>
+            </div>
+        </div>
+        <div class="partner-present">
+            <span>热血对战动作游戏</span>
+        </div>
+    </section>
+    <!--<section class="partner-list-cnt fudai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/fudai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>福袋</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>芝麻600分急速放款！</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt shengbei">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/shengbei.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>省呗</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>信用卡</span>-->
+                    <!--<span>分期还款</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>额度高、利率低、审核快、年轻人都在用</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt jidai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/jidai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>及贷</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>芝麻信用</span>-->
+                    <!--<span>社保</span>-->
+                    <!--<span>公积金</span>-->
+                    <!--<span>分期还款</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>想借就借，2000-2万即时到账</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt fangjinsuo">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/fjs.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>房金所</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>身份证明</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>房金所，您身边的贷款专家</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt xianni">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/xianni.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>仙逆情缘</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>3D</span>-->
+                    <!--<span>自由幻想封神手游</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>有了这游戏！还玩什么排位！</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt baye">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/baye.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>屠龙霸业</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>游戏</span>-->
+                    <!--<span>传奇</span>-->
+                    <!--<span>MMORPG</span>-->
+                    <!--<span>3D写实</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>顶级品质3D传奇，1.76百分百还原</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt feibaodai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/feibaodai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>飞豹贷</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>新产品，通过率高！</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+
+    <!--<section class="partner-list-cnt haiyihua">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/haiyihua.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>海逸花</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>海逸花，随便花</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt xinghaijinfu">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/xinghai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>星海金服</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>芝麻分</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>7天借款期限，门槛低，审核快</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt guangda">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/guangda.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>光大信用卡</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>信用卡</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>光大信用卡，核卡快，高额度，多重优惠！</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt sudai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/sudai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>速贷</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>急用钱，找速贷</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt zhongtengxin">-->
+    <!--<div class="partner-name">-->
+    <!--<div class="partner-name-logo">-->
+    <!--<img src="images/zhongtengxin.png" alt="">-->
+    <!--</div>-->
+    <!--<div class="partner-name-text">-->
+    <!--<p>中腾信</p>-->
+    <!--<p class="partner-name-label">-->
+    <!--<span>身份证明</span>-->
+    <!--<span>工作证明</span>-->
+    <!--<span>收入证明</span>-->
+    <!--</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="partner-present">-->
+    <!--<span>1-15万高额低息借款，工薪族专享</span>-->
+    <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt zhaohang">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/zhaohang.jpg" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>招商银行</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span></span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt dae">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/dae.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>大额钱包</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>分期还款</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>随借随用，1-50万，最晚24小时，最快3小时</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt jinEdai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/jinEdai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>51金E贷</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>公积金</span>-->
+                    <!--<span>身份证明</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>有公积金就能贷</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt chaoguangsu">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/chaoguangsu.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>超光速</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>速度快，随借随还</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt meichaofeng">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/meichaofeng.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>没钞蜂</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>手续简单，极速借款，额度给力</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt shandian">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/shandian.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>闪电放款</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>信用卡</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>今日大幅放水，无人审秒下款！</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt mochouhua">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/mochouhua.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>莫愁花</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>芝麻信用</span>-->
+                    <!--<span>手机实名</span>-->
+                    <!--<span>非在校生</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>审核快、极速贷、不上征信、无抵押</span>-->
+        <!--</div>-->
+    <!--</section>-->
+    <!--<section class="partner-list-cnt miduo">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/miduo.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>借必得</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>芝麻信用</span>-->
+                    <!--<span>手机实名</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>短期借贷、实名认证、极速审批、0担保0抵押</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt wuyi">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/wuyi.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>51白卡</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>点击一下，立即拿钱</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt songjiang">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/songjiang.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>宋江白卡</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>手机实名</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>2分钟放款，凭身份证可借3000元</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt yurendai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/yuren.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>愚人贷</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>芝麻信用</span>-->
+                    <!--<span>信用卡</span>-->
+                    <!--<span>身份证明</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>极速申请，高通过率</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt yongqian">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/yongqian.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>用钱呗</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>手机实名</span>-->
+                    <!--<span>芝麻信用</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>无视黑白，下款贼快</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt jiyongqian">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/jiyongqian.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>急用钱</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>手机实名</span>-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>银行卡</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>零门槛，零担保，凭信用就能借款</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt qiandai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/qiandai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>钱袋</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>芝麻信用</span>-->
+                    <!--<span>实名认证</span>-->
+                    <!--<span>手机认证</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>手机应急钱包，短期周转，无前期、无抵押、到手金额100%</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt lixiadai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/lixiadai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>立下贷</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>芝麻信用</span>-->
+                    <!--<span>身份证明</span>-->
+                    <!--<span>手机实名</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>有颜就有钱</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt xiaohebao">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/xiaohebao.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>小和宝</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>现金借贷</span>-->
+                    <!--<span>手机实名</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>纯信用借款，极速申请到账，上班族均可</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+    <!--<section class="partner-list-cnt miaoqiandai">-->
+        <!--<div class="partner-name">-->
+            <!--<div class="partner-name-logo">-->
+                <!--<img src="images/miaoqiandai.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="partner-name-text">-->
+                <!--<p>秒钱袋</p>-->
+                <!--<p class="partner-name-label">-->
+                    <!--<span>信用贷款</span>-->
+                    <!--<span>实名手机</span>-->
+                    <!--<span>支付宝</span>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="partner-present">-->
+            <!--<span>新口子、审核快、利率低、随借随还</span>-->
+        <!--</div>-->
+    <!--</section>-->
+
+</section>
+
+
+<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function () {
+        // 省呗引流限制条件
+        var userAge = GetUrlParameter("age");
+        var userEducation = GetUrlParameter("education");
+        var userAddress = decodeURIComponent(GetUrlParameter("address"));
+        console.log(userAge + ',' + userEducation +','+ userAddress);
+//        console.log(userAddress.indexOf("四川"));
+        // B0301:初中及以下  B0302：中专  B0303：高中  B0304：大专  B0305：本科   B0306：硕士及以上
+
+        // userAge < 22 || userAge > 35 || userEducation == "B0301" || userEducation == "B0302" || userEducation == "B0303" ||
+        if (userAddress.indexOf("云南") != -1 || userAddress.indexOf("广西") != -1 || userAddress.indexOf("内蒙古") != -1 ||
+            userAddress.indexOf("新疆") != -1 || userAddress.indexOf("西藏") != -1 || userAddress.indexOf("甘肃") != -1 ||
+            userAddress.indexOf("青海") != -1 || userAddress.indexOf("香港") != -1 || userAddress.indexOf("澳门") != -1) {
+            $(".shengbei").hide();
+        }
+        if (userAddress.indexOf("北京") != -1 || userAddress.indexOf("上海") != -1 || userAddress.indexOf("广州") != -1 ||
+                userAddress.indexOf("深圳") != -1 || userAddress.indexOf("杭州") != -1 || userAddress.indexOf("郑州") != -1) {
+            $(".fangjinsuo").show();
+        }
+        // 秒钱袋引流限制条件
+//        if (userAge < 18 || userAge > 35) {
+//            $(".miaoqiandai").hide();
+//        }
+
+        // 发送页面访问次数
+        var uin = GetUrlParameter("uin");
+        var session = GetUrlParameter("session");
+        var source = GetUrlParameter("source", 'html5');
+        console.log(uin +','+ session +','+ source);
+        var paramData = {
+            page_id: "partnerlist",
+            platform: source,
+            tk_uin: uin,
+            tk_session: session
+        };
+        ajaxFn(urlLink + "/web/user_profile/unique_visitor", paramData, sucFn, null, "post");
+
+        // 跳转至详情页
+        $(".shengbei").click(function () {
+            window.location.href = "shengbei_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".jidai").click(function () {
+            window.location.href = "jidai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".zhongtengxin").click(function () {
+            window.location.href = "zhongtengxin_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".mochouhua").click(function () {
+            window.location.href = "mochouhua_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".xiaohebao").click(function () {
+            window.location.href = "xiaohebao_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+//        $(".miaoqiandai").click(function () {
+//            window.location.href = "miaoqiandai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+//        });
+        $(".miduo").click(function () {
+            window.location.href = "miduo_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".taoqianbao").click(function () {
+            window.location.href = "taoqianbao_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".yongqian").click(function () {
+            window.location.href = "yongqianbei_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".wuyi").click(function () {
+            window.location.href = "51baika_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".lixiadai").click(function () {
+            window.location.href = "lixiadai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".yurendai").click(function () {
+            window.location.href = "yurendai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".qiandai").click(function () {
+            window.location.href = "qiandai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".songjiang").click(function () {
+            window.location.href = "songjiang_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".jiyongqian").click(function () {
+            window.location.href = "jiyongqian_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".meichaofeng").click(function () {
+            window.location.href = "meichaofeng_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".haiyihua").click(function () {
+            window.location.href = "haiyihua_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".shandian").click(function () {
+            window.location.href = "shandian_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".dae").click(function () {
+            window.location.href = "dae_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".jinEdai").click(function () {
+            window.location.href = "jinEdai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".diaosidai").click(function () {
+            window.location.href = "diaosidai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".zhaohang").click(function () {
+            window.location.href = "zhaohang_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".chaoguangsu").click(function () {
+            window.location.href = "chaoguangsu_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".xinlang").click(function () {
+            window.location.href = "xinlang_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".fangjinsuo").click(function () {
+            window.location.href = "fangjinsuo_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".guangda").click(function () {
+            window.location.href = "guangda_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".sudai").click(function () {
+            window.location.href = "sudai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".feibaodai").click(function () {
+            window.location.href = "feibaodai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".shandai").click(function () {
+            window.location.href = "shandai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".xianni").click(function () {
+            window.location.href = "xianni_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".baye").click(function () {
+            window.location.href = "baye_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".xiaozhubaika").click(function () {
+            window.location.href = "xiaozhubaika_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".duoduobaika").click(function () {
+            window.location.href = "duoduobaika_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".xinghaijinfu").click(function () {
+            window.location.href = "xinghaijinfu_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".qiwenbaika").click(function () {
+            window.location.href = "qiwenbaika_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".fudai").click(function () {
+            window.location.href = "fudai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".chuanqi").click(function () {
+            window.location.href = "chuanqi_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".yaoguaibao").click(function () {
+            window.location.href = "yaoguaibao_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".jiuzhou").click(function () {
+            window.location.href = "jiuzhou_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".renrendai").click(function () {
+            window.location.href = "renrendai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".huoguang").click(function () {
+            window.location.href = "huoguangheika_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".gougoudai").click(function () {
+            window.location.href = "gougoudai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".zhonghongdai").click(function () {
+            window.location.href = "zhonghongdai_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".defubao").click(function () {
+            window.location.href = "defubao_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".yangcong").click(function () {
+            window.location.href = "yangcongxinyong_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".hualebei").click(function () {
+            window.location.href = "hualebei_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".zhongjin").click(function () {
+            window.location.href = "zhongjinguanjia_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+        $(".jiyu").click(function () {
+            window.location.href = "jiyuqianbao_detail.html?uin=" + uin +"&session="+ session +"&source="+ source;
+        });
+    });
+    function sucFn(data) {
+        console.log(data);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>九州OL-行侠仗义</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="css/partner.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+<header class="detail-header bgWhite">
+    <section>
+        <div class="detail-header-logo">
+            <img src="images/jiuzhou.jpg" alt="">
+        </div>
+        <div class="detail-header-text">
+            <p class="detail-header-name">九州OL-行侠仗义</p>
+            <p class="partner-name-label">
+                <span>九州海上牧云记</span>
+                <span>玄幻</span>
+                <span>RPG</span>
+                <span>PK</span>
+            </p>
+        </div>
+    </section>
+</header>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>产品简介</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>
+                2018年玄幻巨作《九州OL》，带你上天入地，降妖灭神！全天无限时刷新boss，精彩刺激的副本挑战，炫酷的技能特效，畅享战斗的无上快感；
+                流畅的即时战斗模式，为玩家带来最逼真的移动端游体验；团战单挑、翅膀法宝、神器时装、坐骑萌宠，应有尽有。
+            </p>
+        </div>
+    </section>
+</section>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>产品优势</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>1.绝美妖姬，常伴左右。各色各样的绝美妖姬，赏心悦目，陪您共同驰骋江湖！<br>
+                2.酷炫坐骑，燃爆全场。多种酷炫坐骑，技能酷炫，战力爆表，一起来策马奔腾！<br>
+                3.万宗争霸，舍我其谁。宗门争霸，人人都有机会成为王者，快来开启你的王者之路！</p>
+        </div>
+    </section>
+</section>
+<div style="width: 100%;height: 1.2rem;"></div>
+<footer class="detail-footer">
+    <div>
+        <a href="javascript:void(0);" class="apply-btn">极速申请</a>
+    </div>
+</footer>
+
+
+<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function () {
+        var a = location.href;
+        var b = a.split("/");
+        var c = b.slice(b.length-1, b.length).toString(String).split(".");
+        var page_id = c.slice(0, 1)[0];
+        console.log(page_id);
+        // 发送页面访问次数
+        var uin = GetUrlParameter("uin");
+        var session = GetUrlParameter("session");
+        var source = GetUrlParameter("source", 'html5');
+        console.log(uin +','+ session +','+ source);
+        var paramData = {
+            page_id: page_id,
+            platform: source,
+            tk_uin: uin,
+            tk_session: session
+        };
+
+        // 跳转至第三方借款平台
+        $(".apply-btn").click(function () {
+            var toLoanUrl = "https://directpage.paojiao.cn/jzol_Ccc_ws_004/";
+            ajaxFn(urlLink + "/web/user_profile/unique_visitor", paramData, sucFn, null, "post");
+            if (source == "android") {
+                javaCode.call("skip_url", toLoanUrl);   // 调用安卓本地方法
+            } else if (source == "iOS") {
+                toLoanUrl = "http://ckme.me/rMW1md";
+                WebViewJavascriptBridge.jumpWeb(toLoanUrl);   // 调用iOS本地方法
+            } else {
+                window.location.href = toLoanUrl;    // H5跳转
+            }
+        });
+
+    });
+    function sucFn(data) {
+        console.log(data);
+    }
+</script>
+</body>
+</html>

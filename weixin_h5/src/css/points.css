@@ -1,0 +1,294 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td,span,img
+{
+    padding:0;
+    margin:0;
+}
+
+a:link,a:hover,a:active,a:visited {
+    text-decoration: none;
+    color:rgb(165,165,165);
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+section{
+	font-family: "microsoft yahei";
+	font-size: 0.28rem;
+}
+
+.bgCircle{
+	width: 16rem;
+	height: 16rem;
+	border-radius: 50%;
+	background-color: #ffd946;
+	position: absolute;
+	top: -13.2rem;
+	left: -4.25rem;
+}
+
+.myPoints{
+	width: 7.08rem;
+	height: 1.7rem;
+	padding: 0.54rem 0;
+	border-radius: 5px;
+	position: absolute;
+	top: 0.88rem;
+	left: 0.2rem;
+	background-color:#fff ;
+	z-index: 100;
+	font-size: 0.3rem;
+	box-shadow: 0 0 10px 0 rgba(79, 164, 236, 0.3);
+	border: 1px #eef5fb solid;	
+}
+
+.myPoints dl{
+	width: 3.5rem;
+	height: 100%;
+	padding: 0 0.76rem;
+	float: left;
+	box-sizing: border-box;
+}
+
+.myPoints dl:nth-of-type(1){
+	border-right: 1px #eee solid;
+}
+
+.myPoints dt{
+	width: 100%;
+	height: 0.5rem;
+	padding-top: 0.29rem;
+	color: #6C7D8C;
+}
+
+.myPoints dt img{
+	width: 0.39rem;
+	height: 0.39rem;
+	display: block;
+	float: left;
+}
+
+.myPoints dt p{
+	display: block;
+	float: left;
+	text-align: center;
+	clear: none;
+	padding-left: 0.3rem;
+	color: #6c7d8c;
+}
+
+.myPoints dd{
+	width: 100%;
+	height: 0.95rem;
+	line-height: 0.95rem;
+	text-align: center;
+}
+
+.myPoints span{
+	color: #333;
+	font-size: 0.36rem;
+}
+
+.pointsRecord{
+	margin: 0 0.25rem;
+	overflow: auto;
+	position: absolute;
+	top: 4rem;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.pointsRecord > div:nth-of-type(1){
+	line-height: 0.83rem;
+	height: 0.83rem;
+	width: 100%;
+}
+
+.pointsRecord > div:nth-of-type(1) img{
+	width: 0.83rem;
+	height: 0.83rem;
+	display: block;
+	float: left;
+}
+
+.pointsRecord h3{
+	float: left;
+	font-size: 0.3rem;
+	color: #333;
+	padding-left: 0.2rem;
+	font-weight: 100;
+}
+
+.pointsRecord a{
+	color: #333;
+	font-size: 0.28rem;
+	float: right;
+}
+
+.pointsRecordContent{
+	width: 100%;
+	position: absolute;
+	top: 0.9rem;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+
+.noRecord{
+	width: 2.65rem;
+	height: 4.15rem;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.noRecord img{
+	width: 2.65rem;
+	height: 2.65rem;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.noRecord p{
+	color: #0198ef;
+	position: absolute;
+	bottom: 0.1rem;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 0.3rem;
+}
+
+#wrapper{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	overflow: hidden;
+	padding-bottom: 0.1rem;
+}
+
+.pointsRecordDetail{
+	width: 100%;
+}
+
+.pointsRecordDetail .reload,.pointsRecordDetail .loadMore{
+	width: 100%;
+	height: 0.5rem;
+	text-align: center;
+	color: #C2C2C2;
+	position: absolute;
+	left: 0;
+}
+
+.pointsRecordDetail .reload{
+	top: -0.9rem
+}
+
+.pointsRecordDetail .loadMore{
+	bottom: -0.9rem
+}
+
+.reload img,.loadMore img{
+	display: inline;
+	width: 0.28rem;
+	height: 0.28rem;
+}
+.pointsRecordDetail dl{
+	padding-bottom: 0.3rem;
+	padding-left: 0.44rem;
+	padding-top: 0.1rem;
+	margin-left: 0.4rem;
+	border-left: 1px #d7dbdf solid;
+	line-height: 0.6rem;
+	color: #505559;
+	font-size: 0.26rem;
+	position: relative;
+}
+
+.pointsRecordDetail dt{
+	height: 0.6rem;
+}
+
+.recordDetailRound{
+	border-radius: 50%;
+	background-color: #ffd946;
+	border: 0.08rem #fff6b6 solid;
+	color: #fff;
+	position: absolute;
+	font-size: 0.11rem;
+	line-height: 0.45rem;
+	text-align: center;
+}
+
+.roundBig{
+	width: 0.42rem;
+	height: 0.42rem;
+	left: -0.29rem;
+	top: 0.1rem;	
+}
+
+.roundSmall{
+	width: 0.18rem;
+	height: 0.18rem;
+	left: -0.18rem;
+	top: 0.21rem;	
+}
+
+.pointsRecordDetail h3{
+	color: #666;
+	font-size: 0.31rem;
+	padding-left: 0;
+}
+
+.pointsRecordDetail li{
+	height: 0.52rem;
+}
+
+.pointsRecordDetail li div{
+	/*float: left;*/
+	display: inline-block;
+}
+
+.pointsRecordDetail li div:nth-of-type(1){
+	width: 1rem;
+	color: #7e868c;
+}
+
+.pointsRecordDetail li div:nth-of-type(2){
+	width: 3.5rem;
+}
+
+.pointsRecordDetail li div:nth-of-type(3){
+	width: 1.4rem;
+	/*float: right;*/
+	text-align: right;
+	color: #333;
+}
+
+.pointsRecordDetail li div:nth-of-type(2) p{
+	display: inline;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,733 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="telephone=no" name="format-detection" />
+		<title>分期详情</title>
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				recalc();if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link href="css/home.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/confirmorder.css" />
+		<link href="css/loadding.css" rel="stylesheet" type="text/css">
+		<link href="css/tooltip.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/jquery.mobile-loan.min.css">
+	</head>
+
+	<body>
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<div class="maincontentfrist hide_mian_div" id="maincontentfrist">
+			<header class="header_topbg hide_mian_page">
+				<div class="btncancel hide_mian_page" onclick="javascript:divshow('cancelcontracty');">取消</div>
+				<div class="top_name_div">
+					<p>分期详情</p>
+				</div>
+			</header>
+			<div class="clear hide_mian_page" style="height: 0.95rem;"></div>
+			<section class="mt-1 loan-via tiptxtsix hide_mian_page">
+				<div class="loan-lt">
+					<div class="lt-dsb" style="border-top:0;">
+						<i class="idt"><img src="images/small_right.png"></i>
+						<p>您有一笔分期审核已通过</p>
+					</div>
+				</div>
+			</section>
+			<section class="mt-1 loan-wrong tiptxtfsan hide_mian_page">
+				<div class="loan-lt">
+					<div class="lt-dsb" style="border-top:0;">
+						<i class="idt"><img src="images/small_wrong.png"></i>
+						<p>您有一笔分期审核被拒绝</p>
+					</div>
+				</div>
+			</section>
+			<section class="mt-1 loan-verify tiptxtfour hide_mian_page">
+				<div class="loan-lt">
+					<div class="lt-dsb" style="border-top:0;">
+						<i class="idt"><img src="images/small_verify.png"></i>
+						<p>您有一笔分期正在审核中</p>
+						<div class="btncancel" onclick="javascript:divshow('cancelcontracty');">取消</div>
+					</div>
+
+				</div>
+			</section>
+			<section class="mt-1 loan-via tiptxtthree hide_mian_page">
+				<div class="loan-lt">
+					<div class="lt-dsb" style="border-top:0;">
+						<i class="idt"><img src="images/small_right.png"></i>
+						<p>您有一笔分期已结清</p>
+					</div>
+				</div>
+			</section>
+			<section class="mt-1 loan-warning tiptxttwo hide_mian_page">
+				<div class="loan-lt">
+					<div class="lt-dsb" style="border-top:0;">
+						<i class="idt"><img src="images/small_warning.png"></i>
+						<p>您有一笔分期已逾期</p>
+					</div>
+				</div>
+			</section>
+			<section class="mt-1 loan-repay tiptxtone hide_mian_page">
+				<div class="loan-lt">
+					<div class="lt-dsb" style="border-top:0;">
+						<i class="idt"><img src="images/small_repay.png"></i>
+						<p>您有一笔分期正在还款中</p>
+					</div>
+				</div>
+			</section>
+			<section class="mt-1 loan-money tiptxtfive hide_mian_page">
+				<div class="loan-lt">
+					<div class="lt-dsb" style="border-top:0;">
+						<i class="idt"><img src="images/small_money.png"></i>
+						<p>您有一笔分期已受理成功</p>
+					</div>
+				</div>
+			</section>
+			<section class="mt-1 loan-moneyc tiptxtzero hide_mian_page">
+				<div class="loan-lt">
+					<div class="lt-dsb" style="border-top:0;">
+						<i class="idt"><img src="images/small_money.png"></i>
+						<p>您有一笔分期正在受理中</p>
+					</div>
+				</div>
+			</section>
+			<section class="mt-3 loan-hint tiptxtfusan_t hide_mian_page">
+				<p>OMG@#%，您的分期申请由于某种神秘的原因被拒绝了！ 拒绝了！绝了！了！预知后事如何，请打客服了解~</p>
+			</section>
+			<div class="clear"></div>
+			<section class="co_sectprod">
+				<div class="co_prods">
+					<div class="co_prods_left"><img src="images/product.jpg" /></div>
+					<div class="co_prods_right">
+						<div class="co_prods_rul">
+							<div class="prod_name">Apples/苹果Iphone 6S PlusIphone 6S Plus</div>
+							<div class="prod_skulist"><i>玫瑰金</i><i>公开版64G内存</i></div>
+							<div class="prod_money">
+								<div class="prodsjm">售价：<span>6888元</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="clear"></div>
+			<section class="wuliu_info br_bottom">
+				<div class="fapiao_info_div" onclick="ReturnPage('maincontentfrist','wuliu_datadiv')">
+					<div><i class="wuliu_icon"></i>物流状态</div>
+					<div><span>待揽件</span>
+						<div>&nbsp;&nbsp;</div>
+					</div>
+				</div>
+			</section>
+			<div class="clear"></div>
+			<section class="fapiao_info">
+				<div class="fapiao_info_div" onclick="ReturnPage('maincontentfrist','fapiao_datadiv')">
+					<div>发票信息</div>
+					<div><span>电子发票-个人-明细</span>
+						<div>&nbsp;&nbsp;</div>
+					</div>
+				</div>
+			</section>
+			<div class="clear"></div>
+			<section class="mt-3 br_bottom br_top">
+				<div class="dk_shmoney br_bottom">首付：<span>2000元</span></div>
+				<div class="ps-lt" style="padding-top:0.25rem ;">
+					<div class="loan-progress">
+						<div class="proess_left proess_blue">￥<span class="yhmoneycount">0</span></div>
+						<div class="proess_right proess_green">￥<span class="symoneycount">0</span></div>
+					</div>
+					<div class="loan-progress">
+						<input type="range" name="slider-2" id="slider-2" data-highlight="true" min="0" max="1000" value="0">
+					</div>
+					<div class="loan-progress">
+						<div class="proess_left proess_gray">应还总金额</div>
+						<div class="proess_right proess_gray">剩余应还金额</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="clear"></div>
+			<section class="mt-1 loan-recent mt_hegiht">
+				<div class="loan-lt">
+					<div class="lt-dsb">
+						<i class="idt"><img src="images/list_cal.png"></i>
+						<p class="recent">最近还款日：<em class="next_repay_time"></em></p>
+					</div>
+				</div>
+			</section>
+			<div class="clear"></div>
+			<section class="mt-1 mt-mt mheight_ot">
+				<div class="ps-lt loan-green">
+					<ul>
+						<li>期数</li>
+						<li>还款金额</li>
+						<li>还款日期</li>
+						<li>还款状态</li>
+						<div style="clear:both;"></div>
+					</ul>
+				</div>
+			</section>
+
+			<section class="mt-3">
+				<div class="ps-lt loan_detailinfo">
+
+				</div>
+			</section>
+			<section class="write_from">
+				<div class="b_overall queryhtong" onclick="loadncontract_query()">查看分期合同</div>
+				<div class="h_overall qianshetong hide_mian_page" onclick="javascript:divshow('payzfpwd');">签署合同并确认发货</div>
+			</section>
+		</div>
+
+		<!--fapiao star-->
+		<div class="fapiao_datadiv hide_mian_div">
+			<header>
+				<div class="rt-bk" onclick="ReturnPage('fapiao_datadiv','maincontentfrist')">
+					<i class="bk"></i>
+				</div>
+				<div class="top-name">
+					<p>发票信息</p>
+				</div>
+			</header>
+			<div class="clear" style="height: 0.95rem;"></div>
+
+			<section class="fp_section">
+				<div class="fp_section_div">
+					<div class="fp_section_title">发票类型</div>
+					<ul class="prodd_skuli_right_ul">
+						<li class="active" alt="1">普通发票</li>
+						<li alt="2">电子发票</li>
+						<li alt="3">增值税发票</li>
+					</ul>
+				</div>
+			</section>
+			<div class="fapiao_div1  fapiao_div">
+				<div class="clear"></div>
+				<section class="fp_section">
+					<dl class="fa_dt">
+						<dt>发票抬头</dt>
+						<dd>
+							<input type="text" class="inputtxt" placeholder="可输入个人/单位名称" />
+						</dd>
+					</dl>
+				</section>
+				<div class="clear"></div>
+				<section class="fp_section">
+					<dl class="fa_dt">
+						<dt>发票内容</dt>
+						<dd class="fa_dl_cntent">
+							电脑配件<img src="images/arrow_new.png" />
+						</dd>
+					</dl>
+				</section>
+
+				<div class="clear"></div>
+				<section>
+					<div class="b_overall">确定</div>
+				</section>
+			</div>
+			<div class="fapiao_div2 fapiao_div hide_mian_div">
+				<div class="clear"></div>
+				<section class="fp_section">
+					<dl class="fa_dt">
+						<dt>发票抬头</dt>
+						<dd>
+							个人
+						</dd>
+					</dl>
+				</section>
+				<div class="clear"></div>
+				<div class="fp_txt_info">请填写收票人信息</div>
+				<section class="fp_section">
+					<dl class="fa_dt">
+						<dt>收票人手机</dt>
+						<dd>
+							<input type="tel" class="inputtxt" placeholder="请填写收票人手机号码" />
+						</dd>
+					</dl>
+					<dl class="fa_dt br_top"><dt>收票人邮箱</dt>
+						<dd>
+							<input type="tel" class="inputtxt" placeholder="用来接收电子发票邮件(选填)" />
+						</dd>
+					</dl>
+				</section>
+				<div class="clear"></div>
+				<section class="fp_section">
+					<dl class="fa_dt">
+						<dt>发票内容</dt>
+						<dd class="fa_dl_cntent">
+							电脑配件<img src="images/arrow_new.png" />
+						</dd>
+					</dl>
+				</section>
+
+				<div class="clear"></div>
+				<section>
+					<div class="b_overall">确定</div>
+				</section>
+
+			</div>
+			<div class="fapiao_div3  fapiao_div hide_mian_div">
+				<ul class="fa_zzs_info">
+					<li>
+						<label>单位名称</label>
+						<input type="text" class="inputtxt" placeholder="请输入公司营业执照单位全称" />
+					</li>
+					<li>
+						<label>识别码</label>
+						<input type="text" class="inputtxt mt_2" placeholder="请输入税务登记证编号" />
+					</li>
+					<li>
+						<label>注册地址</label>
+						<input type="text" class="inputtxt" placeholder="请输入公司营业执照注册地址" />
+					</li>
+					<li>
+						<label>注册电话</label>
+						<input type="text" class="inputtxt" placeholder="请输入公司联系电话" />
+					</li>
+					<li>
+						<label>开户银行</label>
+						<input type="text" class="inputtxt" placeholder="请输入开户许可证开户银行" />
+					</li>
+					<li class="br_bottom">
+						<label>银行账户</label>
+						<input type="text" class="inputtxt" placeholder="请输入开户许可证银行账号" />
+					</li>
+				</ul>
+				<div class="clear"></div>
+				<section>
+					<div class="b_overall">确定</div>
+				</section>
+			</div>
+		</div>
+		<!--fapiao end-->
+		<!--wuliu star-->
+		<div class="wuliu_datadiv">
+			<header>
+				<div class="rt-bk" onclick="ReturnPage('wuliu_datadiv','maincontentfrist')">
+					<i class="bk"></i>
+				</div>
+				<div class="top-name">
+					<p>物流状态</p>
+				</div>
+			</header>
+			<div class="clear" style="height: 0.95rem;"></div>
+			<section class="wuliu_toopimg">
+				<img src="images/pbar_logistics_step1.png" />
+			</section>
+			<div class="clear"></div>
+			<section class="wuli_genzong">
+				<div class="wuli_genzong_div">
+					<div class="wuli_genzong_div_1">物流跟踪</div>
+					<div class="wuli_genzong_div_2">
+						<div class="wuliu_hong">
+							<div class="wuliu_h_txt">商家正在通知快递公司揽件
+								<br/>2015-12-28 15:33:29</div>
+						</div>
+						<div class="wuliu_hui">
+							<div class="wuliu_h_txt">商家正在通知快递公司揽件
+								<br/>2015-12-28 15:33:29</div>
+						</div>
+						<div class="wuliu_hui">
+							<div class="wuliu_h_txt">商家正在通知快递公司揽件
+								<br/>2015-12-28 15:33:29</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<!--wuliu end-->
+
+		<!--没有数据显示-->
+		<div class="mar_topjl_div maincontentsecond hide_mian_div">
+			<p class="pay-no-data">当前没有记录。<a onclick="btnloanclick()">马上购买！</a></p>
+		</div>
+
+		<div class="hide_mian_page">
+			<header class="header_topbg">
+				<a onclick="return_current_page('maincontentthree','maincontentfrist')">
+					<div class="rt-bk">
+						<i class="bk_white"></i>
+					</div>
+				</a>
+				<div class="btncancel hide_mian_page" onclick="javascript:divshow('cancelcontracty');">取消</div>
+				<div class="top_name_div">
+					<p>签署合同并确认发货</p>
+				</div>
+			</header>
+			<div class="clear" style="height: 0.95rem;"></div>
+			<div class="maincontent_info">
+				<iframe id="contracturlid" src="" name="contracturlid"></iframe>
+			</div>
+			<div class="clear write_sendmsg_divc" style="height: 2.2rem;"></div>
+			<section class="write_from write_sendmsg">
+				<div class="b_overall" onclick="send_msginfo()">确定</div>
+			</section>
+		</div>
+
+		<!--支付密码开始-->
+		<div class="tooltip_main_center hide_mian_div" id="payzfpwd">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="importpaypwd">
+						<div>
+							请输入支付密码
+						</div>
+						<ul id="btnpayul">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<input type="hidden" value="" id="txt_paypwd" maxlength="6" />
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<div style="color: #666666;font-size: 0.38rem;" onclick="btnpaycancel()">取消</div>
+				</div>
+			</div>
+		</div>
+		<!--支付密码结束-->
+		<!--密码错误开始-->
+        <div class="dialog-confirm hide_mian_div" id="errorpwd">
+            <div class="mask-box"></div>
+
+            <div class="make-back">
+                <div class="make-back-color">
+                    <p class="make-title">提示</p>
+                    <p class="make-cont">密码错误</p>
+                    <ul class="make-btn-box clearFix">
+                        <li>
+                            <a class="make-btn-left" onclick="btnwinopenurl()">忘记密码</a>
+                        </li>
+                        <li>
+                            <a class="make-btn-right" onclick="RetryPwd()">重试</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+		<!--<div class="tooltip_main_center hide_mian_div" id="errorpwd">-->
+			<!--<div class="tooltip_main_node">-->
+				<!--<div class="tooltip_main_n_top">-->
+					<!--<div class="tooltip_main_nt_cn">-->
+
+						<!--<div class="pwderrors">密码错误</div>-->
+					<!--</div>-->
+				<!--</div>-->
+				<!--<div class="tooltip_main_ntwo_bottom">-->
+					<!--<a onclick="btnwinopenurl()">-->
+						<!--<div>忘记密码</div>-->
+					<!--</a>-->
+					<!--<a onclick="RetryPwd()">-->
+						<!--<div>重试</div>-->
+					<!--</a>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--密码错误结束-->
+
+		<!--手机验证码开始-->
+		<div class="tooltip_main_center hide_mian_div" id="yzmpayzfpwd">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="importpaypwd">
+						<div>
+							请输入您收到的手机验证码
+						</div>
+						<ul id="btnpayulo">
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<input type="hidden" value="" id="txt_phoneyzm" maxlength="6" />
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<div style="color: #666666;font-size: 0.38rem;" onclick="btnyzmpaycancel()">取消</div>
+				</div>
+			</div>
+		</div>
+		<!--支付密码结束-->
+		<!--手机验证码错误开始-->
+		<div class="tooltip_main_center hide_mian_div" id="yzmerrorpwd">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+
+						<div class="pwderrors">验证码错误，请确认输入是否正确。</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a onclick="send_msginfo()">
+						<div>重发验证码</div>
+					</a>
+					<a onclick="RetryYZMPwd()">
+						<div>重新输入</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--手机验证码错误结束-->
+
+		<!--取消合同开始-->
+		<div class="tooltip_main_center hide_mian_div" id="cancelcontracty">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+
+						<div class="pwderrors">取消合同后申请
+							<br/>分期申请需重新确认</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('cancelcontracty');">
+						<div>不取消</div>
+					</a>
+					<a onclick="btn_cancelcontract()">
+						<div>取消合同</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--取消合同结束-->
+
+		<!--借款成功开始-->
+		<div class="tooltip_main_center hide_mian_div" id="loansuccess">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="integraltxtmain">
+							<div>恭喜您，分期申请成功</div>
+						</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom" onclick="winopenurl('loanplan.html')">
+					<a>
+						<div>查看我的账户</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!--借款成功结束-->
+
+		<!--资料已拒绝开始-->
+		<div class="tooltip_main_center hide_mian_div" id="filereject">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/filereject.png" /></div>
+						<div class="top_title">资料已拒绝</div>
+						<div class="top_center">“如有疑问，请联系客服”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('filereject')">
+						<div>我知道了</div>
+					</a>
+					<a href="tel://400-034-5666">
+						<div>拨打客服</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--资料已拒绝结束-->
+
+		<!--资料已拒绝冷却中开始-->
+		<div class="tooltip_main_center hide_mian_div" id="filereject_lqz">
+			<div class="tooltip-box">
+				<img src="images/tooltip_node_h.png">
+
+				<div class="tooltip-cont-box">
+					<div class="cont-img-box">
+						<img src="images/filereject.png">
+					</div>
+					<p class="cont-p1">资料被拒绝</p>
+
+					<p class="cont-p2">系统给出的综合信用评分不足</p>
+
+					<!--<p class="cont-p3 remive_day">距离再次申请还有<span>0</span>天</p>-->
+					<p class="cont-p2">点击按钮优选<span class="moreLoan">【更多领钱通道】</span>服务</p>
+				</div>
+				<div class="tooltip-bottom-box">
+					<!--<a href="javascript:divhide('filereject_lqz')" class="btn-k">我知道了</a>-->
+					<ul>
+						<li>
+							<a href="javascript:divhide('filereject_lqz');" class="cancel-l">我知道了</a>
+						</li>
+						<li>
+							<a href="javascript:" onclick="toMoreLoan()" class="btn-r">更多领钱通道</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--资料已拒绝冷却中结束-->
+
+		<!--资料已拒绝冷却结束开始-->
+		<div class="tooltip_main_center hide_mian_div" id="filereject_lqjs">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/filereject.png" /></div>
+						<div class="top_title">资料被拒绝</div>
+						<div class="top_center_lq">“系统给出的综合信用评分不足”</div>
+						<div class="remive_day">您已可以重新提交资料</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('filereject_lqjs')">
+						<div>稍后再说</div>
+					</a>
+					<a onclick="btnrealviery()">
+						<div>提交资料</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--资料已拒绝冷却结束结束-->
+
+		<!---资料被打回开始-->
+		<div class="tooltip_main_center hide_mian_div" id="fileback">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/fileback.png" /></div>
+						<div class="top_title">资料被打回</div>
+						<div class="top_center">“资料存在问题，请重新填写”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('fileback')">
+						<div>我知道了</div>
+					</a>
+					<a onclick="winopen_two('check_status.html')">
+						<div>修改资料</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---资料被打回结束-->
+		<!---资料审核中开始-->
+		<div class="tooltip_main_center hide_mian_div" id="fileaubit">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/fileaubit.png" /></div>
+						<div class="top_title">资料审核中</div>
+						<div class="top_center">“审核通过后就能看到额度了”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a href="javascript:divhide('fileaubit')">
+						<div>我知道了</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---资料审核中结束-->
+
+		<!---请先完善资料开始-->
+		<div class="tooltip_main_center hide_mian_div" id="filenew">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/filenew.png" /></div>
+						<div class="top_title">完善or提交</div>
+						<div class="top_center">“大人,您尚未完善/提交资料”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('filenew');">
+						<div>稍后再说</div>
+					</a>
+					<a onclick="btnrealviery()">
+						<div>填写资料</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!---请先完善资料结束-->
+
+		<!---您还没有绑定银行卡开始-->
+		<div class="tooltip_main_center hide_mian_div" id="nobankcard">
+            <div class="tooltip-box">
+                <img src="images/tooltip_node_h.png">
+
+                <div class="tooltip-cont-box">
+                    <div class="cont-img-box">
+                        <img src="images/card_small.png">
+                    </div>
+                    <p class="cont-p1">您还没有绑定银行卡</p>
+                    <p class="cont-p2">绑定银行卡后才能使用额度哦</p>
+                </div>
+                <div class="tooltip-bottom-box">
+                    <ul>
+                        <li>
+                            <a href="javascript:divhide('nobankcard')" class="cancel-l">稍后再说</a>
+                        </li>
+                        <li>
+                            <a href="javascript:" onclick="btnaddbenkpay()" class="btn-r">绑定银行卡</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+		</div>
+		<!---您还没有绑定银行卡结束-->
+		<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+		<script type="text/javascript " src="js/History.js"></script>
+		<script type="text/javascript" src="js/keyboard.js"></script>
+		<script type="text/javascript" src="js/Skeyboard.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
+		<script type="text/javascript" src="js/tkPublic.js"></script>
+		<script type="text/javascript" src="js/pub.js"></script>
+		<script type="text/javascript" src="js/prod_loan.js"></script>
+		<script>
+			$(document).ready(function() {
+				//				loadLogin_three();
+				//				if (localStorage.ordernumber == '' || localStorage.ordernumber == null || localStorage.ordernumber == 'undefined') {
+				//					noorderdata();
+				//				} else {
+				//					datasigleinfo(localStorage.ordernumber);
+				//				}
+				//				$("#btnpayul").on("click", function() {
+				//					vtype = 1;
+				//					var input2 = document.getElementById('txt_paypwd');
+				//					KeyBoard(input2);
+				//				});
+				//				$("#btnpayulo").on("click", function() {
+				//					vtype = 8;
+				//					var input3 = document.getElementById('txt_phoneyzm');
+				//					SKeyBoard(input3);
+				//				});
+				//				LoadingOver();
+			});
+		</script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	</body>
+
+</html>

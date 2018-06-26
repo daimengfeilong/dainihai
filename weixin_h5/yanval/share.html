@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui" />
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<title>您的颜，值多少？</title>
+	</head>
+
+	<body>
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<!--遮罩-->
+		<div class="guide_mask" onclick="cloaewin()" style="display: block;" id="mask"></div>
+		<div class="mask_content" style="display: block;" id="content">
+			<button class="non close" id="close_mask" onclick="cloaewin()"><img src="img/close_mask.png" width="40" class="close" /></button>
+			<img src="img/guide_mask.png" width="250" /></div>
+		<!--遮罩-->
+		<div class="final_bg wrapper">
+			<div class="frame_score">
+				<ul>
+					<li class="score black size1">TA的颜值得分</li>
+					<li class="score red size2"><span id="markscore">0</span>分</li>
+				</ul>
+			</div>
+			<div class="pic_preview top_dist center"><img src="img/img_0243.jpg" id="pic" />
+				<!--<div id="pic"></div>-->
+			</div>
+			<div class="txt_area top_dist center">
+				<ul>
+					<li class="title"><img src="" class="portrait" id="star" /><span class="red" id="starname"></span>&nbsp;<span class="tt_mid gray">相似度</span>&nbsp;<span class="red"><span id="yzxiangshidu">0</span>%</span>
+					</li>
+					<li class="subtxt">↓↓↓&nbsp;看看我的颜值多少分&nbsp;↓↓↓</li>
+				</ul>
+			</div>
+			<div class="btn center hide_mian_div" id="fx_share">
+				<ul>
+					<li id="row">
+						<a href="index.html"><img src="img/btn_metoo.png" width="200" /></a>
+					</li>
+					<li id="row" style="margin-top:10px;">
+						<img src="img/qrcode.png" width="90" />
+					</li>
+				</ul>
+			</div>
+			<div class="btn center" id="lq_jifen">
+				<ul>
+					<li id="row">
+						<a onclick="win_urlopen()"><img src="img/btn_bonus.png" width="200" /></a>
+					</li>
+					<li>
+						<a href="index.html"><img src="img/btn_again.png" width="100" /></a>
+					</li>
+					<li>
+						<button class="non" id="show_mask" onclick="showwin()"><img src="img/btn_share.png" width="100" /></button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/config.js"></script>
+	<script type="text/javascript" src="../js/tkPublic.js"></script>
+	<script type="text/javascript" src="js/yanvalue.js"></script>
+	<script type="text/javascript">
+		function cloaewin() {
+			$("#mask").hide();
+			$("#content").hide();
+		}
+		function showwin() {
+			$("#mask").show();
+			$("#content").show();
+		}
+	</script>
+	<script>
+		$(document).ready(function() {
+			ClearLocal();
+			var yzscore = GetUrlParameter("yzscore");
+			var yzpic = GetUrlParameter("yzpic");
+			var index = GetUrlParameter("index");
+			var yzpic = GetUrlParameter("yzpic");
+			var type = GetUrlParameter("type");
+			if (type == 'fxy') {
+				$("#lq_jifen").hide();
+				$("#fx_share").show();
+				cloaewin();
+			}
+			if (yzscore == '' || yzscore == null || yzscore == 'undefined') {
+				$("#markscore").html("0");
+				$("#yzxiangshidu").html("0");
+			} else {
+				$("#markscore").html(parseInt(80 + 20 * (yzscore / 100)));
+				$("#yzxiangshidu").html(yzscore);
+				$("#pic").attr("src", unescape(yzpic));
+				localStorage.YZIndex = index;
+				localStorage.YZmaxscore = yzscore;
+				localStorage.YZPic = unescape(yzpic);
+			}
+			GetPicName(index);
+			ShareVal(index);
+		});
+	</script>
+	<script type="text/javascript" src="../js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript" src="../js/jquery.json-2.4.min.js"></script>
+	<script src="js/yzwxsdk.js"></script>
+	<div style="display: none;">
+		<script src="http://s11.cnzz.com/z_stat.php?id=1255223081&web_id=1255223081" language="JavaScript"></script>
+	</div>
+
+</html>

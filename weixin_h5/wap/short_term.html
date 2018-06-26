@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>短期借款</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="../css/home.css" rel="stylesheet" type="text/css">
+    <link href="../css/new.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+
+<div class="lt-by-background">
+
+
+    <div class="lt-by-money-box">
+        <div class="loan-peculiarity-box">
+            <div class="lt-by-title">
+                <p>
+                    <i class="icon-blue"></i>
+                    <span>产品特点</span>
+                </p>
+            </div>
+            <div class="peculiarity-box">
+                <p>
+                    <span>借款额度</span>
+                    <span class="peculiarity-s-right">300-10000元</span>
+                </p>
+
+                <p>
+                    <span>借款周期</span>
+                    <span class="peculiarity-s-right">7-30天</span>
+                </p>
+
+                <p>
+                    <span>还款方式</span>
+                    <span class="peculiarity-s-right">一次性还清</span>
+                </p>
+            </div>
+        </div>
+        <div class="loan-explain-box">
+            <div class="lt-by-title">
+                <p>
+                    <i class="icon-blue"></i>
+                    <span>费用说明</span>
+                </p>
+            </div>
+            <div class="explain-cont">
+                <p>
+                    <i class="cont-num">1</i>
+                    <span>综合服务费率：0.3%/月;</span>
+                </p>
+
+                <p>
+                    <i class="cont-num">2</i>
+                    <span>逾期费用：小于15天，罚息0.5%/天，大于等于15天，罚息0.75%/天，并收取1%的滞纳金;</span>
+                </p>
+
+                <p>
+                    <i class="cont-num">3</i>
+                    <span>总还款额=本金+综合服务费+逾期费用（若有逾期）;</span>
+                </p>
+
+                <p>
+                    <i class="pig-nose"></i>
+                    <span>实际还款金额以借款进度的金额为准。</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

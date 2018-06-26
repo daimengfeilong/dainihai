@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>信用卡认证</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="../css/tooltip.css"/>
+    <link rel="stylesheet" href="../css/write_from.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<div class="main_page_content">
+    <div class="head_progress">
+        <img src="../images/progress2.png">
+    </div>
+    <div class="text-description">
+        <p>请您务必认证本人开通了网银的真实有效的信用卡，绑定成功后将无法修改。</p>
+    </div>
+    <div class="float-wrap-box">
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">卡号</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input class="weui_input" id="creditNo" type="tel" maxlength="19" placeholder="请输入您的卡号"  onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onpaste="return false;">
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">预留手机号</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input class="weui_input" id="creditPN" type="tel" maxlength="11" placeholder="请输入您的预留手机号">
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">信用卡额度</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <input class="weui_input" type="tel" id="creditQuota" placeholder="请输入您的信用卡额度(单位：元)" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"   oninput="if (value.length > 8)value =value.slice(0, 8)" onpaste="return false;">
+            </div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd">
+                <label class="weui_label">信用卡还款日</label>
+            </div>
+            <div class="weui_cell_bd weui_cell_primary">
+
+                <select  class="weui_input"  id="creditDate" required>
+                    <option value="" disabled selected >请选择还款日</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <!--<input class="weui_input" type="number" id="creditDate" disabled="disabled" placeholder="请选择您的信用卡还款日期" value="1">-->
+            </div>
+            <i class="arrow">
+                <img  src="../images/arrow_new.png">
+            </i>
+        </div>
+    </div>
+    <div class="look-credit-card">
+        <p>
+            <a href="../wap/creditCard_list.html">查看支持的信用卡 <i></i></a>
+        </p>
+    </div>
+    <div class="next-button-box">
+        <!--button-gray-->
+        <button class="next-button button-pass" onclick="nextStep()">下一步</button>
+    </div>
+</div>
+<!--信用卡验证有误确认提示-->
+<div class="dialog-confirm" id="dialog1" style="display: none">
+    <div class="mask-box">
+
+    </div>
+    <div class="make-back">
+        <img src="../images/write_popup.png">
+
+        <div class="make-icon">
+            <p class="icon-p">
+                <img src="../images/gt_jg.png">
+            </p>
+
+            <p class="make-hind">输入的银行卡号可能不正确</p>
+
+            <p class="make-card-id" id="bank_card_num"></p>
+        </div>
+        <div class="make-bottom">
+            <ul>
+                <li>
+                    <a class="confirm-box" onclick="creditCOk()" id="ensure_go">确认无误</a>
+                </li>
+                <li>
+                    <a class="call-back" id="dialog1_close">返回修改</a>
+                </li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript" src="../js/config.js"></script>
+<script type="text/javascript" src="../js/tkPublic.js"></script>
+<script type="text/javascript" src="../js/pub.js"></script>
+<script type="text/javascript" src="../js/turnjson.js"></script>
+<script type="text/javascript" src="js/credit_card.js"></script>
+</body>
+</html>

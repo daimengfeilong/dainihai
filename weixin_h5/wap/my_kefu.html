@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>帮助中心</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        body{
+            background-color: #fff;
+        }
+        .cnt_nav{
+            width: 100%;
+            height: 64px;
+            text-align: center;
+            line-height: 84px;
+            border-bottom: 1px solid #dde2ef;
+            font-size: 18px;
+            color: #000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            background-color: #fff;
+        }
+        .cnt_nav div{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0.7rem;
+            height: 100%;
+            padding-right: 0.2rem;
+            text-align: right;
+            line-height: 84px;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+        }
+        .cnt_nav img{
+            width: 9px;
+        }
+        .cnt_header {
+            width: 100%;
+            height: 1rem;
+            padding: 0.2rem;
+            border-bottom: 1px solid #dde2ef;
+        }
+        .cnt_header div{
+            width: 100%;
+            height: 0.6rem;
+            line-height: 0.55rem;
+            text-align: center;
+            background-color: #eaebed;
+            border: none;
+            border-radius: 0.08rem;
+            font-size: 0.25rem;
+            color: #bfbfbf;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+        }
+        .cnt_header div img{
+            width: 0.29rem;
+            vertical-align: middle;
+        }
+        .cnt_header div span{
+            vertical-align: middle;
+        }
+        section{
+            width: 100%;
+            margin-bottom: 0.96rem;
+        }
+        .cnt_section_header{
+            width: 100%;
+            display: flex;
+            font-size: 0.3rem;
+            color: #000;
+        }
+        .cnt_section_header div{
+            flex: 1;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            padding-left: 0.5rem;
+        }
+        .hotQues span{
+            border-left: 0.05rem solid #ff3a2e;
+            padding-left: 0.2rem;
+        }
+        .cnt_section_header .allQues{
+            text-align: right;
+            padding-right: 0.4rem;
+            color: #5d5e61;
+            font-size: 0.25rem;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+        }
+        .allQues img{
+            width: 0.13rem;
+            vertical-align: middle;
+        }
+        .allQues span{
+            vertical-align: middle;
+        }
+        .cnt_section_tit{
+            width: 100%;
+            height: 0.82rem;
+            line-height: 0.82rem;
+            background-color: #f1f1f1;
+            font-size: 0.3rem;
+            color: #7d7d7d;
+            padding-left: 0.55rem;
+        }
+        .ques_modules{
+            width: 100%;
+        }
+        .ques_list{
+            padding: 0.32rem 0.15rem;
+            display: flex;
+        }
+        .ques_list_tit{
+            width: 33%;
+            padding: 0.3rem 0;
+            text-align: center;
+            border-right: 1px solid #dde2ef;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+        }
+        .ques_list_tit img[name=icon]{
+            width: 0.68rem;
+        }
+        .ques_list_tit img[name=right]{
+            width: 0.15rem;
+        }
+        .ques_list_tit p span{
+            font-size: 0.3rem;
+            color: #000;
+            vertical-align: middle;
+        }
+        .ques_list_cnt{
+            flex: 1;
+            padding: 0.15rem 0;
+            font-size: 0.28rem;
+            color: #7d7d7d;
+        }
+        .ques_list_cnt p{
+            margin-bottom: 0.08rem;
+            padding-left: 0.65rem;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+        }
+        .ques_list_cnt p:last-child{
+            margin-bottom: 0;
+        }
+        .line{
+            width: 100%;
+            height: 0.22rem;
+            background-color: #f1f1f1;
+        }
+        .cnt_footer{
+            width: 100%;
+            height: 0.96rem;
+            border-top: 1px solid #dde2ef;
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
+            background-color: #fff;
+        }
+        .cnt_footer div{
+            flex: 1;
+            height: 0.96rem;
+            text-align: center;
+            font-size: 0.2rem;
+            color: #7d7d7d;
+            padding-top: 0.2rem;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+        }
+        .cnt_footer img[name=lineKefu]{
+            width: 0.49rem;
+        }
+        .cnt_footer img[name=phoneKefu]{
+            width: 0.48rem;
+        }
+        .cnt_footer div span{
+            display: inline-block;
+            text-align: center;
+            line-height: normal;
+            vertical-align: middle;
+            margin-left: 0.1rem;
+        }
+    </style>
+</head>
+<body>
+<!--<nav class="cnt_nav">-->
+    <!--<div class="goBack">-->
+        <!--<img src="images/left.png" alt="">-->
+    <!--</div>-->
+    <!--<span>帮助中心</span>-->
+<!--</nav>-->
+<header class="cnt_header">
+    <div>
+        <img src="images/search.png" alt="">
+        <span>有问题？点我搜一搜吧~</span>
+    </div>
+</header>
+<section>
+    <div class="cnt_section_header">
+        <div class="hotQues">
+            <span>热门问题</span>
+        </div>
+        <div class="allQues">
+            <span>全部问题类别</span>
+            <img src="images/right.png" alt="">
+        </div>
+    </div>
+    <div class="cnt_section_tit">
+        <span>猜你想问</span>
+    </div>
+    <div class="ques_modules">
+        <div class="ques_list">
+            <div class="ques_list_tit" number="1001">
+                <img src="images/icon1.png" name="icon" alt="">
+                <p>
+                    <span>分期步骤</span>
+                    <img src="images/right.png" name="right" alt="">
+                </p>
+            </div>
+            <div class="ques_list_cnt">
+                <p number="10011">什么是信用卡产品分期？</p>
+                <p number="10012">什么是普通产品分期？</p>
+                <p number="10013">什么是VIP分期模式？</p>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="ques_list">
+            <div class="ques_list_tit" number="1013">
+                <img src="images/icon2.png" name="icon" alt="">
+                <p>
+                    <span>还款说明</span>
+                    <img src="images/right.png" name="right" alt="">
+                </p>
+            </div>
+            <div class="ques_list_cnt">
+                <p number="10131">如何还款？</p>
+                <p number="10132">能提前还款吗？</p>
+                <p number="10133">逾期还款有什么影响？</p>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="ques_list">
+            <div class="ques_list_tit" number="1022">
+                <img src="images/icon3.png" name="icon" alt="">
+                <p>
+                    <span>实名认证</span>
+                    <img src="images/right.png" name="right" alt="">
+                </p>
+            </div>
+            <div class="ques_list_cnt">
+                <p number="10221">身份证信息如何提交？</p>
+                <p number="10222">如何进行人脸识别？</p>
+                <p number="10223">同一个身份证可以支持几个账户申请分期？</p>
+            </div>
+        </div>
+        <div class="line"></div>
+    </div>
+
+</section>
+<footer class="cnt_footer">
+    <div class="line_kefu">
+        <img src="images/line_kefu.png" name="lineKefu" alt="">
+        <span>在线客服<br>(24小时服务)</span>
+    </div>
+    <div class="phone_kefu">
+        <img src="images/phone_kefu.png" name="phoneKefu" alt="">
+        <span>呼叫客服<br>(09:00-18:00)</span>
+    </div>
+</footer>
+
+
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function() {
+        var source = GetUrlParameter("source");
+        var isShow = GetUrlParameter("isShow");
+        if (isShow == "0") {
+            $(".cnt_footer").hide();
+        } else {
+            $(".cnt_footer").show();
+        }
+        if (source == "android") {
+            javaCode.call("hideBtn");   // 调用安卓本地方法
+        } else if (source == "iOS") {
+            window.webkit.messageHandlers.hideBtn.postMessage("");   // 调用iOS本地方法
+        }
+        $(".allQues").click(function() {
+            window.location.href = 'all_ques.html?source=' + source;
+        });
+        $(".cnt_header div").click(function () {
+            window.location.href = 'search_ques.html?source=' + source;
+        });
+        $(".ques_list_tit, .ques_list_cnt p").click(function () {
+            var number = $(this).attr("number");
+            window.location.href = "answer_list.html?number=" + number + "&source=" + source;
+        });
+        $(".line_kefu").click(function () {
+            if (source == "android") {
+                javaCode.call("onlineService");   // 调用安卓本地方法
+            } else if (source == "iOS") {
+                window.webkit.messageHandlers.onlineService.postMessage("");   // 调用iOS本地方法
+            } else {
+                window.location.href = "http://ymn.boyacx.com/#/AI"
+            }
+        });
+        $(".phone_kefu").click(function () {
+            if (source == "android") {
+                javaCode.call("phoneService");   // 调用安卓本地方法
+            } else if (source == "iOS") {
+                window.webkit.messageHandlers.phoneService.postMessage("");   // 调用iOS本地方法
+            } else {
+                window.location.href = "tel:400-0345-666"
+            }
+        });
+    })
+
+</script>
+</body>
+</html>

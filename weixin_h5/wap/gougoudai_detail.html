@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>狗狗贷</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="css/partner.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+<header class="detail-header bgWhite">
+    <section>
+        <div class="detail-header-logo">
+            <img src="images/gougoudai.png" alt="">
+        </div>
+        <div class="detail-header-text">
+            <p class="detail-header-name">狗狗贷</p>
+            <div class="detail-header-text-list">
+                <div>
+                    <p>参考日利率</p>
+                    <p>0.05%</p>
+                </div>
+                <hr>
+                <div>
+                    <p>借款额度</p>
+                    <p>1000-5000</p>
+                </div>
+                <hr>
+                <div>
+                    <p>借款期限</p>
+                    <p>1-12月</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>产品优势</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>无抵押，0门槛，利息低，审核快</p>
+        </div>
+    </section>
+</section>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>借款条件</span>
+        </div>
+        <div class="detail-advantage-text">
+            <div class="detail-term">
+                <p>● 年龄：18周岁及以上</p>
+                <p>● 芝麻分550起</p>
+            </div>
+        </div>
+    </section>
+</section>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>借款流程</span>
+        </div>
+        <div class="detail-advantage-text">
+            <img class="flow-img" src="images/huoguang_liucheng.png" alt="">
+        </div>
+    </section>
+</section>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>其他说明</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>人工加机审</p>
+        </div>
+    </section>
+</section>
+<div style="width: 100%;height: 1.2rem;"></div>
+<footer class="detail-footer">
+    <div>
+        <a href="javascript:void(0);" class="apply-btn">极速申请</a>
+    </div>
+</footer>
+
+
+<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function () {
+        var a = location.href;
+        var b = a.split("/");
+        var c = b.slice(b.length-1, b.length).toString(String).split(".");
+        var page_id = c.slice(0, 1)[0];
+        console.log(page_id);
+        // 发送页面访问次数
+        var uin = GetUrlParameter("uin");
+        var session = GetUrlParameter("session");
+        var source = GetUrlParameter("source", 'html5');
+        console.log(uin +','+ session +','+ source);
+        var paramData = {
+            page_id: page_id,
+            platform: source,
+            tk_uin: uin,
+            tk_session: session
+        };
+
+        // 跳转至第三方借款平台
+        $(".apply-btn").click(function () {
+            var toLoanUrl = "http://www.qqyzk.top/dxjk_reg.ssj?merchantId=581";
+            ajaxFn(urlLink + "/web/user_profile/unique_visitor", paramData, sucFn, null, "post");
+            if (source == "android") {
+                javaCode.call("skip_url", toLoanUrl);   // 调用安卓本地方法
+            } else if (source == "iOS") {
+                WebViewJavascriptBridge.jumpWeb(toLoanUrl);   // 调用iOS本地方法
+            } else {
+                window.location.href = toLoanUrl;    // H5跳转
+            }
+        });
+
+    });
+    function sucFn(data) {
+        console.log(data);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui" />
+<meta name="format-detection" content="email=no" />
+<meta name="format-detection" content="address=no" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="copyright" content="Copyright (c) cmcm.com" />
+<meta property="fb:admins" content="828823577" /> 
+<title>常见问题</title>
+<style type="text/css">
+body,html{margin:0;padding:0;font-family:"Microsoft YaHei", Arial, sans-serif;color:#333;font-size:0.9em;background:#e9e9e9;}
+ul,li{list-style:none;margin:0;padding:0}
+a:link,a:visited{text-decoration:none;color:#333;}
+.man_bo{width:100%;}
+.man_top{width:100%;height:4em;background:#5ac3b2;}
+.man_top a{width:5em;height:4em;float:left;position:absolute;z-index:1;left:0;}
+.man_top h1{font-size:1.5em;text-align:center;line-height:1.2em;float:left;color:#fff;width:100%}
+.man_top a:hover{background:rgba(0,0,0,0.1)}
+.man_ce{width:100%}
+.man_ce ul{}
+.man_ce ul li{background:#fff;border-bottom:1px solid #d0d0d0;margin-top:0;width:100%;float:left;}
+.man_ce ul li a{float:left;width:100%;line-height:3em;text-indent:1.2em;font-size:1.5em;color:#777}
+.setting{float:right;height:3em;}
+</style>
+<link rel="stylesheet" type="text/css" href="/static/css/css.css">
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="/static/js/swiper-2.1.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+		//window.location.reload();
+		window.javaCode.call("setTitle", "常见问题");
+		$("li").click(function(){
+			//alert($(this).find('a').text());
+			window.javaCode.call("setTitle", $(this).find('a').text());
+			});
+		});
+function onBackPressed() 
+{ 
+	window.javaCode.call("finish");
+}
+</script>
+</head>
+
+<body>
+<div class="man_bo">
+<!--	<div class="man_top">
+<a href="javascript:history.go(-1);"><img src="img/top_icon_back_normal.png" height="100%" /></a>
+<h1>常见问题</h1>
+</div>-->
+<div class="man_ce">
+<ul>
+<li><a href="how_to_borrow.html">如何分期<img class="setting" src="img/whole_icon_down.png" height="100%" /></a></li>
+<li><a href="get_credits.html">如何获得额度<img class="setting" src="img/whole_icon_down.png" height="100%" /></a></li>
+<li><a href="withdrawal.html">如何使用额度<img class="setting" src="img/whole_icon_down.png" height="100%" /></a></li>
+<li><a href="how.html">如何还款<img class="setting" src="img/whole_icon_down.png" height="100%" /></a></li>
+<li><a href="borrowing.html">分期服务费<img class="setting" src="img/whole_icon_down.png" height="100%" /></a></li>
+<li><a href="late_fee.html">逾期费用<img class="setting" src="img/whole_icon_down.png" height="100%" /></a></li>
+<li><a href="account.html">账户与用户<img class="setting" src="img/whole_icon_down.png" height="100%" /></a></li>
+<li><a href="invitation.html">邀请码和积分商城 <img class="setting" src="img/whole_icon_down.png" height="100%" /></a></li>
+</ul>
+</div>
+</div>
+</body>
+</html>

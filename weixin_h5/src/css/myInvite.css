@@ -1,0 +1,353 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre,
+form, fieldset, input, textarea, p, blockquote, th, td, span, img {
+    padding: 0;
+    margin: 0;
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+
+.shadowBox{
+	width: 6.96rem;
+	box-shadow: 0 0.03rem 0.1rem rgba(208, 231, 248, 0.9);
+	border-radius: 0.05rem;
+	margin-top: 0.4rem;
+	margin-left: 0.28rem;
+	border: 0;
+	position: relative;	
+}
+
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+
+body{
+	font-size: 0.3rem;
+	background-color: #fff
+}
+
+header{
+	width: 100%;
+	height: 0.6rem;
+	padding: 0.2rem 0;
+	text-align: center;
+	color: #626b73;
+	box-shadow: 0 0.03rem 0.1rem rgba(208, 231, 248, 0.9);
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #fff;
+	z-index: 100;
+}
+
+.curr{
+	color: #ff943a;
+}
+
+.header{
+	height: 0.57rem;	
+	line-height: 0.57rem;	
+}
+
+.header li{
+	float: left;
+	width: 50%;
+	box-sizing: border-box;
+	border-right: 1px #F0F0F0 solid;
+}
+
+.header li:nth-last-of-type(1){
+	border: 0;
+}
+
+.border{
+	height: 0.03rem;
+}
+
+.border li{
+	float: left;
+	width: 0.7rem;
+	height: 0.03rem;
+	margin: 0.2rem 1.52rem 0;
+	background-color: #ff943a;
+}
+
+.currBorder{
+	background-color: #fff !important;
+}
+
+.inviteDetail{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 1.2rem;
+	bottom: 0rem;
+	z-index: 10;
+	overflow: hidden;
+}
+
+.inviteContent{
+	/*height: 100%;*/
+	/*width: 100%;*/
+}
+
+.inviteContent > div{
+	/*width: 7.5rem;*/
+}
+
+.inviteContent dl{
+	padding: 0.43rem 0.29rem;
+	width: 6.48rem;
+	height: 0.88rem;
+	box-shadow: 0 0.03rem 0.1rem rgba(208, 231, 248, 0.9);
+	border-radius: 0.05rem;
+	margin-bottom: 0.2rem;
+	margin-left: 0.28rem;
+}
+
+.inviteContent dt{
+	width: 3.2rem;
+	height: 0.88rem;
+	float: left;
+	line-height: 0.44rem;
+	font-size: 0.26rem;
+	color: #626b73;
+}
+
+.inviteContent dt span{
+	color: #b0b8bf;
+	font-size: 0.25rem;
+}
+
+.inviteContent dd{
+	width: 3.2rem;
+	height: 0.88rem;
+	float: right;
+	line-height: 0.88rem;
+	font-size: 0.3rem;
+	color: #333;
+	text-align: right;
+}
+
+.inviteNone{
+	width: 5rem;
+	height: 10rem;
+	position: relative;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.inviteNone img{
+	width: 2.16rem;
+	height: 2.16rem;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.inviteNone p{
+	width: 4rem;
+	height: 1rem;
+	display: block;
+	font-size: 0.3rem;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -2rem;
+	margin-top: 1.2rem;
+	color: #0198ef;
+}
+
+/*邀请码页*/
+.container{
+	background-color: #feeb9e;
+	width: 100%;
+	/*height: 100%;*/
+	/*padding-top: 1px;*/
+	overflow: hidden;
+	padding-bottom: 40px;
+}
+
+.blackBoard{
+    width: 7.5rem;
+    height: 13.33rem;
+    background: rgba(0,0,0,0.77);
+    position: absolute;
+    top:0;
+    left: 0;
+    display: none;
+    z-index: 100;
+}
+
+.clickSend-bendArrow{
+    width: 5.25rem;
+    height: 1.86rem;
+    margin-left: 1.92rem;
+    padding-top: 0.1rem;
+    /*outline: 0.01rem solid tomato;*/
+}
+
+.clickSend{
+    float:left;
+    width: 3.48rem;
+    height: 0.79rem;
+    margin-top: 1.05rem;
+    /*outline: 0.01rem solid tomato;*/
+}
+
+.clickSend>p{
+    font-size: 0.28rem;
+    letter-spacing: 0.03095rem;
+    color: white;
+}
+
+.clickSend>p:first-of-type{
+    margin-top: -0.05rem;
+    margin-bottom: 0.02rem;
+}
+
+.bendArrow{
+    float: right;
+    width: 1.67rem;
+    height: 1.28rem;
+    /*outline: 0.01rem solid tomato;*/
+}
+
+.bendArrow>img{
+    width: 1.67rem;
+    height: 1.28rem;
+}
+
+.myCode{
+	margin-top: 1.1rem;
+	margin-left: 0.28rem;
+	width: 6.96rem;
+	height: 5.91rem;
+	border-radius: 0.05rem;
+	background-color: #fff;
+}
+
+.myCode .header{
+	height: 1.38rem;
+	line-height: 1.38rem;
+	color: #333;
+	font-size: 0.31rem;
+	text-align: center;
+	background-color: #f2f5fb;
+	border-top-left-radius: 0.05rem;
+	border-top-right-radius: 0.05rem;
+}
+
+.myCode .header span{
+	font-weight: bold;
+}
+
+.myCode .content{
+	height: 3.78rem;
+	padding: 0.38rem 0;
+}
+
+.qrCode{
+	width: 3.15rem;
+	height: 3.15rem;
+	margin-left: 1.9rem;
+	position: relative;
+}
+
+.qrCode span{
+	display: block;
+	width: 0.56rem;
+	height: 0.56rem;
+	box-sizing: border-box;
+	position: absolute;
+}
+
+.qrCode span:nth-of-type(1){
+	border-left: 0.04rem solid #feeb9e;
+	border-top: 0.04rem solid #feeb9e;
+	left: 0;
+	top: 0;
+}
+
+.qrCode span:nth-of-type(2){
+	border-right: 0.04rem solid #feeb9e;
+	border-bottom: 0.04rem solid #feeb9e;
+	right: 0;
+	bottom: 0;
+}
+
+.qrCode img{
+	width: 3rem;
+	height: 3rem;
+	display: block;
+	position: absolute;
+	top: 0.07rem;
+	left: 0.07rem;
+	/*background-color: #fff;*/
+	z-index: 10;
+}
+
+.qrLoading{
+	color: #959ea6;
+	font-size: 0.25rem;
+	line-height: 3.15rem;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	z-index: 1;
+}
+
+.myCode .content p{
+	color: #959ea6;
+	font-size: 0.25rem;
+	text-align: center;
+	padding-top: 0.3rem;
+}
+
+.share{
+	margin-top: 1rem;
+}
+
+.share p{
+	font-size: 0.29rem;
+	color: #333;
+	text-align: center;
+	margin-bottom: 0.3rem;
+}
+
+.shareBtns{
+	width: 6.96rem;
+	height: 1.5rem;
+	margin-left: 0.28rem;
+}
+
+.shareBtns img{
+	display: block;
+	width: 1.5rem;
+	height: 1.5rem;
+	padding-right: 0.32rem;
+	float: left;
+}
+
+.shareBtns img:nth-last-of-type(1){
+	padding-right: 0;
+}
+
+

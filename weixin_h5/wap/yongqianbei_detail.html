@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>用钱呗详情</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="css/partner.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+<header class="detail-header bgWhite">
+    <section>
+        <div class="detail-header-logo">
+            <img src="images/yongqian.png" alt="">
+        </div>
+        <div class="detail-header-text">
+            <p class="detail-header-name">用钱呗</p>
+            <div class="detail-header-text-list">
+                <div>
+                    <p>参考日利率</p>
+                    <p>0.05%</p>
+                </div>
+                <hr>
+                <div>
+                    <p>借款额度</p>
+                    <p>1000-3000</p>
+                </div>
+                <hr>
+                <div>
+                    <p>借款期限</p>
+                    <p>7天-14天</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>产品优势</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>为年轻人提供短期7天-14天的资金周转，1000-3000无抵押，无前期，随借随还。放款贼快、贼好用</p>
+        </div>
+    </section>
+</section>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>借款条件</span>
+        </div>
+        <div class="detail-advantage-text">
+            <div class="detail-term">
+                <p>● 年龄: 18-35周岁</p>
+                <p>● 芝麻信用分认证</p>
+                <p>● 手机号实名认证</p>
+                <p>● 基本资料信息认证</p>
+                <p>● 工作信息认证</p>
+                <p>● 限制新疆、西藏、内蒙古3个户籍人员</p>
+            </div>
+        </div>
+    </section>
+</section>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>借款流程</span>
+        </div>
+        <div class="detail-advantage-text">
+            <img class="flow-img" src="images/yongqian_liucheng.png" alt="">
+        </div>
+    </section>
+</section>
+<!--<section class="detail-advantage bgWhite">-->
+    <!--<section>-->
+        <!--<div class="detail-advantage-tit">-->
+            <!--<span></span>-->
+            <!--<span>借款细节</span>-->
+        <!--</div>-->
+        <!--<div class="detail-advantage-text">-->
+            <!--<p>借款额度明细：</p>-->
+            <!--<p>月利率：0.38%起</p>-->
+            <!--<p>借款期限明细：14天 | 21天 | 3个月 | 6个月 | 12个月</p>-->
+            <!--<p>平均下款金额：8000元</p>-->
+        <!--</div>-->
+    <!--</section>-->
+<!--</section>-->
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>其他说明</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>按时还款，一年授信，无需审核，立马续借</p>
+            <p style="margin-top: 0.1rem;">客户电话：0571-85260389</p>
+        </div>
+    </section>
+</section>
+<div style="width: 100%;height: 1.2rem;"></div>
+<footer class="detail-footer">
+    <div>
+        <a href="javascript:void(0);" class="apply-btn">极速申请</a>
+    </div>
+</footer>
+
+
+<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function () {
+        var a = location.href;
+        var b = a.split("/");
+        var c = b.slice(b.length-1, b.length).toString(String).split(".");
+        var page_id = c.slice(0, 1)[0];
+        console.log(page_id);
+        // 发送页面访问次数
+        var uin = GetUrlParameter("uin");
+        var session = GetUrlParameter("session");
+        var source = GetUrlParameter("source", 'html5');
+        console.log(uin +','+ session +','+ source);
+        var paramData = {
+            page_id: page_id,
+            platform: source,
+            tk_uin: uin,
+            tk_session: session
+        };
+
+        // 跳转至第三方借款平台
+        $(".apply-btn").click(function () {
+            var toLoanUrl = "http://api.yongqianbei.com/h5/invite.jsp?invitationCode=&channelCode=dnh01";
+            ajaxFn(urlLink + "/web/user_profile/unique_visitor", paramData, sucFn, null, "post");
+            if (source == "android") {
+                javaCode.call("skip_url", toLoanUrl);   // 调用安卓本地方法
+            } else if (source == "iOS") {
+                WebViewJavascriptBridge.jumpWeb(toLoanUrl);   // 调用iOS本地方法
+            } else {
+                window.location.href = toLoanUrl;    // H5跳转
+            }
+        });
+    });
+    function sucFn(data) {
+        console.log(data);
+    }
+</script>
+</body>
+</html>

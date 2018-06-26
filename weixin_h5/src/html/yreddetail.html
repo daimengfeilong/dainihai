@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta content="telephone=no" name="format-detection" />
+		<title>活动详情</title>
+		<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+					};
+				recalc();if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<link href="css/home.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles" />
+		<link rel="stylesheet" href="css/tooltip.css" />
+	</head>
+
+	<body style="background-color: #FFFFFF;">
+		<!--top message-->
+		<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+		</div>
+		<!--top message-->
+		<div class="main_page_content">
+			<div class="head">
+				<img src="images/NYRtop_pic.png" />
+			</div>
+			<div class="clear"></div>
+			<section class="xjf_section">
+				<div class="xjf_div_bg">一、活动时间</div>
+				<div class="xjf_div">
+					<ul class="xjf_div_ul">
+						<li>2016年2月7日————2016年2月13日</li>
+
+					</ul>
+				</div>
+			</section>
+			<div class="clear"></div>
+			<section class="xjf_section">
+				<div class="xjf_div_bg">二、参与方式</div>
+				<div class="xjf_div">
+					<ul class="xjf_div_ul">
+						<li>①　登录贷你嗨App或者微信首页</li>
+						<li>②　点击红包按钮</li>
+						<li>③　根据提示分享红包至朋友圈</li>
+						<li>④　获得贷你嗨额度积分</li>
+					</ul>
+				</div>
+			</section>
+			<div class="clear"></div>
+			<section class="xjf_section">
+				<div class="xjf_div_bg">三、活动问题</div>
+				<div class="xjf_div">
+					<ul class="xjf_div_ul">
+						<li>①　如何打开新春红包？</li>
+						<li>点击红包后，分享红包至朋友圈即可获得。</li>
+						<li>②　贷你嗨积分有什么用？</li>
+						<li>贷你嗨积分可以用来换取临时额度增加可使用的额度。</li>
+					</ul>
+				</div>
+			</section>
+			<div class="clear"></div>
+			<section class="write_from_detail">
+				<div class="my_overall" id="btnnewyred">马上领取</div>
+			</section>
+		</div>
+		<!--提示框开始-->
+		<div class="tooltip_main_center hide_mian_div" id="filesubmit">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="top_title_sigle" id="top_title_sigle"></div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a onclick="ResterLogin()">
+						<div>重新登录</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--提示框结束-->
+		<!--new year red-->
+		<div class="ny_reddiv hide_mian_div" id="ny_reddiv"></div>
+		<!--金币雨-->
+		<div id="moneyhl" class="hide_mian_div"></div>
+		<!--红包封面-->
+		<div id="red_close" class="moneyred_close">
+			<div onclick="BtnKqRed(this)"><img src="images/pic_hongbao_close.png" /></div>
+		</div>
+		<!---红包开启-->
+		<div class="red_opend_kq hide_mian_page" id="red_open">
+			<div class="red_open">
+				<div class="red_open_divfrist" id="dfristhb">
+					<div class="red_open_close" onclick="Div_Hide_Three('ny_reddiv','red_open','moneyhl','newyear_hongbao')"><img src="images/btn_pop_close.png" /></div>
+					<div class="red_open_bg">
+						<img src="images/pic_coin_b01.png" class="red_open_bg_wen" id="bh_wenhao" />
+						<div class="red_open_tooptip" id="dfristhtooptip">
+							<p>分享到朋友圈</p>
+							<p>即可看到红包金额</p>
+						</div>
+					</div>
+					<div class="red_open_share" onclick="divshow('mcover_hb')"></div>
+				</div>
+			</div>
+		</div>
+		<div id="mcover_hb" style="display: none;" onclick="divhide('mcover_hb')">
+			<img src="images/share.png">
+		</div>
+		<!---红包分享成功-->
+		<div class="red_opend_kq hide_mian_page" id="red_shareh">
+			<div class="red_open">
+				<div class="red_open_divfrist" id="dsencodkhb">
+					<div class="red_open_close" onclick="Div_Hide_Three('ny_reddiv','red_shareh','moneyhl','newyear_hongbao')"><img src="images/btn_pop_close.png" /></div>
+					<div class="red_open_bg">
+						<img src="images/pic_coin_b02.png" class="red_open_bg_wen" id="fx_duigou" />
+						<div class="red_open_tooptip" id="dsencodtooptip">
+							<p>恭喜你</p>
+							<p>获得<span id="newyredval">300元</span>现金红包</p>
+						</div>
+					</div>
+					<div class="red_open_lq" onclick="AddJRedSCore()"></div>
+				</div>
+			</div>
+		</div>
+		<!---新年红包提示开始-->
+		<div class="tooltip_main_center hide_mian_div" id="newyearreds">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="img_top"><img src="images/tips_hongbao_icon.png" /></div>
+						<div class="top_title">恭喜你</div>
+						<div class="top_center">“获得新年额度红包”</div>
+					</div>
+				</div>
+				<div class="tooltip_main_ntwo_bottom">
+					<a href="javascript:divhide('newyearreds'),divshow('newyear_hongbao')">
+						<div>稍后再说</div>
+					</a>
+					<a onclick="BtnLqRed()">
+						<div>打开红包</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="newyear_hongbao hide_mian_div" id="newyear_hongbao"></div>
+		<!--提示框开始-->
+		<div class="tooltip_main_center hide_mian_div" id="subtooptip">
+			<div class="tooltip_main_node">
+				<div class="tooltip_main_n_top">
+					<div class="tooltip_main_nt_cn">
+						<div class="top_title_sigle" id="top_title_sigle">您已成功领取300元现金红包!</div>
+					</div>
+				</div>
+				<div class="tooltip_main_n_bottom">
+					<a onclick="javascript:window.location.reload();">
+						<div>确定</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--提示框结束-->
+	</body>
+	<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+	<script type="text/javascript " src="yanval/js/jbase64.js"></script>
+	<script type="text/javascript " src="js/History.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/tkPublic.js"></script>
+	<script type="text/javascript" src="js/pub.js"></script>
+	<script type="text/javascript" src="js/NewYearRed.js"></script>
+	<script>
+		$(document).ready(function() {
+			var isred = GetUrlParameter("isred");
+			var uin = GetUrlParameter("uin");
+			var session = GetUrlParameter("session");
+			var phone = GetUrlParameter("phone");
+			if (session != "" && session != null && session != 'undefined') {
+				localStorage.khdsession = session;
+				loadLogin_newyeared(phone, session, uin);
+			} else {
+				loadLogin_three();
+//				setTimeout(RedBagFlag, 500);
+			}
+			setTimeout(function() {
+				if (parseInt(isred) > 0 && localStorage.int32_tag == 0) {
+					localStorage.isNewYearRed = isred;
+					BtnShareRed();
+				}
+			}, 1500);
+			setTimeout(loadWXJson, 1000);
+			LoadingOver();
+		});
+	</script>
+	<script type="text/javascript " src="js/jweixin-1.0.0.js"></script>
+	<!--<script type="text/javascript " src="js/wxsdk.js"></script>-->
+
+</html>

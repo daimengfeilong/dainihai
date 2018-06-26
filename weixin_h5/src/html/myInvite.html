@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-use-rem="750">
+
+<head>
+	<!--所有的meta引用的文件-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="telephone=no" name="format-detection" />
+	<!--<link rel="stylesheet" href="css/points.css">-->
+	<!--<link rel="stylesheet" href="css/normalize.css">-->
+	<!--<script src="js/zepto.js"></script>-->
+	<!--<script src="js/rem.js"></script>-->
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />-->
+	<!--<meta name="apple-mobile-web-app-capable" content="yes">-->
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+	<!--<meta content="telephone=no" name="format-detection" />-->
+	<title>我的邀请</title>
+
+
+	<script type="text/javascript">
+	(function(doc, win) {
+	var docEl = doc.documentElement,
+	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	recalc = function() {
+	var clientWidth = docEl.clientWidth;
+	if (!clientWidth) return;
+	docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+	};
+	recalc();if (!doc.addEventListener) return;
+	win.addEventListener(resizeEvt, recalc, false);
+	doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	</script>
+
+
+
+	<!--link引用的css文件-->
+	<!--<link href="css/home.css" rel="stylesheet" type="text/css">-->
+	<link href="css/loadding.css" rel="stylesheet" type="text/css">
+	<link href="css/tooltip.css" rel="stylesheet" type="text/css">
+	<!--<link href="css/new.css" rel="stylesheet" type="text/css">-->
+	<!--<link rel="stylesheet" href="css/nav.css" />-->
+	<link rel="stylesheet" href="css/myInvite.css" />
+	
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/lib/iscroll-probe.js"></script>
+</head>
+
+<body>
+	<header>
+		<ul class="header">
+			<li class="curr" onclick="inviteClick(2)" data-id="2">奖励记录</li>
+			<li id="toInvite" onclick="inviteClick(1)" data-id="1">邀请记录</li>
+		</ul>
+		<ul class="border">
+			<li></li>
+			<li></li>
+		</ul>
+	</header>	
+	
+	<section class="inviteDetail" id="wrapper">
+		<div class="inviteContent clearfix" id="scroller">
+			<div class="rewardRecords">
+				<dl class="hide">
+					<dt>
+						<p id="phone">180****3360</p>
+						<span id="time">2016.08.23</span>
+					</dt>
+					<dd><p><span id="reward">+10</span><span id="unit">元现金</span></p></dd>
+				</dl>				
+			</div>
+			<!---->
+			<div class="inviteRecords hide">
+				<dl class="hide">
+					<dt>
+						<p id="phone">134****3360</p>
+						<span id="time">2016.05.23</span>
+					</dt>
+					<dd><p><span id="reward">+50</span><span id="unit">积分</span></p></dd>
+				</dl>
+			</div>
+			
+			<div class="inviteNone hide">
+				<img src="images/myPoints/account_active.png"/>
+				<p></p>
+				<!--<p class="hide">您还没有邀请记录哦~</p>-->
+			</div>
+		</div>
+	</section>	
+	
+
+<!--所有的script引用的文件-->
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/myInvite.js"></script>
+
+</body>
+
+</html>

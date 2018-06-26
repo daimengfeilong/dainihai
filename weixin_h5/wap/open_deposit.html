@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <title>开通存管账户</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <link rel="stylesheet" href="../css/tooltip.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        body{
+            height: 100%;
+            background-color: #f6f7fc;
+        }
+        section{
+            width: 100%;
+        }
+        .account_info, .account_pwd{
+            width: 100%;
+            background-color: #fff;
+        }
+        .account_info li, .account_pwd li{
+            width: 100%;
+            border-bottom: 1px solid #dbdbdb;
+            padding: 0.3rem 0.35rem;
+            font-size: 0.3rem;
+        }
+        .account_info li span{
+            display: inline-block;
+            width: 55%;
+        }
+        .account_info li span:first-child{
+            color: #999;
+            width: 45%;
+        }
+        .account_pwd{
+            margin-top: 0.28rem;
+        }
+        .account_pwd li{
+            position: relative;
+        }
+        .account_pwd li:first-child{
+            border-top: 1px solid #dbdbdb;
+        }
+        .account_pwd li input{
+            width: 100%;
+            height: 100%;
+            font-size: 0.3rem;
+            line-height: 0.3rem;
+            border: none;
+        }
+        .get_vcode{
+            display: inline-block;
+            position: absolute;
+            right: 0.35rem;
+            top: 0.25rem;
+            color: #ffd946;
+            border: 1px solid #ffd946;
+            border-radius: 0.3rem;
+            padding: 0.01rem 0.06rem;
+        }
+        .eyes{
+            position: absolute;
+            right: 0.35rem;
+            top: 0.4rem;
+            width: 0.34rem;
+            height: 0.34rem;
+            background: url("images/close_eyes.png") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .open_eyes{
+            background: url("images/open_eyes.png") no-repeat center!important;
+            background-size: 100% 100%!important;
+        }
+        .deposit_footer{
+            margin-top: 0.7rem;
+            padding: 0 0.35rem;
+        }
+        .deposit_btn{
+            width: 100%;
+            height: 0.88rem;
+            text-align: center;
+            line-height: 0.88rem;
+            background-color: #ffd946;
+            font-size: 0.36rem;
+        }
+        .deposit_protocol{
+            margin-top: 0.3rem;
+            text-align: center;
+            font-size: 0.26rem;
+            color: #808080;
+        }
+        .deposit_protocol i{
+            display: inline-block;
+            width: 0.36rem;
+            height: 0.36rem;
+            vertical-align: middle;
+            background: url("images/radio_checked.png") no-repeat center;
+            background-size: 100% 100%;
+        }
+        .cancelRadio{
+            background: url("images/radio_normal.png") no-repeat center!important;
+            background-size: 100% 100%!important;
+        }
+        .deposit_protocol a{
+            color: #ffd946;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div class="account_info">
+        <ul>
+            <li>
+                <span>姓名</span><span>宋慧乔</span>
+            </li>
+            <li>
+                <span>身份证</span><span>513722123456780123</span>
+            </li>
+            <li>
+                <span>银行卡</span><span>1234 5678 8765 4321</span>
+            </li>
+            <li>
+                <span>手机号</span><span>18328368547</span>
+            </li>
+        </ul>
+    </div>
+    <div class="account_pwd">
+        <ul>
+            <li>
+                <input type="password" id="deposit_pwd" placeholder="请设置存管交易密码（6位数、字母或组合）" maxlength="6">
+                <i class="eyes" value="0"></i>
+            </li>
+            <li>
+                <input type="password" id="sure_deposit_pwd" placeholder="请确认存管交易密码" maxlength="6">
+            </li>
+            <li>
+                <input type="text" id="vcode" placeholder="请输入短信验证码" maxlength="6">
+                <span class="get_vcode">获取验证码</span>
+            </li>
+        </ul>
+    </div>
+    <div class="deposit_footer">
+        <div class="deposit_btn">
+            <span>确认</span>
+        </div>
+        <p class="deposit_protocol">
+            <i value="1"></i>
+            <span> &nbsp;同意华夏银行资金存管</span>
+            <a href="javascript:void(0)">《存管协议》</a>
+        </p>
+    </div>
+</section>
+
+
+<script src="../js/config.js"></script>
+<script>
+    $(function () {
+        $(".eyes").click(function () {
+            var eyeType = $(this).attr("value");
+            if (eyeType == "0") {
+                $(this).addClass("open_eyes");
+                $("#deposit_pwd").attr("type", "text");
+                $(this).attr("value", "1");
+            } else {
+                $(this).removeClass("open_eyes");
+                $("#deposit_pwd").attr("type", "password");
+                $(this).attr("value", "0");
+            }
+        });
+        $(".deposit_protocol i").click(function() {
+           var radioType = $(this).attr("value");
+            if (radioType == "1") {
+                $(this).addClass("cancelRadio");
+                $(".deposit_btn").css("background-color", "#d9d9d9");
+                $(this).attr("value", "0");
+            } else {
+                $(this).removeClass("cancelRadio");
+                $(".deposit_btn").css("background-color", "#ffd946");
+                $(this).attr("value", "1");
+            }
+        });
+    })
+</script>
+</body>
+</html>

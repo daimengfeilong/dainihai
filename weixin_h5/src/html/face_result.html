@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>FaceID 结果查询</title>
+		<script type="text/javascript" src="///cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	    <script type="text/javascript">
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                    recalc = function () {
+	                        var clientWidth = docEl.clientWidth;
+	                        if (!clientWidth) return;
+	                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+	                    };
+	            recalc();if (!doc.addEventListener) return;
+	            win.addEventListener(resizeEvt, recalc, false);
+	            doc.addEventListener('DOMContentLoaded', recalc, false);
+	        })(document, window);
+	    </script>
+	    
+	    <style>
+	    	html,body,p{
+	    		padding: 0;
+	    		margin: 0
+	    	}
+	    	html,body{
+	    		width: 100%;
+	    		height: 100%;
+	    		position: relative;
+	    		font-size: 0.3rem;
+	    		color: #0198ef;
+	    		text-align: center;
+	    	}
+	    	.result{
+	    		width: 6rem;
+	    		height: 1.2rem;
+	    		position: absolute;
+	    		top: 0;
+	    		left: 0;
+	    		right: 0;
+	    		bottom: 0;
+	    		margin: auto
+	    	}
+	    	a{
+	    		color: #0198EF;
+	    		text-decoration: none;
+	    		padding: 0.2rem 0.4rem;
+	    		border: 1px #0198ef solid;
+	    		border-radius: 3px;
+	    	}
+	    	.loading{
+	    		position: absolute;
+	    		left: 0;
+	    		right: 0;
+	    		top: 0;
+	    		bottom: 0;
+	    		margin: auto;
+	    		width: 7.5rem;
+	    		height: 100%;
+	    		/*line-height: ;*/
+	    		background-color: #fff
+	    	}
+	    	.loading p{
+	    		height: 0.5rem;
+	    		line-height: 0.5rem;
+	    		position: absolute;
+	    		top: 0;
+	    		bottom: 0;
+	    		left: 0;
+	    		right: 0;
+	    		margin: auto;
+	    	}
+	    	.tips{
+	    		padding-top: 0.2rem;
+	    		font-size: 0.28rem;
+	    		color: #E6665E;
+	    	}	    	
+	    	.back{
+	    		display: none;
+	    		margin-top: 1.3rem;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div class="result">
+			<p>{{ msg }}</p>
+			<p class="tips">{{ tips }}</p>
+			<p class="back"><a href="javascript:replaceNewAddress();">返回上一步</a></p>
+		</div>
+		<div class="loading"><p>获取认证结果中，请稍候...</p></div>
+	</body>
+	<script>
+		$(function(){
+			if(isWeiXin()){
+				$(".back").show();
+			}
+			
+			setTimeout(function(){
+				$(".loading").hide()
+			}, 10000)
+		});
+		
+		function isWeiXin() {
+		    var ua = window.navigator.userAgent.toLowerCase();
+		    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+		        return true;
+		    } else {
+				return false
+			}
+
+		}
+		
+		function replaceNewAddress(){
+//			location.replace("/autonym.html")
+//			history.go(-2);
+			alert('你点了返回上一步');
+			window.location.href = 'autonym.html';
+		}
+
+	</script>
+	
+	
+</html>

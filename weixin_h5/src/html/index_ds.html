@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>首页</title>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://static.fraudmetrix.cn/fm.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+			recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+        var tokenId = "boya" + "-" + new Date().getTime() + "-" + Math.random().toString(16).substr(2);
+        if (link == 'https://lhwap.dt1.9fwealth.com') {
+            (function() {
+                _fmOpt = {
+                    partner: 'boya',
+                    appName: 'boya_web',
+                    token: tokenId,
+                    fpHost: 'https://fptest.fraudmetrix.cn',
+                    staticHost: 'statictest.fraudmetrix.cn',
+                    tcpHost: 'fpflashtest.fraudmetrix.cn',
+                    wsHost: 'fptest.fraudmetrix.cn:9090'
+                };
+                var cimg = new Image(1,1);
+                cimg.onload = function() {
+                    _fmOpt.imgLoaded = true;
+                };
+                cimg.src = "https://fptest.fraudmetrix.cn/fp/clear.png?partnerCode=boya&appName=boya_web&tokenId=" + _fmOpt.token;
+                var fm = document.createElement('script'); fm.type = 'text/javascript'; fm.async = true;
+                fm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'statictest.fraudmetrix.cn/fm.js?ver=0.1&t=' + (new Date().getTime()/3600000).toFixed(0);
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fm, s);
+            })();
+        } else {
+            (function() {
+                _fmOpt = {
+                    partner: 'boya',
+                    appName: 'boya_web',
+                    token: tokenId,
+                    fpHost: 'https://fp.fraudmetrix.cn',
+                    staticHost: 'static.fraudmetrix.cn',
+                    tcpHost: 'fpflash.fraudmetrix.cn',
+                    wsHost: 'fp.fraudmetrix.cn:9090'
+                };
+                var cimg = new Image(1,1);
+                cimg.onload = function() {
+                    _fmOpt.imgLoaded = true;
+                };
+                cimg.src = "https://fp.fraudmetrix.cn/fp/clear.png?partnerCode=boya&appName=boya_web&tokenId=" + _fmOpt.token;
+                var fm = document.createElement('script'); fm.type = 'text/javascript'; fm.async = true;
+                fm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'static.fraudmetrix.cn/fm.js?ver=0.1&t=' + (new Date().getTime()/3600000).toFixed(0);
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fm, s);
+            })();
+        }
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/home_lunbo.css"/>
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css"/>
+    <link rel="stylesheet" href="css/new.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #cnzz_stat_icon_1260729371 {
+            display: none;
+        }
+        .home-nav-1 dd{
+            width: 0.6rem!important;
+        }
+        .home-l-c i{
+            top: 0.2rem;
+        }
+        .entrance{
+            padding: 0.4rem 0.27rem;
+            overflow: hidden;
+        }
+        .entrance div{
+            float: left;
+            width: 20%;
+            text-align: center;
+        }
+        .entrance div:first-child{
+            /*margin-right: 0.28rem;*/
+        }
+        .entrance div img{
+            width: 0.92rem;
+            height: 0.95rem;
+        }
+        .entrance div a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            font-size: 0.25rem;
+            color: #000;
+        }
+        .entrance div a p{
+            margin-top: 0.05rem;
+        }
+        .goods_tit{
+            width: 100%;
+            margin-bottom: 0.42rem;
+        }
+        .goods_tit img{
+            display: block;
+            width: 100%;
+        }
+        .swiper-container{
+            padding: 0 0.27rem 0.45rem 0.27rem;
+            z-index: 0;
+        }
+        .goods{
+            width: 100%;
+            background-color: #fff;
+            padding: 0 0.18rem 0.2rem;
+        }
+        .goods_img{
+            text-align: center;
+            padding: 0.3rem 0;
+        }
+        .goods_img img{
+            display: block;
+            width: 1.6rem;
+            height: 1.6rem;
+            margin: 0 auto;
+        }
+        .goods_info_name{
+            font-size: 0.26rem;
+            color: #1a1a1a;
+            font-weight: bold;
+            margin-bottom: 0.08rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .goods_info_txt{
+            font-size: 0.24rem;
+            color: #1a1a1a;
+            margin-bottom: 0.08rem;
+            height: 0.9rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+        .goods_info_price{
+            font-size: 0.3rem;
+            color: #ff3a2e;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="nav-top">
+    <h1 class="title">
+        <a class="back hidden" onclick="window.history.back()">&lt;</a>
+        贷你嗨
+    </h1>
+</nav>
+<div class="nav-clear"></div>
+
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="clear"></div>
+<div class="main_page_content" style="background-color: #f1f1f1;padding-bottom: 1.1rem;">
+    <section class="mt-1 hide_mian_page">
+        <div class="ps-lt">
+            <div class="lt-dsb">
+                <i class="idt"></i>
+
+                <p>尊敬的用户：您好，非常抱歉，由于网络系…</p>
+                <i class="arr-right"></i>
+            </div>
+        </div>
+    </section>
+    <div class="head">
+        <div id="banner_box" class="banner_box " style="visibility: visible;overflow: hidden;">
+            <ul id="imglist"
+                style="list-style: none; width: 100%; transition: 500ms; transform: translate3d(0px, 0px, 0px);">
+
+            </ul>
+            <ol id="imgli" class="imgli">
+
+            </ol>
+        </div>
+    </div>
+
+    <div class="entrance">
+        <div class="toHome">
+            <a href="home.html">
+                <img src="images/ds_list1.png" alt="">
+                <p>额度分期</p>
+            </a>
+        </div>
+        <div>
+            <a href="javascript:ShowMsg('功能完善中，敬请期待');">
+                <img src="images/ds_list2.png" alt="">
+                <p>采倍商城</p>
+            </a>
+        </div>
+        <div>
+            <a href="javascript:toJump('insurance_list.html');">
+                <img src="images/ds_list3.png" alt="">
+                <p>保险分期</p>
+            </a>
+        </div>
+        <div>
+            <a href="javascript:toJump('game_list.html');">
+                <img src="images/ds_list4.png" alt="">
+                <p>游戏商城</p>
+            </a>
+        </div>
+        <div>
+            <a href="javascript:toJump('second_hand.html');">
+                <img src="images/ds_list5.png" alt="">
+                <p>二手分期</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="goods_tit">
+        <img src="images/home3.png" alt="">
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="goods">
+                    <div class="goods_img">
+                        <img src="images/goods_img.png" alt="">
+                    </div>
+                    <div>
+                        <p class="goods_info_name">Apple iPhone X</p>
+                        <p class="goods_info_txt">
+                            小米（MI） 小米Note3 手机 亮黑色 全网通（6G RAM+64G ROM）标配  核数：八核 分辨率：1920*1080(FHD)
+                        </p>
+                        <p class="goods_info_price">￥9688.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="goods">
+                    <div class="goods_img">
+                        <img src="images/goods_img.png" alt="">
+                    </div>
+                    <div>
+                        <p class="goods_info_name">Apple iPhone X</p>
+                        <p class="goods_info_txt">
+                            小米（MI） 小米Note3 手机 亮黑色 全网通（6G RAM+64G ROM）标配  核数：八核 分辨率：1920*1080(FHD)
+                        </p>
+                        <p class="goods_info_price">￥9688.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="goods">
+                    <div class="goods_img">
+                        <img src="images/goods_img.png" alt="">
+                    </div>
+                    <div>
+                        <p class="goods_info_name">Apple iPhone X</p>
+                        <p class="goods_info_txt">
+                            小米（MI） 小米Note3 手机 亮黑色 全网通（6G RAM+64G ROM）标配  核数：八核 分辨率：1920*1080(FHD)
+                        </p>
+                        <p class="goods_info_price">￥9688.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="goods">
+                    <div class="goods_img">
+                        <img src="images/goods_img.png" alt="">
+                    </div>
+                    <div>
+                        <p class="goods_info_name">Apple iPhone X</p>
+                        <p class="goods_info_txt">
+                            小米（MI） 小米Note3 手机 亮黑色 全网通（6G RAM+64G ROM）标配  核数：八核 分辨率：1920*1080(FHD)
+                        </p>
+                        <p class="goods_info_price">￥9688.00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="goods">
+                    <div class="goods_img">
+                        <img src="images/goods_img.png" alt="">
+                    </div>
+                    <div>
+                        <p class="goods_info_name">Apple iPhone X</p>
+                        <p class="goods_info_txt">
+                            小米（MI） 小米Note3 手机 亮黑色 全网通（6G RAM+64G ROM）标配  核数：八核 分辨率：1920*1080(FHD)
+                        </p>
+                        <p class="goods_info_price">￥9688.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<footer>
+    <div class="mune">
+        <a href="javascript:">
+            <dl class="home-2 active">
+                <dt></dt>
+                <dd>首页</dd>
+            </dl>
+        </a>
+        <!--<a href="#">-->
+        <!--<i></i><img src="images/icon_home_press.png">-->
+        <!--首页-->
+        <!--</a>-->
+    </div>
+    <div class="mune">
+        <a href="myIndex.html?index=2">
+            <dl class="my-1">
+                <dt></dt>
+                <dd>我的</dd>
+            </dl>
+            <!--<i></i><img src="images/icon_my.png">-->
+        </a>
+    </div>
+    <div class="mune">
+        <a href="better.html?index=3">
+            <dl class="better-1">
+                <dt></dt>
+                <dd>更多</dd>
+            </dl>
+            <!--<i class="arr_hongdian hide_mian_div" id="msg_hongdian"></i>-->
+            <!--<img src="images/icon_more.png">-->
+        </a>
+    </div>
+</footer>
+
+<!--<input type="button" value="吊吊吊" style="width: 100px;height: 50px;background-color: red;" onclick="aaa()">-->
+<script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1260729371'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260729371%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/toast.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/home_lunbo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript " src="js/toast.js"></script>
+<script type="text/javascript " src="js/jweixin-1.0.0.js"></script>
+<script type="text/javascript " src="js/wxsdk.js"></script>
+<script type="text/javascript">
+
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2,
+        spaceBetween: 10,
+        freeMode: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        }
+    });
+
+    $(function () {
+        var isred = GetUrlParameter("isred");
+        Loading();
+        loadLogin_three();
+        get_all_status(boxCallBack, null, null);
+        setTimeout(AddJMarkSCore, 200);
+        setTimeout(get_new_message, 800);
+        setTimeout(loadWXJson, 1);
+        setTimeout(function () {
+            if (parseInt(isred) > 0 && localStorage.int32_tag == 0) {
+                localStorage.isNewYearRed = isred;
+                BtnShareRed();
+            }
+        }, 1500);
+        divhide('loadd_pageinfog');
+        LoadingOver();
+
+        $.ajax({
+            url: urlLink + '/web/user_profile/tongdun_callback',
+            type: 'post',
+            data: {
+                token_id: tokenId
+            },
+            xhrFields: {
+                withCredentials:true
+            },
+            success: function (data) {
+                console.log(data);
+            },
+            err: function (err) {
+                console.log(err);
+            }
+        });
+
+        console.log(btnstatusvalue(localStorage.int64_status, 12));
+
+//        $(".toHome").click(function () {
+//           window.location.href = "home.html";
+//        });
+    });
+
+    function boxCallBack() {
+        bombBox(localStorage.shar_staus, localStorage.invite_code_status, localStorage.int64_uin, localStorage.int32_apply_status);
+        GetBannerList();
+    }
+
+    function toJump(url) {
+        if (urlLink == "https://lhwap.dt1.9fwealth.com") {
+            window.location.href = "http://mall-test.boyacx.com/" + url;
+        } else {
+            window.location.href = "http://mall.boyacx.com/" + url;
+        }
+    }
+</script>
+</body>
+
+</html>

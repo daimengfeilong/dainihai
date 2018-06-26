@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui"/>
+    <link href="css/reset.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>积分规则</title>
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="dnh-wrap">
+    <div class="dnh-rule-top">
+        <img src="images/top_backimg.png">
+
+    </div>
+    <div class="integral-wrap">
+    <div class="get-integral-w">
+        <div class="in-w">
+            <div class="get top">
+                <p>
+                    <i></i>
+                    <span>如何获得积分</span>
+                </p>
+            </div>
+            <div class="get con border-b">
+                <p>
+                    注册成功
+                    <span class="con-left">+50</span>
+
+
+
+                    
+                    
+                </p>
+
+                <p>
+                    完善资料并提交审核
+                    <span class="con-left">+50</span>
+                </p>
+
+                <p>
+                    按时还款并结清分期
+                    <span class="con-left">+100</span>
+                </p>
+            </div>
+            <div class="get con">
+                <p>
+                    连续签到（7天为一周期，中断重新计算）
+                </p>
+
+                <p>
+                    第1天
+                    <span class="con-left">+10</span>
+                </p>
+
+                <p>
+                    第2天
+                    <span class="con-left">+15</span>
+                </p>
+
+                <p>
+                    第3天
+                    <span class="con-left">+20</span>
+                </p>
+
+                <p>
+                    第4天
+                    <span class="con-left">+25</span>
+                </p>
+
+                <p>
+                    第5天
+                    <span class="con-left">+30</span>
+                </p>
+
+                <p>
+                    第6天
+                    <span class="con-left">+35</span>
+                </p>
+
+                <p>
+                    第7天
+                    <span class="con-left">+40</span>
+                </p>
+            </div>
+        </div>
+        <div class="get-integral-b">
+            <div class="b-top">
+                <dl>
+                    <dt class="invite_1"></dt>
+                    <dd>邀请人</dd>
+                </dl>
+                <div class="b-right">
+                    <p>好友注册成功</p>
+
+                    <p class="wei-p">+50/位</p>
+                </div>
+            </div>
+            <div class="border-c">
+
+            </div>
+            <div class="b-top">
+                <dl>
+                    <dt class="invite_2"></dt>
+                    <dd>被邀请人</dd>
+                </dl>
+                <div class="b-right">
+                    <p>通过邀请码注册成功</p>
+
+                    <p class="wei-p">+100</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="get-integral-w w-2">
+        <div class="in-w">
+            <div class="get top">
+                <p>
+                    <i></i>
+                    <span>如何使用积分</span>
+                </p>
+            </div>
+            <div class="use">
+                <p>
+                    <i>1</i>
+                    积分可用于兑换分期额度，1积分=1元额度。
+                </p>
+
+                <p>
+                    <i>2</i>
+                    额度兑换为单次分期临时额度，单次分期额度=积分 兑换额度+原有额度。最高可用积分兑换 1000 额度。
+                </p>
+
+                <p>
+                    <i>3</i>
+                    单次分期完成后，恢复原有额度，需要增加额度仍 可用您的可用积分兑换。
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>

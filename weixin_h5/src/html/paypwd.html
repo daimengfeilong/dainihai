@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>设置支付密码</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/tooltip.css" rel="stylesheet" type="text/css">
+    <link href="css/loadding.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<!--支付密码开始-->
+<div class="main_page_content main_content_paypwd">
+    <div class="titlent">请输入支付密码，以添加新的银行卡</div>
+    <div class="importpaypwd">
+        <ul id="btnpayul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <input type="hidden" value="" id="txt_paypwd" maxlength="6"/>
+        <input type="hidden" value="" id="o_paypwd" maxlength="6"/>
+    </div>
+</div>
+<!--支付密码结束-->
+</body>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script language="JavaScript" src="js/pub.js" type="text/javascript"></script>
+<script language="JavaScript" src="js/turnjson.js" type="text/javascript"></script>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/keyboard.js"></script>
+<script>
+    $(document).ready(function () {
+        var type = GetUrlParameter("source");
+        loadLogin_second();
+        vtype = 5;
+        $("#btnpayul").on("click", function () {
+            var input2 = document.getElementById('txt_paypwd');
+            KeyBoard(input2,type);
+        });
+        LoadingOver();
+        showPwKeyBoard();
+    });
+
+    function showPwKeyBoard() {
+        var type = GetUrlParameter("source");
+        $("#txt_paypwd").val(null);
+        $("#o_paypwd").val(null);
+        vtype = 5;
+        var input2 = document.getElementById('txt_paypwd');
+        KeyBoard(input2,type);
+    }
+
+</script>
+</body>
+
+</html>

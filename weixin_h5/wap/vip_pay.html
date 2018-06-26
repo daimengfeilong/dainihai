@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <title>VIP费用支付</title>
+    <link rel="stylesheet" href="../credit_card/css/common.css"/>
+    <link rel="stylesheet" href="../credit_card/css/rules.css"/>
+    <!--<link rel="stylesheet" href="../css/home.css">-->
+    <link rel="stylesheet" href="../css/loadding.css">
+    <link rel="stylesheet" href="../css/tooltip.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        body{
+            background-color: #f1f1f1;
+        }
+        .pay_header{
+            padding: 0.15rem 0.3rem;
+            font-size: 0.36rem;
+            background-color: #fff;
+        }
+        .pay_header div, .pay_header div img{
+            width: 100%;
+            position: relative;
+        }
+        .vip_cost{
+            position: absolute;
+            left: 42%;
+            top: 1.6rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: #ff2374;
+            transform:rotate(-5deg);
+            -ms-transform:rotate(-5deg);
+            -webkit-transform:rotate(-5deg);
+        }
+        section{
+            margin-top: 0.22rem;
+        }
+        .pay_section{
+            padding: 0.2rem 0.3rem;
+            color: #000;
+            background-color: #fff;
+            margin-bottom: 0.2rem;
+        }
+        .pay_section_way{
+            font-size: 0.3rem;
+            padding-bottom: 0.15rem;
+            margin-bottom: 0.2rem;
+            border-bottom: 1px solid #bfbfbf;
+            overflow: hidden;
+        }
+        .pay_section_way img{
+            width: 0.69rem;
+            vertical-align: middle;
+        }
+        .pay_section_way span{
+            vertical-align: middle;
+        }
+        .pay_way{
+            overflow: hidden;
+            font-size: 0.3rem;
+        }
+        .pay_way h3{
+            font-size: 0.3rem;
+            font-weight: normal;
+            margin-bottom: 0.22rem;
+        }
+        .pay_way p{
+            margin-bottom: 0.22rem;
+            color: #646464;
+        }
+        .pay_liucheng, .pay_liucheng img{
+            width: 100%;
+        }
+        .pay_section li{
+            margin-bottom: 0.4rem;
+            font-size: 0.3rem;
+            color: #646464;
+        }
+        .pay_section li:last-child{
+            margin-bottom: 0;
+        }
+        .pay_section li span{
+            font-size: 0.2rem;
+            color: #ffd946;
+            margin-right: 0.12rem;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<header class="pay_header">
+    <div>
+        <img src="images/vippay.png" alt="">
+        <span class="vip_cost"></span>
+    </div>
+</header>
+<section>
+    <div class="pay_section">
+        <p class="pay_section_way">
+            <img src="images/icon_vippay.png" alt="">
+            <span>支付方式</span>
+        </p>
+        <div class="pay_way ali_pay">
+            <h3>支付宝支付</h3>
+
+        </div>
+        <!--<div class="pay_way bank_pay">-->
+            <!--<h3>方式二 &nbsp;&nbsp;对公转账</h3>-->
+
+        <!--</div>-->
+    </div>
+    <div class="pay_section">
+        <p class="pay_section_way">
+            <img src="images/icon_vippay.png" alt="">
+            <span>支付流程</span>
+        </p>
+        <div class="pay_liucheng">
+            <img src="images/vippay_liucheng.png" alt="">
+        </div>
+        <ul>
+            <li>
+                <span>●</span>添加微信公众号“贷你嗨服务号”（微信号：loanhigh）；进入公众号->关于小嗨->在线客服 将真实无误转账截图发至公众号客服；
+                或发送至dainihaikefu@sina.com 邮箱。
+            </li>
+            <li><span>●</span>后期如有问题请联系客服：400-034-5666。</li>
+        </ul>
+    </div>
+    <div class="pay_section" style="border-bottom: none;">
+        <p class="pay_section_way">
+            <img src="images/icon_vippay.png" alt="">
+            <span>支付说明</span>
+        </p>
+        <ul>
+            <li><span>●</span>支付VIP费用后，尊享会员资格生效，可申请尊享分期一次；</li>
+            <li><span>●</span>因支付款项到账存在延时，支付超过2小时仍无法进行签约，请联系客服；</li>
+            <li><span>●</span>支付VIP费用后，请在30个自然日内完成签约；超过时间后，申请订单将会取消，需重新申请；</li>
+            <li><span>●</span>如当天17:00后支付，因资金到账会延迟，请第二天完成签约。</li>
+        </ul>
+    </div>
+</section>
+
+
+
+<script src="../js/config.js"></script>
+<script src="../js/tkPublic.js"></script>
+<script>
+    var string_cost = GetUrlParameter("sum");
+    $(function() {
+        ajaxFn(urlLink + "/web/user_profile/zxfq_info", null, getStrategy, null, "get");
+    });
+
+    function getStrategy(data) {
+        console.log(data);
+        switch (data.code) {
+            case 0:
+                var cost = parseFloat(string_cost) * parseFloat(data.data.string_quota_ratio_1);
+                $(".vip_cost").text(cost.toFixed(2));
+                var alipay_number = data.data.string_alipay_number.split(",");   // 支付宝账号
+                var bank_name = data.data.string_bank_name.split(",");  // 开户行
+                var bank_number = data.data.string_bank_number.split(",");  // 对公账户
+                var bank_type = data.data.string_bank_type.split(",");   //银行卡别
+                var bank_info = data.data.string_bank_info.split(",");   // 支行信息
+                var alipay_number_length = alipay_number.length;
+                var bank_number_length = bank_number.length;
+                var ali_html = "";
+                var bank_html = "";
+                if (alipay_number_length == 1) {
+                    if (alipay_number[0] == " ") {
+                        ali_html += '<p>账号 : <span>暂无</span></p>';
+                    } else {
+                        for (var i=0; i<alipay_number_length; i++) {
+                            ali_html += '<p>账号 : <span>' + alipay_number[i] +'</span></p>';
+                        }
+                    }
+                } else {
+                    for (var j=0; j<alipay_number_length; j++) {
+                        ali_html += '<p>账号' + (j+1) + ' : <span>' + alipay_number[j] +'</span></p>';
+                    }
+                }
+                $(".ali_pay").append(ali_html);
+//                if (bank_number_length == 1) {
+//                    for (var x=0; x<bank_number_length; x++) {
+//                        bank_html += '<p>对公账户 : <span>' + bank_number[x] +'</span></p>' +
+//                                '<p>开户行 : <span>' + bank_name[x] +'</span></p>' +
+//                                '<p>银行卡别 : <span>' + bank_type[x] +'</span></p>' +
+//                                '<p>支行信息 : <span>' + bank_info[x] +'</span></p>';
+//                    }
+//                } else {
+//                    for (var y=0; y<bank_number_length; y++) {
+//                        bank_html += '<p>对公账户' + (y+1) + ' : <span>' + bank_number[y] +'</span></p>' +
+//                                '<p>开户行' + (y+1) + ' : <span>' + bank_name[y] +'</span></p>' +
+//                                '<p>银行卡别' + (y+1) + ' : <span>' + bank_type[y] +'</span></p>' +
+//                                '<p>支行信息' + (y+1) + ' : <span>' + bank_info[y] +'</span></p>';
+//                    }
+//                }
+//                $(".bank_pay").append(bank_html);
+                break;
+            default:
+                ShowMsg(data.msg);
+                break;
+        }
+    }
+</script>
+</body>
+</html>

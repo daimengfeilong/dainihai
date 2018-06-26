@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>帮助中心</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+        body{
+            font-size: 0.3rem;
+            background-color: #fff;
+        }
+        .cnt_nav{
+            width: 100%;
+            height: 64px;
+            text-align: center;
+            line-height: 84px;
+            border-bottom: 1px solid #dde2ef;
+            font-size: 18px;
+            color: #000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            background-color: #fff;
+        }
+        .cnt_nav div{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0.7rem;
+            height: 100%;
+            padding-right: 0.2rem;
+            text-align: right;
+            line-height: 84px;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+        }
+        .cnt_nav img{
+            width: 9px;
+        }
+        .allQues_tit{
+            width: 100%;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            color: #000;
+            border-left: 0.05rem solid #ff3a2e;
+            padding-left: 0.5rem;
+        }
+        .line{
+            width: 100%;
+            height: 0.22rem;
+            background-color: #f1f1f1;
+        }
+        .allQues_list p{
+            padding: 0.2rem 0.55rem;
+        }
+        .allQues_list_tit{
+            color: #ff3a2e;
+            border-bottom: 1px solid #dde2ef;
+        }
+        .allQues_list_cnt{
+            color: #000;
+            display: flex;
+        }
+        .allQues_list_cnt span{
+            display: inline-block;
+            flex: 1;
+            text-align: center;
+            -webkit-tap-highlight-color:rgba(0,0,0,0);
+        }
+        .allQues_list_cnt span:first-child{
+            text-align: left;
+        }
+        .allQues_list_cnt span:last-child{
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<!--<nav class="cnt_nav">-->
+    <!--<div>-->
+        <!--<img src="images/left.png" alt="">-->
+    <!--</div>-->
+    <!--<span>帮助中心</span>-->
+<!--</nav>-->
+<header class="allQues_tit">
+    <span>全部问题分类</span>
+</header>
+<div class="line"></div>
+<section>
+    <div class="allQues_list">
+        <p class="allQues_list_tit">分期问题</p>
+        <p class="allQues_list_cnt">
+            <span number="1001">分期步骤</span>
+            <span number="1002">分期期限</span>
+            <span number="1003">分期条件</span>
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="allQues_list">
+        <p class="allQues_list_tit">额度问题</p>
+        <p class="allQues_list_cnt">
+            <span number="1004">分期金额</span>
+            <span number="1005">提升额度</span>
+            <span number="1006">额度使用</span>
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="allQues_list">
+        <p class="allQues_list_tit">审核问题</p>
+        <p class="allQues_list_cnt">
+            <span number="1007">审核方式</span>
+            <span number="1008">审核时间</span>
+            <span number="1009">审核状态</span>
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="allQues_list">
+        <p class="allQues_list_tit">放款问题</p>
+        <p class="allQues_list_cnt">
+            <span number="1010">放款方式</span>
+            <span number="1011">放款时间</span>
+            <span number="1012">放款状态</span>
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="allQues_list">
+        <p class="allQues_list_tit">还款问题</p>
+        <p class="allQues_list_cnt">
+            <span number="1013">还款说明</span>
+            <span number="1014">还款方式</span>
+            <span number="1015">还款状态</span>
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="allQues_list">
+        <p class="allQues_list_tit">费用问题</p>
+        <p class="allQues_list_cnt">
+            <span number="1016">分期费用</span>
+            <span number="1017">逾期费用</span>
+            <span number="1018">其他费用</span>
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="allQues_list">
+        <p class="allQues_list_tit">账户问题</p>
+        <p class="allQues_list_cnt">
+            <span number="1019">注册登录</span>
+            <span number="1020">信息安全</span>
+            <span number="1021">密码服务</span>
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="allQues_list">
+        <p class="allQues_list_tit">信用问题</p>
+        <p class="allQues_list_cnt">
+            <span number="1022">实名认证</span>
+            <span number="1023">其他认证</span>
+            <span number="1024">违约责任</span>
+        </p>
+    </div>
+    <div class="line"></div>
+    <div class="allQues_list">
+        <p class="allQues_list_tit">其他问题</p>
+        <p class="allQues_list_cnt">
+            <span number="1026">资料提交</span>
+            <span number="1027">银行卡</span>
+            <span></span>
+        </p>
+    </div>
+    <div class="line"></div>
+</section>
+
+
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function () {
+        var source = GetUrlParameter("source");
+        if (source == "android") {
+            javaCode.call("hideBtn");   // 调用安卓本地方法
+        } else if (source == "iOS") {
+            window.webkit.messageHandlers.hideBtn.postMessage("");   // 调用iOS本地方法
+        }
+        $(".cnt_nav div").click(function() {
+            history.go(-1);
+        });
+        $(".allQues_list_cnt span").click(function () {
+            var number = $(this).attr("number");
+            window.location.href = "answer_list.html?number=" + number + "&source=" + source;
+        })
+    })
+</script>
+</body>
+</html>

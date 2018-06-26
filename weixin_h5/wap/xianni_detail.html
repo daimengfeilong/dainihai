@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>仙逆情缘</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="css/partner.css">
+    <link rel="stylesheet" href="../css/loadding.css">
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+<header class="detail-header bgWhite">
+    <section>
+        <div class="detail-header-logo">
+            <img src="images/xianni.png" alt="">
+        </div>
+        <div class="detail-header-text">
+            <p class="detail-header-name">仙逆情缘</p>
+            <p class="partner-name-label">
+                <span>3D</span>
+                <span>自由幻想封神手游</span>
+            </p>
+        </div>
+    </section>
+</header>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>产品优势</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>1.Unity3d引擎打造 媲美端游画质 <br>
+                2.全场景超高自由度飞行<br>
+                3.万人团战 血战仙盟<br>
+                4.坐骑个性培养 进化路线随心定<br>
+                5.百种技能自由搭 DIY专属技能连招<br>
+                6.多元社交同城交友 语音畅聊<br>
+                7.自由交易<br></p>
+        </div>
+    </section>
+</section>
+<section class="detail-advantage bgWhite">
+    <section>
+        <div class="detail-advantage-tit">
+            <span></span>
+            <span>其他说明</span>
+        </div>
+        <div class="detail-advantage-text">
+            <p>
+                <h6>1、正统仙侠剧情畅游三界</h6>
+                《仙逆情缘》庞大任务系统，贯整个游戏的主线，感人有趣的支线、奖励丰厚的日常任务和随机任务，任务设置合理，相辅相成，
+                让玩家在任务中尽情体验游戏的趣味，领略仙侠世界里的爱恨情仇。
+                <h6>2、巅峰跨服 热血激战</h6>
+                玩家可在游戏中以武入道，配合各种功法招式，技能组合，将身临其境地体验到爽快的动作打击感。
+                <h6>3、史诗级中国画风</h6>
+                运用unity3d打造，力为玩家们提供高品质的游戏画面。连绵不断的洪荒，异域成仙的修真，还有苍茫古朴的大地，引入神思的古秦、城池。
+                所有的这些都将在游戏中原汁原味展现。
+            </p>
+        </div>
+    </section>
+</section>
+<div style="width: 100%;height: 1.2rem;"></div>
+<footer class="detail-footer">
+    <div>
+        <a href="javascript:void(0);" class="apply-btn">极速申请</a>
+    </div>
+</footer>
+
+
+<script type="text/javascript " src="../js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript" src="../js/config.js"></script>
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function () {
+        var a = location.href;
+        var b = a.split("/");
+        var c = b.slice(b.length-1, b.length).toString(String).split(".");
+        var page_id = c.slice(0, 1)[0];
+        console.log(page_id);
+        // 发送页面访问次数
+        var uin = GetUrlParameter("uin");
+        var session = GetUrlParameter("session");
+        var source = GetUrlParameter("source", 'html5');
+        console.log(uin +','+ session +','+ source);
+        var paramData = {
+            page_id: page_id,
+            platform: source,
+            tk_uin: uin,
+            tk_session: session
+        };
+
+        // 跳转至第三方借款平台
+        $(".apply-btn").click(function () {
+            var toLoanUrl = "http://ckme.me/rMW1mb";
+            ajaxFn(urlLink + "/web/user_profile/unique_visitor", paramData, sucFn, null, "post");
+            if (source == "android") {
+                javaCode.call("skip_url", toLoanUrl);   // 调用安卓本地方法
+            } else if (source == "iOS") {
+                toLoanUrl = "http://ckme.me/rMW1md";
+                WebViewJavascriptBridge.jumpWeb(toLoanUrl);   // 调用iOS本地方法
+            } else {
+                window.location.href = toLoanUrl;    // H5跳转
+            }
+        });
+
+    });
+    function sucFn(data) {
+        console.log(data);
+    }
+</script>
+</body>
+</html>

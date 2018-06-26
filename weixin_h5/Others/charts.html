@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/charts.css" media="screen" type="text/css" />
+
+	</head>
+
+	<body>
+		<div class="curentcount">
+			<p>当前日期:
+				<label id="datatime"></label>
+				<input type="button" value="清楚当前日期重新统计" onclick="clearlocal()" />
+			</p>
+			<p>当前请求总数:
+				<label id="datacount"></label>
+			</p>
+		</div>
+		<div style="text-align:center;clear:both;position:absolute;top:0;left:280px">
+			<script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+			<script src="/follow.js" type="text/javascript"></script>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/charts.js"></script>
+	<script>
+		var mydate = new Date();
+		var t = mydate.toLocaleDateString();
+		$("#datatime").html(t)
+		$(document).ready(function() {
+			loadcount();
+			loadxian();
+		});
+
+		function loadcount() {
+			$.get("http://121.43.106.106:8890/face_recognition_count_query?type=wait", function(datacount) {
+				if (datacount.code == 0) {
+					$("#datacount").html(datacount.data.count);
+				} else {
+					$("#datacount").html("0");
+				}
+			});
+		}
+
+		function loadxian() {
+			var mydateo = new Date();
+			$.get("http://121.43.106.106:8890/face_recognition_count_query?type=done",
+				function(dataresult) {
+					var val = localStorage.getItem(t);
+					if (dataresult.code == 0) {
+						if (val == null) {
+							val = mydateo.toLocaleTimeString() + ",0" + "|&zx&|" + mydateo.toLocaleTimeString() + "," + dataresult.data.count;
+						} else {
+							if (val.indexOf(mydateo.toLocaleTimeString()) < 0) {
+								val = val + "|&zx&|" + mydateo.toLocaleTimeString() + "," + dataresult.data.count;
+							}
+						}
+					} else {
+						val = mydateo.toLocaleTimeString() + ",0";
+					}
+					localStorage.setItem(t, val);
+					reset();
+					chart.start();
+				});
+		}
+
+		function clearlocal() {
+			localStorage.clear();
+			loadxian();
+		}
+	</script>
+
+</html>

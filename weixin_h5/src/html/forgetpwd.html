@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>密码重置</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        font-size: 0.3rem;
+    }
+    .hq_vcode{
+        background-color: #fff;
+        color: #ffd946;
+        border-color: #ffd946;
+        padding: 0 0.15rem;
+        float: none;
+    }
+    .hq_vcode_gray{
+        border-color: #999;
+        padding: 0 0.15rem;
+    }
+    .write_submit_checked{
+        background-color: #ffd946;
+        border: none;
+        color: #333;
+        border-radius: 0;
+    }
+    .validate{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(51,51,51,0.5);
+        display: none;
+    }
+    .validate-cnt{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        margin-left: -40%;
+        margin-top: -2.54rem;
+        padding: 0 0.5rem;
+        /*background-color: white;*/
+        border-radius: 0.3rem;
+        background: url("./images/guangdiantong/alert-bg.png") repeat center;
+        background-size: 100% 100%;
+        text-align: center;
+    }
+    .validate-cnt h5{
+        padding: 0.35rem 0 0.3rem 0;
+        font-size: 0.36rem;
+        color: #333;
+        font-weight: normal;
+    }
+    .validate-input{
+
+    }
+    .validate-input p{
+        padding: 0.35rem 0 0.2rem 0;
+        font-size: 0.29rem;
+        color: #333;
+    }
+    .validate-input input{
+        border: 1px solid #c6c6c6;
+        border-radius: 0.5rem;
+        font-size: 0.3rem;
+        width: 100%;
+        height: 0.72rem;
+        padding-left: 1.5rem;
+    }
+    .validate-input img{
+        width: 1.75rem;
+        height: 0.5rem;
+        border: 1px solid #eee;
+        margin-right: 0.5rem;
+    }
+    .changeCode{
+        font-size: 0.3rem;
+        color: #ff943a;
+        text-decoration: underline;
+    }
+    .validate-btn{
+        width: 100%;
+        margin: 0.22rem 0;
+    }
+    .validate-btn div{
+        display: inline-block;
+        width: 2.08rem;
+        height: 0.74rem;
+        text-align: center;
+        line-height: 0.74rem;
+        border-radius: 0.37rem;
+        font-size: 0.36rem;
+    }
+    .validate-btn-cancel{
+        border: 1px solid #e5e5e5;
+        background-color: #e5e5e5;
+        color: #333;
+        margin-right: 0.6rem;
+    }
+    .validate-btn-sure{
+        border: 1px solid #ffd946;
+        background-color: #ffd946;
+        color: #333;
+    }
+</style>
+<body style="background-color: #FFFFFF;">
+<div style="background-color: #fff; height: 0.25rem;"></div>
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<section class="lg_reigster">
+    <ul class="lg_login_dl">
+        <li class="br_top">
+            <u>手机号</u>
+            <input type="tel" maxlength="11" placeholder="请输入您的手机号码" id="txt_phoneno" onblur="changephone()"/><i
+                class="hq_vcode" id="hq_vcode">获取验证码</i>
+        </li>
+        <li class="br_top">
+            <u>验证码</u>
+            <input type="tel" placeholder="请输入短信中的验证码" id="txt_vcode" onblur="changevcode()"/>
+        </li>
+        <li class="br_top br_bottom">
+            <u>新密码</u>
+            <input type="password" placeholder="6-20个字母或数字组成" id="txt_phonepwd" maxlength="20" onblur="changepwd()"/>
+            <i class="mm_eye_unable" onclick="change_eye(this,'txt_phonepwd')"></i></li>
+
+    </ul>
+    <div class="lg_login_footer_btn">
+        <div class="write_submit_checked" id="btn_loginfrom">下一步</div>
+
+    </div>
+</section>
+
+<!--提示框开始-->
+<div class="tooltip_main_center hide_mian_div" id="filesubmit">
+    <div class="tooltip_main_node">
+        <div class="tooltip_main_n_top">
+            <div class="tooltip_main_nt_cn">
+                <div class="top_title_sigle">密码修改成功</div>
+            </div>
+        </div>
+        <div class="tooltip_main_n_bottom">
+            <a onclick="ZDLogin()">
+                <div>去主页看看</div>
+            </a>
+        </div>
+    </div>
+</div>
+<!--提示框结束-->
+<!--图形验证开始-->
+<div class="validate">
+    <div class="validate-cnt">
+        <h5>请输入图片验证码</h5>
+        <div class="validate-input">
+            <div>
+                <input type="text" name="input-validate" placeholder="请输入验证码">
+            </div>
+            <p>输入下图中的字符,不区分大小写</p>
+            <div>
+                <img src="" alt="暂无图片" style="vertical-align: middle">
+                <span style="vertical-align: middle;" class="changeCode">看不清,换一张</span>
+            </div>
+        </div>
+        <div class="validate-btn">
+            <div class="validate-btn-cancel"><span>取消</span></div>
+            <div class="validate-btn-sure"><span>确定</span></div>
+        </div>
+    </div>
+</div>
+<!--图形验证结束-->
+
+
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/baseinfo.js"></script>
+<script>
+//    var clearShareSetTime;
+
+    $("#btn_loginfrom").click(function () {
+        forgetpwdclick();
+    });
+    $("#hq_vcode").click(function () {
+    //        btnvcode(2);
+        shareCode(2);
+    });
+    $(".validate-btn-sure").click(function () {
+        inputImgCode(2);
+    });
+    $(".validate-btn-cancel").click(function () {
+        $(".validate").fadeOut();
+    });
+    $('.changeCode').click(function () {
+        $(".validate input").val('');
+        $(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+    });
+    //验证图形码
+    function inputImgCode (type) {
+        var inputVal = $('.validate-input input').val();
+        $.ajax({
+            url: urlLink + '/web/validation/verifyCode',
+            type: 'post',
+            data: {
+                iCode: inputVal
+            },
+            xhrFields:{
+                withCredentials:true
+            },
+            success: function (data){
+                console.log(data);
+                if (data.code == 0) {
+                    setTimeout(function () {
+                        $(".validate").fadeOut();
+                    }, 1000);
+                    var sourceType = GetUrlParameter("type");
+                    var phone = $("#txt_phoneno").val();
+                    getVerifyCod(phone, type, inputVal);
+                } else {
+                    $(".validate input").val('');
+                    $(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+                    ShowMsg('验证码输入错误');
+                }
+            },
+            err: function (err) {
+                console.log(err);
+            }
+        })
+    }
+    //<!--分享页面发送验证码S-->
+    function shareCode(type) {
+        var phone = $("#txt_phoneno").val();
+        if (phone == "" || phone == null || phone == "undefined") {
+            ShowMsg("请输入您的手机号码");
+            return false;
+        } else if (!regPhone.exec(phone)) {
+            ShowMsg("请输入正确的手机号码");
+            return false;
+        } else {
+            $.ajax({
+                url: urlLink + '/web/validation/need_code',
+                type: 'get',
+                xhrFields:{
+                    withCredentials:true
+                },
+                success: function (data) {
+                    console.log(data);
+                    if (data.code == 0) {
+                        $(".validate").fadeIn();
+                        $(".validate input").val('');
+                        $(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+                    } else {
+//                        var sourceType = GetUrlParameter("type");
+                        getVerifyCod(phone, type, '');
+                    }
+                },
+                err: function (err) {
+                    console.log('请求失败')
+                }
+            });
+        }
+    }
+
+    function getVerifyCod(phone, type, codeVal) {
+//        clearTimeout(clearShareSetTime);
+        Loading();
+        $.ajaxSetup({
+            xhrFields:{
+                withCredentials:true
+            }
+        });
+        $.post(urlLink + "/web/validation/send_msg", {
+            phone_number: phone,
+            msg_type: type,
+            type: 'html5',
+            iCode: codeVal
+        }, function (result) {
+            var datat = $.toJSON(result);
+            var obj = jQuery.parseJSON(datat);
+            switch (obj.code) {
+                case 0: //OK
+                    ShowMsg("验证码发送成功，请注意查看手机！");
+                    time('hq_vcode');
+                    break;
+                case -10001:
+                    ShowMsg("手机号已注册，请直接登录");
+                    break;
+                default:
+                    ShowMsg(obj.msg);
+                    break;
+            }
+            LoadingOver();
+        })
+    }
+
+</script>
+</body>
+
+</html>

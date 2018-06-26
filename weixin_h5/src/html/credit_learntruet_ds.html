@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>实名认证</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/write_from.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/new.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+</head>
+
+<body>
+<nav class="nav-top">
+    <h1 class="title">
+        <a class="back " onclick="window.history.back()">&lt;</a>
+        实名认证
+    </h1>
+</nav>
+<div class="nav-clear"></div>
+
+
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+
+<!--new-->
+
+
+<div class="main_page_content ">
+    <div class="head_progress">
+        <img src="images/progress2.png"/>
+    </div>
+    <div class="float-wrap-box">
+        <div class="div-line" id="jdAuthentication">
+            <i class="line-icon-box icon-ds"></i>
+
+            <p class="p-line-box">
+                电商认证
+            </p>
+            <!--blue-color-->
+            <span class="prompt gray-color">
+                未认证
+            </span>
+        </div>
+        <div class="div-line" id="creditCardAuthentication">
+            <i class="line-icon-box icon-backCard"></i>
+
+            <p class="p-line-box">
+                信用卡认证
+            </p>
+            <span class="prompt gray-color">
+                未认证
+            </span>
+        </div>
+        <div class="div-line" id="bankAuthentication">
+            <i class="line-icon-box icon-creditCard"></i>
+
+            <p class="p-line-box">
+                储蓄卡认证
+            </p>
+            <span class="prompt gray-color">
+                未认证
+            </span>
+        </div>
+    </div>
+    <div class="prompt-box">
+        <p>只有真实有效的信息才能通过审核哦</p>
+    </div>
+
+    <div class="next-button-box">
+        <button class="next-button button-gray" id="next-button" disabled="disabled">下一步</button>
+    </div>
+    <div class="go-back-smtx" id="credit-come-back">
+        <p>
+            <a href="autonym.html?source=1">返回实名填写</a>
+        </p>
+    </div>
+</div>
+
+<!--loadding-->
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/jquery.base64.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/learn.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        localStorage.bycxtooptip = 0;
+        get_all_status(isOk, null, null);
+        $("#jd-yzcode-repeat").click(function () {
+            var jdNmae = $("#txt_jduname").val();
+            var jdPwd = $("#txt_jdpwd").val();
+            if (jdNmae == '' || jdNmae == null || jdNmae == 'undefined') {
+                ShowMsg('请输入京东账号');
+                return false;
+            } else if (jdPwd == '' || jdPwd == null || jdPwd == 'undefined') {
+                ShowMsg('请输入京东密码');
+                return false;
+            } else {
+                btnjdinfo();
+            }
+        });
+
+    });
+    function isOk() {
+        var jdState = 0;
+        var bankState = 0;
+        var creditState = 0;
+        //    判断京东是否认证
+        if (btnstatusvalue(localStorage.int64_status, 8) == 1) {
+            jdState = 1;
+            $("#jdAuthentication").find("span").removeClass().addClass("prompt blue-color").text("已认证");
+        }
+//    判断银行卡是否认证
+        if (btnstatusvalue(localStorage.int64_status, 9) == 1) {
+            bankState = 1;
+            $("#bankAuthentication").find("span").removeClass().addClass("prompt blue-color").text("已认证");
+            $("#credit-come-back").hide();
+        } else {
+            $("#credit-come-back").show();
+        }
+//    判断信用卡是否认证
+        if (btnstatusvalue(localStorage.int64_status, 12) == 1) {
+            creditState = 1;
+            $("#creditCardAuthentication").find("span").removeClass().addClass("prompt blue-color").text("已认证");
+        }
+
+        if (jdState == 1 && bankState == 1 && creditState == 1) {
+            $("#next-button").removeClass("button-gray").addClass("button-pass").removeAttr("disabled")
+        }
+
+        $(document).on("click", "#jdAuthentication", function () {
+            <!--状态位判断；8为电商-->
+            if (jdState == 1) {
+                ShowMsg("您的电商已认证");
+                return false;
+            } else {
+                window.location.href = "credit_card/jd_authentication.html?source=1";
+            }
+        });
+        $(document).on("click", "#bankAuthentication", function () {
+            <!--状态位判断；9为银行卡-->
+            if (bankState == 1) {
+                ShowMsg("您的储蓄卡已认证");
+                return false;
+            } else {
+                btnaddbenkpay(1);
+            }
+        });
+        $(document).on("click", "#creditCardAuthentication", function () {
+            if (creditState == 1) {
+                ShowMsg("您的信用卡已认证");
+                return false;
+            } else {
+                window.location.href = "credit_card/credit_card_a.html?source=1";
+            }
+
+        });
+        $(document).on("click", "#next-button", function () {
+            if (jdState == 1 && bankState == 1 && creditState == 1) {
+                window.location.href = "check_status.html";
+            } else if (jdState == 0) {
+                top_meassage("请先进行电商认证");
+                show_topmessage();
+            } else if (bankState == 0) {
+                top_meassage("请先进行储蓄卡认证");
+                show_topmessage();
+            } else if (creditState == 0) {
+                top_meassage("请先进行信用卡认证");
+                show_topmessage();
+            }
+        })
+    }
+</script>
+</body>
+
+</html>
+
+<style>
+    .lenarnulist li label:nth-child(1) {
+
+        line-height: 1.6rem;
+        padding-left: 0.2rem;
+        width: auto;
+
+    }
+
+    .lenarnulist li label:nth-child(1) img {
+        width: 50%;
+    }
+
+    .lenarnulist li div {
+
+        font-size: 0.32rem;
+
+    }
+
+    .lenarnulist li div:nth-child(3) img {
+        width: 50%;
+    }
+
+</style>

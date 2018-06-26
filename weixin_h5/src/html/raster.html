@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>设置</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/loadding.css" rel="stylesheet" type="text/css">
+    <link href="css/tooltip.css" rel="stylesheet" type="text/css">
+    <link href="css/nav.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/checkboxinse.css">
+    <style>
+        .signOutTr{
+            text-align: center;
+            border-top: 1px solid #f0f0f0;
+        }
+        .signRemind_switch{
+            box-sizing: border-box;
+            font-size: 0.28rem;
+            color: #666;
+            padding-left: 0.2rem;
+            width: 100%;
+            height: 0.76rem;
+            line-height: 0.76rem;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .rightcheckbox{
+            margin-top: 0.13rem;
+        }
+    </style>
+</head>
+
+<body style="background-color: #FFFFFF;">
+<nav class="nav-top">
+    <h1 class="title">
+        <a class="back " onclick="window.history.back()">&lt;</a>
+        设置
+    </h1>
+</nav>
+<div class="nav-clear"></div>
+
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="main_page_content ">
+    <section class="mt-1 mt-mt">
+        <div class="ps-lt ">
+            <div class="lt-dsb cl-bb ">
+                <a href="imprint.html">
+                    <p>关于贷你嗨</p>
+                    <i class="arr-right "></i></a>
+            </div>
+            <div class="lt-dsb cl-bb " onclick="window.location.href='safeCenter.html'">
+                <p>安全中心</p>
+                <i class="arr-right "></i>
+            </div>
+            <!--onclick="javascript:divshow('nullifyusers');"-->
+            <div class="lt-dsb cl-bb" onclick="cancelDatum()">
+                <p>注销账户资料</p>
+                <i class="arr-right "></i>
+            </div>
+            <!--<div style="height: 0.2rem;background-color: #f5f5f5;"></div>-->
+            <!--<div class="signRemind_switch">-->
+                <!--<input type="hidden" class="switch_input" value="0">-->
+                <!--<span>每日签到提醒</span>-->
+                <!--<div class="rightcheckbox">-->
+                    <!--<input type="checkbox" id="checkbox-10-2"/>-->
+                    <!--<label for="checkbox-10-2" onclick="signSwitch()"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div style="height: 0.2rem;background-color: #f5f5f5;"></div>
+            <div class="lt-dsb signOutTr">
+                <p>退出当前账号</p>
+            </div>
+        </div>
+    </section>
+</div>
+<!--注销用户开始-->
+
+<div class="dialog-confirm hide_mian_div" id="nullifyusers">
+    <div class="mask-box"></div>
+
+    <div class="make-back">
+        <div class="make-back-color">
+            <p class="make-title">提示</p>
+            <p class="make-cont" id="num2">注销账户资料后您的资料将被删除</p>
+            <p class="make-cont" id="num1">您有<span class="liamount">0</span>额度未使用！注销账户信息后您的资料将被删除</p>
+            <ul class="make-btn-box clearFix">
+                <li>
+                    <a href="javascript:divhide('nullifyusers')" class="make-btn-left">取消</a>
+                </li>
+                <li>
+                    <a class="make-btn-right" onclick="cCancelUsers()">确定</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="dialog-confirm hide_mian_div" id="signOutAccount">
+    <div class="mask-box"></div>
+
+    <div class="make-back">
+        <div class="make-back-color">
+            <p class="make-title">提示</p>
+            <p class="make-cont" style="padding-left: 0.55rem;">您确定要退出吗</p>
+            <ul class="make-btn-box clearFix">
+                <li>
+                    <a href="javascript:divhide('signOutAccount')" class="make-btn-left">取消</a>
+                </li>
+                <li>
+                    <a class="make-btn-right" onclick="logout()">确定</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--<div class="tooltip_main_center  hide_mian_div" id="nullifyusers">-->
+<!--<div class="tooltip_main_node">-->
+<!--<div class="tooltip_main_n_top">-->
+<!--<div class="tooltip_main_nt_cn">-->
+<!--<div class="divcancelmsginfo" id="num1">您有<span class="liamount">0</span>额度未使用！注销账户信息后您的资料将被删除</div>-->
+<!--<div class="divcancelmsginfo" id="num2" style="display: none;">注销账户资料后您的资料将被删除</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="tooltip_main_ntwo_bottom">-->
+<!--<a href="javascript:divhide('nullifyusers')">-->
+<!--<div>取消</div>-->
+<!--</a>-->
+<!--<a onclick="cCancelUsers()">-->
+<!--<div>确定</div>-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--注销用户结束-->
+
+<!--支付密码开始-->
+<div class="tooltip_main_center hide_mian_div" id="payzfpwd">
+    <div class="tooltip_main_node">
+        <div class="tooltip_main_n_top">
+            <div class="importpaypwd">
+                <div>
+                    请输入支付密码
+                </div>
+                <ul id="btnpayul">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <input type="hidden" value="" id="txt_paypwd" maxlength="6"/>
+            </div>
+        </div>
+        <div class="tooltip_main_ntwo_bottom">
+            <div style="color: #666666;font-size: 0.38rem;" onclick="btnpaycancel()">取消</div>
+        </div>
+    </div>
+</div>
+<!--支付密码结束-->
+<!--密码错误开始-->
+<div class="dialog-confirm hide_mian_div" id="errorpwd">
+    <div class="mask-box"></div>
+
+    <div class="make-back">
+        <div class="make-back-color">
+            <p class="make-title">提示</p>
+            <p class="make-cont">密码错误</p>
+            <ul class="make-btn-box clearFix">
+                <li>
+                    <a href="resetpaypwd.html" class="make-btn-left">忘记密码</a>
+                </li>
+                <li>
+                    <a href="javascirpt:" class="make-btn-right" onclick="retr_RetryPwd()">重试</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="tooltip_main_center hide_mian_div" id="errorpwd">-->
+    <!--<div class="tooltip_main_node">-->
+        <!--<div class="tooltip_main_n_top">-->
+            <!--<div class="tooltip_main_nt_cn">-->
+
+                <!--<div class="pwderrors">密码错误</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="tooltip_main_ntwo_bottom">-->
+            <!--<a href="resetpaypwd.html">-->
+                <!--<div>忘记密码</div>-->
+            <!--</a>-->
+            <!--<a onclick="retr_RetryPwd()">-->
+                <!--<div>重试</div>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--密码错误结束-->
+<script type="text/javascript " src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript " src="js/pub.js "></script>
+<script type="text/javascript " src="js/keyboard.js"></script>
+<script type="text/javascript " src="js/turnjson.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        loadLogin_second();
+        $(".liamount").html(localStorage.int32_limit_amount);
+//        clickPswBox();
+        $("#btnpayul").on("click", function () {
+            $("#txt_paypwd").val(null);
+            vtype = 9;
+            var input2 = document.getElementById('txt_paypwd');
+            KeyBoard(input2);
+        });
+        LoadingOver();
+
+        $(".signOutTr").click(function () {
+           $("#signOutAccount").fadeIn();
+        });
+
+        // 判断开关状态
+//        if (localStorage.sign_remind_status == 1) {
+//            $("#checkbox-10-2").attr("checked", true);
+//            $(".switch_input").val("1");
+//        } else {
+//            $("#checkbox-10-2").attr("checked", false);
+//            $(".switch_input").val("0");
+//        }
+    });
+
+    function cancelDatum() {
+        if (localStorage.int32_apply_status != null) {
+            if (localStorage.int32_apply_status == 3) {
+                $("#nullifyusers").show();
+                $("#num1").show();
+                $("#num2").hide();
+            } else {
+                $("#nullifyusers").show();
+                $("#num1").hide();
+                $("#num2").show();
+            }
+        }
+    }
+
+    function clickPswBox() {
+        $("#txt_paypwd").val(null);
+        vtype = 9;
+        var input2 = document.getElementById('txt_paypwd');
+        KeyBoard(input2);
+    }
+
+    function cCancelUsers() {
+        if (localStorage.int32_is_set_pay_password == 1) {
+            divhide('nullifyusers');
+            divshow('payzfpwd');
+            clickPswBox();
+        } else {
+            $(".divcancelmsginfo").html("注销账户信息后您的资料将被删除");
+            BtnCancelUser('');
+        }
+    }
+
+    // 签到提醒开关
+//    function signSwitch () {
+//        var status = $(".switch_input").val();
+//        if (status == 0) {
+//            $(".switch_input").val("1");
+//            localStorage.sign_remind_status = $(".switch_input").val();
+//            ShowMsg("已开启每日提醒");
+//        } else {
+//            $(".switch_input").val("0");
+//            localStorage.sign_remind_status = $(".switch_input").val();
+//            ShowMsg("已关闭每日提醒");
+//        }
+//
+//    }
+</script>
+</body>
+
+</html>

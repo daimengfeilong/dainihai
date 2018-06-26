@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>绑定银行卡</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-size: 0.3rem;
+    }
+
+    .hq_vcode {
+        background-color: #fff;
+        color: #ffd946;
+        border-color: #ffd946;
+        padding: 0 0.15rem;
+        float: none;
+        margin: 0!important;
+        position: relative;
+        right: 0.35rem;
+    }
+
+    .hq_vcode_gray {
+        border-color: #999;
+        padding: 0 0.15rem;
+        margin: 0!important;
+        position: relative;
+        right: 0.35rem;
+    }
+
+    .write_submit_checked {
+        background-color: #ffd946;
+        border: none;
+        color: #333;
+        border-radius: 0;
+    }
+
+    .lg_login_dl li {
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
+        -webkit-align-items: center;
+    }
+
+    .lg_login_dl li u {
+        float: none;
+        width: 33%;
+        margin-top: 0!important;
+    }
+
+    .lg_login_dl li input {
+        flex: 1;
+    }
+
+    .change_address{
+        flex: 1;
+        margin-left: 0.35rem;
+        padding-bottom: 0.1rem;
+    }
+    .change_address div.scd_select_div{
+        display: inline-block;
+        margin-top: 0.1rem;
+    }
+    .scd_select_div select{
+        width: 2rem;
+        height: 0.6rem;
+        border: 1px solid #e5e5e5;
+        border-radius: 0.05rem;
+    }
+
+    .validate {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(51, 51, 51, 0.5);
+        display: none;
+    }
+
+    .validate-cnt {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        margin-left: -40%;
+        margin-top: -2.54rem;
+        padding: 0 0.5rem;
+        /*background-color: white;*/
+        border-radius: 0.3rem;
+        background: url("./images/guangdiantong/alert-bg.png") repeat center;
+        background-size: 100% 100%;
+        text-align: center;
+    }
+
+    .validate-cnt h5 {
+        padding: 0.35rem 0 0.3rem 0;
+        font-size: 0.36rem;
+        color: #333;
+        font-weight: normal;
+    }
+
+    .validate-input {
+
+    }
+
+    .validate-input p {
+        padding: 0.35rem 0 0.2rem 0;
+        font-size: 0.29rem;
+        color: #333;
+    }
+
+    .validate-input input {
+        border: 1px solid #c6c6c6;
+        border-radius: 0.5rem;
+        font-size: 0.3rem;
+        width: 100%;
+        height: 0.72rem;
+        padding-left: 1.5rem;
+    }
+
+    .validate-input img {
+        width: 1.75rem;
+        height: 0.5rem;
+        border: 1px solid #eee;
+        margin-right: 0.5rem;
+    }
+
+    .changeCode {
+        font-size: 0.3rem;
+        color: #ff943a;
+        text-decoration: underline;
+    }
+
+    .validate-btn {
+        width: 100%;
+        margin: 0.22rem 0;
+    }
+
+    .validate-btn div {
+        display: inline-block;
+        width: 2.08rem;
+        height: 0.74rem;
+        text-align: center;
+        line-height: 0.74rem;
+        border-radius: 0.37rem;
+        font-size: 0.36rem;
+    }
+
+    .validate-btn-cancel {
+        border: 1px solid #e5e5e5;
+        background-color: #e5e5e5;
+        color: #333;
+        margin-right: 0.6rem;
+    }
+
+    .validate-btn-sure {
+        border: 1px solid #ffd946;
+        background-color: #ffd946;
+        color: #333;
+    }
+</style>
+<body style="background-color: #FFFFFF;">
+<div style="background-color: #fff; height: 0.25rem;"></div>
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<section class="lg_reigster">
+    <ul class="lg_login_dl">
+        <li class="br_top">
+            <u>姓名</u>
+            <input type="text" id="txt_name" readonly placeholder="请输入开户姓名"/>
+        </li>
+        <li class="br_top">
+            <u>身份证</u>
+            <input type="tel" id="txt_idCard" readonly placeholder="请输入身份证号"/>
+        </li>
+        <li class="br_top">
+            <u>银行卡号</u>
+            <input type="tel" id="txt_bankCard" placeholder="请输入银行卡号"/>
+        </li>
+        <li class="br_top" style="height: auto;">
+            <u>开户行地址</u>
+            <div class="change_address">
+                <div class="scd_select_div">
+                    <select id="province" class="scd_select" onchange="provincedchange()">
+                        <option pCode="0">北京</option>
+                        <option pCode="1">天津</option>
+                        <option pCode="2">河北省</option>
+                        <option pCode="3">山西省</option>
+                        <option pCode="4">内蒙省</option>
+                        <option pCode="5">辽宁省</option>
+                        <option pCode="6">吉林省</option>
+                        <option pCode="7">黑龙江省</option>
+                        <option pCode="8">上海</option>
+                        <option pCode="9">江苏省</option>
+                        <option pCode="10">浙江省</option>
+                        <option pCode="11">安徽省</option>
+                        <option pCode="12">福建省</option>
+                        <option pCode="13">江西省</option>
+                        <option pCode="14">山东省</option>
+                        <option pCode="15">河南省</option>
+                        <option pCode="16">湖北省</option>
+                        <option pCode="17">湖南省</option>
+                        <option pCode="18">广东省</option>
+                        <option pCode="19">广西省</option>
+                        <option pCode="20">海南省</option>
+                        <option pCode="21">重庆</option>
+                        <option pCode="22">四川省</option>
+                        <option pCode="23">贵州省</option>
+                        <option pCode="24">云南省</option>
+                        <option pCode="25">西藏省</option>
+                        <option pCode="26">陕西省</option>
+                        <option pCode="27">甘肃省</option>
+                        <option pCode="28">青海省</option>
+                        <option pCode="29">宁夏省</option>
+                        <option pCode="30">新疆省</option>
+                    </select>
+                </div>
+                <div class="scd_select_div">
+                    <select id="city" class="scd_select" onchange="cityChange()">
+
+                    </select>
+                </div>
+                <div class="scd_select_div">
+                    <select id="county" class="scd_select">
+
+                    </select>
+                </div>
+            </div>
+        </li>
+        <li class="br_top">
+            <u>开户行</u>
+            <input type="text" id="txt_khbankno" value="" placeholder="XXX支行(可询问银行客服) "/>
+        </li>
+        <li class="br_top">
+            <u>银行预留手机号</u>
+            <input type="tel" maxlength="11" placeholder="请输入手机号" id="txt_phoneno"/>
+        </li>
+        <li class="br_top br_bottom">
+            <input type="tel" placeholder="请输入短信中的验证码" id="txt_vcode"/>
+            <i class="hq_vcode" id="hq_vcode">获取验证码</i>
+        </li>
+    </ul>
+    <div class="lg_login_footer_btn">
+        <div class="write_submit_checked" id="btn_loginfrom">确认绑卡</div>
+
+    </div>
+</section>
+
+<!--图形验证开始-->
+<!--<div class="validate">-->
+<!--<div class="validate-cnt">-->
+<!--<h5>请输入图片验证码</h5>-->
+<!--<div class="validate-input">-->
+<!--<div>-->
+<!--<input type="text" name="input-validate" placeholder="请输入验证码">-->
+<!--</div>-->
+<!--<p>输入下图中的字符,不区分大小写</p>-->
+<!--<div>-->
+<!--<img src="" alt="暂无图片" style="vertical-align: middle">-->
+<!--<span style="vertical-align: middle;" class="changeCode">看不清,换一张</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="validate-btn">-->
+<!--<div class="validate-btn-cancel"><span>取消</span></div>-->
+<!--<div class="validate-btn-sure"><span>确定</span></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--图形验证结束-->
+
+
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/baseinfo.js"></script>
+<script src="js/city_linkage.js"></script>
+<script>
+    $(function () {
+        provincedchange();
+        $("#txt_name").val(localStorage.string_username);
+        $("#txt_idCard").val(localStorage.int32_idCardNum);
+        $("#btn_loginfrom").click(function () {
+            bindCardClick(1);
+        });
+        $("#hq_vcode").click(function () {
+            bindCardClick(2);
+        });
+    });
+
+    function bindCardClick(type) {
+        // type为1进行绑卡操作，为2获取验证码
+        var name = $("#txt_name").val(), idCard = $("#txt_idCard").val(), bankCardNum = $("#txt_bankCard").val(),
+                provinces = $("#province").val(), bankkhx = $("#txt_khbankno").val(), phoneNo = $("#txt_phoneno").val(), vcode = $("#txt_vcode").val();
+        if (name == "" || name == null || name == undefined) {
+            ShowMsg("请输入开户姓名！");
+            return false;
+        } else if (idCard == "" || idCard == null || idCard == undefined) {
+            ShowMsg("请输入身份证号！");
+            return false;
+        } else if (!regIdNo.exec(idCard)) {
+            ShowMsg("请输入正确的身份证号！");
+            return false;
+        } else if (bankCardNum == "" || bankCardNum == null || bankCardNum == undefined) {
+            ShowMsg("请输入银行卡号！");
+            return false;
+        } else if (provinces == "-1") {
+            ShowMsg("请选择省份！");
+            return false;
+        } else if (bankkhx == null || bankkhx == '') {
+            ShowMsg("请填写开户行支行！");
+            return false;
+        } else if (phoneNo == "" || phoneNo == null || phoneNo == undefined) {
+            ShowMsg("请输入银行预留手机号！");
+            return false;
+        } else if (!regPhone.exec(phoneNo)) {
+            ShowMsg("请输入正确的手机号！");
+            return false;
+        } else {
+            if (type == 1) {
+                if (vcode == "" || vcode == null || vcode == undefined) {
+                    ShowMsg("请输入短信验证码！");
+                    return false;
+                } else {
+                    bindBankCard(vcode, bankCardNum);
+                }
+            } else if (type == 2) {
+                getCode();
+            }
+        }
+    }
+    function bindBankCard(vcode, bankCardNum) {
+        Loading();
+        ajaxFn(urlLink + "/web/user/baofoo_confirm_sign", {
+            verify_code: vcode,
+            bankcard: bankCardNum
+        }, bindSucFn, null, "post");
+    }
+    function bindSucFn(data) {
+        switch (data.code) {
+            case 0:
+                if (data.data.int32_success == 1) {
+                    ShowMsg("绑定成功！");
+                    setTimeout(function () {
+                        window.location.href = "index_bk.html";
+                    }, 2000);
+                } else {
+                    ShowMsg(data.data.string_biz_resp_msg);
+                }
+                break;
+            default:
+                ShowMsg(data.msg);
+                break;
+        }
+        LoadingOver();
+    }
+
+    // 发送验证码
+    function getCode() {
+        var name = $("#txt_name").val(), idCard = $("#txt_idCard").val(), bankCardNum = $("#txt_bankCard").val(),
+                provinces = $("#province").val(), bankkhx = $("#txt_khbankno").val(), city = $("#city").val(),
+                country = $("#county").val(), phoneNo = $("#txt_phoneno").val();
+        var khh_no = "";
+        if (provinces != null) {
+            khh_no = provinces + "#";
+        }
+        if (city != null) {
+            khh_no += city + "#";
+        }
+        if (country != null) {
+            khh_no += country + "#";
+        } else {
+            khh_no += " " + "#";
+        }
+        var params = {
+            name: name,
+            idcard: idCard,
+            bankcard: bankCardNum,
+            phone: phoneNo,
+            deposit_bank: khh_no + bankkhx
+        };
+        Loading();
+        ajaxFn(urlLink + "/web/user/baofoo_ready_sign", params, getCodeSucFn, null, "post");
+    }
+    function getCodeSucFn(data) {
+        switch (data.code) {
+            case 0:
+                if (data.data.int32_success == 1) {
+                    ShowMsg("发送成功，请注意查收！");
+                    time('hq_vcode', "bk");
+                } else {
+                    ShowMsg(data.data.string_biz_resp_msg);
+                }
+                break;
+            default:
+                ShowMsg(data.msg);
+                break;
+        }
+        LoadingOver();
+    }
+</script>
+</body>
+
+</html>

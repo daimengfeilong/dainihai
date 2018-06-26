@@ -1,0 +1,139 @@
+*:focus {
+    outline: none;
+}
+
+img {
+    border: 0px;
+}
+
+.clear {
+    clear: both;
+}
+
+html {
+    width: 100%;
+    font-family: 'Heiti SC', 'Microsoft YaHei';
+    font-size: 100px;
+    outline0;
+    -webkit-text-size-adjust: none;
+    height: 100%
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    margin: 0;
+    -webkit-user-select: none;
+    position: relative;
+    background-color: #efeff4;
+    height: 100%
+}
+
+.main_banklist {
+    width: 100%;
+    height: auto;
+}
+
+.banklist {
+    width: 100%;
+    /*margin: 0.3rem 0;*/
+    background: #ffffff;
+    border-top: 1px solid #cfd3d7;
+    border-bottom: 1px solid #cfd3d7;
+    height: 1.75rem;
+}
+
+.banklist_first {
+    width: 95%;
+    margin: 0.17rem 0 0 0.15rem;
+    position: absolute;
+    z-index: 9999;
+    background: #ffffff;
+    height: 1.49rem;
+}
+
+.banklist_img {
+    width: 20%;
+    float: left;
+}
+
+.banklist_img img {
+    width: 95%;
+}
+
+.banklist_ztxt {
+    width: 40%;
+    float: left;
+    margin: 0 0 0 0.3rem;
+}
+
+.banklist_ztxt div:nth-child(1) {
+    font-size: 0.44rem;
+    font-style: normal;
+    margin: 0;
+    color: #666666;
+}
+
+.banklist_ztxt div {
+    font-size: 0.34rem;
+    font-style: normal;
+    margin: 0;
+    /*float: left;*/
+    color: #AAAAAA;
+    margin-top: 0.25rem;
+}
+
+.L-float{
+    float: left;
+}
+
+.banklist_ztxt div:nth-child(3) {
+    margin-left: 0.2rem;
+}
+
+.banklist_kaimg {
+    float: left;
+    width: 22%;
+    margin: 0 0 0 0.15rem;
+}
+
+.banklist_kaimg img {
+    width: 35%;
+    float: left;
+}
+
+.banklist_kaimg img:nth-child(2) {
+    margin-left: 0.15rem;
+}
+
+.banklist_allright {
+    width: 4%;
+    float: right;
+    margin: 0rem 0.05rem 0 0;
+}
+
+.banklist_allright img {
+    width: 100%;
+}
+
+.banklist_second {
+    width: auto;
+    float: right;
+    margin: 0.2rem 0 0 0;
+    z-index: 1;
+}
+
+.banklist_right_ka {
+    width: 1.2rem;
+    font-size: 0.3rem;
+    float: right;
+    text-align: center;
+    margin: 0.1rem 0 0 0;
+    border-left: 1px solid #cfd3d7;
+    padding: 0 0.2rem;
+}
+
+.banklist_right_ka img {
+    width: 60%;
+}
+

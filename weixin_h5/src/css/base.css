@@ -1,0 +1,197 @@
+*:focus {
+	outline: none;
+}
+img {
+	border: 0px;
+}
+.clear {
+	clear: both;
+}
+html {
+	width: 100%;
+	font-family: 'Heiti SC', 'Microsoft YaHei';
+	font-size: 100px;
+     outline:0;
+	-webkit-text-size-adjust: none;
+	height: 100%;
+	background-color:#FFF;
+}
+body {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 100%;
+	margin: 0;
+	-webkit-user-select: none;
+	position: relative;
+	background-color: #fff;
+	height: 100%
+}
+.lg_login {
+	width: 100%;
+}
+.lg_login_img {
+	width: 100%;
+	margin: 0 auto;
+	background: url("../images/logo.png") no-repeat center;
+	background-size: 25%;
+	height: 3.5rem;
+}
+.gray_bg{
+	height: 0.3rem;
+	background-color: #f0f0f0;
+}
+.lg_login_dl {
+	width: 100%;
+	padding: 0;
+	background-color: #ffffff;
+	height: auto;
+}
+.lg_login_dl li {
+	height: 1rem;
+	line-height: 0.5rem;
+}
+.lg_login_dl li u {
+	font-size: 0.32rem;
+	margin-left: 0.3rem;
+	color: #4e4e4e;
+	width: 1.22rem;
+	float: left;
+	margin-top: 0.2rem;
+	text-decoration: none;
+}
+.lg_login_dl li input {
+	font-size: 0.32rem;
+	border: 0;
+	color: #4e4e4e;
+	width: 56%;
+	margin-left: 0.35rem;
+	height: 0.9rem;
+	line-height: 0.9rem;
+}
+.mm_eye_unable {
+	background: url("../images/icon_small_seepw_unable.png") no-repeat center;
+	height: 0.9rem;
+	width: 0.5rem;
+	float: right;
+	background-size: 87%;
+	margin-right: 0.35rem;
+}
+.mm_eye_checked {
+	background: url("../images/icon_small_seepw_checked.png") no-repeat center;
+	height: 1.1rem;
+	width: 0.5rem;
+	float: right;
+	background-size: 87%;
+	margin-right: 0.35rem;
+}
+.br_top {
+	border-top: 1px solid #e5e5e5;
+}
+.br_left {
+	border-left: 1px solid #e5e5e5;
+}
+.br_right {
+	border-right: 1px solid #e5e5e5;
+}
+.br_bottom {
+	border-bottom: 1px solid #e5e5e5;
+}
+.lg_login_footer_btn {
+	width: 92%;
+	margin: 0 auto;
+}
+
+.write_submit_unable {
+    background: #cccccc;
+    border-radius: 1rem;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.35rem;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 0.7rem;
+    border: 0px solid white
+}
+
+.write_submit_checked {
+	background:#FFF;
+	border:1px solid #487de7;
+	border-radius:1rem;
+	width: 100%;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: .4rem;
+	text-align: center;
+	color: #487de7;
+	margin-top:0.7rem;
+}
+.lg_login_label {
+	width: 100%;
+	margin: 0.33rem 0 0 0;
+}
+.lg_login_left {
+	float: left;
+	font-size: 0.24rem;
+	color: #666;
+}
+.lg_login_right {
+	float: right;
+	font-size: 0.24rem;
+	color: #AFAFB0;
+}
+a {
+	color: #487de7;
+	text-decoration: none;
+}
+/*register*/
+.lg_reigs{
+	height: 0.3rem;
+	background-color: #f0f0f0;
+}
+.lg_reigster {
+	width: 100%;
+}
+.gou_checked {
+	background: url("../images/user_detail/icon_xuanze_register.png") no-repeat center;
+	background-size: 100%;
+	height: 0.3rem;
+	width: 0.3rem;
+	float: left;
+	margin-right: 0.1rem;
+	margin-top: 0.02rem;
+}
+.gou_unable {
+	background: url("../images/radio_unable.png") no-repeat center;
+    background-size: 100%;
+    height: 0.3rem;
+    width: 0.3rem;
+    float: left;
+    margin-right: 0.1rem;
+    margin-top: 0.02rem;
+}
+.hq_vcode {
+	border: 1px solid #487de7;
+	font-size: 0.22rem;
+	border-radius: 1rem;
+	padding: 0.03rem 0.15rem;
+	color: #487de7;
+	float: right;
+	margin: 0.19rem 0.35rem 0 0;
+	position: absolute;
+	right: 0;
+	font-style: normal;
+	font-weight: bold;
+}
+.hq_vcode_gray {
+	border: 1px solid #4FB053;
+	font-size: 0.22rem;
+	border-radius: 1rem;
+	padding: 0.03rem 0.15rem;
+	color: #999999;
+	float: right;
+	margin: 0.19rem 0.35rem 0 0;
+	position: absolute;
+	right: 0;
+	font-style: normal;
+	font-weight: bold;
+}

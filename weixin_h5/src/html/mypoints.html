@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en" data-use-rem="750">
+
+<head>
+	<!--所有的meta引用的文件-->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" href="css/normalize.css">
+	<script src="js/zepto.js"></script>
+	
+	<!--<script src="js/rem.js"></script>-->
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0" />-->
+	<!--<meta name="apple-mobile-web-app-capable" content="yes">-->
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+	<!--<meta content="telephone=no" name="format-detection" />-->
+	<title>我的积分</title>
+
+
+
+
+
+	<script type="text/javascript">
+	(function(doc, win) {
+	var docEl = doc.documentElement,
+	resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	recalc = function() {
+	var clientWidth = docEl.clientWidth;
+	if (!clientWidth) return;
+	docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+	};
+	recalc();if (!doc.addEventListener) return;
+	win.addEventListener(resizeEvt, recalc, false);
+	doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	</script>
+
+
+
+	<!--link引用的css文件-->
+	<!--<link href="css/home.css" rel="stylesheet" type="text/css">-->
+	<link href="css/loadding.css" rel="stylesheet" type="text/css">
+	<link href="css/tooltip.css" rel="stylesheet" type="text/css">
+	<link href="css/new.css" rel="stylesheet" type="text/css">
+	<!--<link rel="stylesheet" href="css/nav.css" />-->
+	<link rel="stylesheet" href="css/points.css">
+	
+	<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/lib/iscroll-probe.js"></script>
+</head>
+
+<body>
+<!--背景-->
+<div class="bgCircle"></div>
+
+<!--累计积分和可用积分-->
+<section class="myPoints">
+	<dl>
+		<dt><img src="images/myPoints/icon_leiji.png"/><p>累计积分</p></dt>
+		<dd><span id="totalPoints">----</span></dd>
+	</dl>
+
+	<dl>
+		<dt><img src="images/myPoints/icon_keyong.png"/><p>可用积分</p></dt>
+		<dd><span id="availablePoints">----</span></dd>
+	</dl>
+</section>
+
+<!--积分记录-->
+<section class="pointsRecord">
+	<div><img src="images/myPoints/icon_jifenjilu.png"/><h3>积分记录</h3><a href="wap/integral_rule.html">规则</a></div>
+	<div class="pointsRecordContent">
+		<div class="noRecord" style="display: none;">
+			<img src="images/myPoints/account_active.png" />
+			<p>暂无积分记录哦~</p>
+		</div>
+		<div id="wrapper">
+			<div class="pointsRecordDetail">
+				<div class="reload">
+					<img src="images/onLoad.gif" />
+					<span>松开刷新</span>
+				</div>
+				<div class="points">
+					<dl class="detailTmp hide">
+						<dt>
+							<div class="recordDetailRound roundBig">
+								<span><span class="year">15</span>年</span>
+							</div>
+							<h3><span class="month">9</span>月</h3>
+						</dt>
+						<dd>
+							<ul class="days">
+								<li class="dayTmp">
+									<div class="day">15</div>
+									<div class="reason">第2位好友使用额度</div>
+									<div class="value">+100</div>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+				</div>					
+				<div class="loadMore">
+					<img src="images/onLoad.gif" />
+					<span>松开加载下一页</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!--所有的script引用的文件-->
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script src="js/points.js"></script>
+</body>
+
+</html>

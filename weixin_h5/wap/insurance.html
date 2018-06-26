@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>保险服务</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="../css/home.css" rel="stylesheet" type="text/css">
+    <link href="../css/checkboxinse.css" rel="stylesheet" type="text/css">
+    <link href="../css/loadding.css" rel="stylesheet" type="text/css">
+    <!--<link href="../css/tooltip.css" rel="stylesheet" type="text/css">-->
+    <link href="../css/nav.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/weui.css"/>
+    <link rel="stylesheet" href="../css/rapiddeposit.css"/>
+    <style>
+        body{
+            height: auto;
+        }
+        section{
+            /*margin-top: 0.4rem;*/
+        }
+        .safe_explain{
+            margin-top: 0.1rem;
+            color:#737373;
+            font-size: 12px;
+            padding: 0 0.5rem;
+        }
+        .chk_1:checked+label{
+            color: #000;
+        }
+        .chk_1+label{
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+        }
+        .chk_1:checked+label:after{
+            color: #000;
+        }
+        .checkBox{
+            display: inline-block;
+            width: 0.36rem;
+            height: 0.36rem;
+            background: url("images/radio_checked_bx.png") no-repeat;
+            background-size: 100% 100%;
+            margin-right: 0.05rem;
+        }
+        #checkbox_a2{
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+        .write-Agreement span{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <!--<div class="write-Agreement">-->
+        <!--<input type="checkbox" id="checkbox_a1" class="chk_1" checked/>-->
+        <!--<label for="checkbox_a1"></label>-->
+        <!--<span style="font-size:14px;">我已阅读并同意</span>-->
+            <!--<span id="agreement-cl" style="color:#4ba2f7;font-size:14px;cursor: pointer; ">-->
+                <!--《用户服务协议》-->
+            <!--</span>-->
+    <!--</div>-->
+    <!--<div class="write-Agreement" style="margin-top: 0.1rem;">-->
+        <!--<div class="checkBox">-->
+            <!--<input type="checkbox" id="checkbox_a2" class="chk_1" checked/>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash;<label for="checkbox_a2"></label>&ndash;&gt;-->
+        <!--<span style="font-size:14px;">保险</span>-->
+        <!--<span id="agreement-weituo" style="color:#f24946;font-size:14px;cursor: pointer; ">-->
+            <!--《投保须知》-->
+        <!--</span>-->
+        <!--<span id="agreement-queren" style="color:#f24946;font-size:14px;cursor: pointer; ">《保险条款（A款）》</span>-->
+    <!--</div>-->
+    <!--<div class="safe_explain">-->
+        <!--<span>保险为第三方机构专业的服务套餐，非本平台提供。分期申请人选择并认可并自愿采购支付第三方服务消费。</span>-->
+    <!--</div>-->
+</section>
+
+<script src="../js/tkPublic.js"></script>
+<script>
+    $(function() {
+//        $(document).on("click", "#agreement-cl", function () {
+//            window.location.href = '../talk/fuyou_agreement.html';
+//        });
+        var source = GetUrlParameter("source");
+        $(document).on("click", "#agreement-weituo", function () {
+            if (source == "android") {
+                javaCode.call("goAgreement", "投保须知", "wap/entrustment.html");   // 调用安卓本地方法
+            } else if (source == "iOS") {
+                window.webkit.messageHandlers.goAgreement.postMessage("/wap/entrustment.html");   // 调用iOS本地方法
+            } else {
+                window.location.href = 'entrustment.html';
+            }
+        });
+
+        $(document).on("click", "#agreement-queren", function () {
+            if (source == "android") {
+                javaCode.call("goAgreement", "保险条款（A款）", "wap/confirmation.html");   // 调用安卓本地方法
+            } else if (source == "iOS") {
+                window.webkit.messageHandlers.goAgreement.postMessage("/wap/confirmation.html");   // 调用iOS本地方法
+            } else {
+                window.location.href = 'confirmation.html';
+            }
+        });
+    })
+</script>
+</body>
+</html>

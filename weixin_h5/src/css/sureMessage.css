@@ -1,0 +1,81 @@
+*,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
+form,fieldset,input,textarea,p,blockquote,th,td,span,img
+{
+    padding:0;
+    margin:0;
+}
+
+a:link,a:hover,a:active,a:visited {
+    text-decoration: none;
+    /*color:black;*/
+}
+
+
+.container{
+    width: 7.5rem;
+    height: 150%;
+    /*outline: 0.01rem solid green;*/
+    background: rgba(0,0,0,0.3);
+    float: left;
+    font-family: microsoft yahei;
+    position:absolute;
+    top:0;
+    left: 0;
+    z-index: 20;
+    display: none;
+}
+
+.content{
+    width: 5.42rem;
+    height: 2.9rem;
+    /*outline: 0.01rem solid green;*/
+    margin: auto;
+    margin-top:6.5rem;
+    background: rgba(255,255,255,0.8);
+    border-radius: 0.3rem;
+    overflow: hidden;
+}
+
+.content-topBox{
+    width: 4.7rem;
+    height: 1.15rem;
+    /*outline: 0.01rem solid red;*/
+    float: left;
+    margin-top: 0.43rem;
+    margin-left: 0.37rem;
+    text-align: center;
+}
+
+.oneline{
+    font-size: 0.35rem;
+    margin-top: -0.1rem;
+    margin-bottom: 0.07rem;
+    font-weight: bold;
+}
+
+.twoline,.threeline{
+    font-size: 0.29rem;
+    margin-bottom: -0.01rem;
+}
+
+.content-leftBox,.content-rightBox{
+    text-align: center;
+    color: rgb(0,122,255);
+    width: 2.71rem;
+    height: 0.89rem;
+    outline: 0.01rem solid red;
+    float: left;
+    margin-top: 0.43rem;
+    font-size: 0.33rem;
+    outline: 0.01rem solid rgb(214,202,226);
+    line-height: 0.9rem;
+}
+.content-leftBox{
+
+}
+
+
+
+.content-rightBox{
+
+}

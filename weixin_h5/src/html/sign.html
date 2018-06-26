@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>签到</title>
+    <link rel="stylesheet" href="css/H-ui.reset.css">
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css"/>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_234130_nem7eskcrkpdgqfr.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .iconfont{
+            font-size: 0.3rem;
+            color: #ff943a;
+        }
+        ul{
+            list-style: none;
+        }
+        #schedule-box{
+            width: 90%;
+            margin: 0 auto;
+            padding: 0.35rem 0;
+        }
+        .schedule-hd{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0.15rem;
+            margin-bottom: 0.15rem;
+        }
+        .today{
+            flex: 1;
+            text-align: center;
+            color: #ff943a;
+            font-size: 0.3rem;
+        }
+        .week-ul{
+            font-size: 0.28rem;
+            color: #ff943a;
+        }
+        .ul-box{
+            overflow: hidden;
+            font-size: 0.28rem;
+        }
+        .ul-box > li{
+            float: left;
+            width: 14.28%;
+            padding: 5px 0;
+        }
+        .other-month{
+            color: #cdcdcd;
+        }
+        .current-month{
+            color: #333333;
+        }
+        .today-signed-flag{
+            background: url("images/today_signed.png") no-repeat center;
+            background-size: 100% 100%;
+            color: #ff943a;
+        }
+        .arrow{
+            cursor: pointer;
+        }
+        .dayStyle{
+            display: inline-block;
+            width: 0.6rem;
+            height: 0.56rem;
+            line-height: 0.62rem;
+            padding-left: 0.1rem;
+        }
+        .current-month > .dayStyle:hover{
+            /*background: #00BDFF;*/
+            /*color: #ffffff;*/
+        }
+        .signed-flag{
+            background: url("images/signed.png") no-repeat center;
+            background-size: 100% 100%;
+            color: #333;
+        }
+        .boxshaw{
+            /*box-shadow: 2px 2px 15px 2px #e3e3e3;*/
+        }
+        .selected-style {
+            background: #fff;
+            color: #333;
+        }
+        .btn-group{
+            margin-top: 1.4rem;
+        }
+        .btn{
+            width: 90%;
+            height: 0.88rem;
+            text-align: center;
+            line-height: 0.88rem;
+            margin: 0 auto;
+            font-size: 0.36rem;
+        }
+        .sign-btn{
+            background-color: #ffd946;
+            color: #333;
+        }
+        .signed-btn{
+            background-color: #cdcdcd;
+            color: #fff;
+        }
+        .sign-remind-cnt{
+            width: 90%;
+            height: 1.8rem;
+            margin: 0.3rem auto 0 auto;
+            background-color: #ffdc6c;
+            border-radius: 0.2rem;
+            font-size: 0.36rem;
+            text-align: center;
+        }
+        .noSign-remind{
+            line-height: 1.8rem;
+        }
+        .signed-remind{
+            display: none;
+            height: 100%;
+            padding: 0.35rem 0;
+        }
+        .signed-remind img{
+            margin-top: -0.06rem;
+        }
+        .sign_remind_icon{
+            width: 0.32rem;
+            height: 0.32rem;
+        }
+        .sign_right_icon{
+            width: 0.12rem;
+            height: 0.22rem;
+        }
+    </style>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="sign-remind-cnt">
+    <div class="noSign-remind">
+        <p>您今日还未签到</p>
+    </div>
+    <div class="signed-remind">
+        <p>您今日已签到</p>
+        <p class="toSetting">
+            <img class="sign_remind_icon" src="images/sign_remind.png" alt="">
+            <span>开启每日提醒</span>
+            <img class="sign_right_icon" src="images/sign_right.png" alt="">
+        </p>
+    </div>
+</div>
+<div id='schedule-box' class="boxshaw">
+
+</div>
+<div class="btn-group">
+    <!--<h3 id='h3Ele'></h3>-->
+    <div class="btn sign-btn" id="toSign">
+        <span>签到</span>
+    </div>
+</div>
+<!--签到成功S-->
+<div class="tooltip_main_center hide_mian_div" id="signhint">
+    <div class="tooltip-box add_width">
+        <img src="images/sign_back.png">
+
+        <div class="tooltip-sign-close" onclick="divhide('signhint')">
+            <i></i>
+        </div>
+        <div class="day-num-hint">
+            <p>
+                您已连续签到<span id="hint-day"></span>天
+            </p>
+        </div>
+        <div class="integral-hint">
+            <p id="integral-n">
+
+            </p>
+        </div>
+        <div class="tooltip-hint">
+            <p>
+                持续签到可提升额度哦
+            </p>
+        </div>
+        <div class="tooltip-sign-btn">
+            <a href="mypoints.html">
+                <p>
+                    查看积分
+                </p>
+            </a>
+        </div>
+    </div>
+</div>
+<!--签到成功E-->
+
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/jquery.cookie.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script src="js/calendar.js"></script>
+<script src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript " src="js/jweixin-1.0.0.js"></script>
+<script type="text/javascript " src="js/wxsdk.js"></script>
+<script type="text/javascript">
+
+    var mySchedule = new Schedule({
+        el: '#schedule-box'
+        //date: '2018-9-20',
+    });
+
+    // 点击签到
+    $(function () {
+        setTimeout(loadWXJson, 1);
+
+        <!--type=1代表查看用户是否可以签到；2 代表用户去签到-->
+        isSign();
+        $("#toSign").click(function () {
+            if ($(this).attr("class").indexOf("sign-") > -1) {
+                Loading();
+                getLocationWX(getLocationCB);
+            }
+        });
+
+        if (localStorage.sign_remind_status == 1) {
+            $(".toSetting").hide();
+            $(".signed-remind").css({"line-height":"1.8rem", "padding": 0});
+        }
+        $(".toSetting").click(function () {
+            window.location.href = "raster.html";
+        })
+    });
+    <!--检查是否签到-->
+    function isSign() {
+        var url = urlLink + "/web/user_profile/checkin";
+        var send = "type=" + 1;
+        xmlHttpRequest(send, url, isSignCallBack, "POST");
+    }
+    <!--查看是否已签到回调-->
+    function isSignCallBack(_datajson) {
+//        console.log(_datajson);
+        <!--1 代表可以签到 ;-->
+        switch (_datajson.code) {
+            case 0:
+                LoadingOver();
+                if (_datajson.data.int32_state == 1) {
+                    $(".btn-group .btn").text("签到");
+                    $(".btn-group .btn").removeClass("signed-btn").addClass("sign-btn");
+                } else {
+                    $(".btn-group .btn").text("今日已签到");
+                    $(".btn-group .btn").removeClass("sign-btn").addClass("signed-btn");
+                    $(".today-flag").addClass("today-signed-flag");
+                    $(".noSign-remind").hide();
+                    $(".signed-remind").show();
+                }
+                if (_datajson.data.int32_history) {
+                    var historyLength = _datajson.data.int32_history.length;
+                    $(".ul-box .current-month").each(function () {
+                        for (var x = 0; x < historyLength; x++) {
+                            if ($(this).text() == _datajson.data.int32_history[x]) {
+                                $(this).find("span").addClass("signed-flag");
+                            }
+                        }
+                    });
+
+                }
+                break;
+            case -10004:
+            case -10003:
+                LoadingOver();
+                session_expired(_datajson.msg);
+                break;
+            case -10002:
+                logout();
+                break;
+            default:
+                LoadingOver();
+                top_meassage(_datajson.msg);
+                show_topmessage();
+                break;
+        }
+
+    }
+    <!--获取地理位置回调-->
+    function getLocationCB(latitude, longitude) {
+        <!--经纬度-->
+        var longitude_latitude = longitude + "#" + latitude;//latitude=30.583094(纬度);longitude=104.062035(经度)
+        var address = null;//详细地址
+        <!--通过微信接口返回的经纬度用百度地图获得具体位置-->
+        $.ajax({
+            url: 'https://api.map.baidu.com/geocoder/v2/?ak=0X3DmGCxEiCvhUo3aR8MUP696Yk6XtNZ&location=' + latitude + ',' + longitude + '&output=json&pois=0',
+            type: 'GET',
+            dataType: 'jsonp',
+            success: function (data) {
+                if (data.status == 0) {
+                    var province = data.result.addressComponent.province;//省
+                    var city = data.result.addressComponent.city;//市
+                    var district = data.result.addressComponent.district;//区
+                    var street = data.result.addressComponent.street;//街道
+                    var sematic_description = data.result.sematic_description;//精确位置
+                    address = province + "#" + city + "#" + district + "#" + street + "#" + sematic_description;
+                    intoLocation(longitude_latitude, address);
+                } else {
+                    LoadingOver();
+                    ShowMsg("地址获取失败，请稍后再试");
+                }
+            }
+        });
+    }
+    <!--将获取的用户地址和经纬度存入后台-->
+    function intoLocation(longitude_latitude, address) {
+        var url = urlLink + "/web/user_profile/checkin";
+        var send = "address=" + address + "&gps=" + longitude_latitude + "&type=2";
+        xmlHttpRequest(send, url, intoLoctiongCB, "POST");
+    }
+
+    function intoLoctiongCB(_datajson) {
+        switch (_datajson.code) {
+            case 0:
+                LoadingOver();
+                $("#hint-day").html(_datajson.data.int32_day);
+                $("#integral-n").html("+" +_datajson.data.string_score);
+                $("#signhint").show();
+                isSign();
+                break;
+            case -10003:
+                LoadingOver();
+                session_expired(_datajson.msg);
+                break;
+            case -10002:
+                LoadingOver();
+                logout();
+                break;
+            default:
+                LoadingOver();
+                top_meassage(_datajson.msg);
+                show_topmessage();
+                break;
+
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" data-use-rem="750">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>我的邀请码</title>
+    <link rel="stylesheet" href="css/invitationCode.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <script src="js/zepto.js"></script>
+
+    <link rel="stylesheet" href="css/mypoints.css"/>
+    <link href="css/loadding.css" rel="stylesheet" type="text/css">
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .validate{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(51,51,51,0.5);
+        display: none;
+    }
+    .validate-cnt{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        margin-left: -40%;
+        margin-top: -2.54rem;
+        padding: 0 0.5rem;
+        /*background-color: white;*/
+        border-radius: 0.3rem;
+        background: url("./images/guangdiantong/alert-bg.png") repeat center;
+        background-size: 100% 100%;
+        text-align: center;
+    }
+    .validate-cnt h5{
+        padding: 0.35rem 0 0.3rem 0;
+        font-size: 0.36rem;
+        color: #333;
+        font-weight: normal;
+    }
+    .validate-input{
+
+    }
+    .validate-input p{
+        padding: 0.35rem 0 0.2rem 0;
+        font-size: 0.29rem;
+        color: #333;
+    }
+    .validate-input input{
+        border: 1px solid #c6c6c6;
+        border-radius: 0.5rem;
+        font-size: 0.3rem;
+        width: 100%;
+        height: 0.72rem;
+        padding-left: 1.5rem;
+    }
+    .validate-input img{
+        width: 1.75rem;
+        height: 0.5rem;
+        border: 1px solid #eee;
+        margin-right: 0.5rem;
+    }
+    .changeCode{
+        font-size: 0.3rem;
+        color: #ff943a;
+        text-decoration: underline;
+    }
+    .validate-btn{
+        width: 100%;
+        margin: 0.22rem 0;
+    }
+    .validate-btn div{
+        display: inline-block;
+        width: 2.08rem;
+        height: 0.74rem;
+        text-align: center;
+        line-height: 0.74rem;
+        border-radius: 0.37rem;
+        font-size: 0.36rem;
+    }
+    .validate-btn-cancel{
+        border: 1px solid #e5e5e5;
+        background-color: #e5e5e5;
+        color: #333;
+        margin-right: 0.6rem;
+    }
+    .validate-btn-sure{
+        border: 1px solid #ffd946;
+        background-color: #ffd946;
+        color: #333;
+    }
+    .dnh-bottom-prompt{
+        opacity: 1;
+        display: none;
+    }
+</style>
+<body>
+
+<!--<div class="container">-->
+<!--<div class="header">-->
+<!--<div class="erweima">-->
+<!--<img src="images_old/invitationCode/erweima.png" alt="error">-->
+<!--</div>-->
+<!--<div class="header-invitationCodeBox invitecodetxt">-->
+<!--R R 8 8 8-->
+<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;<a href="http://www.baidu.com">&ndash;&gt;-->
+<!--<div class="footer" onclick="WinOpen()">-->
+<!--<img src="images_old/invitationCode/downloadButton.png" alt="error">-->
+<!--</div>-->
+<!--&lt;!&ndash;</a>&ndash;&gt;-->
+<!--</div>-->
+
+<div class="share-wrap">
+    <div class="share-back-img">
+        <div class="cont-wrap-box">
+            <div class="sidle-box" id="sidle-box">
+                <div class="share-text-box sidle-cont">
+                    <div class="weui-cell w">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label">手机号</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="register-phone" type="tel" maxlength="11"
+                                   placeholder="请输入手机号">
+                        </div>
+                    </div>
+                    <div class="weui-cell weui-cell_vcode w">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label">验证码</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="vfcode-text" type="text" placeholder="请输入验证码">
+                        </div>
+                        <div class="weui-cell__ft">
+                            <button class="weui-vcode-btn vfction-code" id="vfction-code">验证码</button>
+                        </div>
+                    </div>
+                    <div class="weui-cell w">
+                        <div class="weui-cell__hd">
+                            <label class="weui-label share-pwd">密码</label>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" id="register-pwd" type="password" placeholder="请输入密码">
+                        </div>
+                    </div>
+                    <!--<div class="share-safe-box w">-->
+                        <!--<p>已有账号？<a href="javascript:" class="login-href" id="login-href">直接登录</a></p>-->
+                    <!--</div>-->
+                    <div class="download-now w">
+                        <p class="download-now-btn" onclick="registerBtn()">
+                            <span>立即申请</span>
+                        </p>
+                    </div>
+                    <div class="share-agree-box w">
+                        <div class="share-agree-text">
+                            <div class="share-hd">
+                                <div class="checkboxFive">
+                                    <input type="checkbox" checked value="" id="checkboxOneInput" name=""/>
+                                    <label for="checkboxOneInput"></label>
+                                </div>
+                            </div>
+                            <div class="share-bd agree-agreement">
+                                我已阅读并同意<a href="talk/register_pro.html"
+                                          class="dnh-agreement">《贷你嗨注册服务协议》</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="download-box sidle-cont">-->
+                    <!--<div class="weui-cell w share-cell">-->
+                        <!--<div class="weui-cell__hd">-->
+                            <!--<label class="weui-label">手机号</label>-->
+                        <!--</div>-->
+                        <!--<div class="weui-cell__bd">-->
+                            <!--<input class="weui-input" id="login-phone" type="tel" maxlength="11" placeholder="请输入手机号">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="weui-cell w">-->
+                        <!--<div class="weui-cell__hd">-->
+                            <!--<label class="weui-label share-pwd">密码</label>-->
+                        <!--</div>-->
+                        <!--<div class="weui-cell__bd">-->
+                            <!--<input class="weui-input" id="login-pwd" type="password" placeholder="请输入密码">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="share-safe-box w">-->
+                        <!--<p>还没有账号？<a href="javascript:" class="login-href" id="register-href">马上注册</a></p>-->
+                    <!--</div>-->
+                    <!--<div class="download-now w">-->
+                        <!--<p class="download-now-btn" onclick="loginBtn()">-->
+                            <!--<span>立即申请</span>-->
+                        <!--</p>-->
+                    <!--</div>-->
+                    <!--<div class="share-agree-box w">-->
+                        <!--<div class="share-agree-text">-->
+                            <!--<div class="share-hd">-->
+                                <!--<div class="checkboxFive">-->
+                                    <!--<input type="checkbox" checked value="" id="checkboxOneInput2" name=""/>-->
+                                    <!--<label for="checkboxOneInput2"></label>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="share-bd agree-agreement">-->
+                                <!--我已阅读并同意<a href="../talk/register_pro.html"-->
+                                          <!--class="dnh-agreement">《贷你嗨注册服务协议》</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="dnh-bottom-prompt">
+        <p class="prompt-cont-box">
+            <span></span>
+        </p>
+    </div>
+    <div class="validate">
+        <div class="validate-cnt">
+            <h5>请输入图片验证码</h5>
+            <div class="validate-input">
+                <div>
+                    <input type="text" name="input-validate" placeholder="请输入验证码">
+                </div>
+                <p>输入下图中的字符,不区分大小写</p>
+                <div style="padding-bottom: 0.1rem;">
+                    <img src="" alt="暂无图片" style="vertical-align: middle">
+                    <span style="vertical-align: middle;" class="changeCode">看不清,换一张</span>
+                </div>
+            </div>
+            <div class="validate-btn">
+                <div class="validate-btn-cancel"><span>取消</span></div>
+                <div class="validate-btn-sure"><span>确定</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<!--<script type="text/javascript " src="js/History.js"></script>-->
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<!--<script type="text/javascript " src="js/jweixin-1.0.0.js"></script>-->
+<!--<script type="text/javascript " src="js/wxsdk.js"></script>-->
+<script type="text/javascript" src="js/rem.js"></script>
+
+<script>
+var windH = $(document).height();
+var windW = $(document).width();
+
+var clearShareSetTime;
+var clicked = false;   // 是否获取了验证码
+$(function () {
+    $(".share-back-img").css({
+        height: windH + "px",
+        backgroundSize: "100%" + " " + windH + "px"
+    });
+    var divL = $("#sidle-box").find(".sidle-cont");
+    $("#sidle-box").css({
+        width: windW * divL.length + "px",
+        position: "absolute"
+    });
+    $(".sidle-cont").css({
+        width: 100 / divL.length + "%",
+        display: "block"
+    });
+
+    $(".cont-wrap-box").css({
+        width: windW + "px",
+        height: $(".share-text-box").height() + "px"
+    });
+
+    $(document).on('click', '#login-href', function () {
+        nextDiv();
+    });
+    $(document).on('click', '#register-href', function () {
+        preDiv();
+    });
+    // 获取验证码和重新获取
+    $(document).on('click', '.vfction-code', function () {
+        shareCode(1);
+    });
+    // 验证码框获取焦点时
+    $("#vfcode-text").focus(function () {
+        if (!clicked) {
+            $(this).blur();
+            showPrompt('请先获取验证码');
+            return false;
+        }
+    });
+    $(".validate-btn-sure").click(function () {
+        inputImgCode(1);
+    });
+    $(".validate-btn-cancel").click(function () {
+        $(".validate").fadeOut();
+    });
+    $('.changeCode').click(function () {
+        $(".validate input").val('');
+        $(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+    });
+
+    // 推广渠道埋点统计
+    var channel = GetUrlParameter("type");
+    var platform = "";
+    var u = navigator.userAgent;
+    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {  //安卓手机
+        platform = "Android";
+    } else if (u.indexOf('iPhone') > -1) {  //苹果手机
+        platform = "iOS";
+    }
+    var url = urlLink + "/web/user_profile/channel_visitor";
+    var params = {
+        channel: channel,
+        platform: platform,
+        phone: "",
+        kind: "1"
+    };
+    ajaxFn(url, params, suceFn, null, "post");
+
+    $(".download-now-btn").click(function () {
+        var phone_number = $("#register-phone").val();
+        var vcode = $("#vfcode-text").val();
+        var user_pwd = $("#register-pwd").val();
+        var paramsData = {
+            channel: channel,
+            platform: platform,
+            phone: phone_number,
+            kind: "2"
+        };
+
+        if (phone_number == "" || phone_number == null || phone_number == "undefined") {
+            showPrompt("请输入您的手机号码");
+            return false;
+        } else if (!regPhone.exec(phone_number)) {
+            showPrompt("请输入正确的手机号码");
+            return false;
+        } else if (vcode == "" || vcode == null || vcode == "undefined") {
+            showPrompt("请输入短信验证码");
+            return false;
+        } else if (user_pwd == "" || user_pwd == null || user_pwd == "undefined") {
+            showPrompt("请输入密码");
+            return false;
+        } else {
+            ajaxFn(url, paramsData, suceFn, null, "post");
+        }
+    })
+});
+//校验图形验证码
+function inputImgCode (type) {
+    var inputVal = $('.validate-input input').val();
+    $.ajax({
+        url: urlLink + '/web/validation/verifyCode',
+        type: 'post',
+        data: {
+            iCode: inputVal
+        },
+        xhrFields:{
+            withCredentials:true
+        },
+        success: function (data){
+            console.log(data);
+            if (data.code == 0) {
+                setTimeout(function () {
+                    $(".validate").fadeOut();
+                }, 1000);
+                var sourceType = GetUrlParameter("type");
+                var phone = $("#register-phone").val();
+                getVerifyCod(phone, type, sourceType, inputVal);
+            } else {
+                $(".validate input").val('');
+                $(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+                showPrompt('验证码输入错误');
+            }
+        },
+        err: function (err) {
+            console.log(err);
+        }
+    })
+}
+<!--分享页面发送验证码S-->
+function shareCode(type) {
+    var phone = $("#register-phone").val();
+    if (phone == "" || phone == null || phone == "undefined") {
+        showPrompt("请输入您的手机号码");
+        return false;
+    } else if (!regPhone.exec(phone)) {
+        showPrompt("请输入正确的手机号码");
+        return false;
+    } else {
+        $.ajax({
+            url: urlLink + '/web/validation/need_code',
+            type: 'get',
+            xhrFields:{
+                withCredentials:true
+            },
+            success: function (data) {
+                console.log(data);
+                if (data.code == 0) {
+                    $(".validate").fadeIn();
+                    $(".validate input").val('');
+                    $(".validate .validate-input img").attr('src', urlLink + '/web/validation/getCode?' + Math.random());
+                } else {
+                    var sourceType = GetUrlParameter("type");
+                    getVerifyCod(phone, type, sourceType, '');
+                }
+            },
+            err: function (err) {
+                console.log('请求失败')
+            }
+        });
+    }
+}
+
+function getVerifyCod(phone, type, sourceType, codeVal) {
+    clearTimeout(clearShareSetTime);
+    Loading();
+    $.ajaxSetup({
+        xhrFields:{
+            withCredentials:true
+        }
+    });
+    $.post(urlLink + "/web/validation/send_msg", {
+        phone_number: phone,
+        msg_type: type,
+        type: sourceType,
+        iCode: codeVal
+    }, function (result) {
+        var datat = $.toJSON(result);
+        var obj = jQuery.parseJSON(datat);
+        switch (obj.code) {
+            case 0: //OK
+                showPrompt("验证码发送成功，请注意查看手机！");
+                shareTime('vfction-code');
+                clicked = true;
+                break;
+            case -10001:
+                showPrompt("手机号已注册，即将前往应用市场下载APP");
+                setTimeout(function () {
+                    window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.loanhigh.cash";
+                }, 2500);
+                break;
+            default:
+                showPrompt(obj.msg);
+                setTimeout(function () {
+                    window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.loanhigh.cash";
+                }, 2500);
+                break;
+        }
+        LoadingOver();
+    })
+}
+<!--分享页面发送验证码E-->
+<!--点击第一个立即下载S-->
+function registerBtn() {
+    var phone = $("#register-phone").val();
+    var verifyCode = $("#vfcode-text").val();
+    var pwd = $("#register-pwd").val();
+    var checked = $("#checkboxOneInput").is(':checked');
+    <!--渠道来源-->
+    var type = GetUrlParameter("type");
+    var vcode = GetUrlParameter("vcode");
+    if (!checked) {
+        showPrompt("请同意贷你嗨注册服务协议");
+    } else if (phone == null || phone == '' || phone == 'undefined') {
+        showPrompt("请输入您的手机号码！");
+    } else if (!regPhone.exec(phone)) {
+        showPrompt("请输入正确的手机号码！");
+    } else if (verifyCode == "" || verifyCode == null || verifyCode == "undefined") {
+        showPrompt("请输入短信中的验证码！");
+    } else if (pwd == "" || pwd == null || pwd == "undefined") {
+        showPrompt("请输入您的密码！");
+    } else if (!regPwd.exec(pwd)) {
+        showPrompt("密码由6-20个字母或数字组成！");
+    } else if (pwd.length < 6 || pwd.length > 20) {
+        showPrompt("密码由6-20个字母或数字组成！");
+    } else {
+        if (type != 'undefined' && type != '' && type != null) {
+            register(phone, pwd, verifyCode, vcode, type);
+        } else {
+            register(phone, pwd, verifyCode, vcode, "wap_wechat|wechat|yqm");
+        }
+    }
+}
+function register(phone, pwd, verifyCode, invcode, typename) {
+    Loading();
+    var _url = urlLink + "/web/user/register_withchannel";
+    var type = "POST";
+    var send = "username=" + phone + "&password=" + pwd + "&verify_code=" + verifyCode + "&invite_code=" + invcode + "&channel=" + typename;
+    xmlHttpRequest(send, _url, registerCallBakck, type);
+}
+function registerCallBakck(_datajson) {
+    switch (_datajson.code) {
+        case 0:
+            localStorage.isexitstno = 1;
+            showPrompt("注册成功，即将前往应用市场下载APP");
+            setTimeout(function () {
+                window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.loanhigh.cash";
+            }, 2500);
+            break;
+        case -10001:
+            showPrompt("手机号已注册，即将前往应用市场下载APP");
+            setTimeout(function () {
+                window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.loanhigh.cash";
+            }, 2500);
+            break;
+        case -10004:
+        case -10003:
+        case 404:
+        case -10002:
+            showPrompt(_datajson.msg);
+            setTimeout(function () {
+                window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.loanhigh.cash";
+            }, 2500);
+            break;
+        default:
+            showPrompt(_datajson.msg);
+            setTimeout(function () {
+                window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.loanhigh.cash";
+            }, 2500);
+            break;
+    }
+    LoadingOver();
+}
+<!--点击第一个立即下载E-->
+
+<!--点击第二个立即下载S-->
+function loginBtn() {
+    var lPhone = $('#login-phone').val();
+    var lPwd = $("#login-pwd").val();
+    var checked = $("#checkboxOneInput2").is(":checked");
+    if (!checked) {
+        showPrompt("请同意贷你嗨注册服务协议");
+    } else if (lPhone == "" || lPhone == null || lPhone == "undefined") {
+        showPrompt("请输入您的手机号码！");
+    } else if (!regPhone.exec(lPhone)) {
+        showPrompt("请输入正确的手机号码！");
+    } else if (lPwd == "" || lPwd == null || lPwd == "undefined") {
+        showPrompt("请输入您的密码！");
+    } else if (!regPwd.exec(lPwd)) {
+        showPrompt("密码由6-20个字母或数字组成！");
+    } else if (lPwd.length < 6 || lPwd.length > 20) {
+        showPrompt("密码由6-20个字母或数字组成！");
+    } else {
+        login(lPhone, lPwd);
+    }
+}
+function login(lPhone, lPwd) {
+    Loading();
+    var _url = urlLink + "/web/user/login";
+    var type = "POST";
+    var send = "username=" + lPhone + "&password=" + lPwd;
+    xmlHttpRequest(send, _url, loginCallBack, type);
+}
+function loginCallBack(_datajson) {
+    switch (_datajson.code) {
+        case 0: //OK,进入个人中心
+            localStorage.isexitstno = 1;
+            window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.loanhigh.cash";
+            break;
+        case -10005:
+            showPrompt("你还未注册贷你嗨，请先注册");
+            break;
+        case -10004:
+        case -10003:
+            showPrompt(_datajson.msg);
+            break;
+        case 404:
+            break;
+        default:
+            showPrompt(_datajson.msg);
+            break;
+    }
+    LoadingOver();
+}
+<!--点击第二个立即下载E-->
+<!--效果S-->
+var shareWait = 45;
+function shareTime(o) {
+    if (shareWait == 0) {
+//            $("#" + o).bind("click", function () {
+//                shareCode(1);
+//            });
+        $("#" + o).html("重新发送");
+        $("#" + o).attr("class", "weui-vcode-btn vfction-code");
+        shareWait = 45;
+    } else {
+        $("#" + o).unbind();
+        $("#" + o).attr("class", "weui-vcode-btn hq_vfction-code");
+        $("#vfction-code").html(shareWait + "s");
+        shareWait--;
+        clearShareSetTime = setTimeout(function () {
+            shareTime(o);
+        }, 1000);
+    }
+}
+
+var clearShareP;
+function showPrompt(text) {
+    clearTimeout(clearShareP);
+    $('.dnh-bottom-prompt').find('p').find('span').html(text);
+    $('.dnh-bottom-prompt').stop().show();
+    clearShareP = setTimeout(hidePrompt, 2000);
+}
+
+function hidePrompt() {
+    $('.dnh-bottom-prompt').stop().hide();
+}
+
+function nextDiv() {
+    $('#sidle-box').css('transform', 'translate(-' + windW + 'px,0)');
+}
+
+function preDiv() {
+    $('#sidle-box').css('transform', 'translate(0,0)');
+}
+
+function suceFn(data) {
+    console.log(data);
+}
+<!--效果E-->
+
+//    function WinOpen() {
+//        //window.open("http://a.app.qq.com/o/simple.jsp?pkgname=com.hust.cash");
+////        http://lhwap.dainihai.cn
+//        window.location.href = urlLink + "/quickDown/register.html?type=wechat&name=yqm&yqm=" + $(".invitecodetxt").html();
+//    }
+</script>
+
+<!--<script src="js/invitationCode.js"></script>-->
+</body>
+</html>

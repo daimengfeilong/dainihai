@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>实名认证</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/write_from.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/new.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+</head>
+
+<body>
+<nav class="nav-top">
+    <h1 class="title">
+        <a class="back " onclick="window.history.back()">&lt;</a>
+        实名认证
+    </h1>
+</nav>
+<div class="nav-clear"></div>
+
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="main_page_content " style="height:92%">
+    <div class="head_progress">
+        <img src="images/progress2.png"/>
+    </div>
+    <div class="write_from_content_frist learnt1">
+        <ul class="lenarnulist lt1" id="lenarnulist">
+            <li>
+                <label><img src="images/icon_ec_jd.png"/></label>
+
+                <div>京东账户认证<span>(推荐)</span></div>
+                <!--<div><img src="images/user_detail/icon_xuanze_press.png" alt="2" class="radionv"/></div>-->
+                <div>
+                    <i style="float: right;margin-top: 0.19rem;margin-right: 0.4rem;" class="gou_checked" onclick="change_radio_status(this,'btn_loginfrom',15)">
+
+                    </i>
+                </div>
+            </li>
+            <!--<li>-->
+            <!--<label><img src="images/icon_ec_tb.png" /></label>-->
+            <!--<div>淘宝账户认证</div>-->
+            <!--<div><img src="images/user_detail/icon_xuanze.png" alt="1" class="radionv" /></div>-->
+            <!--</li>-->
+            <!--<li style="display: none;">-->
+
+                <!--<label><img src="images/icon_chsi.png"/></label>-->
+
+                <!--<div>学信网认证</div>-->
+                <!--<div><img src="images/user_detail/icon_xuanze.png" alt="0" class="radionv"/></div>-->
+            <!--</li>-->
+        </ul>
+        <div class="clear"></div>
+        <div class="lg_login_footer_btn">
+            <input type="hidden" value="2" id="submitype"/>
+            <div onclick="bbussinsestype(2, 'wszl')" class="write_submit_checked" id="btn_loginfrom" style="width: 100%;height:1rem;margin: auto;margin-top: 0.45rem;line-height: 1rem;font-size: 0.35rem">
+                下一步
+            </div>
+            <!--<div class="write_submit_checked" onclick="btnprvoen()">下一步</div>-->
+            <div class="returnpage"><a href="autonym.html" style="color: #487de7">返回上一步</a></div>
+        </div>
+    </div>
+    <div class="write_from_content_frist hide_mian_page learnt2">
+        <ul class="lenarnulist">
+            <li>
+                <input value="" type="text" id="txt_jduname" placeholder="请输入京东账号" onblur="changejdname()"/>
+
+                <div style="float: right;"><img src="images/icon_ec_jd.png"/></div>
+            </li>
+            <li>
+                <input value="" type="password" id="txt_jdpwd" placeholder="请输入京东密码" onblur="changejdpwd()"/>
+            </li>
+            <li class="txt_jsyzm" style="display: none">
+                <input value="" type="text" id="txt_jsyzm" placeholder="请输入京东验证码" onblur="changejdyzm()"/>
+            </li>
+        </ul>
+        <div class="clear"></div>
+        <div class="lg_login_footer_btn">
+            <input type="hidden" value="2">
+
+            <div class="lg_login_label">
+                <label class="lg_login_left" style="margin-left:0.65rem;"><i class="gou_checked"
+                                                onclick="change_radio_status(this,'btn_jdfrom','btnjdinfo(10)')"></i>我已经阅读并同意<a
+                        href="talk/agt_jd.html">《京东授权协议》</a></label>
+            </div>
+            <div class="clear"></div>
+            <div class="write_submit_checked" id="btn_jdfrom" onclick="btnjdinfo(10)">立即提交</div>
+            <div class="returnpage"><a onclick="returnlastp(1,2)">返回上一步</a></div>
+        </div>
+    </div>
+
+    <!--<div class="write_from_content_frist hide_mian_page learnt3">-->
+        <!--<ul class="lenarnulist">-->
+            <!--<li>-->
+                <!--<input value="" type="text" id="txt_tbuname" placeholder="请输入淘宝账号" onblur="changetbname()"/>-->
+
+                <!--<div style="float: right;"><img src="images/icon_ec_tb.png"/></div>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<input value="" type="password" id="txt_tbpwd" placeholder="请输入淘宝密码" onblur="changetbpwd()"/>-->
+            <!--</li>-->
+            <!--<li class="tbvcode_captcha hide_mian_page">-->
+                <!--<input type="text" id="txt_tbvcode" value="" placeholder="请输入验证码 " onblur="changetbvcode()"-->
+                       <!--style="float:left;width:36%; "/>-->
+                <!--<input value="" type="hidden" id="tbvcaptchaun"/>-->
+
+            <!--</li>-->
+        <!--</ul>-->
+        <!--<div class="clear"></div>-->
+        <!--<div class="lg_login_footer_btn">-->
+            <!--<input type="hidden" value="2" id="submitype"/>-->
+
+            <!--<div class="lg_login_label">-->
+                <!--<label class="lg_login_left"><i class="gou_checked"-->
+                                                <!--onclick="change_radio_status(this,'btn_taobaofrom','btntbinfo()')"></i>我已经阅读并同意<a-->
+                        <!--href="talk/agt_taobao.html">《淘宝授权协议》</a></label>-->
+            <!--</div>-->
+            <!--<div class="clear"></div>-->
+            <!--<div class="write_submit_checked" id="btn_taobaofrom" onclick="btntbinfo()">立即提交</div>-->
+            <!--<div class="returnpage"><a onclick="returnlastp(1,3)">返回上一步</a></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="write_from_content_frist hide_mian_page  learnt5">-->
+        <!--<div class="write_from_pmc">-->
+            <!--<p>认证由学信网提供</p>-->
+
+            <!--<p>如何注册学信网（只需三步）<img src="images/question.png" onclick="divshow('explainguide')"/></p>-->
+        <!--</div>-->
+        <!--<section class="sec_nav">-->
+            <!--<ul>-->
+                <!--<li class="active" onclick="change_page_qh(this,'yanzma','xxwzhanghu',0)">学信网账户验证</li>-->
+                <!--<li onclick="change_page_qh(this,'xxwzhanghu','yanzma',1)">验证码验证</li>-->
+            <!--</ul>-->
+        <!--</section>-->
+        <!--<ul class="write_from_txt" id="xxwzhanghu">-->
+            <!--<li>-->
+                <!--<label for="txt_chsino">账号</label>-->
+                <!--<input type="text" id="txt_chsino" value="" placeholder="请输入您的学信网账号" onblur="changechsiname()"/>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<label for="txt_chsipwd">密码</label>-->
+                <!--<input type="password" id="txt_chsipwd" value="" placeholder="请输入您的学信网密码 " onblur="changechsipwd()"/>-->
+
+            <!--</li>-->
+            <!--<li class="vcode_captcha hide_mian_page">-->
+                <!--<label for="txt_vcode">验证码</label>-->
+                <!--<input type="text" id="txt_vcode" value="" placeholder="请输入验证码 " onblur="changechsivcode()"-->
+                       <!--style="float:left;width:36%; "/><img src="" id="vcode_captcha"-->
+                                                            <!--style="float:left;height:1rem; margin-top: 0.2rem;width: 37%;"/>-->
+                <!--<input value="" type="hidden" id="vcaptchaun"/>-->
+
+            <!--</li>-->
+
+        <!--</ul>-->
+        <!--<ul class="write_from_txt hide_mian_page br_bottom" id="yanzma">-->
+            <!--<li>-->
+                <!--<label for="txt_vcodey">验证码</label>-->
+                <!--<input type="tel" id="txt_vcodey" value="" placeholder="请输入学信网提供的验证码 " onblur="changechsivcodey()"/>-->
+            <!--</li>-->
+
+        <!--</ul>-->
+        <!--<div class="lg_login_footer_btn">-->
+            <!--<div class="lg_login_label">-->
+                <!--<label class="lg_login_left"><i class="gou_checked"-->
+                                                <!--onclick="change_radio_status(this,'btn_chisfrom','btnchisaccount()')"></i>我已经阅读并同意<a-->
+                        <!--href="talk/chsi_pro.html">《学信网信息授权协议》</a></label>-->
+            <!--</div>-->
+            <!--<div class="clear"></div>-->
+            <!--<input value="0" type="hidden" id="chsitypev"/>-->
+            <!--<input value="0" type="hidden" id="chapchav"/>-->
+
+            <!--<div class="write_submit_checked" id="btn_chisfrom" onclick="btnchisaccount()">立即提交</div>-->
+            <!--<div class="returnpage"><a onclick="returnlastp(1,5)">返回上一步</a></div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+</div>
+<!--如何获取学籍在线验证码开始-->
+<!--<div class="tooltip_main_center hide_mian_div" id="explainguide">-->
+    <!--<div class="tooltip_main_node">-->
+
+        <!--<div class="tooltip_main_n_top_guide">-->
+            <!--<article class="exguid_top">-->
+                <!--<section>如何获取学籍在线验证码</section>-->
+                <!--<section>第一步：</section>-->
+                <!--<aside>访问“学信档案”（my.chsi.com.cn），然后通过用户名和密码登录。如还未注册，请注册帐号。</aside>-->
+                <!--<section>第二步：</section>-->
+                <!--<aside>登录后，点击左侧菜单中的“在线验证报告 高等学籍”进入学籍在线验证。</aside>-->
+                <!--<section>第三步：</section>-->
+                <!--<aside>点击“申请学籍在线验证报告 中文版”申请。</aside>-->
+                <!--<section>第四步：</section>-->
+                <!--<aside>选择在线验证报告有效期、支付方式等，支付完毕后，申请完成。</aside>-->
+                <!--<aside class="as_greey">*注意：此处需填写学籍在线验证码，而不是学历在线验证码。-->
+                <!--</aside>-->
+            <!--</article>-->
+        <!--</div>-->
+        <!--<div class="tooltip_main_n_bottom">-->
+            <!--<a href="javascript:divhide('explainguide')">-->
+                <!--<div>知道了</div>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--如何获取学籍在线验证码结束-->
+<!--loadding-->
+<div class="looding" id="loadd_pageinfog" style="display: none;">
+    <div class="ajax-spinner-bars">
+        <div class="bar-1">
+        </div>
+        <div class="bar-2">
+        </div>
+        <div class="bar-3">
+        </div>
+        <div class="bar-4">
+        </div>
+        <div class="bar-5">
+        </div>
+        <div class="bar-6">
+        </div>
+        <div class="bar-7">
+        </div>
+        <div class="bar-8">
+        </div>
+        <div class="bar-9">
+        </div>
+        <div class="bar-10">
+        </div>
+        <div class="bar-11">
+        </div>
+        <div class="bar-12">
+        </div>
+        <div class="bar-13">
+        </div>
+        <div class="bar-14">
+        </div>
+        <div class="bar-15">
+        </div>
+        <div class="bar-16">
+        </div>
+        <p>
+            努力加载中</p>
+    </div>
+</div>
+<!--loadding-->
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/jquery.base64.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/learn.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        localStorage.bycxtooptip = 0;
+    })
+</script>
+</body>
+
+</html>
+
+<style>
+    .lenarnulist li label:nth-child(1) {
+
+        line-height: 1.6rem;
+        padding-left: 0.2rem;
+        width: auto;
+
+    }
+
+    .lenarnulist li label:nth-child(1) img {
+        width: 50%;
+    }
+
+    .lenarnulist li div {
+
+        font-size: 0.32rem;
+
+    }
+
+    .lenarnulist li div:nth-child(3) img {
+        width: 50%;
+    }
+
+</style>

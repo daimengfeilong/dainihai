@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection"/>
+    <title>实名填写</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    };
+            recalc();if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <link href="css/home.css" rel="stylesheet" type="text/css">
+    <link href="css/write_from.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/loadding.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/tooltip.css" class="cp-pen-styles"/>
+    <link rel="stylesheet" href="css/new.css"/>
+    <link rel="stylesheet" href="css/nav.css"/>
+    <link rel="stylesheet" href="credit_card/css/common.css"/>
+</head>
+
+<body>
+
+<nav class="nav-top">
+    <h1 class="title">
+        <a class="back " onclick="window.history.back()">&lt;</a>
+        我的资料
+    </h1>
+</nav>
+<div class="nav-clear"></div>
+
+<!--top message-->
+<div class="plaint_middle_dlage hide_mian_div" id="topmeassage">
+</div>
+<!--top message-->
+<div class="main_page_content">
+<div class="head_progress">
+    <img src="images/progress1.png"/>
+</div>
+<div class="float-wrap-box">
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">姓名</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" id="txt_uname" type="text" placeholder="请输入您的真实姓名">
+        </div>
+    </div>
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">身份证号</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" id="txt_cardcode" maxlength="18" value="" type="text" placeholder="请输入您的身份证号码">
+        </div>
+    </div>
+
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">QQ号</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" type="tel" id="txt_tqq" value="" placeholder="请输入您的QQ号" maxlength="12"/>
+
+        </div>
+    </div>
+
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">学历</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <select class="weui_input" id="sel-education">
+                <option value="B0301">初中及以下</option>
+                <option value="B0302">中专</option>
+                <option value="B0303">高中</option>
+                <option value="B0304">大专</option>
+                <option value="B0305">本科</option>
+                <option value="B0306">硕士及以上</option>
+            </select>
+        </div>
+        <i class="arrow">
+            <img src="images/arrow_new.png">
+        </i>
+    </div>
+
+    <div class="weui_cell hyzhuangkuang">
+        <div class="weui_cell_hd">
+            <label class="weui_label">婚姻状况</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+              	<span class="span_riglt_img">
+                            <img src="images/user_detail/icon_xuanze.png" alt="2" name="radio_hyzk">
+未婚</span>
+						<span class="span_riglt_img">
+                            <img src="images/user_detail/icon_xuanze_press.png" alt="1" name="radio_hyzk">
+已婚</span>
+            <input type="hidden" id="lbl_hyzk" value="2"/>
+        </div>
+    </div>
+    <input type="hidden" id="lbl_zhiye" value="2"/>
+</div>
+
+
+<div class="float-wrap-box">
+    <div class="weui_cell">
+        <i class="blue-circular"></i>
+
+        <div class="weui_cell_hd">
+            <label class="weui_label">家庭地址：</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+
+        </div>
+    </div>
+
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">省</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <select class="weui_input" id="province" onchange="provincedchange()">
+                <option pCode="0">北京</option>
+                <option pCode="1">天津</option>
+                <option pCode="2">河北省</option>
+                <option pCode="3">山西省</option>
+                <option pCode="4">内蒙省</option>
+                <option pCode="5">辽宁省</option>
+                <option pCode="6">吉林省</option>
+                <option pCode="7">黑龙江省</option>
+                <option pCode="8">上海</option>
+                <option pCode="9">江苏省</option>
+                <option pCode="10">浙江省</option>
+                <option pCode="11">安徽省</option>
+                <option pCode="12">福建省</option>
+                <option pCode="13">江西省</option>
+                <option pCode="14">山东省</option>
+                <option pCode="15">河南省</option>
+                <option pCode="16">湖北省</option>
+                <option pCode="17">湖南省</option>
+                <option pCode="18">广东省</option>
+                <option pCode="19">广西省</option>
+                <option pCode="20">海南省</option>
+                <option pCode="21">重庆</option>
+                <option pCode="22">四川省</option>
+                <option pCode="23">贵州省</option>
+                <option pCode="24">云南省</option>
+                <option pCode="25">西藏</option>
+                <option pCode="26">陕西省</option>
+                <option pCode="27">甘肃省</option>
+                <option pCode="28">青海省</option>
+                <option pCode="29">宁夏省</option>
+                <option pCode="30">新疆</option>
+            </select>
+        </div>
+        <i class="arrow">
+            <img src="images/arrow_new.png">
+        </i>
+    </div>
+
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">市</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <select class="weui_input" id="city" onchange="cityChange()">
+
+            </select>
+        </div>
+        <i class="arrow">
+            <img src="images/arrow_new.png">
+        </i>
+    </div>
+
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">区(县)</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <select class="weui_input" id="county">
+
+            </select>
+        </div>
+        <i class="arrow">
+            <img src="images/arrow_new.png">
+        </i>
+    </div>
+
+    <div class="weui_cell">
+        <div class="weui_cell_hd">
+            <label class="weui_label">详细地址</label>
+        </div>
+        <div class="weui_cell_bd weui_cell_primary">
+            <input class="weui_input" type="text" id="txt_address" value="" placeholder="请输入您的家庭地址"/>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="write_from_content_frist">
+    <!--<ul class="write_from_txt">-->
+    <!--<li>-->
+    <!--<label for="txt_uname" class="uname">姓名</label>-->
+    <!--<input type="text" id="txt_uname" value="" placeholder="请输入您的真实姓名" onblur="yourname()"/>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<label for="txt_cardcode" class="cardcode">身份证号</label>-->
+    <!--<input type="text" id="txt_cardcode" maxlength="18" value="" placeholder="请输入您的身份证号码 "-->
+    <!--onblur="cardcode()"/>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<label for="txt_tqq">QQ号</label>-->
+    <!--<input type="tel" id="txt_tqq" value="" placeholder="请输入您的QQ号" onblur="yourqq()" maxlength="12"/>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<label for="txt_cardcode" class="cardcode">学历</label>-->
+    <!--<img class="arrow" src="images/arrow_new.png">-->
+    <!--<select class="sel-education" id="sel-education" onblur="education()">-->
+    <!--&lt;!&ndash;<option value="0">请选择学历</option>&ndash;&gt;-->
+    <!--<option value="B0301">初中及以下</option>-->
+    <!--<option value="B0302">中专</option>-->
+    <!--<option value="B0303">高中</option>-->
+    <!--<option value="B0304">大专</option>-->
+    <!--<option value="B0305">本科</option>-->
+    <!--<option value="B0306">硕士及以上</option>-->
+    <!--</select>-->
+    <!--</li>-->
+    <!--<li class="hyzhuangkuang">-->
+    <!--<label>婚姻状况</label>-->
+    <!--<span class="span_riglt_img">-->
+    <!--<img src="images/user_detail/icon_xuanze.png" alt="2" name="radio_hyzk">-->
+    <!--未婚</span>-->
+    <!--<span class="span_riglt_img">-->
+    <!--<img src="images/user_detail/icon_xuanze_press.png" alt="1" name="radio_hyzk">-->
+    <!--已婚</span>-->
+    <!--<input type="hidden" id="lbl_hyzk" value="2"/>-->
+    <!--</li>-->
+    <!--<li class="zhiyezhuangk">-->
+    <!--<label>身份</label>-->
+    <!--<span class="span_riglt_img">-->
+    <!--<img src="images/user_detail/icon_xuanze.png" alt="1" name="radio_hiye">-->
+    <!--学生</span>-->
+    <!--<span class="span_riglt_img">-->
+    <!--<img src="images/user_detail/icon_xuanze_press.png" alt="2" name="radio_hiye">-->
+    <!--工薪</span>-->
+    <!--<input type="hidden" id="lbl_zhiye" value="2"/>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<ul class="write_from_txt">-->
+    <!--<li class="addrhindind" style="display: block;">-->
+    <!--<label for="txt_address">省</label>-->
+    <!--<img class="arrow" src="images/arrow_new.png">-->
+    <!--<select class="sel-education" id="province" onchange="provincedchange()">-->
+    <!--<option pCode="0">北京</option>-->
+    <!--<option pCode="1">天津</option>-->
+    <!--<option pCode="2">河北省</option>-->
+    <!--<option pCode="3">山西省</option>-->
+    <!--<option pCode="4">内蒙省</option>-->
+    <!--<option pCode="5">辽宁省</option>-->
+    <!--<option pCode="6">吉林省</option>-->
+    <!--<option pCode="7">黑龙江省</option>-->
+    <!--<option pCode="8">上海</option>-->
+    <!--<option pCode="9">江苏省</option>-->
+    <!--<option pCode="10">浙江省</option>-->
+    <!--<option pCode="11">安徽省</option>-->
+    <!--<option pCode="12">福建省</option>-->
+    <!--<option pCode="13">江西省</option>-->
+    <!--<option pCode="14">山东省</option>-->
+    <!--<option pCode="15">河南省</option>-->
+    <!--<option pCode="16">湖北省</option>-->
+    <!--<option pCode="17">湖南省</option>-->
+    <!--<option pCode="18">广东省</option>-->
+    <!--<option pCode="19">广西省</option>-->
+    <!--<option pCode="20">海南省</option>-->
+    <!--<option pCode="21">重庆</option>-->
+    <!--<option pCode="22">四川省</option>-->
+    <!--<option pCode="23">贵州省</option>-->
+    <!--<option pCode="24">云南省</option>-->
+    <!--<option pCode="25">西藏</option>-->
+    <!--<option pCode="26">陕西省</option>-->
+    <!--<option pCode="27">甘肃省</option>-->
+    <!--<option pCode="28">青海省</option>-->
+    <!--<option pCode="29">宁夏省</option>-->
+    <!--<option pCode="30">新疆</option>-->
+    <!--</select>-->
+    <!--</li>-->
+    <!--<li class="addrhindind" style="display: block;">-->
+    <!--<label for="txt_address">市</label>-->
+    <!--<img class="arrow" src="images/arrow_new.png">-->
+    <!--<select class="sel-education" id="city" onchange="cityChange()">-->
+    <!--</select>-->
+    <!--</li>-->
+    <!--<li class="addrhindind" style="display: block;">-->
+    <!--<label for="txt_address">区(县)</label>-->
+    <!--<img class="arrow" src="images/arrow_new.png">-->
+    <!--<select class="sel-education" id="county">-->
+    <!--</select>-->
+    <!--</li>-->
+    <!--<li class="addrhindind" style="display: block;">-->
+    <!--<label for="txt_address">详细地址</label>-->
+    <!--<input type="text" class="tex-address" id="txt_address" value="" placeholder="请输入您的家庭地址"-->
+    <!--onblur="youraddress()"/>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <div class="write_from_detail">
+        <div class="write_submit_checked" id="agree_submit" onclick="btnautonym(1)">立即提交</div>
+    </div>
+    <div class="clear" style="height: 0.2rem;;"></div>
+</div>
+</div>
+
+<script type="text/javascript " src="js/jquery.json-2.4.min.js"></script>
+<script type="text/javascript " src="js/History.js"></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="js/tkPublic.js"></script>
+<script type="text/javascript" src="js/pub.js"></script>
+<script type="text/javascript" src="js/turnjson.js"></script>
+<script type="text/javascript" src="js/autonym.js"></script>
+<script type="text/javascript" src="js/baseinfo.js"></script>
+<script type="text/javascript" src="js/city_linkage.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        provincedchange();
+        Loadcheckdetail(1, userInfoBack, null, null);
+    });
+
+    function userInfoBack() {
+        loadddata(null);
+    }
+</script>
+</body>
+
+</html>
+
+<style>
+    /*.span_riglt_img img {*/
+    /*padding-right: 0.12rem;*/
+    /*}*/
+
+    .write_from_txt li:nth-child(2) {
+        height: 1.3rem;
+    }
+
+    .write_from_txt li label.uname,
+    .write_from_txt li label.cardcode {
+        /*width: auto;*/
+    }
+
+    /*.write_from_txt li input {*/
+
+    /*height: auto;*/
+    /*line-height: 1.3rem;*/
+
+    /*}*/
+
+</style>
